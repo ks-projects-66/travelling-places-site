@@ -1,0 +1,276 @@
+const page = document.body.dataset.page || 'home';
+const baseUrl = import.meta.env?.BASE_URL || '/';
+
+// Replace these two URLs when the business confirms its current social handles.
+const socialLinks = {
+  instagram: 'https://www.instagram.com/travellingplaces/',
+  facebook: 'https://www.facebook.com/travellingplaces',
+};
+
+const navItems = [
+  ['home', 'Home', '/index.html'],
+  ['expertise', 'Expertise', '/expertise.html'],
+  ['virtuoso', 'Virtuoso', '/virtuoso.html'],
+  ['team', 'Who we are', '/who-we-are.html'],
+  ['journal', 'Journal', '/journal.html'],
+];
+
+const header = () => `
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" data-header>
+    <div class="shell header-inner">
+      <a class="brand" href="/index.html" aria-label="Travelling Places home">
+        <img src="/assets/travelling-places-logo.jpg" width="997" height="463" alt="Travelling Places" />
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+        <span class="menu-toggle-label">Menu</span>
+        <span class="menu-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-nav>
+        ${navItems.map(([key, label, href]) => `<a href="${href}"${page === key || (page === 'article' && key === 'journal') ? ' aria-current="page"' : ''}>${label}</a>`).join('')}
+        <a class="button button-small button-blue" href="/contact.html">Plan a journey</a>
+      </nav>
+    </div>
+  </header>`;
+
+const footer = () => `
+  <footer class="site-footer">
+    <div class="shell footer-main">
+      <a class="footer-brand" href="/index.html" aria-label="Travelling Places home">
+        <img src="/assets/travelling-places-logo.jpg" width="997" height="463" alt="Travelling Places" loading="lazy" decoding="async" />
+      </a>
+      <div class="footer-note">
+        <p>Personal travel planning from Tamborine Mountain.</p>
+        <address><a href="tel:+61755451600">07 5545 1600</a><a href="mailto:travel@travellingplaces.com.au">travel@travellingplaces.com.au</a></address>
+      </div>
+      <div class="footer-nav-wrap">
+        <nav class="footer-links" aria-label="Footer navigation">
+          <a href="/expertise.html">Expertise</a><a href="/who-we-are.html">Who we are</a><a href="/journal.html">Journal</a><a href="/contact.html">Contact</a>
+        </nav>
+        <nav class="social-links" aria-label="Social media">
+          <a href="${socialLinks.instagram}" target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span></a>
+          <a href="${socialLinks.facebook}" target="_blank" rel="noreferrer">Facebook <span aria-hidden="true">↗</span></a>
+        </nav>
+      </div>
+    </div>
+    <div class="shell footer-legal">
+      <span>© <span data-year></span> Travelling Places</span>
+      <span>First draft website concept</span>
+    </div>
+  </footer>`;
+
+const enquiryDialog = () => `
+  <dialog class="enquiry-dialog" data-enquiry-dialog aria-labelledby="enquiry-title">
+    <div class="dialog-topline"><span>Begin a conversation</span><button class="dialog-close" type="button" aria-label="Close enquiry form" data-close-enquiry>×</button></div>
+    <div class="dialog-content">
+      <h2 id="enquiry-title">Where would you like to go?</h2>
+      <p>Share the first few details and we’ll open a ready-to-send email to the team.</p>
+      ${enquiryForm('dialog')}
+    </div>
+  </dialog>`;
+
+const enquiryForm = (context = 'contact') => `
+  <form class="enquiry-form ${context === 'contact' ? 'contact-form' : ''}" data-enquiry-form novalidate>
+    <label><span>Your name *</span><input type="text" name="name" autocomplete="name" required aria-describedby="${context}-name-error" /><small class="field-error" id="${context}-name-error"></small></label>
+    <label><span>Email *</span><input type="email" name="email" autocomplete="email" required aria-describedby="${context}-email-error" /><small class="field-error" id="${context}-email-error"></small></label>
+    <label><span>Phone</span><input type="tel" name="phone" autocomplete="tel" /></label>
+    <label><span>When are you thinking?</span><input type="text" name="timing" placeholder="For example, September 2027" /></label>
+    <label class="form-full"><span>Who is travelling?</span><input type="text" name="party" placeholder="Number of adults and children, if relevant" /></label>
+    <label class="form-full"><span>Tell us about the journey *</span><textarea name="journey" rows="6" placeholder="Destinations, style of travel, celebrations, must-sees or anything else that matters to you…" required aria-describedby="${context}-journey-error"></textarea><small class="field-error" id="${context}-journey-error"></small></label>
+    <div class="form-full form-submit-row"><button class="button button-blue" type="submit">Prepare my enquiry</button><p class="form-status" role="status" aria-live="polite"></p></div>
+  </form>`;
+
+const cta = (label = 'Ready when you are') => `
+  <section class="section closing-cta">
+    <div class="shell closing-grid">
+      <div><p class="section-label section-label-red">${label}</p><h2>Let’s make it worth travelling for.</h2></div>
+      <div><p>Bring us an idea, a date, or simply the feeling you want from your next journey. We’ll help with the rest.</p><a class="button button-blue" href="/contact.html">Start planning</a></div>
+    </div>
+  </section>`;
+
+const homePage = `
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div class="hero-copy"><p class="hero-kicker">Personally planned on Tamborine Mountain since 1993</p><h1>Your world,<br><em>beautifully planned.</em></h1><p class="hero-lede">Thoughtful journeys, rare experiences and every detail looked after by people who know travel—and take the time to know you.</p><div class="hero-actions"><a class="button button-blue" href="/contact.html">Start planning</a><a class="text-link" href="/expertise.html">Explore our expertise <span aria-hidden="true">↘</span></a></div></div>
+        <div class="hero-visual"><div class="hero-photo-wrap"><img class="hero-photo" src="/assets/team-outside.jpg" width="1037" height="853" alt="The Travelling Places team together on Tamborine Mountain" fetchpriority="high" /></div><div class="hero-note"><strong>Local care.</strong><span>Worldwide connections.</span></div></div>
+      </div>
+      <div class="hero-rule" aria-hidden="true"><span></span></div>
+    </section>
+
+    <section class="section intro"><div class="shell intro-grid"><div class="intro-mark" aria-hidden="true"><img src="/assets/woman-on-plane.jpg" width="828" height="1079" alt="" loading="lazy" /></div><div class="intro-copy"><p>Travel has changed. Good service shouldn’t.</p><h2>Personal, professional advice is still the best way to see the world.</h2></div><div class="intro-detail"><p>From a quick escape to a three-month journey, Travelling Places brings together more than 100 years of collective industry experience to get the details right.</p><a class="text-link" href="/who-we-are.html">Meet Gina and the team <span aria-hidden="true">↘</span></a></div></div></section>
+
+    <section class="destination-carousel" aria-labelledby="carousel-title" data-carousel>
+      <div class="carousel-heading shell"><div><p class="section-label">A world of possibility</p><h2 id="carousel-title">Where will curiosity take you?</h2></div><p>Pause on a place, or let the journey unfold.</p></div>
+      <div class="carousel-viewport" aria-live="off">
+        <article class="carousel-slide is-active" data-slide><img src="/assets/destination-mediterranean.webp" alt="An elegant Mediterranean journey at golden hour" /><div class="carousel-caption"><span>01 / The Mediterranean</span><h3>Grand journeys, taken at your own pace.</h3></div></article>
+        <article class="carousel-slide" data-slide aria-hidden="true"><img src="/assets/destination-antarctica.webp" alt="A wide Antarctic landscape of ice, sea and distant mountains" /><div class="carousel-caption"><span>02 / Antarctica</span><h3>The far south, closer than you imagine.</h3></div></article>
+        <article class="carousel-slide" data-slide aria-hidden="true"><img src="/assets/destination-cruise.webp" alt="A chef preparing a refined dining experience aboard a cruise ship" /><div class="carousel-caption"><span>03 / Life at sea</span><h3>Every day considered, down to dinner.</h3></div></article>
+      </div>
+      <div class="carousel-controls shell"><div class="carousel-dots" role="group" aria-label="Choose a destination"><button type="button" class="is-active" data-carousel-dot="0" aria-label="Show the Mediterranean" aria-pressed="true"></button><button type="button" data-carousel-dot="1" aria-label="Show Antarctica" aria-pressed="false"></button><button type="button" data-carousel-dot="2" aria-label="Show life at sea" aria-pressed="false"></button></div><div class="carousel-buttons"><button type="button" data-carousel-play aria-label="Pause carousel" aria-pressed="false">Pause</button><button type="button" data-carousel-prev aria-label="Previous destination">←</button><button type="button" data-carousel-next aria-label="Next destination">→</button></div></div>
+    </section>
+
+    <section class="section expertise-preview"><div class="shell"><div class="section-heading split-heading"><h2>Journeys shaped<br>around you.</h2><p>Every traveller is different. We bring first-hand knowledge and careful judgement to the way you want to explore.</p></div><div class="expertise-list">
+      <a class="expertise-row" href="/expertise.html#cruising"><span class="expertise-number">01</span><h3>Ocean &amp; river cruising</h3><p>From intimate luxury vessels to the world’s great river routes.</p><span class="row-arrow" aria-hidden="true">↗</span></a>
+      <a class="expertise-row" href="/expertise.html#expeditions"><span class="expertise-number">02</span><h3>Expedition journeys</h3><p>Antarctica, the Arctic, the Kimberley and remote island worlds.</p><span class="row-arrow" aria-hidden="true">↗</span></a>
+      <a class="expertise-row" href="/expertise.html#luxury"><span class="expertise-number">03</span><h3>Luxury travel</h3><p>Exceptional stays and thoughtful privileges through Virtuoso.</p><span class="row-arrow" aria-hidden="true">↗</span></a>
+      <a class="expertise-row" href="/expertise.html#tailor-made"><span class="expertise-number">04</span><h3>Tailor-made journeys</h3><p>One seamless itinerary, considered down to the last detail.</p><span class="row-arrow" aria-hidden="true">↗</span></a>
+    </div></div></section>
+
+    <section class="section home-virtuoso"><div class="shell virtuoso-grid"><div class="virtuoso-copy"><p class="section-label">By invitation</p><h2>More doors open with the right connections.</h2><p>Our Virtuoso membership connects you with leading hotels, cruise lines, destination specialists and tour partners around the world.</p><a class="button button-white" href="/virtuoso.html">Why Virtuoso matters</a></div><div class="virtuoso-panel"><img src="/assets/virtuoso-member.png" width="752" height="306" alt="Virtuoso member" loading="lazy" /><p>A global perspective, delivered with the attention of your local travel advisor.</p></div></div></section>
+
+    <section class="section founder-feature"><div class="shell about-grid"><div class="founder-visual"><img src="/assets/gina-storey.webp" width="800" height="1200" alt="Gina Storey, founder of Travelling Places" loading="lazy" /><div class="founder-caption"><strong>Gina Storey</strong><span>Founder &amp; travel advisor</span></div></div><div class="about-copy"><p class="section-label section-label-red">From London to the Mountain</p><h2>A travel company built on curiosity and care.</h2><p class="about-lead">Gina brought her industry experience from England to Tamborine Mountain and founded Travelling Places in 1993.</p><p>More than three decades later, the company still works the way she intended: listen carefully, share honest advice and look after every detail.</p><blockquote>“Our focus is on you—ensuring we offer the very best arrangements to fulfil your travel dreams.”</blockquote><a class="text-link" href="/who-we-are.html">Meet the whole team <span aria-hidden="true">↘</span></a></div></div></section>
+
+    <section class="section journal-teaser"><div class="shell"><div class="section-heading split-heading"><div><p class="section-label section-label-red">The journal</p><h2>Notes from<br>the road.</h2></div><p>A fortnightly collection of practical advice, new discoveries and first-hand travel stories from Gina and the team.</p></div><div class="teaser-story"><img src="/assets/journal-amsterdam.webp" alt="Amsterdam canal houses reflected in the water" loading="lazy" /><div><p class="story-meta">Expedition travel · 2 October 2025</p><h3>Travelling with Sienna: looking south to Antarctica</h3><p>How first-hand curiosity, the right expedition team and a little thoughtful preparation can turn a faraway idea into a journey.</p><a class="text-link" href="/article-antarctica.html">Read the story <span aria-hidden="true">↘</span></a></div></div><a class="button button-outline" href="/journal.html">View the journal</a></div></section>
+    ${cta()}
+  </main>`;
+
+const expertisePage = `
+  <main id="main"><section class="page-hero"><div class="shell narrow-hero"><p class="section-label section-label-red">Our expertise</p><h1>Travel is personal.<br><em>Planning should be too.</em></h1><p>We begin with how you want to feel, then bring together the right route, pace, people and places.</p></div></section>
+  <section class="service-detail section" id="cruising"><div class="shell service-grid"><div class="service-index">01</div><div><p class="section-label">Ocean &amp; river cruising</p><h2>The right ship changes everything.</h2></div><div class="service-copy"><p>Whether you’re drawn to a small luxury vessel, a river journey through Europe or a grand voyage across oceans, we help you compare the details that matter: atmosphere, cabin, dining, shore time and pace.</p><ul class="tick-list"><li>Ocean, river and luxury cruising</li><li>Cabin and itinerary guidance</li><li>Pre- and post-cruise arrangements</li><li>Selected partner benefits</li></ul></div></div></section>
+  <section class="service-detail section alt" id="expeditions"><div class="shell service-grid"><div class="service-index">02</div><div><p class="section-label">Expedition journeys</p><h2>Go further, with confidence.</h2></div><div class="service-copy"><p>Remote journeys reward careful choices. We’ll match your interests, comfort level and sense of adventure with an experienced operator and the vessel best suited to the environment.</p><ul class="tick-list"><li>Antarctica and the Arctic</li><li>The Kimberley and remote islands</li><li>Wildlife, photography and specialist departures</li><li>Equipment, insurance and preparation guidance</li></ul></div></div></section>
+  <section class="service-detail section" id="luxury"><div class="shell service-grid"><div class="service-index">03</div><div><p class="section-label">Luxury travel</p><h2>Luxury that feels like you.</h2></div><div class="service-copy"><p>The most memorable luxury is personal: a welcome that feels genuine, a room chosen well, and experiences that bring you closer to a place. Our Virtuoso connections add recognition and value where available.</p><ul class="tick-list"><li>Handpicked hotels and resorts</li><li>Private touring and local specialists</li><li>Villas, lodges and celebration travel</li><li>Virtuoso amenities at participating partners</li></ul></div></div></section>
+  <section class="service-detail section alt" id="tailor-made"><div class="shell service-grid"><div class="service-index">04</div><div><p class="section-label">Tailor-made journeys</p><h2>One journey. Every detail connected.</h2></div><div class="service-copy"><p>Complex itineraries become simple when one team sees the whole picture. We coordinate flights, rail, touring, stays and transfers around the way you prefer to travel.</p><ul class="tick-list"><li>Independent and escorted touring</li><li>Multi-city and round-the-world planning</li><li>Rail, air and private transfers</li><li>A complete, cohesive itinerary</li></ul></div></div></section>${cta('Your next chapter')}</main>`;
+
+const virtuosoPage = `
+  <main id="main"><section class="page-hero dark-hero"><div class="shell narrow-hero"><img class="hero-partner-logo" src="/assets/virtuoso-member.png" alt="Virtuoso member" /><p class="section-label">A world-leading travel network</p><h1>Connections that<br><em>make travel richer.</em></h1><p>Virtuoso brings together leading travel advisors and carefully selected partners across the world.</p></div></section>
+  <section class="section"><div class="shell editorial-grid"><div><p class="section-label section-label-red">Why it matters</p><h2>More than a booking.</h2></div><div class="long-copy"><p>As a Virtuoso member, Travelling Places can connect clients with a global community of respected hotels, cruise lines, tour operators and destination experts.</p><p>Depending on the partner and booking, that can mean thoughtful amenities, preferred treatment and the confidence that local relationships are working behind the scenes.</p></div></div></section>
+  <section class="section value-band"><div class="shell value-grid"><article><span>01</span><h3>Recognition</h3><p>Your preferences can travel ahead of you, helping partner hotels create a more personal welcome.</p></article><article><span>02</span><h3>Added value</h3><p>Selected bookings may include benefits such as breakfast, credits, upgrades or flexible check-in.</p></article><article><span>03</span><h3>Local access</h3><p>Trusted destination specialists bring context, contacts and first-hand knowledge on the ground.</p></article></div></section>
+  <section class="section image-editorial"><div class="shell image-editorial-grid"><img src="/assets/journal-orient-express.webp" alt="An elegant journey through Europe" loading="lazy" /><div><p class="section-label section-label-red">Global reach, local care</p><h2>The network is global. Your advisor is still right here.</h2><p>We bring the relationships of an international network together with the continuity of a local team who knows your plans.</p><a class="button button-blue" href="/contact.html">Plan with us</a><a class="text-link secondary-link" href="https://www.virtuoso.com/travel/why-virtuoso" target="_blank" rel="noreferrer">Explore Virtuoso <span aria-hidden="true">↗</span></a></div></div></section>${cta('A better way to travel')}</main>`;
+
+const teamPage = `
+  <main id="main"><section class="page-hero"><div class="shell narrow-hero"><p class="section-label section-label-red">Who we are</p><h1>People who know travel.<br><em>People who know you.</em></h1><p>Five advisors, a shared curiosity about the world, and a remarkably long memory for the details our clients care about.</p></div></section>
+  <section class="team-panorama"><img src="/assets/team-office.jpg" alt="The Travelling Places team in their Tamborine Mountain office" /></section>
+  <section class="section"><div class="shell editorial-grid"><div><p class="section-label section-label-red">Our story</p><h2>On the Mountain since 1993.</h2></div><div class="long-copy"><p>Gina Storey founded Travelling Places after building her travel career in England and bringing that experience to Tamborine Mountain.</p><p>The business grew through personal recommendations and lasting relationships. Today, clients visit Main Street, plan by phone, or stay connected from across Australia and overseas.</p></div></div></section>
+  <section class="section team-roster"><div class="shell"><div class="roster-feature"><div class="founder-visual"><img src="/assets/gina-storey.webp" width="800" height="1200" alt="Gina Storey, founder of Travelling Places" loading="lazy" /></div><div><p class="section-label section-label-red">Founder &amp; travel advisor</p><h2>Gina Storey</h2><p>Gina’s decades in travel shape the agency’s calm, personal approach. She established Travelling Places in 1993 and remains its curious traveller, trusted advisor and guiding hand.</p></div></div>
+  <div class="roster-list"><article><div><p class="role">Travel advisor</p><h3>Renee</h3></div><p>A longstanding member of the team known for steady care and follow-through. Renee worked alongside Gina through the disruptions of Covid, helping clients patiently rearrange long-held plans.</p></article><article><div><p class="role">Travel advisor &amp; writer</p><h3>Sienna Gardner</h3></div><p>Sienna brings fresh first-hand perspective to expedition and river journeys. Her writing follows new discoveries—from Uniworld river cruising to preparing for Antarctica.</p></article><article><div><p class="role">Travel advisor</p><h3>Jodie</h3></div><p>Jodie helps turn early ideas into organised, considered itineraries, working closely with the wider team and Travelling Places’ trusted partners.</p></article><article><div><p class="role">Travel advisor</p><h3>Krista</h3></div><p>Krista supports clients through the many moving parts of a journey, bringing thoughtful service and the reassurance of a local team behind every plan.</p></article></div></div></section>
+  <section class="section team-values"><div class="shell value-grid"><article><span>01</span><h3>We listen first.</h3><p>Your preferences matter more than the package everyone else is booking.</p></article><article><span>02</span><h3>We tell it straight.</h3><p>Honest, experienced advice helps you spend time and money where it counts.</p></article><article><span>03</span><h3>We stay with you.</h3><p>One connected team knows the plan before, during and after your journey.</p></article></div></section>${cta('Come and meet us')}</main>`;
+
+const journalPage = `
+  <main id="main"><section class="page-hero journal-hero"><div class="shell narrow-hero"><p class="section-label section-label-red">The Travelling Places journal</p><h1>Ideas worth<br><em>travelling for.</em></h1><p>Gina’s fortnightly notes—plus first-hand discoveries and practical guidance from the team—for the journey ahead.</p></div></section>
+  <section class="section featured-article"><div class="shell featured-article-grid"><img src="/assets/destination-antarctica.webp" alt="A wide Antarctic landscape of ice, sea and distant mountains" /><div><p class="story-meta">Featured · Expedition travel · 2 October 2025</p><h2>Travelling with Sienna: looking south to Antarctica</h2><p>Sienna shares what draws her to the far south, the value of travelling with expedition specialists, and what she’s learning before departure.</p><a class="button button-blue" href="/article-antarctica.html">Read the article</a></div></div></section>
+  <section class="section archive"><div class="shell"><div class="archive-heading"><div><p class="section-label section-label-red">From the archive</p><h2>Stories, advice<br>and discoveries.</h2></div><div class="archive-filters" role="group" aria-label="Filter articles by year"><button type="button" class="is-active" data-filter="all" aria-pressed="true">All</button><button type="button" data-filter="2025" aria-pressed="false">2025</button><button type="button" data-filter="2024" aria-pressed="false">2024</button></div></div>
+  <div class="article-list" data-article-list>
+    <article data-year-item="2025"><img src="/assets/journal-amsterdam.webp" alt="Amsterdam canal houses" loading="lazy" /><div><p class="story-meta">River cruising · 2 October 2025</p><h3>Uniworld cruises: a closer look at river journeys</h3><p>What sets a river itinerary apart, and how to find a sailing that matches your pace.</p><a class="text-link" href="https://tmnews.com.au/uniword-cruises/" target="_blank" rel="noreferrer">Read more <span aria-hidden="true">↗</span></a></div></article>
+    <article data-year-item="2025"><img src="/assets/journal-orient-express.webp" alt="Elegant European railway journey" loading="lazy" /><div><p class="story-meta">Touring · 21 May 2025</p><h3>Imagine Holidays: travel with the details connected</h3><p>A look at event-led touring and the value of bringing different parts of a holiday together.</p><a class="text-link" href="https://tmnews.com.au/imagine-holidays/" target="_blank" rel="noreferrer">Read more <span aria-hidden="true">↗</span></a></div></article>
+    <article data-year-item="2024"><img src="/assets/destination-japan.webp" alt="Traditional Japanese landscape" loading="lazy" /><div><p class="story-meta">Travel planning · 4 August 2024</p><h3>Travelling Places: why the human detail matters</h3><p>On personal advice, trusted connections and planning journeys around real people.</p><a class="text-link" href="https://tmnews.com.au/travelling-places-3/" target="_blank" rel="noreferrer">Read more <span aria-hidden="true">↗</span></a></div></article>
+    <article data-year-item="2024"><img src="/assets/destination-spain.webp" alt="Whitewashed town in Spain" loading="lazy" /><div><p class="story-meta">Our story · Archive</p><h3>From Main Street to the wider world</h3><p>How a Tamborine Mountain travel agency keeps global journeys personal.</p><a class="text-link" href="https://www.escapetotamborinemountain.com.au/tamborine-mountain-stories-travelling-places/" target="_blank" rel="noreferrer">Read more <span aria-hidden="true">↗</span></a></div></article>
+  </div><p class="empty-state" data-empty-state hidden>No articles found for that year.</p></div></section>${cta('Inspired to go?')}</main>`;
+
+const articlePage = `
+  <main id="main"><article class="article-page"><header class="article-header"><div class="shell article-header-inner"><a class="back-link" href="/journal.html">← Back to the journal</a><p class="story-meta">Expedition travel · 2 October 2025 · 5 min read</p><h1>Travelling with Sienna:<br><em>looking south to Antarctica.</em></h1><p class="article-standfirst">The far south has a way of occupying the imagination long before the ship leaves port.</p></div></header><div class="article-hero-image"><img src="/assets/destination-antarctica.webp" alt="A wide Antarctic landscape of ice, sea and distant mountains" /></div><div class="article-body shell"><aside><p>Written by</p><strong>Sienna Gardner</strong><span>Travel advisor</span></aside><div class="article-prose"><p class="dropcap">Antarctica is one of those places that can feel almost abstract until you begin planning in detail. Then the questions make it real: Which ship? Which month? What kind of wildlife matters most? How active do you want the days to be?</p><h2>The right expedition makes the place accessible.</h2><p>For Sienna, choosing an experienced expedition operator is about more than the vessel. It is the calibre of the expedition team, the daily briefings, the small-boat landings and the ability to read conditions as they change.</p><p>Good planning also creates room for the unexpected. In a remote environment, weather and wildlife shape the day. A strong itinerary is not a rigid promise—it is a well-supported framework for making the most of what the landscape offers.</p><blockquote>“The more I learn, the more I understand that Antarctica isn’t one trip. The season, ship and expedition team can create very different experiences.”</blockquote><h2>Preparation is part of the anticipation.</h2><p>Layering, waterproof outerwear and realistic expectations all matter. So does choosing a pace that suits you. Some travellers want every landing and kayaking opportunity; others prefer to spend longer on deck, watching light move across the ice.</p><p>That is where a conversation with an advisor becomes useful. The destination may be shared, but the right version of the journey is personal.</p><div class="article-source-note"><p>This first-draft article is an original editorial treatment informed by the team’s published local coverage. The final site can house Gina and Sienna’s complete fortnightly articles in this format.</p></div></div></div></article>${cta('Thinking about an expedition?')}</main>`;
+
+const contactPage = `
+  <main id="main"><section class="page-hero contact-hero"><div class="shell narrow-hero"><p class="section-label section-label-red">Contact</p><h1>Tell us where your<br><em>imagination is going.</em></h1><p>You don’t need to have every detail. A place, a date, or a feeling is enough to begin.</p></div></section>
+  <section class="section contact-page"><div class="shell contact-page-grid"><div class="contact-sidebar"><p class="section-label">Visit, call or write</p><h2>We’re here on the Mountain.</h2><address><a href="https://maps.google.com/?q=24+Main+Street+Tamborine+Mountain+QLD+4272" target="_blank" rel="noreferrer"><strong>Travelling Places</strong><br>24 Main Street<br>Tamborine Mountain QLD 4272</a><a href="tel:+61755451600">07 5545 1600</a><a href="mailto:travel@travellingplaces.com.au">travel@travellingplaces.com.au</a></address><div class="contact-social"><p>Follow the journey</p><a href="${socialLinks.instagram}" target="_blank" rel="noreferrer">Instagram ↗</a><a href="${socialLinks.facebook}" target="_blank" rel="noreferrer">Facebook ↗</a></div></div><div class="contact-form-wrap"><p class="section-label section-label-red">Your enquiry</p><h2>Start with the essentials.</h2><p>Required fields are marked with an asterisk. Submitting prepares an email in your usual mail app, so you can review it before sending.</p>${enquiryForm('contact')}</div></div></section>
+  <section class="section contact-photo"><div class="shell contact-photo-grid"><img src="/assets/team-outside.jpg" alt="The Travelling Places team on Tamborine Mountain" loading="lazy" /><div><p class="section-label section-label-red">Prefer a conversation?</p><h2>Come and see us.</h2><p>We welcome appointments at our Main Street office. Call ahead and we’ll make time to sit down with your ideas.</p><a class="button button-blue" href="tel:+61755451600">Call 07 5545 1600</a></div></div></section></main>`;
+
+const pages = { home: homePage, expertise: expertisePage, virtuoso: virtuosoPage, team: teamPage, journal: journalPage, article: articlePage, contact: contactPage };
+document.body.innerHTML = `${header()}${pages[page] || homePage}${footer()}${page === 'contact' ? '' : enquiryDialog()}`;
+
+if (baseUrl !== '/') {
+  document.querySelectorAll('[href^="/"], [src^="/"]').forEach((element) => {
+    const attribute = element.hasAttribute('href') ? 'href' : 'src';
+    const value = element.getAttribute(attribute);
+    element.setAttribute(attribute, `${baseUrl}${value.slice(1)}`);
+  });
+}
+
+const menuToggle = document.querySelector('[data-menu-toggle]');
+const nav = document.querySelector('[data-nav]');
+const siteHeader = document.querySelector('[data-header]');
+const dialog = document.querySelector('[data-enquiry-dialog]');
+
+const closeMenu = () => {
+  menuToggle?.setAttribute('aria-expanded', 'false');
+  nav?.classList.remove('is-open');
+  document.body.classList.remove('menu-open');
+};
+
+menuToggle?.addEventListener('click', () => {
+  const willOpen = menuToggle.getAttribute('aria-expanded') !== 'true';
+  menuToggle.setAttribute('aria-expanded', String(willOpen));
+  nav?.classList.toggle('is-open', willOpen);
+  document.body.classList.toggle('menu-open', willOpen);
+});
+nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+window.addEventListener('scroll', () => siteHeader?.classList.toggle('is-sticky', window.scrollY > 24), { passive: true });
+
+document.querySelectorAll('[data-open-enquiry]').forEach((button) => button.addEventListener('click', () => {
+  closeMenu(); dialog?.showModal(); document.body.classList.add('dialog-open');
+}));
+const closeDialog = () => { dialog?.close(); document.body.classList.remove('dialog-open'); };
+document.querySelector('[data-close-enquiry]')?.addEventListener('click', closeDialog);
+dialog?.addEventListener('click', (event) => { if (event.target === dialog) closeDialog(); });
+dialog?.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+
+const validateField = (field) => {
+  const error = field.parentElement?.querySelector('.field-error');
+  if (!error) return field.checkValidity();
+  let message = '';
+  if (field.validity.valueMissing) message = 'Please complete this field.';
+  if (field.validity.typeMismatch) message = 'Please enter a valid email address.';
+  error.textContent = message;
+  field.setAttribute('aria-invalid', String(Boolean(message)));
+  return !message;
+};
+
+document.querySelectorAll('[data-enquiry-form]').forEach((form) => {
+  form.querySelectorAll('[required]').forEach((field) => field.addEventListener('blur', () => validateField(field)));
+  form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const requiredFields = [...form.querySelectorAll('[required]')];
+    const valid = requiredFields.map(validateField).every(Boolean);
+    if (!valid) { form.querySelector('[aria-invalid="true"]')?.focus(); return; }
+    const data = new FormData(form);
+    const value = (name) => String(data.get(name) || '').trim();
+    const name = value('name');
+    const subject = encodeURIComponent(`Travel enquiry from ${name}`);
+    const body = encodeURIComponent(`Hello Travelling Places,\n\nMy name is ${name}.\nEmail: ${value('email')}\nPhone: ${value('phone') || 'Not provided'}\nTiming: ${value('timing') || 'Flexible / not provided'}\nTravelling party: ${value('party') || 'Not provided'}\n\nJourney ideas:\n${value('journey')}\n\nKind regards,\n${name}`);
+    const status = form.querySelector('.form-status');
+    if (status) status.textContent = 'Your email is ready to review in your mail app.';
+    window.location.href = `mailto:travel@travellingplaces.com.au?subject=${subject}&body=${body}`;
+  });
+});
+
+const carousel = document.querySelector('[data-carousel]');
+if (carousel) {
+  const slides = [...carousel.querySelectorAll('[data-slide]')];
+  const dots = [...carousel.querySelectorAll('[data-carousel-dot]')];
+  const playButton = carousel.querySelector('[data-carousel-play]');
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  let index = 0;
+  let paused = reduceMotion.matches;
+  let timer;
+  const showSlide = (next) => {
+    index = (next + slides.length) % slides.length;
+    slides.forEach((slide, i) => { const active = i === index; slide.classList.toggle('is-active', active); slide.setAttribute('aria-hidden', String(!active)); });
+    dots.forEach((dot, i) => { const active = i === index; dot.classList.toggle('is-active', active); dot.setAttribute('aria-pressed', String(active)); });
+  };
+  const stop = () => window.clearInterval(timer);
+  const start = () => { stop(); if (!paused && !document.hidden) timer = window.setInterval(() => showSlide(index + 1), 5200); };
+  const setPaused = (value) => { paused = value; playButton.textContent = paused ? 'Play' : 'Pause'; playButton.setAttribute('aria-label', paused ? 'Play carousel' : 'Pause carousel'); playButton.setAttribute('aria-pressed', String(paused)); start(); };
+  carousel.querySelector('[data-carousel-next]').addEventListener('click', () => { showSlide(index + 1); start(); });
+  carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => { showSlide(index - 1); start(); });
+  dots.forEach((dot, i) => dot.addEventListener('click', () => { showSlide(i); start(); }));
+  playButton.addEventListener('click', () => setPaused(!paused));
+  carousel.addEventListener('mouseenter', stop);
+  carousel.addEventListener('mouseleave', start);
+  carousel.addEventListener('focusin', stop);
+  carousel.addEventListener('focusout', start);
+  carousel.addEventListener('keydown', (event) => { if (event.key === 'ArrowLeft') showSlide(index - 1); if (event.key === 'ArrowRight') showSlide(index + 1); });
+  document.addEventListener('visibilitychange', start);
+  setPaused(paused);
+}
+
+document.querySelectorAll('[data-filter]').forEach((button) => button.addEventListener('click', () => {
+  const filter = button.dataset.filter;
+  document.querySelectorAll('[data-filter]').forEach((item) => { const active = item === button; item.classList.toggle('is-active', active); item.setAttribute('aria-pressed', String(active)); });
+  let visible = 0;
+  document.querySelectorAll('[data-year-item]').forEach((article) => { const show = filter === 'all' || article.dataset.yearItem === filter; article.hidden = !show; if (show) visible += 1; });
+  const empty = document.querySelector('[data-empty-state]');
+  if (empty) empty.hidden = visible !== 0;
+}));
+
+const yearNode = document.querySelector('[data-year]');
+if (yearNode) yearNode.textContent = new Date().getFullYear();
