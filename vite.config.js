@@ -1,8 +1,17 @@
 import { resolve } from 'node:path';
+import { cpSync } from 'node:fs';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
   base: './',
+  plugins: [
+    {
+      name: 'copy-site-assets',
+      closeBundle() {
+        cpSync(resolve(import.meta.dirname, 'assets'), resolve(import.meta.dirname, 'dist/assets'), { recursive: true });
+      },
+    },
+  ],
   build: {
     rollupOptions: {
       input: {
