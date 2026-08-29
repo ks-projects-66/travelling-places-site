@@ -1,6 +1,6 @@
 # Travelling Places brand system
 
-Version 2.0.0 is the canonical source for website and marketing production.
+Version 2.1.0 is the canonical source for website and marketing production.
 
 Travelling Places should feel established, personal, and quietly confident. Belmond is a reference for restraint, image priority, and typographic balance. Do not reproduce Belmond layouts, wording, assets, or proprietary typefaces.
 
@@ -53,7 +53,7 @@ IBM Plex Sans is used for body copy, navigation, buttons, forms, captions, and f
 
 | Role | Size | Line height | Maximum line width |
 |---|---|---:|---|
-| Hero display | 40px to 64px | 1.08 | 18ch |
+| Hero display | 34px to 56px | 1.08 | 24ch |
 | Page heading | 36px to 48px | 1.12 | 22ch |
 | Section heading | 30px to 40px | 1.16 | 24ch |
 | Subsection heading | 22px to 28px | 1.25 | 30ch |
@@ -65,19 +65,23 @@ IBM Plex Sans is used for body copy, navigation, buttons, forms, captions, and f
 
 Headings use size and spacing for hierarchy, not bold weight. Keep sentence case. Do not use italics, all-caps headings, eyebrow headings, or decorative section numbering.
 
+Hero headings are an editorial and layout constraint, not a text-clamping effect. They must remain on one or two lines at approved breakpoints. Shorten the copy, widen the measure, or reduce the size within the token range if a third line appears.
+
 ## Spacing and layout
 
 Use the spacing tokens. Do not invent nearby values.
 
 The content shell is 1200px maximum with responsive gutters from 20px to 48px. Reading copy is limited to 720px or 68 characters. Section spacing ranges from 72px to 120px. Use 24px between a heading and lead copy, 16px between a heading and ordinary body copy, and 16px between paragraphs.
 
-Images are normally square-cornered. Controls use a 2px radius. Avoid pill buttons, floating cards, and repeated boxed content where an open layout or ruled list will work.
+Images and fields are normally square-cornered. Text buttons use the full pill radius. Avoid floating cards and repeated boxed content where an open layout or ruled list will work.
 
 ## Buttons and links
 
 Use the included button variants. A section has one primary action and no more than one secondary action.
 
-Button labels are direct and sentence case. Use a right chevron only when it improves direction. Do not use diagonal arrows. Do not underline calls to action. Ordinary navigation links are unboxed, while promotional and in-content sitelinks use buttons.
+Button labels are direct and sentence case. Text buttons are 50px high with 28px horizontal padding and do not contain decorative icons. Use icon-only controls for established utility actions such as carousel navigation. Do not use diagonal arrows. Do not underline calls to action. Ordinary navigation links are unboxed, while promotional and in-content sitelinks use buttons.
+
+Disabled buttons retain a white background and a clear ink border. Their label uses muted ink, and their cursor communicates that the control is unavailable. Do not fade the entire control with opacity.
 
 Every interactive target is at least 44px in each dimension. Focus uses the 3px brand red outline with a 3px offset.
 
@@ -97,7 +101,7 @@ Input text is 16px minimum. Fields are 48px high minimum. Use a single-column fo
 
 The homepage carousel idles for six seconds. It supports previous, next, pause, dots, arrow keys, and swipe when integrated with a touch handler. Autoplay stops while hovered, focused, or hidden. Reduced-motion users receive no automatic movement.
 
-Captions use direct headings with no eyebrow, numbering, or decorative line markers.
+Captions use white direct headings over a controlled dark gradient. Keep captions to two lines and use no eyebrow, numbering, decorative line markers, or opaque text boxes.
 
 ## Imagery
 

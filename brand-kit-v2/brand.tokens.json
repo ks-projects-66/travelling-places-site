@@ -2,7 +2,7 @@
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "brand": {
     "name": "Travelling Places",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "reference": "Belmond for restraint, image priority, and typographic balance. Never copy layouts or proprietary assets."
   },
   "color": {
@@ -30,7 +30,7 @@
     }
   },
   "type": {
-    "display": { "min": "40px", "max": "64px", "lineHeight": 1.08, "maxWidth": "18ch" },
+    "display": { "min": "34px", "max": "56px", "lineHeight": 1.08, "maxWidth": "24ch", "maximumLines": 2 },
     "pageTitle": { "min": "36px", "max": "48px", "lineHeight": 1.12, "maxWidth": "22ch" },
     "sectionTitle": { "min": "30px", "max": "40px", "lineHeight": 1.16, "maxWidth": "24ch" },
     "subsectionTitle": { "min": "22px", "max": "28px", "lineHeight": 1.25, "maxWidth": "30ch" },
@@ -62,7 +62,7 @@
     "gridColumns": 12
   },
   "shape": {
-    "buttonRadius": "2px",
+    "buttonRadius": "999px",
     "fieldRadius": "2px",
     "imageRadius": "0px"
   },
@@ -74,7 +74,8 @@
   },
   "interaction": {
     "minimumTarget": "44px",
-    "preferredButtonHeight": "48px",
+    "preferredButtonHeight": "50px",
+    "buttonInlinePadding": "28px",
     "focusWidth": "3px",
     "focusOffset": "3px"
   }

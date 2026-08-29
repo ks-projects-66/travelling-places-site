@@ -52,6 +52,16 @@ function assert(condition, message) {
         unlabelledFields: labels.filter((field) => !field.labelled),
         italicElements: elements.filter((element) => getComputedStyle(element).fontStyle !== 'normal').length,
         maximumFontSize: Math.max(...elements.map((element) => Number.parseFloat(getComputedStyle(element).fontSize) || 0)),
+        heroLines: (() => {
+          const heading = document.querySelector('.kit-hero h1');
+          if (!heading) return 0;
+          const lineHeight = Number.parseFloat(getComputedStyle(heading).lineHeight);
+          return Math.round(heading.getBoundingClientRect().height / lineHeight);
+        })(),
+        carouselCaptionColour: getComputedStyle(document.querySelector('.tp-carousel-caption h3')).color,
+        textButtonIcons: document.querySelectorAll('.tp-button svg').length,
+        buttonRadius: getComputedStyle(document.querySelector('.tp-button')).borderRadius,
+        disabledBorderColour: getComputedStyle(document.querySelector('.tp-button:disabled')).borderColor,
         overlay: Boolean(document.querySelector('.vite-error-overlay, #webpack-dev-server-client-overlay')),
       };
     });
@@ -62,7 +72,12 @@ function assert(condition, message) {
     assert(metrics.unnamedControls.length === 0, `${viewport.name}: unnamed controls found`);
     assert(metrics.unlabelledFields.length === 0, `${viewport.name}: unlabelled form fields found`);
     assert(metrics.italicElements === 0, `${viewport.name}: computed italic text found`);
-    assert(metrics.maximumFontSize <= 64, `${viewport.name}: computed font size exceeds 64px`);
+    assert(metrics.maximumFontSize <= 56, `${viewport.name}: computed font size exceeds 56px`);
+    assert(metrics.heroLines <= 2, `${viewport.name}: hero heading occupies ${metrics.heroLines} lines`);
+    assert(metrics.carouselCaptionColour === 'rgb(255, 255, 255)', `${viewport.name}: carousel caption is not white`);
+    assert(metrics.textButtonIcons === 0, `${viewport.name}: ordinary text buttons contain icons`);
+    assert(Number.parseFloat(metrics.buttonRadius) >= 24, `${viewport.name}: text buttons are not pill shaped`);
+    assert(metrics.disabledBorderColour === 'rgb(39, 43, 56)', `${viewport.name}: disabled button border is not ink`);
     assert(!metrics.overlay, `${viewport.name}: development error overlay detected`);
     assert(consoleErrors.length === 0, `${viewport.name}: console errors ${consoleErrors.join(' | ')}`);
     assert(pageErrors.length === 0, `${viewport.name}: page errors ${pageErrors.join(' | ')}`);

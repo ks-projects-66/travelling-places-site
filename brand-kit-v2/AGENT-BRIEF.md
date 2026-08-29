@@ -7,7 +7,7 @@ This file is a compact enforcement layer. `BRAND.md` contains the full reasoning
 - Use Libre Baskerville Regular for display and headings.
 - Use IBM Plex Sans for copy and interface text.
 - Use only approved colour, type, spacing, shape, and motion tokens.
-- Keep display text at or below 64px.
+- Keep display text at or below 56px and hero headings to one or two lines.
 - Keep most surfaces white.
 - Use the supplied SVG logos without cropping or recolouring.
 - Use complete button variants for calls to action.
@@ -25,11 +25,10 @@ This file is a compact enforcement layer. `BRAND.md` contains the full reasoning
 - Blue text on navy.
 - Red text on navy.
 - Red background sections.
-- Pill buttons.
 - Default styling from third-party component libraries.
-- Display type above 64px.
+- Display type above 56px.
 - Invented claims, awards, partnerships, or destinations.
 
 ## Implementation order
 
-Use existing content and factual claims. Apply tokens. Reuse included components. Check contrast. Test keyboard behaviour. Test at 375px, 768px, 1280px, and 1440px. Run `pnpm brand:check` and `pnpm build`.
+Use existing content and factual claims. Apply tokens. Reuse included components. Check contrast. Test keyboard behaviour. Confirm hero headings remain within two lines at 375px, 768px, 1280px, and 1440px. Run `pnpm brand:check` and `pnpm build`.

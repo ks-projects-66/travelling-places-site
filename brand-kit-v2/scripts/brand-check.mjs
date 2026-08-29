@@ -9,7 +9,9 @@ const argumentsList = process.argv.slice(2);
 const reportOnly = argumentsList.includes('--report-only');
 const requestedTargets = argumentsList.filter((argument) => !argument.startsWith('--'));
 const targets = requestedTargets.length ? requestedTargets : ['brand-kit-v2'];
-const allowedExtensions = new Set(['.html', '.css', '.js']);
+// .astro added when the site moved off plain HTML. Without it this check cannot see
+// a single page in the repository and reports a clean run over CSS alone.
+const allowedExtensions = new Set(['.html', '.css', '.js', '.astro']);
 const excludedDirectories = new Set(['.git', 'dist', 'node_modules', 'source']);
 const findings = [];
 
@@ -21,7 +23,6 @@ const rules = [
   { name: 'prohibited heading class', pattern: /class=["'][^"']*\b(?:eyebrow|kicker|section-number)\b[^"']*["']/gi },
   { name: 'decorative zero-padded number', pattern: />\s*0\d\s*(?:[/.|]|<)/g },
   { name: 'underlined action', pattern: /text-decoration\s*:\s*underline/gi },
-  { name: 'pill control', pattern: /border-radius\s*:\s*(?:999|9999)px/gi },
 ];
 
 function collectFiles(target) {
@@ -60,11 +61,11 @@ for (const target of targets) {
     const sizePattern = /font-size\s*:\s*([0-9.]+)(px|rem)/gi;
     for (const match of content.matchAll(sizePattern)) {
       const pixels = match[2].toLowerCase() === 'rem' ? Number(match[1]) * 16 : Number(match[1]);
-      if (pixels > 64) {
+      if (pixels > 56) {
         findings.push({
           file: relative(repoRoot, file),
           line: lineNumber(content, match.index),
-          rule: 'display type above 64px',
+          rule: 'display type above 56px',
           sample: match[0],
         });
       }

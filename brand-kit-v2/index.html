@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Travelling Places brand system for people and coding agents." />
     <title>Travelling Places brand system</title>
-    <script type="module" crossorigin src="../assets/brandKit-DmI_JOoX.js"></script>
-    <link rel="modulepreload" crossorigin href="../assets/modulepreload-polyfill-B5Qt9EMX.js">
-    <link rel="stylesheet" crossorigin href="../assets/brandKit-8lfTmhM9.css">
+    <link rel="stylesheet" href="./styles/brand-kit.css" />
+    <script type="module" src="./scripts/brand-kit.js"></script>
   </head>
   <body>
     <a class="kit-skip-link" href="#content">Skip to content</a>
@@ -15,7 +14,7 @@
     <header class="kit-header">
       <div class="tp-shell kit-header-inner">
         <a href="#top" aria-label="Travelling Places brand system home">
-          <img src="../assets/wordmark-blue-M2V8O0hR.svg" alt="Travelling Places" />
+          <img src="./assets/logos/wordmark-blue.svg" alt="Travelling Places" />
         </a>
         <nav class="kit-nav" aria-label="Brand system sections">
           <a href="#logo">Logo</a>
@@ -31,23 +30,20 @@
       <section class="kit-hero" id="top">
         <div class="tp-shell kit-hero-grid">
           <div>
-            <h1>One clear brand system for every journey.</h1>
+            <h1>A clear system for every journey.</h1>
             <p>
               A practical identity for Travelling Places, built for the website, documents, social media, and
               coding agents. The system is personal, elegant, and easy to apply without guesswork.
             </p>
             <div class="kit-button-row">
-              <a class="tp-button tp-button-primary" href="./BRAND.md">
-                Read the brand rules
-                <svg aria-hidden="true"><use href="../assets/ui-icons-DPpxWEnI.svg#icon-chevron-right"></use></svg>
-              </a>
+              <a class="tp-button tp-button-primary" href="./BRAND.md">Read the brand rules</a>
               <a class="tp-button tp-button-secondary" href="./brand.tokens.json" download>
                 Download design tokens
               </a>
             </div>
           </div>
           <div class="kit-hero-mark" aria-hidden="true">
-            <img src="../assets/mark-light-A-j-mjVD.svg" alt="" />
+            <img src="./assets/logos/mark-light.svg" alt="" />
           </div>
         </div>
       </section>
@@ -66,7 +62,7 @@
           <div class="kit-logo-grid">
             <figure>
               <div class="kit-logo-panel">
-                <img src="../assets/lockup-primary-J8uJOAmF.svg" alt="Travelling Places primary logo" />
+                <img src="./assets/logos/lockup-primary.svg" alt="Travelling Places primary logo" />
               </div>
               <figcaption class="kit-logo-caption">
                 <span>Primary lockup for white and pale surfaces.</span>
@@ -76,7 +72,7 @@
 
             <figure>
               <div class="kit-logo-panel kit-logo-panel-dark">
-                <img src="../assets/lockup-dark-CSTTYRfN.svg" alt="Travelling Places logo for dark backgrounds" />
+                <img src="./assets/logos/lockup-dark.svg" alt="Travelling Places logo for dark backgrounds" />
               </div>
               <figcaption class="kit-logo-caption">
                 <span>Dark-surface lockup with a white keyline around the illustration.</span>
@@ -86,7 +82,7 @@
 
             <figure>
               <div class="kit-logo-panel">
-                <img src="../assets/wordmark-blue-M2V8O0hR.svg" alt="Travelling Places blue wordmark" />
+                <img src="./assets/logos/wordmark-blue.svg" alt="Travelling Places blue wordmark" />
               </div>
               <figcaption class="kit-logo-caption">
                 <span>Blue wordmark for compact horizontal spaces.</span>
@@ -96,7 +92,7 @@
 
             <figure>
               <div class="kit-logo-panel kit-logo-panel-dark">
-                <img src="../assets/wordmark-white-DwC3n3Fa.svg" alt="Travelling Places white wordmark" />
+                <img src="./assets/logos/wordmark-white.svg" alt="Travelling Places white wordmark" />
               </div>
               <figcaption class="kit-logo-caption">
                 <span>White wordmark for navy and dark photographic surfaces.</span>
@@ -106,7 +102,7 @@
           </div>
 
           <div class="kit-clearspace" aria-label="Logo clear-space example">
-            <img src="../assets/lockup-primary-J8uJOAmF.svg" alt="Travelling Places logo within its clear space" />
+            <img src="./assets/logos/lockup-primary.svg" alt="Travelling Places logo within its clear space" />
             <p class="kit-clearspace-label">Keep one capital T height clear on every side.</p>
           </div>
 
@@ -213,7 +209,7 @@
             <h2>Balanced typography with a clear ceiling</h2>
             <p>
               Libre Baskerville gives the identity warmth and authority. IBM Plex Sans keeps every practical
-              detail easy to read. Headings are never bold or italic. The display ceiling is 64px, including on
+              detail easy to read. Headings are never bold or italic. The display ceiling is 56px, including on
               large screens.
             </p>
           </div>
@@ -222,7 +218,7 @@
             <div class="kit-type-row">
               <span class="kit-type-name">Hero display</span>
               <span class="kit-type-display">Journeys planned with care.</span>
-              <span class="kit-type-spec">40px to 64px<br />Line height 1.08</span>
+              <span class="kit-type-spec">34px to 56px<br />Line height 1.08<br />Two lines maximum</span>
             </div>
             <div class="kit-type-row">
               <span class="kit-type-name">Page heading</span>
@@ -278,10 +274,7 @@
             <h3>Buttons</h3>
             <div class="kit-component-surface">
               <div class="kit-button-row">
-                <a class="tp-button tp-button-primary" href="#components">
-                  Plan a journey
-                  <svg aria-hidden="true"><use href="../assets/ui-icons-DPpxWEnI.svg#icon-chevron-right"></use></svg>
-                </a>
+                <a class="tp-button tp-button-primary" href="#components">Plan a journey</a>
                 <a class="tp-button tp-button-secondary" href="#components">Meet the team</a>
                 <button class="tp-button tp-button-primary" type="button" disabled>Unavailable</button>
               </div>
@@ -300,10 +293,10 @@
               <header class="tp-site-header" data-demo-header>
                 <div class="tp-shell tp-header-inner">
                   <a class="tp-brand" href="#components" aria-label="Travelling Places home">
-                    <img src="../assets/wordmark-blue-M2V8O0hR.svg" alt="Travelling Places" />
+                    <img src="./assets/logos/wordmark-blue.svg" alt="Travelling Places" />
                   </a>
                   <button class="tp-icon-button tp-menu-toggle" type="button" aria-expanded="false" aria-controls="demo-nav" data-menu-toggle>
-                    <svg aria-hidden="true"><use href="../assets/ui-icons-DPpxWEnI.svg#icon-menu"></use></svg>
+                    <svg aria-hidden="true"><use href="./assets/icons/ui-icons.svg#icon-menu"></use></svg>
                     <span class="sr-only">Open menu</span>
                   </button>
                   <nav class="tp-primary-nav" id="demo-nav" aria-label="Example primary navigation" data-menu>
@@ -323,15 +316,15 @@
             <div class="tp-carousel" data-carousel>
               <div class="tp-carousel-viewport">
                 <article class="tp-carousel-slide is-active" data-slide>
-                  <img src="../assets/destination-mediterranean-CxnGtqfv.webp" alt="A Mediterranean coastline in warm evening light" />
+                  <img src="./assets/images/mediterranean.webp" alt="A Mediterranean coastline in warm evening light" />
                   <div class="tp-carousel-caption"><h3>Travel at a pace that feels entirely your own.</h3></div>
                 </article>
                 <article class="tp-carousel-slide" data-slide aria-hidden="true">
-                  <img src="../assets/destination-antarctica-C2-LwLUO.webp" alt="Ice and mountains across an Antarctic landscape" />
+                  <img src="./assets/images/antarctica.webp" alt="Ice and mountains across an Antarctic landscape" />
                   <div class="tp-carousel-caption"><h3>Remote places, made possible through trusted expertise.</h3></div>
                 </article>
                 <article class="tp-carousel-slide" data-slide aria-hidden="true">
-                  <img src="../assets/destination-cruise-Bll0Epz7.webp" alt="A refined dining experience during a voyage" />
+                  <img src="./assets/images/cruise.webp" alt="A refined dining experience during a voyage" />
                   <div class="tp-carousel-caption"><h3>Every detail considered, from departure to return.</h3></div>
                 </article>
               </div>
@@ -343,13 +336,13 @@
                 </div>
                 <div class="tp-carousel-actions">
                   <button class="tp-icon-button" type="button" aria-label="Previous image" data-carousel-previous>
-                    <svg aria-hidden="true"><use href="../assets/ui-icons-DPpxWEnI.svg#icon-chevron-left"></use></svg>
+                    <svg aria-hidden="true"><use href="./assets/icons/ui-icons.svg#icon-chevron-left"></use></svg>
                   </button>
                   <button class="tp-icon-button" type="button" aria-label="Pause carousel" aria-pressed="false" data-carousel-pause>
-                    <svg aria-hidden="true"><use href="../assets/ui-icons-DPpxWEnI.svg#icon-pause"></use></svg>
+                    <svg aria-hidden="true"><use href="./assets/icons/ui-icons.svg#icon-pause"></use></svg>
                   </button>
                   <button class="tp-icon-button" type="button" aria-label="Next image" data-carousel-next>
-                    <svg aria-hidden="true"><use href="../assets/ui-icons-DPpxWEnI.svg#icon-chevron-right"></use></svg>
+                    <svg aria-hidden="true"><use href="./assets/icons/ui-icons.svg#icon-chevron-right"></use></svg>
                   </button>
                 </div>
               </div>
@@ -397,7 +390,7 @@
               <div class="tp-shell tp-footer-main">
                 <div>
                   <a class="tp-footer-brand" href="#components" aria-label="Travelling Places home">
-                    <img src="../assets/lockup-dark-CSTTYRfN.svg" alt="Travelling Places" />
+                    <img src="./assets/logos/lockup-dark.svg" alt="Travelling Places" />
                   </a>
                 </div>
                 <div>
@@ -412,8 +405,8 @@
                 <div>
                   <h3>Connect</h3>
                   <ul class="tp-social-list">
-                    <li><a class="tp-social-link" href="https://www.instagram.com/travellingplaces/" target="_blank" rel="noreferrer"><svg aria-hidden="true"><use href="../assets/ui-icons-DPpxWEnI.svg#icon-instagram"></use></svg>Instagram</a></li>
-                    <li><a class="tp-social-link" href="https://www.facebook.com/travellingplaces" target="_blank" rel="noreferrer"><svg aria-hidden="true"><use href="../assets/ui-icons-DPpxWEnI.svg#icon-facebook"></use></svg>Facebook</a></li>
+                    <li><a class="tp-social-link" href="https://www.instagram.com/travellingplaces/" target="_blank" rel="noreferrer"><svg aria-hidden="true"><use href="./assets/icons/ui-icons.svg#icon-instagram"></use></svg>Instagram</a></li>
+                    <li><a class="tp-social-link" href="https://www.facebook.com/travellingplaces" target="_blank" rel="noreferrer"><svg aria-hidden="true"><use href="./assets/icons/ui-icons.svg#icon-facebook"></use></svg>Facebook</a></li>
                   </ul>
                 </div>
               </div>
@@ -463,7 +456,7 @@
     </main>
 
     <footer class="kit-end">
-      <div class="tp-shell">Travelling Places brand system, version 2.0.0</div>
+      <div class="tp-shell">Travelling Places brand system, version 2.1.0</div>
     </footer>
   </body>
 </html>
