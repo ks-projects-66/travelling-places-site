@@ -39,8 +39,16 @@ belongs in content instead.
 
 ## Design
 
-`PRODUCT.md` and `DESIGN.md` are the brief for the `impeccable` skill, which is what built the
-original visual system. Keep both at root; the brand kit's sync map expects `DESIGN.md` there.
+**The canonical brand system is `brand-kit-v2/`.** Read `brand-kit-v2/BRAND.md`,
+`brand-kit-v2/AGENT-BRIEF.md` and `brand-kit-v2/brand.tokens.json` before any interface work,
+and reuse its tokens, logos, fonts and components rather than inventing new ones. Run
+`pnpm brand:check` alongside `pnpm build` before calling interface work finished. See also
+`AGENTS.md`.
+
+`PRODUCT.md` and `DESIGN.md` sit under it and are the brief for the `impeccable` skill, which
+built the original visual system. `DESIGN.md` carries the layout and imagery decisions; the kit
+carries the tokens and components. Where they disagree, the kit wins on tokens and components
+and `DESIGN.md` wins on layout and imagery.
 
 The design is approved and built. Use the refinement path, not redesign. The Belmond imagery
 reference is settled at the end of `DESIGN.md`: the look was adopted, the tile grid was refused

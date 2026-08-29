@@ -50,11 +50,23 @@ Nothing on a page is hard-coded prose any more. The first draft kept every word 
 `src/main.js` as template literals and injected it with `innerHTML`, which meant search engines
 received an empty page and no CMS could attach. That file is gone.
 
+## Brand system
+
+The canonical brand system is `brand-kit-v2/`. Coding agents start with
+`brand-kit-v2/BRAND.md` and `brand-kit-v2/AGENT-BRIEF.md`. The visual reference is served at
+`/brand-kit-v2/` in development and is published with the site.
+
+```bash
+pnpm brand:check
+pnpm brand:report:site
+```
+
 ## Documentation
 
 | File | Covers |
 |---|---|
-| `BRAND.md` | Logo, colour, type, component libraries |
+| `brand-kit-v2/` | Canonical brand system: tokens, logos, fonts, components |
+| `BRAND.md` | Superseded by `brand-kit-v2/BRAND.md`; kept as a pointer |
 | `DESIGN.md` | Design system, plus the Belmond imagery direction |
 | `PRODUCT.md` | Purpose, audience, voice, accessibility target |
 | `docs/CONTENT-REGISTER.md` | Every placeholder, who supplies it, what it blocks |

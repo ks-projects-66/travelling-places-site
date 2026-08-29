@@ -367,7 +367,7 @@
 .tick-list li::before {
   margin-right: 0.8rem;
   color: var(--red);
-  content: "—";
+  content: "-";
 }
 
 .editorial-grid {

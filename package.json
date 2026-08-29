@@ -9,11 +9,18 @@
     "preview": "astro preview --host 127.0.0.1",
     "check": "astro check",
     "check:licensing": "node scripts/check-licensing.mjs",
-    "check:placeholders": "node scripts/check-placeholders.mjs"
+    "check:placeholders": "node scripts/check-placeholders.mjs",
+    "brand:build": "node brand-kit-v2/scripts/run-build-assets.mjs",
+    "brand:check": "node brand-kit-v2/scripts/brand-check.mjs brand-kit-v2",
+    "brand:qa": "node brand-kit-v2/scripts/qa-browser.cjs",
+    "brand:report:site": "node brand-kit-v2/scripts/brand-check.mjs --report-only src"
   },
   "dependencies": {
     "astro": "^5.16.0",
     "@astrojs/sitemap": "^3.7.0",
     "sharp": "^0.34.5"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
   }
 }
