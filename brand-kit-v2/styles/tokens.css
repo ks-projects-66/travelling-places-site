@@ -11,7 +11,7 @@
   --tp-font-display: "Libre Baskerville", Baskerville, Georgia, serif;
   --tp-font-body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
 
-  --tp-type-display: clamp(2.5rem, 5vw, 4rem);
+  --tp-type-display: clamp(2.125rem, 4.2vw, 3.5rem);
   --tp-type-page-title: clamp(2.25rem, 4vw, 3rem);
   --tp-type-section-title: clamp(1.875rem, 3.3vw, 2.5rem);
   --tp-type-subsection-title: clamp(1.375rem, 2vw, 1.75rem);
@@ -37,7 +37,8 @@
   --tp-reading-max: 45rem;
   --tp-gutter: clamp(1.25rem, 4vw, 3rem);
   --tp-control-min: 2.75rem;
-  --tp-button-height: 3rem;
+  --tp-button-height: 3.125rem;
+  --tp-radius-button: 999px;
   --tp-radius-control: 0.125rem;
 
   --tp-motion-fast: 160ms;

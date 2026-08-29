@@ -220,8 +220,18 @@ def build_icon_sprite() -> None:
             {"id": f"icon-{path.stem}", "viewBox": source_root.get("viewBox", "0 0 24 24")},
         )
         for child in list(source_root):
+            if child.tag.rsplit("}", 1)[-1] == "title":
+                continue
             clone = copy.deepcopy(child)
-            clone.set("fill", "currentColor")
+            for element in clone.iter():
+                fill = element.get("fill")
+                if fill is None:
+                    element.set("fill", "currentColor")
+                elif fill.lower() != "none":
+                    element.set("fill", "currentColor")
+                stroke = element.get("stroke")
+                if stroke and stroke.lower() != "none":
+                    element.set("stroke", "currentColor")
             symbol.append(clone)
     ET.ElementTree(sprite).write(ROOT / "assets" / "icons" / "ui-icons.svg", encoding="utf-8", xml_declaration=True)
 

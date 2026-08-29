@@ -8,9 +8,11 @@ The visual reference is `index.html`. The reusable styles are in `styles/compone
 - `tp-button-secondary`: navy text and border on white.
 - `tp-button-on-dark`: navy text on white.
 - `tp-button-outline-on-dark`: white text and border on navy.
-- Disabled controls use mist, muted ink, and a line-colour border.
+- Disabled controls use a white surface, muted ink, and a distinct ink border.
 
 Do not place the secondary light-surface button on navy. Use an on-dark variant instead.
+
+Text buttons use a 50px pill shape with 28px horizontal padding. Do not place icons inside ordinary text buttons.
 
 ## Navigation
 
@@ -26,7 +28,7 @@ Use explicit labels and field-level errors. Never rely on placeholder text as th
 
 ## Carousel
 
-Use the supplied control arrangement and state attributes. Carousel images should be full width with a balanced height. Do not place decorative numbers or labels over the image. Autoplay is six seconds and must be pausable.
+Use the supplied control arrangement and state attributes. Carousel images should be full width with a balanced height. Captions are white, sit over the supplied gradient, and remain within two lines. Do not place decorative numbers or labels over the image. Autoplay is six seconds and must be pausable.
 
 ## Icons
 
@@ -34,8 +36,8 @@ Reference the local sprite:
 
 ```html
 <svg aria-hidden="true">
-  <use href="/brand-kit-v2/assets/icons/ui-icons.svg#icon-chevron-right"></use>
+  <use href="/brand-kit-v2/assets/icons/ui-icons.svg#icon-pause"></use>
 </svg>
 ```
 
-The approved interface set is menu, close, chevron left, chevron right, play, pause, phone, email, and location. Instagram and Facebook are the only approved social icons.
+The approved interface set is menu, close, chevron left, chevron right, play, pause, phone, email, and location. Instagram and Facebook are the only approved social icons. Icons belong in icon-only utility controls or next to contact and social labels, not inside text buttons.

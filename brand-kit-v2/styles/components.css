@@ -27,9 +27,9 @@
   align-items: center;
   justify-content: center;
   gap: var(--tp-space-sm);
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   border: 1px solid transparent;
-  border-radius: var(--tp-radius-control);
+  border-radius: var(--tp-radius-button);
   font-family: var(--tp-font-body);
   font-size: 0.875rem;
   font-weight: 500;
@@ -41,7 +41,6 @@
     border-color var(--tp-motion-fast) ease;
 }
 
-.tp-button svg,
 .tp-icon-button svg,
 .tp-contact-link svg,
 .tp-social-link svg {
@@ -93,9 +92,9 @@
 
 .tp-button:disabled,
 .tp-button[aria-disabled="true"] {
-  border-color: var(--tp-line);
+  border-color: var(--tp-ink);
   color: var(--tp-muted);
-  background: var(--tp-mist);
+  background: var(--tp-white);
   cursor: not-allowed;
 }
 
@@ -280,7 +279,7 @@ textarea.tp-field {
 .tp-carousel-slide::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(0deg, rgb(20 29 56 / 72%), transparent 58%);
+  background: linear-gradient(0deg, rgb(17 23 43 / 80%) 0%, rgb(17 23 43 / 38%) 42%, transparent 72%);
   content: "";
 }
 
@@ -290,12 +289,14 @@ textarea.tp-field {
   right: var(--tp-gutter);
   bottom: clamp(5rem, 10vw, 7rem);
   left: var(--tp-gutter);
-  max-width: 32rem;
+  max-width: 30rem;
 }
 
 .tp-carousel-caption h3 {
   margin: 0;
+  color: var(--tp-white);
   font: 400 var(--tp-type-section-title)/1.16 var(--tp-font-display);
+  text-wrap: balance;
 }
 
 .tp-carousel-controls {

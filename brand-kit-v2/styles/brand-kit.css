@@ -110,7 +110,6 @@ h3 {
 
 .kit-nav a:hover {
   color: var(--tp-blue);
-  background: var(--tp-mist);
 }
 
 .kit-hero {
@@ -119,13 +118,13 @@ h3 {
 
 .kit-hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(17rem, 0.8fr);
+  grid-template-columns: minmax(0, 1.35fr) minmax(17rem, 0.65fr);
   gap: clamp(3rem, 8vw, 8rem);
   align-items: center;
 }
 
 .kit-hero h1 {
-  max-width: 17ch;
+  max-width: 24ch;
   margin-bottom: var(--tp-space-xl);
   font-size: var(--tp-type-display);
   line-height: 1.08;
@@ -398,12 +397,10 @@ h3 {
 
 .kit-component-surface {
   padding: clamp(2rem, 5vw, 4rem);
-  border: 1px solid var(--tp-line);
   background: var(--tp-white);
 }
 
 .kit-component-surface-dark {
-  border-color: var(--tp-navy);
   color: var(--tp-white);
   background: var(--tp-navy);
 }
