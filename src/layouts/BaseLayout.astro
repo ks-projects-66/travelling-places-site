@@ -17,7 +17,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { title, description = site.description, page = 'home', ogImage = '/images/brand/logo-full.svg' } = Astro.props;
+const { title, description = site.description, page = 'home', ogImage = '/brand-kit-v2/assets/logos/lockup-primary.svg' } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const ogImageUrl = new URL(ogImage, Astro.site).href;
@@ -57,7 +57,7 @@ const structuredData = {
     <meta name="description" content={description} />
     <meta name="theme-color" content="#3d57a6" />
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/images/brand/logo-mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="/brand-kit-v2/assets/logos/mark-light.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <meta property="og:type" content="website" />

@@ -18,8 +18,7 @@ const { street, locality, region, postcode, mapUrl } = site.address;
   <main id="main">
     <section class="page-hero contact-hero">
       <div class="shell narrow-hero">
-        <p class="section-label section-label-red">Contact</p>
-        <h1>Tell us where your<br /><em>imagination is going.</em></h1>
+        <h1>Tell us where your<br class="hero-break" /><span class="hero-accent">imagination is going.</span></h1>
         <p>You don't need to have every detail. A place, a date, or a feeling is enough to begin.</p>
       </div>
     </section>
@@ -27,7 +26,6 @@ const { street, locality, region, postcode, mapUrl } = site.address;
     <section class="section contact-page" id="enquiry">
       <div class="shell contact-page-grid">
         <div class="contact-sidebar">
-          <p class="section-label">Visit, call or write</p>
           <h2>We're here on the Mountain.</h2>
           <address>
             <a href={mapUrl} target="_blank" rel="noreferrer">
@@ -43,12 +41,11 @@ const { street, locality, region, postcode, mapUrl } = site.address;
           )}
           <div class="contact-social">
             <p>Follow the journey</p>
-            <a href={site.socials.instagram.url} target="_blank" rel="noreferrer">Instagram ↗</a>
-            <a href={site.socials.facebook.url} target="_blank" rel="noreferrer">Facebook ↗</a>
+            <a href={site.socials.instagram.url} target="_blank" rel="noreferrer">Instagram</a>
+            <a href={site.socials.facebook.url} target="_blank" rel="noreferrer">Facebook</a>
           </div>
         </div>
         <div class="contact-form-wrap">
-          <p class="section-label section-label-red">Your enquiry</p>
           <h2>Start with the essentials.</h2>
           <p>Required fields are marked with an asterisk.</p>
           <EnquiryForm context="contact" />
@@ -67,7 +64,6 @@ const { street, locality, region, postcode, mapUrl } = site.address;
         <Image src={teamOutside} alt="The Travelling Places team on Tamborine Mountain"
           widths={[480, 960, 1440]} sizes="(max-width: 900px) 92vw, 50vw" loading="lazy" />
         <div>
-          <p class="section-label section-label-red">Prefer a conversation?</p>
           <h2>Come and see us.</h2>
           <p>
             We welcome appointments at our {street} office. Call ahead and we'll make time to sit down

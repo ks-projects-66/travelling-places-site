@@ -25,12 +25,16 @@
   border-bottom: 1px solid color-mix(in oklch, var(--white) 18%, transparent);
 }
 
-.footer-memberships .section-label {
-  color: color-mix(in oklch, var(--white) 68%, var(--blue));
+.footer-heading {
   margin: 0 0 1.25rem;
+  color: var(--tp-white);
+  font-family: var(--sans);
+  font-size: var(--tp-type-fine);
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
-.footer-memberships .section-label + .logo-wall + .section-label {
+.logo-wall + .footer-heading {
   margin-top: 2.5rem;
 }
 
@@ -108,8 +112,8 @@
   color: var(--white);
 }
 
-.newsletter .section-label {
-  margin: 0;
+.newsletter h2 {
+  max-width: 24ch;
 }
 
 .newsletter-form {
@@ -139,7 +143,9 @@
 
 .newsletter-form.is-placeholder input,
 .newsletter-form.is-placeholder button {
-  opacity: 0.55;
+  border: 1px solid var(--tp-ink);
+  color: var(--tp-muted);
+  background: var(--tp-white);
   cursor: not-allowed;
 }
 
@@ -205,4 +211,38 @@
   .logo-wall-partners li {
     flex: 1 1 calc(50% - 0.75rem);
   }
+}
+
+/* --- sprite icons ---
+   The kit supplies an outline sprite. Icons belong in icon-only utility controls and
+   beside contact or social labels, never inside a text button. */
+
+.menu-toggle-icon,
+.dialog-close svg,
+.carousel-icon-button svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+}
+
+.carousel-icon-button {
+  display: inline-flex;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  color: inherit;
+  background: none;
+  cursor: pointer;
+  transition: color var(--tp-motion-fast) ease, border-color var(--tp-motion-fast) ease;
+}
+
+.dialog-close svg {
+  display: block;
+  fill: currentColor;
+  stroke: none;
 }

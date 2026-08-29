@@ -8,9 +8,9 @@ import virtuosoMark from '../assets/images/memberships/virtuoso-member.png';
 import orientExpress from '../assets/images/journal/orient-express.webp';
 
 const values = [
-  { n: '01', title: 'Recognition', body: 'Your preferences can travel ahead of you, helping partner hotels create a more personal welcome.' },
-  { n: '02', title: 'Added value', body: 'Selected bookings may include benefits such as breakfast, credits, upgrades or flexible check-in.' },
-  { n: '03', title: 'Local access', body: 'Trusted destination specialists bring context, contacts and first-hand knowledge on the ground.' },
+  { title: 'Recognition', body: 'Your preferences can travel ahead of you, helping partner hotels create a more personal welcome.' },
+  { title: 'Added value', body: 'Selected bookings may include benefits such as breakfast, credits, upgrades or flexible check-in.' },
+  { title: 'Local access', body: 'Trusted destination specialists bring context, contacts and first-hand knowledge on the ground.' },
 ];
 ---
 
@@ -23,8 +23,7 @@ const values = [
     <section class="page-hero dark-hero">
       <div class="shell narrow-hero">
         <Image class="hero-partner-logo" src={virtuosoMark} alt="Virtuoso member" width={376} densities={[1, 2]} loading="eager" />
-        <p class="section-label">A world-leading travel network</p>
-        <h1>Connections that<br /><em>make travel richer.</em></h1>
+        <h1>Connections that<br class="hero-break" /><span class="hero-accent">make travel richer.</span></h1>
         <p>Virtuoso brings together leading travel advisors and carefully selected partners across the world.</p>
       </div>
     </section>
@@ -32,7 +31,6 @@ const values = [
     <section class="section">
       <div class="shell editorial-grid">
         <div>
-          <p class="section-label section-label-red">Why it matters</p>
           <h2>More than a booking.</h2>
         </div>
         <div class="long-copy">
@@ -51,7 +49,7 @@ const values = [
     <section class="section value-band">
       <div class="shell value-grid">
         {values.map((value) => (
-          <article><span>{value.n}</span><h3>{value.title}</h3><p>{value.body}</p></article>
+          <article><h3>{value.title}</h3><p>{value.body}</p></article>
         ))}
       </div>
     </section>
@@ -61,7 +59,6 @@ const values = [
         <Image src={orientExpress} alt="An elegant journey through Europe"
           widths={[480, 960]} sizes="(max-width: 900px) 92vw, 46vw" loading="lazy" />
         <div>
-          <p class="section-label section-label-red">Global reach, local care</p>
           <h2>The network is global. Your advisor is still right here.</h2>
           <p>
             We bring the relationships of an international network together with the continuity of a
@@ -69,12 +66,12 @@ const values = [
           </p>
           <a class="button button-blue" href="/contact/">Plan with us</a>
           <a class="text-link secondary-link" href={site.virtuoso.profileUrl} target="_blank" rel="noreferrer">
-            View our Virtuoso profile <span aria-hidden="true">↗</span>
-          </a>
+            View our Virtuoso profile
+         </a>
         </div>
       </div>
     </section>
 
-    <ClosingCta label="A better way to travel" />
+    <ClosingCta />
   </main>
 </BaseLayout>
