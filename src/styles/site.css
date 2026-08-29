@@ -330,7 +330,9 @@ p {
   position: absolute;
   inset: 0 0 2.5rem;
   overflow: hidden;
-  border-radius: 12px 12px 0 12px;
+  /* Square. Photographic imagery is uncorniced across the site, matching the
+     full-bleed carousel, team panorama and article hero. See DESIGN.md. */
+  border-radius: 0;
 }
 
 .hero-photo {
@@ -569,7 +571,7 @@ p {
 .founder-visual > img {
   width: 100%;
   height: min(690px, 125vw);
-  border-radius: 12px 12px 0 0;
+  border-radius: 0;
   object-fit: cover;
   object-position: center 25%;
 }

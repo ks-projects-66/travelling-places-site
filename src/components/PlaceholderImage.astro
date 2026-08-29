@@ -7,17 +7,15 @@
 interface Props {
   label: string;
   ratio?: '4/5' | '16/9' | '1/1' | '3/2';
-  bleed?: boolean;
   class?: string;
 }
 
-const { label, ratio = '4/5', bleed = false, class: className = '' } = Astro.props;
+const { label, ratio = '4/5', class: className = '' } = Astro.props;
 ---
 
 <div
   class:list={['placeholder-image', className]}
   style={`aspect-ratio: ${ratio};`}
-  data-bleed={String(bleed)}
   data-placeholder
   role="img"
   aria-label={`Placeholder: ${label}`}

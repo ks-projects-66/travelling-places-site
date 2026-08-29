@@ -42,9 +42,10 @@ belongs in content instead.
 `PRODUCT.md` and `DESIGN.md` are the brief for the `impeccable` skill, which is what built the
 original visual system. Keep both at root; the brand kit's sync map expects `DESIGN.md` there.
 
-The design is approved and built. Use the refinement path, not redesign. There is one open
-conflict recorded at the end of `DESIGN.md`, between the current system and the Belmond imagery
-reference. Do not resolve it unilaterally.
+The design is approved and built. Use the refinement path, not redesign. The Belmond imagery
+reference is settled at the end of `DESIGN.md`: the look was adopted, the tile grid was refused
+because it fights the product brief. Do not reintroduce a card grid without arguing with that
+reasoning first.
 
 The brand voice is in `PRODUCT.md`: warm, assured, well-travelled, an experienced advisor
 welcoming someone into a calm local office. It is the brand's voice, not the repository owner's.
