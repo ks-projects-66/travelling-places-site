@@ -155,7 +155,11 @@ p {
   gap: clamp(1.1rem, 2.5vw, 2.4rem);
 }
 
-.site-nav > a,
+/* :not(.button) on the nav selector only. Without it this rule outranks .button-blue and
+   paints the call to action navy on blue: a contrast failure, and a colour pairing
+   BRAND.md forbids. It is deliberately not applied to .footer-links, which carries no
+   buttons and whose white colour is set further down at a matching specificity. */
+.site-nav > a:not(.button),
 .footer-links a {
   position: relative;
   color: var(--blue-deep);

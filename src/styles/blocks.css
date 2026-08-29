@@ -88,8 +88,9 @@
   color: var(--white);
 }
 
+.logo-placeholder span,
 .logo-placeholder span::before {
-  color: color-mix(in oklch, var(--white) 80%, var(--red));
+  color: var(--tp-white);
 }
 
 /* --- footer: newsletter --- */
@@ -245,4 +246,21 @@
   display: block;
   fill: currentColor;
   stroke: none;
+}
+
+/* .text-link is navy by default, which is invisible on the navy footer. The Virtuoso
+   profile link sits there, so it takes the white-on-navy pair the kit approves. */
+.footer-note .text-link {
+  color: var(--tp-white);
+}
+
+.footer-note .text-link:hover {
+  color: color-mix(in oklch, var(--tp-white) 82%, var(--tp-blue));
+}
+
+/* Placeholder markers on the navy footer. Red on navy is both a contrast failure and a
+   pairing BRAND.md forbids, so the marker takes white on navy instead. */
+.site-footer .placeholder-note {
+  color: var(--tp-white);
+  border-color: color-mix(in oklch, var(--tp-white) 55%, transparent);
 }
