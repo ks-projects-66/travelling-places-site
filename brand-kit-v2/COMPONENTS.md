@@ -1,0 +1,41 @@
+# Component implementation
+
+The visual reference is `index.html`. The reusable styles are in `styles/components.css`. Copy the matching partial from `components/`, then preserve its class names, semantic elements, labels, and states.
+
+## Buttons
+
+- `tp-button-primary`: white text on blue.
+- `tp-button-secondary`: navy text and border on white.
+- `tp-button-on-dark`: navy text on white.
+- `tp-button-outline-on-dark`: white text and border on navy.
+- Disabled controls use mist, muted ink, and a line-colour border.
+
+Do not place the secondary light-surface button on navy. Use an on-dark variant instead.
+
+## Navigation
+
+The desktop navigation uses familiar text links and one primary action. The mobile menu opens below the header. Preserve `aria-expanded`, `aria-controls`, visible focus, and Escape-to-close behaviour.
+
+## Footer
+
+Use the dark lockup. Keep navigation, contact, and social destinations in distinct groups. Social icons have visible text labels.
+
+## Enquiry form
+
+Use explicit labels and field-level errors. Never rely on placeholder text as the only label. The supplied example is front-end validation only. Connect it to an approved form service or server endpoint before production use.
+
+## Carousel
+
+Use the supplied control arrangement and state attributes. Carousel images should be full width with a balanced height. Do not place decorative numbers or labels over the image. Autoplay is six seconds and must be pausable.
+
+## Icons
+
+Reference the local sprite:
+
+```html
+<svg aria-hidden="true">
+  <use href="/brand-kit-v2/assets/icons/ui-icons.svg#icon-chevron-right"></use>
+</svg>
+```
+
+The approved interface set is menu, close, chevron left, chevron right, play, pause, phone, email, and location. Instagram and Facebook are the only approved social icons.

@@ -1,0 +1,46 @@
+:root {
+  --tp-white: #ffffff;
+  --tp-mist: #f1f2f6;
+  --tp-navy: #25335f;
+  --tp-blue: #3e55a0;
+  --tp-red: #d7333f;
+  --tp-ink: #272b38;
+  --tp-muted: #5c6274;
+  --tp-line: #d8dae4;
+
+  --tp-font-display: "Libre Baskerville", Baskerville, Georgia, serif;
+  --tp-font-body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+
+  --tp-type-display: clamp(2.5rem, 5vw, 4rem);
+  --tp-type-page-title: clamp(2.25rem, 4vw, 3rem);
+  --tp-type-section-title: clamp(1.875rem, 3.3vw, 2.5rem);
+  --tp-type-subsection-title: clamp(1.375rem, 2vw, 1.75rem);
+  --tp-type-menu-title: clamp(1.625rem, 2.2vw, 1.875rem);
+  --tp-type-lead: clamp(1.125rem, 1.4vw, 1.1875rem);
+  --tp-type-body: 1rem;
+  --tp-type-navigation: 0.875rem;
+  --tp-type-fine: 0.8125rem;
+
+  --tp-space-xs: 0.25rem;
+  --tp-space-sm: 0.5rem;
+  --tp-space-md: 0.75rem;
+  --tp-space-lg: 1rem;
+  --tp-space-xl: 1.5rem;
+  --tp-space-2xl: 2rem;
+  --tp-space-3xl: 3rem;
+  --tp-space-4xl: 4rem;
+  --tp-space-5xl: 5rem;
+  --tp-space-6xl: 6rem;
+  --tp-space-section: clamp(4.5rem, 9vw, 7.5rem);
+
+  --tp-content-max: 75rem;
+  --tp-reading-max: 45rem;
+  --tp-gutter: clamp(1.25rem, 4vw, 3rem);
+  --tp-control-min: 2.75rem;
+  --tp-button-height: 3rem;
+  --tp-radius-control: 0.125rem;
+
+  --tp-motion-fast: 160ms;
+  --tp-motion-standard: 220ms;
+  --tp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}

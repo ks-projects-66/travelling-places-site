@@ -1,0 +1,29 @@
+<form class="tp-form-grid" method="post" action="/api/enquiry" data-enquiry-form novalidate>
+  <div class="tp-field-group">
+    <label for="enquiry-name">Name</label>
+    <input class="tp-field" id="enquiry-name" name="name" autocomplete="name" required />
+    <p class="tp-field-error" id="enquiry-name-error" aria-live="polite"></p>
+  </div>
+  <div class="tp-field-group">
+    <label for="enquiry-email">Email</label>
+    <input class="tp-field" id="enquiry-email" name="email" type="email" autocomplete="email" required />
+    <p class="tp-field-error" id="enquiry-email-error" aria-live="polite"></p>
+  </div>
+  <div class="tp-field-group">
+    <label for="enquiry-phone">Phone</label>
+    <input class="tp-field" id="enquiry-phone" name="phone" type="tel" autocomplete="tel" />
+  </div>
+  <div class="tp-field-group">
+    <label for="enquiry-dates">Preferred travel dates</label>
+    <input class="tp-field" id="enquiry-dates" name="dates" placeholder="For example, September 2027" />
+  </div>
+  <div class="tp-field-group tp-form-wide">
+    <label for="enquiry-message">Tell us about your journey</label>
+    <textarea class="tp-field" id="enquiry-message" name="message" required></textarea>
+    <p class="tp-field-help">Destinations, travellers, celebrations, and anything else that matters.</p>
+    <p class="tp-field-error" id="enquiry-message-error" aria-live="polite"></p>
+  </div>
+  <div class="tp-form-wide">
+    <button class="tp-button tp-button-primary" type="submit">Send enquiry</button>
+  </div>
+</form>
