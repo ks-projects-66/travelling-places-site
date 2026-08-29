@@ -15,7 +15,7 @@ export default defineConfig({
         for (const file of ['AGENT-BRIEF.md', 'BRAND.md', 'COMPONENTS.md', 'QA.md', 'README.md', 'SOURCES.md', 'brand.tokens.json']) {
           cpSync(resolve(brandSource, file), resolve(brandOutput, file));
         }
-        for (const directory of ['assets', 'components', 'fonts', 'licenses', 'scripts', 'styles']) {
+        for (const directory of ['assets', 'components', 'fonts', 'licenses', 'qa', 'scripts', 'styles']) {
           cpSync(resolve(brandSource, directory), resolve(brandOutput, directory), { recursive: true });
         }
       },
