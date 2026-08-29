@@ -53,16 +53,15 @@
 
 .page-hero h1,
 .article-header h1 {
-  max-width: 15ch;
+  max-width: 24ch;
   margin-bottom: 1.8rem;
   color: var(--blue-deep);
-  font-size: clamp(3.5rem, 7.5vw, 7rem);
+  font-size: var(--tp-type-display);
 }
 
-.page-hero h1 em,
-.article-header h1 em {
+.page-hero h1 .hero-accent,
+.article-header h1 .hero-accent {
   color: var(--red);
-  font-style: normal;
 }
 
 .page-hero .narrow-hero > p:last-child {
@@ -82,7 +81,7 @@
   color: var(--white);
 }
 
-.dark-hero h1 em {
+.dark-hero h1 .hero-accent {
   color: color-mix(in oklch, var(--white) 76%, var(--red));
 }
 
@@ -140,8 +139,8 @@
 
 .carousel-slide::after {
   position: absolute;
-  inset: 36% 0 0;
-  background: linear-gradient(transparent, color-mix(in oklch, var(--blue-deep) 78%, transparent));
+  inset: 0;
+  background: linear-gradient(0deg, rgb(17 23 43 / 80%) 0%, rgb(17 23 43 / 38%) 42%, transparent 72%);
   content: "";
 }
 
@@ -162,10 +161,10 @@
   z-index: 2;
   bottom: clamp(2rem, 6vw, 5rem);
   left: max(var(--gutter), calc((100vw - var(--shell)) / 2));
-  max-width: 650px;
+  right: var(--gutter);
+  max-width: 30rem;
 }
 
-.carousel-caption span,
 .story-meta,
 .role {
   color: var(--red);
@@ -176,10 +175,11 @@
 }
 
 .carousel-caption h3 {
-  max-width: 18ch;
-  margin: 0.65rem 0 0;
-  color: var(--white);
-  font-size: clamp(2rem, 5vw, 4.6rem);
+  max-width: 24ch;
+  margin: 0;
+  color: var(--tp-white);
+  font-size: var(--tp-type-section-title);
+  text-wrap: balance;
 }
 
 .carousel-controls {
@@ -197,7 +197,7 @@
 }
 
 .carousel-dots button {
-  width: 36px;
+  width: 44px;
   height: 44px;
   padding: 0;
   border: 0;
@@ -278,7 +278,7 @@
 .teaser-story h3 {
   margin-bottom: 1.25rem;
   color: var(--blue-deep);
-  font-size: clamp(2rem, 3.8vw, 3.4rem);
+  font-size: var(--tp-type-section-title);
 }
 
 .teaser-story p:not(.story-meta) {
@@ -328,13 +328,14 @@
 
 .service-grid {
   display: grid;
-  grid-template-columns: 70px minmax(0, 0.9fr) minmax(300px, 0.7fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.7fr);
   align-items: start;
   gap: clamp(2rem, 6vw, 6rem);
 }
 
-.service-index {
-  color: var(--red);
+.service-tagline {
+  margin: 0.5rem 0 0;
+  color: var(--ink-muted);
   font-weight: 600;
 }
 
@@ -407,16 +408,10 @@
   border-left: 1px solid color-mix(in oklch, var(--white) 17%, transparent);
 }
 
-.value-grid article > span {
-  color: var(--red);
-  font-size: 0.78rem;
-  font-weight: 600;
-}
-
 .value-grid h3 {
   margin-top: 4rem;
   color: var(--white);
-  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-size: var(--tp-type-subsection-title);
 }
 
 .value-grid p {
@@ -499,7 +494,7 @@
 
 .roster-list h3 {
   color: var(--blue-deep);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-size: var(--tp-type-subsection-title);
 }
 
 .roster-list article > p {
@@ -529,7 +524,7 @@
 
 .featured-article-grid h2 {
   color: var(--blue-deep);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: var(--tp-type-section-title);
 }
 
 .featured-article-grid p:not(.story-meta) {
@@ -598,7 +593,7 @@
   max-width: 24ch;
   margin-bottom: 1rem;
   color: var(--blue-deep);
-  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  font-size: var(--tp-type-subsection-title);
 }
 
 .empty-state {
@@ -684,7 +679,7 @@
 .article-prose h2 {
   margin-top: 3.5rem;
   color: var(--blue-deep);
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: var(--tp-type-section-title);
 }
 
 .dropcap::first-letter {
@@ -739,7 +734,7 @@
 .contact-sidebar h2,
 .contact-form-wrap h2 {
   color: var(--blue-deep);
-  font-size: clamp(2.5rem, 5vw, 4.3rem);
+  font-size: var(--tp-type-section-title);
 }
 
 .contact-sidebar address {
@@ -784,7 +779,7 @@
   background: var(--white);
 }
 
-.contact-form-wrap > p:not(.section-label) {
+.contact-form-wrap > p {
   color: var(--ink-muted);
 }
 
@@ -850,7 +845,7 @@
 
 @media (max-width: 940px) {
   .site-nav > a {
-    font-size: clamp(1.8rem, 7vw, 3.2rem);
+    font-size: var(--tp-type-menu-title);
   }
 
   .carousel-heading,
@@ -894,11 +889,6 @@
   .page-hero {
     min-height: 560px;
     padding-top: 8rem;
-  }
-
-  .page-hero h1,
-  .article-header h1 {
-    font-size: clamp(3rem, 14vw, 4.8rem);
   }
 
   .carousel-heading {

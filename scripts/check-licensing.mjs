@@ -15,10 +15,11 @@ import { join, relative } from 'node:path';
 
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const MANIFEST = join(ROOT, 'src/assets/images/MANIFEST.md');
-const SEARCH_ROOT = join(ROOT, 'src');
+// The kit publishes with the site, so it is gated too.
+const SEARCH_ROOTS = [join(ROOT, 'src'), join(ROOT, 'brand-kit-v2')];
 
 const SKIP_DIRS = new Set(['node_modules', 'dist', '.astro', '.git']);
-const TEXT_EXT = /\.(astro|ts|tsx|js|mjs|json|md|css)$/;
+const TEXT_EXT = /\.(astro|ts|tsx|js|mjs|json|md|css|html)$/;
 
 async function walk(dir) {
   const out = [];
@@ -54,16 +55,20 @@ if (manifest.length === 0) {
   process.exit(1);
 }
 
-const files = await walk(SEARCH_ROOT);
+const files = (await Promise.all(SEARCH_ROOTS.map(walk))).flat();
 const contents = new Map();
 for (const file of files) contents.set(file, await readFile(file, 'utf8'));
 
 const violations = [];
 for (const { file } of unlicensed) {
-  const basename = file.split('/').pop();
+  // Match on path, never on bare filename. The kit vendors copies of three
+  // destination photographs under the same basenames, and a loose match reports
+  // every reference twice, against the wrong row.
+  const candidates = [file];
+  if (file.startsWith('brand-kit-v2/')) candidates.push(file.slice('brand-kit-v2/'.length));
   for (const [path, text] of contents) {
-    if (path.endsWith('MANIFEST.md')) continue;
-    if (text.includes(file) || text.includes(basename)) {
+    if (path.endsWith('MANIFEST.md') || path.endsWith('SOURCES.md')) continue;
+    if (candidates.some((candidate) => text.includes(candidate))) {
       violations.push({ image: file, referencedBy: relative(ROOT, path).replace(/\\/g, '/') });
     }
   }

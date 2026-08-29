@@ -66,11 +66,11 @@ h3 {
 
 h2 {
   margin-bottom: 1.5rem;
-  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  font-size: var(--tp-type-section-title);
 }
 
 h3 {
-  font-size: clamp(1.4rem, 2.1vw, 2rem);
+  font-size: var(--tp-type-subsection-title);
 }
 
 p {
@@ -82,9 +82,15 @@ p {
   background: var(--blue);
 }
 
+@media (max-width: 700px) {
+  .hero-break {
+    display: none;
+  }
+}
+
 :focus-visible {
   outline: 3px solid var(--red);
-  outline-offset: 4px;
+  outline-offset: 3px;
 }
 
 .skip-link {
@@ -135,13 +141,12 @@ p {
 }
 
 .brand {
-  width: clamp(180px, 22vw, 265px);
+  width: clamp(220px, 22vw, 265px);
 }
 
 .brand img,
 .footer-brand img {
   width: 100%;
-  mix-blend-mode: multiply;
 }
 
 .site-nav {
@@ -181,18 +186,23 @@ p {
 
 .menu-toggle {
   display: none;
+  min-width: var(--tp-control-min);
+  min-height: var(--tp-control-min);
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   border: 0;
   background: transparent;
 }
 
 .button {
   display: inline-flex;
-  min-height: 52px;
+  min-height: var(--tp-button-height);
   align-items: center;
   justify-content: center;
-  padding: 0.85rem 1.5rem;
-  border: 0;
-  border-radius: 999px;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid transparent;
+  border-radius: var(--tp-radius-button);
   font-weight: 600;
   line-height: 1;
   text-decoration: none;
@@ -224,9 +234,9 @@ p {
 }
 
 .button-small {
-  min-height: 42px;
-  padding-inline: 1.15rem;
-  font-size: 0.88rem;
+  min-height: var(--tp-control-min);
+  padding-inline: 1.5rem;
+  font-size: var(--tp-type-navigation);
 }
 
 .text-link {
@@ -274,7 +284,7 @@ p {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.88fr) minmax(360px, 1.12fr);
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
   align-items: center;
   gap: clamp(3rem, 7vw, 7rem);
 }
@@ -284,25 +294,22 @@ p {
   animation: hero-copy 900ms var(--ease) both;
 }
 
-.hero-kicker {
-  max-width: 32rem;
-  margin-bottom: 1.6rem;
-  color: var(--blue);
-  font-size: 0.88rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
+.hero-since {
+  max-width: 36rem;
+  margin: 2rem 0 0;
+  color: var(--ink-muted);
+  font-size: var(--tp-type-fine);
 }
 
 .hero h1 {
   margin-bottom: 1.75rem;
   color: var(--blue-deep);
-  font-size: clamp(3.35rem, 7vw, 6rem);
+  font-size: var(--tp-type-display);
 }
 
-.hero h1 em {
+.hero h1 .hero-accent {
   color: var(--red);
   font-weight: inherit;
-  font-style: normal;
 }
 
 .hero-lede {
@@ -401,20 +408,18 @@ p {
 }
 
 .intro-copy > p,
-.section-label,
 .partners-title {
   margin-bottom: 1.25rem;
   color: var(--blue);
-  font-size: 0.82rem;
+  font-size: var(--tp-type-fine);
   font-weight: 600;
-  letter-spacing: 0.05em;
 }
 
 .intro-copy h2 {
   max-width: 15ch;
   margin-bottom: 0;
   color: var(--blue-deep);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-size: var(--tp-type-section-title);
 }
 
 .intro-detail {
@@ -456,7 +461,7 @@ p {
 
 .expertise-row {
   display: grid;
-  grid-template-columns: 60px minmax(220px, 0.8fr) minmax(280px, 1.2fr) 40px;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(280px, 1.2fr) 40px;
   align-items: center;
   gap: 1.5rem;
   min-height: 142px;
@@ -470,12 +475,6 @@ p {
   color: var(--blue);
 }
 
-.expertise-number {
-  color: var(--red);
-  font-size: 0.82rem;
-  font-weight: 600;
-}
-
 .expertise-row h3,
 .expertise-row p {
   margin: 0;
@@ -487,8 +486,9 @@ p {
 }
 
 .row-arrow {
+  width: 22px;
+  height: 22px;
   color: var(--red);
-  font-size: 1.4rem;
 }
 
 .virtuoso {
@@ -507,7 +507,7 @@ p {
   max-width: 12ch;
 }
 
-.virtuoso-copy > p:not(.section-label) {
+.virtuoso-copy > p {
   max-width: 41rem;
   color: color-mix(in oklch, var(--white) 78%, var(--blue));
   font-size: 1.12rem;
@@ -596,10 +596,6 @@ p {
   font-size: 0.84rem;
 }
 
-.section-label-red {
-  color: var(--red);
-}
-
 .about-copy h2 {
   max-width: 12ch;
   color: var(--blue-deep);
@@ -611,7 +607,7 @@ p {
   font-size: 1.25rem;
 }
 
-.about-copy > p:not(.section-label):not(.about-lead) {
+.about-copy > p:not(.about-lead) {
   max-width: 43rem;
   color: var(--ink-muted);
 }
@@ -763,8 +759,6 @@ blockquote {
 
 .footer-brand {
   display: block;
-  padding: 0.55rem;
-  background: var(--white);
 }
 
 .footer-main p {
@@ -836,7 +830,7 @@ blockquote {
 .dialog-content h2 {
   margin-bottom: 1rem;
   color: var(--blue-deep);
-  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-size: var(--tp-type-section-title);
 }
 
 .dialog-content > p {
@@ -865,10 +859,12 @@ blockquote {
 .enquiry-form input,
 .enquiry-form textarea {
   width: 100%;
+  min-height: 48px;
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: var(--tp-radius-control);
   padding: 0.8rem 0.9rem;
   color: var(--ink);
+  font-size: 1rem;
   background: var(--white);
 }
 
@@ -965,7 +961,7 @@ blockquote {
 
   .site-nav > a {
     font-family: var(--display);
-    font-size: clamp(2rem, 9vw, 3.6rem);
+    font-size: var(--tp-type-menu-title);
     font-weight: 400;
   }
 
@@ -1039,10 +1035,6 @@ blockquote {
 
   .brand {
     width: 175px;
-  }
-
-  .hero h1 {
-    font-size: clamp(3.1rem, 15vw, 4.6rem);
   }
 
   .hero-actions {

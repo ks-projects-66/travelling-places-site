@@ -20,9 +20,9 @@ const gina = await getEntry('team', 'gina-storey');
 const featured = (await getCollection('journal', ({ data }) => data.featured && !data.draft))[0];
 
 const slides = [
-  { src: mediterranean, alt: 'An elegant Mediterranean journey at golden hour', index: '01', place: 'The Mediterranean', headline: 'Grand journeys, taken at your own pace.' },
-  { src: antarctica, alt: 'A wide Antarctic landscape of ice, sea and distant mountains', index: '02', place: 'Antarctica', headline: 'The far south, closer than you imagine.' },
-  { src: cruise, alt: 'A chef preparing a refined dining experience aboard a cruise ship', index: '03', place: 'Life at sea', headline: 'Every day considered, down to dinner.' },
+  { src: mediterranean, alt: 'An elegant Mediterranean journey at golden hour', place: 'The Mediterranean', headline: 'Grand journeys, taken at your own pace.' },
+  { src: antarctica, alt: 'A wide Antarctic landscape of ice, sea and distant mountains', place: 'Antarctica', headline: 'The far south, closer than you imagine.' },
+  { src: cruise, alt: 'A chef preparing a refined dining experience aboard a cruise ship', place: 'Life at sea', headline: 'Every day considered, down to dinner.' },
 ];
 
 const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -33,16 +33,16 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
     <section class="hero" id="top">
       <div class="shell hero-grid">
         <div class="hero-copy">
-          <p class="hero-kicker">Personally planned on {site.address.locality} since {site.founded}</p>
-          <h1>Your world,<br /><em>beautifully planned.</em></h1>
+          <h1>Your world,<br class="hero-break" /><span class="hero-accent">beautifully planned.</span></h1>
           <p class="hero-lede">
             Thoughtful journeys, rare experiences and every detail looked after by people who know
             travel, and take the time to know you.
           </p>
           <div class="hero-actions">
             <a class="button button-blue" href="/contact/">Start planning</a>
-            <a class="text-link" href="/expertise/">Explore our expertise <span aria-hidden="true">↘</span></a>
+            <a class="text-link" href="/expertise/">Explore our expertise</a>
           </div>
+          <p class="hero-since">Personally planned on {site.address.locality} since {site.founded}.</p>
         </div>
         <div class="hero-visual">
           <div class="hero-photo-wrap">
@@ -69,7 +69,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
             From a quick escape to a three-month journey, {site.name} brings together more than 100
             years of collective industry experience to get the details right.
           </p>
-          <a class="text-link" href="/who-we-are/">Meet Gina and the team <span aria-hidden="true">↘</span></a>
+          <a class="text-link" href="/who-we-are/">Meet Gina and the team</a>
         </div>
       </div>
     </section>
@@ -79,7 +79,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
     <section class="section expertise-preview">
       <div class="shell">
         <div class="section-heading split-heading">
-          <h2>Journeys shaped<br />around you.</h2>
+          <h2>Journeys shaped<br class="hero-break" />around you.</h2>
           <p>
             Every traveller is different. We bring first-hand knowledge and careful judgement to the
             way you want to explore.
@@ -88,11 +88,12 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
         <div class="expertise-list">
           {services.map((service) => (
             <a class="expertise-row" href={`/expertise/#${service.data.anchor}`}>
-              <span class="expertise-number">{String(service.data.order).padStart(2, '0')}</span>
               <h3>{service.data.label}</h3>
               <p>{service.data.summary}</p>
-              <span class="row-arrow" aria-hidden="true">↗</span>
-            </a>
+              <svg class="row-arrow" aria-hidden="true" focusable="false">
+                <use href="/brand-kit-v2/assets/icons/ui-icons.svg#icon-chevron-right"></use>
+              </svg>
+           </a>
           ))}
         </div>
       </div>
@@ -101,7 +102,6 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
     <section class="section home-virtuoso">
       <div class="shell virtuoso-grid">
         <div class="virtuoso-copy">
-          <p class="section-label">By invitation</p>
           <h2>More doors open with the right connections.</h2>
           <p>
             Our Virtuoso membership connects you with leading hotels, cruise lines, destination
@@ -125,7 +125,6 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
             <div class="founder-caption"><strong>{gina.data.name}</strong><span>{gina.data.role}</span></div>
           </div>
           <div class="about-copy">
-            <p class="section-label section-label-red">From London to the Mountain</p>
             <h2>A travel company built on curiosity and care.</h2>
             <p class="about-lead">
               Gina brought her industry experience from England to {site.address.locality} and founded
@@ -139,7 +138,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
               Our focus is on you, ensuring we offer the very best arrangements to fulfil your travel
               dreams.
             </blockquote>
-            <a class="text-link" href="/who-we-are/">Meet the whole team <span aria-hidden="true">↘</span></a>
+            <a class="text-link" href="/who-we-are/">Meet the whole team</a>
           </div>
         </div>
       </section>
@@ -150,8 +149,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
         <div class="shell">
           <div class="section-heading split-heading">
             <div>
-              <p class="section-label section-label-red">The journal</p>
-              <h2>Notes from<br />the road.</h2>
+              <h2>Notes from<br class="hero-break" />the road.</h2>
             </div>
             <p>
               A fortnightly collection of practical advice, new discoveries and first-hand travel
@@ -165,7 +163,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
               <p class="story-meta">{featured.data.category} · {dateFormat.format(featured.data.date)}</p>
               <h3>{featured.data.title}</h3>
               <p>{featured.data.standfirst}</p>
-              <a class="text-link" href={`/journal/${featured.id}/`}>Read the story <span aria-hidden="true">↘</span></a>
+              <a class="text-link" href={`/journal/${featured.id}/`}>Read the story</a>
             </div>
           </div>
           <a class="button button-outline" href="/journal/">View the journal</a>

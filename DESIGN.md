@@ -4,30 +4,32 @@
 
 A bright, image-led travel brand site with the welcoming poise of a long-established local advisor. White space carries the page; Travelling Places blue provides structure and confidence; the logo red appears in small, decisive accents.
 
-## Colour
+## What this file governs
 
-- Brand blue: `oklch(48% 0.14 264)`
-- Deep blue: `oklch(31% 0.10 264)`
-- Brand red: `oklch(62% 0.22 23)`
-- Ink: `oklch(25% 0.025 264)`
-- Muted ink: `oklch(46% 0.025 264)`
-- Cool mist: `oklch(96.5% 0.008 264)`
-- White: `oklch(100% 0 0)`
+Since brand kit v2.1.0, `brand-kit-v2/` is canonical for **tokens, type scale, colour and
+controls**. This file governs **layout and imagery** and does not restate values the kit owns.
+Where the two disagree, the kit wins on values and this file wins on layout and imagery.
 
-## Typography
+Values live in one place: `src/styles/tokens.css` imports the kit's tokens and aliases them onto
+the site's variable names, so a kit release propagates without edits here.
 
-- Display and headings: Baskerville / Libre Baskerville, matching the serif character of the wordmark.
-- Body and interface: IBM Plex Sans with system sans-serif fallbacks.
-- Large headings use balanced line wrapping and restrained tracking.
+| Looking for | Read |
+|---|---|
+| Colour, type scale, spacing, shape, motion | `brand-kit-v2/styles/tokens.css` and `brand.tokens.json` |
+| Logo rules, contrast pairs, button and form specification | `brand-kit-v2/BRAND.md` |
+| Layout, imagery direction, the Belmond ruling | This file |
 
 ## Layout
 
-- Maximum content width: 1200px.
+- Maximum content width: 1200px, matching the kit's `--tp-content-max`.
 - Responsive gutters: 20px to 48px.
-- Generous vertical section rhythm: 80px to 144px.
-- Photographic imagery is square-cornered and uncorniced; buttons use a full pill shape.
+- Vertical section rhythm follows the kit's `--tp-space-section`, 72px to 120px.
+- Photographic imagery is square-cornered and uncorniced. Fields are square-cornered.
+  Text buttons use the full pill radius, per v2.1.0.
 - No card grids; information is organised with open columns and ruled lists. This is a
   deliberate departure from the imagery reference and is explained below.
+- No eyebrow headings, no decorative numbering, no diagonal arrows. Section openings are the
+  heading itself.
 
 ## Imagery
 
@@ -84,3 +86,27 @@ one element of the reference that fights the product rather than the design file
 
 So Expertise keeps its numbered ruled rows and the Journal keeps its horizontal article list. If a
 future brief asks for a grid, this is the reasoning it has to argue with.
+
+## Known residual: hero line count at 375px
+
+`BRAND.md` requires hero headings to hold to two lines at 375, 768, 1280 and 1440px. At 1280 and
+1440 every hero holds. At 375px four do not, and the cause is arithmetic rather than styling.
+
+The kit floors display type at 34px. With 20px gutters a 375px screen leaves 335px of measure,
+which fits about 18 characters per line at that size. A hero therefore has a budget of roughly
+**36 characters, with no single word group longer than 18**. Four headings exceed it:
+
+| Page | Characters | Lines at 375px |
+|---|---|---|
+| Home | 31, but "beautifully planned." is 20 | 3 |
+| Expertise | 42 | 3 |
+| Virtuoso | 35 | 3 |
+| Who we are | 43 | 3 |
+| Contact | 39 | 3 |
+
+`BRAND.md` offers three remedies. Widening the measure is already exhausted at 375px, and
+reducing the size below 34px would leave the token range. That leaves shortening the copy, which
+is an editorial decision rather than a styling one. The headings are unchanged pending that call.
+
+The article page also runs to three lines at every width, but its title is placeholder text from
+the design mock-up and is replaced when Sienna's approved article arrives.

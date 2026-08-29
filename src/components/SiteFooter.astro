@@ -19,7 +19,7 @@ const unresolvedIdentifiers = Object.values(site.identifiers).filter((i) => i.st
 
 <footer class="site-footer">
   <div class="shell footer-memberships">
-    <p class="section-label">Accredited and connected</p>
+    <h2 class="footer-heading">Accredited and connected</h2>
     <ul class="logo-wall" aria-label="Industry memberships and accreditations">
       {memberships.map((m) => {
         const img = markFor(m.image);
@@ -28,14 +28,14 @@ const unresolvedIdentifiers = Object.values(site.identifiers).filter((i) => i.st
             {m.url
               ? <a href={m.url} target="_blank" rel="noreferrer" aria-label={`${m.name} (opens in a new tab)`}>
                   <Image src={img} alt={m.alt} height={56} densities={[1, 2]} loading="lazy" />
-                </a>
+               </a>
               : <Image src={img} alt={m.alt} height={56} densities={[1, 2]} loading="lazy" />}
           </li>
         );
       })}
     </ul>
 
-    <p class="section-label">Travel partners</p>
+    <h2 class="footer-heading">Travel partners</h2>
     <ul class="logo-wall logo-wall-partners" aria-label="Travel partners">
       {partners.map((p) => (
         <li><PlaceholderImage label={p.name} ratio="3/2" class="logo-placeholder" /></li>
@@ -49,8 +49,8 @@ const unresolvedIdentifiers = Object.values(site.identifiers).filter((i) => i.st
 
   <div class="shell footer-main">
     <a class="footer-brand" href="/" aria-label={`${site.name} home`}>
-      <img src="/images/brand/logo-full-inverse.svg" width="997" height="463" alt={site.name} loading="lazy" />
-    </a>
+      <img src="/brand-kit-v2/assets/logos/lockup-dark.svg" width="958" height="360" alt={site.name} loading="lazy" />
+   </a>
     <div class="footer-note">
       <p>Personal travel planning from {site.address.locality}.</p>
       <address>
@@ -58,16 +58,16 @@ const unresolvedIdentifiers = Object.values(site.identifiers).filter((i) => i.st
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </address>
       <a class="text-link secondary-link" href={site.virtuoso.profileUrl} target="_blank" rel="noreferrer">
-        Our Virtuoso profile <span aria-hidden="true">↗</span>
-      </a>
+        Our Virtuoso profile
+     </a>
     </div>
     <div class="footer-nav-wrap">
       <nav class="footer-links" aria-label="Footer navigation">
         {nav.footer.map((item) => <a href={item.href}>{item.label}</a>)}
       </nav>
       <nav class="social-links" aria-label="Social media">
-        <a href={site.socials.instagram.url} target="_blank" rel="noreferrer">Instagram <span aria-hidden="true">↗</span></a>
-        <a href={site.socials.facebook.url} target="_blank" rel="noreferrer">Facebook <span aria-hidden="true">↗</span></a>
+        <a href={site.socials.instagram.url} target="_blank" rel="noreferrer">Instagram</a>
+        <a href={site.socials.facebook.url} target="_blank" rel="noreferrer">Facebook</a>
       </nav>
     </div>
   </div>

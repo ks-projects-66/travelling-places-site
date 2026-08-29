@@ -70,6 +70,18 @@ development, and they are blocked from production by `pnpm check:licensing`.
 | `journal/amsterdam.webp` | Amsterdam canal houses | Saved from virtuoso.com | unlicensed | none | Journal archive |
 | `journal/orient-express.webp` | European rail journey | Saved from virtuoso.com | unlicensed | none | Journal archive, Virtuoso |
 
+## Brand kit reference imagery
+
+`brand-kit-v2/` vendors three of the destination photographs to demonstrate its carousel.
+`brand-kit-v2/SOURCES.md` records that they hold no production licence. The kit page publishes
+with the site, so these copies are gated here rather than trusted to a note.
+
+| File | Subject | Source | Status | Approved by | Used on |
+|---|---|---|---|---|---|
+| `brand-kit-v2/assets/images/mediterranean.webp` | Mediterranean coastline | Saved from virtuoso.com | unlicensed | none | Brand kit carousel demo |
+| `brand-kit-v2/assets/images/antarctica.webp` | Antarctic ice and mountains | Saved from virtuoso.com | unlicensed | none | Brand kit carousel demo |
+| `brand-kit-v2/assets/images/cruise.webp` | Dining aboard a cruise ship | Saved from virtuoso.com | unlicensed | none | Brand kit carousel demo |
+
 ## Partners
 
 | File | Subject | Source | Status | Approved by | Used on |

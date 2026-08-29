@@ -18,8 +18,7 @@ const rendered = await Promise.all(
   <main id="main">
     <section class="page-hero">
       <div class="shell narrow-hero">
-        <p class="section-label section-label-red">Our expertise</p>
-        <h1>Travel is personal.<br /><em>Planning should be too.</em></h1>
+        <h1>Travel is personal.<br class="hero-break" /><span class="hero-accent">Planning should be too.</span></h1>
         <p>We begin with how you want to feel, then bring together the right route, pace, people and places.</p>
       </div>
     </section>
@@ -27,10 +26,9 @@ const rendered = await Promise.all(
     {rendered.map(({ data, Body }, i) => (
       <section class:list={['service-detail', 'section', i % 2 === 1 && 'alt']} id={data.anchor}>
         <div class="shell service-grid">
-          <div class="service-index">{String(data.order).padStart(2, '0')}</div>
           <div>
-            <p class="section-label">{data.label}</p>
-            <h2>{data.title}</h2>
+            <h2>{data.label}</h2>
+            <p class="service-tagline">{data.title}</p>
           </div>
           <div class="service-copy">
             <Body />
@@ -42,6 +40,6 @@ const rendered = await Promise.all(
       </section>
     ))}
 
-    <ClosingCta label="Your next chapter" />
+    <ClosingCta />
   </main>
 </BaseLayout>

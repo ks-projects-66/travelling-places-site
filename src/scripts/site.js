@@ -148,11 +148,17 @@ if (carousel) {
   const stop = () => window.clearInterval(timer);
   const start = () => {
     stop();
-    if (!paused && !document.hidden) timer = window.setInterval(() => showSlide(index + 1), 5200);
+    if (!paused && !document.hidden) timer = window.setInterval(() => showSlide(index + 1), 6000);
   };
+  const playIcon = playButton.querySelector('use');
   const setPaused = (value) => {
     paused = value;
-    playButton.textContent = paused ? 'Play' : 'Pause';
+    // The control is icon-only, so swap the sprite symbol rather than the text content,
+    // which would delete the SVG.
+    playIcon?.setAttribute(
+      'href',
+      `/brand-kit-v2/assets/icons/ui-icons.svg#icon-${paused ? 'play' : 'pause'}`,
+    );
     playButton.setAttribute('aria-label', paused ? 'Play carousel' : 'Pause carousel');
     playButton.setAttribute('aria-pressed', String(paused));
     start();
