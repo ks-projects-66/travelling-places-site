@@ -1,0 +1,16 @@
+{
+  "primary": [
+    { "key": "home", "label": "Home", "href": "/" },
+    { "key": "expertise", "label": "Expertise", "href": "/expertise/" },
+    { "key": "virtuoso", "label": "Virtuoso", "href": "/virtuoso/" },
+    { "key": "team", "label": "Who we are", "href": "/who-we-are/" },
+    { "key": "journal", "label": "Journal", "href": "/journal/" }
+  ],
+  "footer": [
+    { "label": "Expertise", "href": "/expertise/" },
+    { "label": "Who we are", "href": "/who-we-are/" },
+    { "label": "Journal", "href": "/journal/" },
+    { "label": "Contact", "href": "/contact/" },
+    { "label": "Privacy", "href": "/privacy/" }
+  ]
+}

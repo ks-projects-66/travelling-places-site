@@ -1,0 +1,69 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import site from '../data/site.json';
+
+/**
+ * PLACEHOLDER PAGE. This is a scaffold, not a privacy policy.
+ *
+ * A privacy policy is a legal document and is not drafted here. What follows is the list
+ * of matters the real policy has to cover, so whoever writes it can see the scope. The
+ * page is deliberately marked so it cannot be mistaken for a published policy.
+ *
+ * Australian Privacy Principles apply to the enquiry data collected through this site.
+ * Third parties currently in scope: Web3Forms (form delivery), Calendly (booking),
+ * Genesys Marketing (newsletter), Cloudflare (hosting and analytics).
+ */
+
+const mustCover = [
+  'What personal information is collected through the enquiry form, the Calendly booking and the newsletter subscription.',
+  'Why each category is collected and what it is used for.',
+  'Which third parties receive it, named individually, and where they store it.',
+  'Whether any information is disclosed overseas, and to which countries.',
+  'How long information is retained, and how it is destroyed.',
+  'How someone requests access to, or correction of, their information.',
+  'How a privacy complaint is made and who handles it.',
+  'Contact details for privacy enquiries.',
+];
+---
+
+<BaseLayout
+  title={`Privacy policy | ${site.name}`}
+  description="Privacy policy for Travelling Places."
+  page="privacy"
+>
+  <main id="main">
+    <section class="page-hero">
+      <div class="shell narrow-hero">
+        <p class="section-label section-label-red">Legal</p>
+        <h1>Privacy policy</h1>
+        <p class="placeholder-note" data-placeholder>
+          TODO: this page is a scaffold. No policy has been written or approved.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="shell editorial-grid">
+        <div>
+          <p class="section-label section-label-red">Not yet drafted</p>
+          <h2>What the policy has to cover.</h2>
+        </div>
+        <div class="long-copy">
+          <p>
+            {site.name} collects personal information through this website, so the Australian Privacy
+            Principles apply. A policy has not been drafted. This page lists what it needs to address
+            so the scope is visible, and it must be replaced with approved text before launch.
+          </p>
+          <ul class="tick-list">
+            {mustCover.map((item) => <li>{item}</li>)}
+          </ul>
+          <p>
+            Third parties currently in scope: Web3Forms for enquiry delivery, Calendly for bookings,
+            Genesys Marketing for the newsletter, and Cloudflare for hosting and analytics. Each has
+            to be named in the policy.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

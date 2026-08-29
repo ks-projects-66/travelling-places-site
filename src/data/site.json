@@ -1,0 +1,43 @@
+{
+  "name": "Travelling Places",
+  "tagline": "Personal travel, beautifully planned",
+  "description": "Personal travel planning from Tamborine Mountain. Cruises, expeditions and tailor-made journeys by Travelling Places.",
+  "founded": 1993,
+  "phone": "07 5545 1600",
+  "phoneLink": "tel:+61755451600",
+  "email": "travel@travellingplaces.com.au",
+  "address": {
+    "street": "24 Main Street",
+    "locality": "Tamborine Mountain",
+    "region": "QLD",
+    "postcode": "4272",
+    "country": "AU",
+    "mapUrl": "https://maps.google.com/?q=24+Main+Street+Tamborine+Mountain+QLD+4272"
+  },
+  "openingHours": {
+    "value": "TODO: confirm trading hours with Gina",
+    "status": "placeholder"
+  },
+  "socials": {
+    "instagram": {
+      "url": "https://www.instagram.com/travellingplaces/",
+      "status": "unconfirmed",
+      "note": "Guessed handle carried over from the first draft. Verify before launch."
+    },
+    "facebook": {
+      "url": "https://www.facebook.com/travellingplaces",
+      "status": "unconfirmed",
+      "note": "Guessed handle carried over from the first draft. Verify before launch."
+    }
+  },
+  "virtuoso": {
+    "profileUrl": "https://www.virtuoso.com/member/travelli34092",
+    "status": "confirmed",
+    "note": "Co-branded Virtuoso member profile. Renders the agency name client-side. Link out, never iframe."
+  },
+  "identifiers": {
+    "abn": { "value": "TODO: ABN", "status": "placeholder" },
+    "atiaAccreditation": { "value": "TODO: ATIA accreditation number", "status": "placeholder" },
+    "cliaMembership": { "value": "TODO: CLIA membership number", "status": "placeholder" }
+  }
+}

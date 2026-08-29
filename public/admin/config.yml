@@ -1,0 +1,183 @@
+# Sveltia CMS configuration.
+#
+# Staff edit at /admin/. Every save is a commit to this repository, which triggers a
+# Cloudflare Pages rebuild. No database, no licence, no monthly cost.
+#
+# BEFORE THIS WORKS, two things must exist. Neither has been done, because both create
+# accounts in the business's name. See docs/DEPLOY.md, "Content management".
+#   1. A GitHub OAuth app, with its callback pointing at the auth worker below.
+#   2. The sveltia-cms-auth Cloudflare Worker deployed, holding that app's client secret.
+# Replace base_url with the worker's address once it is live.
+
+backend:
+  name: github
+  repo: ks-projects-66/travelling-places-site
+  branch: main
+  base_url: https://TODO-auth-worker.workers.dev
+  commit_messages:
+    create: 'Add {{collection}} "{{slug}}"'
+    update: 'Update {{collection}} "{{slug}}"'
+    delete: 'Delete {{collection}} "{{slug}}"'
+    uploadMedia: 'Add image "{{path}}"'
+    deleteMedia: 'Delete image "{{path}}"'
+
+# Editors upload into the journal folder. Everything else is developer-managed, because
+# team portraits and membership marks carry approval and licensing rules that a CMS
+# upload box cannot enforce. See src/assets/images/MANIFEST.md.
+media_folder: src/assets/images/journal
+public_folder: /src/assets/images/journal
+
+publish_mode: simple
+site_url: https://travellingplaces.com.au
+logo_url: /images/brand/logo-mark.svg
+
+collections:
+  - name: journal
+    label: Journal
+    label_singular: Article
+    folder: src/content/journal
+    create: true
+    slug: '{{slug}}'
+    preview_path: journal/{{slug}}
+    sortable_fields: [date, title]
+    summary: '{{title}} — {{year}}-{{month}}-{{day}}'
+    fields:
+      - { name: title, label: Headline, widget: string }
+      - name: standfirst
+        label: Standfirst
+        widget: text
+        hint: One or two sentences. Appears under the headline and in listings.
+      - name: category
+        label: Category
+        widget: select
+        options: [Expedition travel, River cruising, Ocean cruising, Touring, Luxury travel, Travel planning, Our story]
+      - { name: date, label: Date, widget: datetime, date_format: 'DD MMMM YYYY', time_format: false, picker_utc: false }
+      - { name: author, label: Written by, widget: string, default: Travelling Places }
+      - { name: authorRole, label: Author's role, widget: string, required: false }
+      - { name: readingTime, label: Reading time, widget: string, required: false, hint: 'For example: 5 min read' }
+      - name: cover
+        label: Cover image
+        widget: image
+        hint: Landscape works best. 16:9 is the house ratio for journal images.
+      - { name: coverAlt, label: Cover image description, widget: string, hint: Describe the photograph for someone who cannot see it. }
+      - { name: featured, label: Feature at the top of the journal, widget: boolean, default: false }
+      - name: externalUrl
+        label: Link to an article on another site
+        widget: string
+        required: false
+        hint: Leave empty to write the article here. Fill it in to link out instead.
+      - { name: draft, label: Draft (hidden from the live site), widget: boolean, default: false }
+      - { name: body, label: Article, widget: markdown }
+
+  - name: team
+    label: Team
+    label_singular: Team member
+    folder: src/content/team
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: name, label: Name, widget: string }
+      - { name: role, label: Job title, widget: string }
+      - { name: order, label: Order on the page, widget: number, value_type: int, min: 1 }
+      - { name: founder, label: Founder, widget: boolean, default: false }
+      - { name: portrait, label: Portrait, widget: image, required: false }
+      - { name: portraitAlt, label: Portrait description, widget: string, required: false }
+      - name: approved
+        label: Title and bio approved by this person
+        widget: boolean
+        default: false
+        hint: Leave off until they have read and approved it. A warning shows on the site while this is off.
+      - { name: body, label: Biography, widget: markdown }
+
+  - name: services
+    label: Expertise
+    label_singular: Service
+    folder: src/content/services
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { name: label, label: Service name, widget: string }
+      - { name: title, label: Headline, widget: string }
+      - { name: summary, label: One-line summary, widget: string, hint: Used on the home page list. }
+      - { name: order, label: Order, widget: number, value_type: int, min: 1 }
+      - { name: anchor, label: Anchor, widget: string, hint: 'Lowercase, no spaces. Forms the link, e.g. cruising.' }
+      - { name: points, label: What we cover, widget: list, field: { name: point, label: Point, widget: string } }
+      - { name: body, label: Description, widget: markdown }
+
+  - name: settings
+    label: Site settings
+    files:
+      - name: site
+        label: Contact details and identifiers
+        file: src/data/site.json
+        fields:
+          - { name: name, label: Business name, widget: string }
+          - { name: tagline, label: Tagline, widget: string }
+          - { name: description, label: Search description, widget: text }
+          - { name: founded, label: Year founded, widget: number, value_type: int }
+          - { name: phone, label: Phone (display), widget: string }
+          - { name: phoneLink, label: Phone (link), widget: string, hint: 'Format: tel:+61755451600' }
+          - { name: email, label: Email, widget: string }
+          - name: address
+            label: Address
+            widget: object
+            fields:
+              - { name: street, label: Street, widget: string }
+              - { name: locality, label: Suburb, widget: string }
+              - { name: region, label: State, widget: string }
+              - { name: postcode, label: Postcode, widget: string }
+              - { name: country, label: Country code, widget: string }
+              - { name: mapUrl, label: Google Maps link, widget: string }
+          - name: openingHours
+            label: Trading hours
+            widget: object
+            fields:
+              - { name: value, label: Hours, widget: string }
+              - { name: status, label: Status, widget: select, options: [confirmed, placeholder] }
+          - name: socials
+            label: Social profiles
+            widget: object
+            fields:
+              - name: instagram
+                label: Instagram
+                widget: object
+                fields:
+                  - { name: url, label: URL, widget: string }
+                  - { name: status, label: Status, widget: select, options: [confirmed, unconfirmed] }
+                  - { name: note, label: Note, widget: text, required: false }
+              - name: facebook
+                label: Facebook
+                widget: object
+                fields:
+                  - { name: url, label: URL, widget: string }
+                  - { name: status, label: Status, widget: select, options: [confirmed, unconfirmed] }
+                  - { name: note, label: Note, widget: text, required: false }
+          - name: virtuoso
+            label: Virtuoso profile
+            widget: object
+            fields:
+              - { name: profileUrl, label: Profile URL, widget: string }
+              - { name: status, label: Status, widget: select, options: [confirmed, unconfirmed] }
+              - { name: note, label: Note, widget: text, required: false }
+          - name: identifiers
+            label: Business identifiers
+            widget: object
+            fields:
+              - name: abn
+                label: ABN
+                widget: object
+                fields:
+                  - { name: value, label: Value, widget: string }
+                  - { name: status, label: Status, widget: select, options: [confirmed, placeholder] }
+              - name: atiaAccreditation
+                label: ATIA accreditation number
+                widget: object
+                fields:
+                  - { name: value, label: Value, widget: string }
+                  - { name: status, label: Status, widget: select, options: [confirmed, placeholder] }
+              - name: cliaMembership
+                label: CLIA membership number
+                widget: object
+                fields:
+                  - { name: value, label: Value, widget: string }
+                  - { name: status, label: Status, widget: select, options: [confirmed, placeholder] }

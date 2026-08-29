@@ -1,0 +1,55 @@
+---
+import type { GetStaticPaths } from 'astro';
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ClosingCta from '../../components/ClosingCta.astro';
+import site from '../../data/site.json';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // Archive entries that live on someone else's site link out instead of getting a page here.
+  const posts = await getCollection('journal', ({ data }) => !data.draft && !data.externalUrl);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+};
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
+const meta = [post.data.category, dateFormat.format(post.data.date), post.data.readingTime]
+  .filter(Boolean)
+  .join(' · ');
+---
+
+<BaseLayout title={`${post.data.title} | ${site.name}`} description={post.data.standfirst} page="article">
+  <main id="main">
+    <article class="article-page">
+      <header class="article-header">
+        <div class="shell article-header-inner">
+          <a class="back-link" href="/journal/">← Back to the journal</a>
+          <p class="story-meta">{meta}</p>
+          <h1>{post.data.title}</h1>
+          <p class="article-standfirst">{post.data.standfirst}</p>
+        </div>
+      </header>
+
+      <div class="article-hero-image">
+        <Image src={post.data.cover} alt={post.data.coverAlt}
+          widths={[768, 1280, 1920]} sizes="100vw" loading="eager" />
+      </div>
+
+      <div class="article-body shell">
+        <aside>
+          <p>Written by</p>
+          <strong>{post.data.author}</strong>
+          {post.data.authorRole && <span>{post.data.authorRole}</span>}
+        </aside>
+        <div class="article-prose">
+          <Content />
+        </div>
+      </div>
+    </article>
+
+    <ClosingCta label="Thinking about an expedition?" />
+  </main>
+</BaseLayout>

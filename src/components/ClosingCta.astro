@@ -1,0 +1,17 @@
+---
+interface Props { label?: string }
+const { label = 'Ready when you are' } = Astro.props;
+---
+
+<section class="section closing-cta">
+  <div class="shell closing-grid">
+    <div>
+      <p class="section-label section-label-red">{label}</p>
+      <h2>Let's make it worth travelling for.</h2>
+    </div>
+    <div>
+      <p>Bring us an idea, a date, or simply the feeling you want from your next journey. We'll help with the rest.</p>
+      <a class="button button-blue" href="/contact/">Start planning</a>
+    </div>
+  </div>
+</section>

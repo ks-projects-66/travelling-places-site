@@ -1,0 +1,112 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import site from '../data/site.json';
+
+import teamOffice from '../assets/images/team/team-office.jpg';
+import ginaPortrait from '../assets/images/team/gina-storey.webp';
+
+const team = (await getCollection('team')).sort((a, b) => a.data.order - b.data.order);
+const founder = team.find((member) => member.data.founder);
+const advisors = await Promise.all(
+  team
+    .filter((member) => !member.data.founder)
+    .map(async (member) => ({ ...member, Body: (await render(member)).Content })),
+);
+const FounderBody = founder ? (await render(founder)).Content : null;
+
+const values = [
+  { n: '01', title: 'We listen first.', body: 'Your preferences matter more than the package everyone else is booking.' },
+  { n: '02', title: 'We tell it straight.', body: 'Honest, experienced advice helps you spend time and money where it counts.' },
+  { n: '03', title: 'We stay with you.', body: 'One connected team knows the plan before, during and after your journey.' },
+];
+---
+
+<BaseLayout
+  title={`Who we are | ${site.name}`}
+  description="Meet the Travelling Places team: five advisors on Tamborine Mountain with more than 100 years of collective travel experience."
+  page="team"
+>
+  <main id="main">
+    <section class="page-hero">
+      <div class="shell narrow-hero">
+        <p class="section-label section-label-red">Who we are</p>
+        <h1>People who know travel.<br /><em>People who know you.</em></h1>
+        <p>
+          Five advisors, a shared curiosity about the world, and a remarkably long memory for the
+          details our clients care about.
+        </p>
+      </div>
+    </section>
+
+    <section class="team-panorama">
+      <Image src={teamOffice} alt="The Travelling Places team in their Tamborine Mountain office"
+        widths={[768, 1280, 1920]} sizes="100vw" loading="eager" />
+    </section>
+
+    <section class="section">
+      <div class="shell editorial-grid">
+        <div>
+          <p class="section-label section-label-red">Our story</p>
+          <h2>On the Mountain since {site.founded}.</h2>
+        </div>
+        <div class="long-copy">
+          <p>
+            Gina Storey founded {site.name} after building her travel career in England and bringing
+            that experience to {site.address.locality}.
+          </p>
+          <p>
+            The business grew through personal recommendations and lasting relationships. Today,
+            clients visit {site.address.street}, plan by phone, or stay connected from across
+            Australia and overseas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section team-roster">
+      <div class="shell">
+        {founder && FounderBody && (
+          <div class="roster-feature">
+            <div class="founder-visual">
+              <Image src={ginaPortrait} alt={founder.data.portraitAlt ?? founder.data.name}
+                widths={[400, 800]} sizes="(max-width: 900px) 80vw, 38vw" loading="lazy" />
+            </div>
+            <div>
+              <p class="section-label section-label-red">{founder.data.role}</p>
+              <h2>{founder.data.name}</h2>
+              <FounderBody />
+            </div>
+          </div>
+        )}
+
+        <div class="roster-list">
+          {advisors.map(({ data, Body }) => (
+            <article>
+              <div>
+                <p class="role">{data.role}</p>
+                <h3>{data.name}</h3>
+              </div>
+              <Body />
+              {!data.approved && (
+                <p class="placeholder-note" data-placeholder>TODO: title and bio not yet approved</p>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section team-values">
+      <div class="shell value-grid">
+        {values.map((value) => (
+          <article><span>{value.n}</span><h3>{value.title}</h3><p>{value.body}</p></article>
+        ))}
+      </div>
+    </section>
+
+    <ClosingCta label="Come and meet us" />
+  </main>
+</BaseLayout>

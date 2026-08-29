@@ -1,0 +1,16 @@
+:root {
+  --blue: oklch(48% 0.14 264);
+  --blue-deep: oklch(31% 0.10 264);
+  --red: oklch(62% 0.22 23);
+  --ink: oklch(25% 0.025 264);
+  --ink-muted: oklch(46% 0.025 264);
+  --mist: oklch(96.5% 0.008 264);
+  --line: oklch(88% 0.012 264);
+  --white: oklch(100% 0 0);
+  --display: "Libre Baskerville", Baskerville, "Baskerville Old Face", Georgia, serif;
+  --sans: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
+  --shell: 1200px;
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --section: clamp(5rem, 10vw, 9rem);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}

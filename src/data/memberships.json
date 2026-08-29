@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Virtuoso",
+    "image": "virtuoso-member.png",
+    "alt": "Virtuoso member",
+    "url": "https://www.virtuoso.com/member/travelli34092",
+    "status": "supplied",
+    "note": "Vector master available as PDF in FW_ Logos. Convert to SVG before launch."
+  },
+  {
+    "name": "ATIA",
+    "image": "atia.jpg",
+    "alt": "ATIA accredited",
+    "url": "https://www.atia.travel/",
+    "status": "supplied",
+    "note": "ATIA sets rules for how the accredited mark may be displayed. Confirm compliance."
+  },
+  {
+    "name": "CLIA",
+    "image": "clia.png",
+    "alt": "CLIA member",
+    "url": "https://www.cruising.org.au/",
+    "status": "supplied",
+    "note": "Vector master available as PDF in FW_ Logos. Convert to SVG before launch."
+  },
+  {
+    "name": "Alatus",
+    "image": "alatus.jpg",
+    "alt": "Alatus",
+    "url": null,
+    "status": "supplied",
+    "note": "Destination URL not confirmed. Renders unlinked until it is."
+  }
+]

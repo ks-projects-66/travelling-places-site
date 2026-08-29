@@ -1,0 +1,47 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ClosingCta from '../components/ClosingCta.astro';
+import site from '../data/site.json';
+
+const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
+const rendered = await Promise.all(
+  services.map(async (service) => ({ ...service, Body: (await render(service)).Content })),
+);
+---
+
+<BaseLayout
+  title={`Our expertise | ${site.name}`}
+  description="Ocean and river cruising, expedition journeys, luxury travel and tailor-made itineraries, planned personally from Tamborine Mountain."
+  page="expertise"
+>
+  <main id="main">
+    <section class="page-hero">
+      <div class="shell narrow-hero">
+        <p class="section-label section-label-red">Our expertise</p>
+        <h1>Travel is personal.<br /><em>Planning should be too.</em></h1>
+        <p>We begin with how you want to feel, then bring together the right route, pace, people and places.</p>
+      </div>
+    </section>
+
+    {rendered.map(({ data, Body }, i) => (
+      <section class:list={['service-detail', 'section', i % 2 === 1 && 'alt']} id={data.anchor}>
+        <div class="shell service-grid">
+          <div class="service-index">{String(data.order).padStart(2, '0')}</div>
+          <div>
+            <p class="section-label">{data.label}</p>
+            <h2>{data.title}</h2>
+          </div>
+          <div class="service-copy">
+            <Body />
+            <ul class="tick-list">
+              {data.points.map((point) => <li>{point}</li>)}
+            </ul>
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <ClosingCta label="Your next chapter" />
+  </main>
+</BaseLayout>

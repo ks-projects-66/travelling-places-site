@@ -1,13 +1,19 @@
 {
-  "name": "travelling-places-first-draft",
+  "name": "travelling-places-site",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
+  "type": "module",
   "scripts": {
-    "dev": "vite --host 127.0.0.1",
-    "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1"
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check",
+    "check:licensing": "node scripts/check-licensing.mjs",
+    "check:placeholders": "node scripts/check-placeholders.mjs"
   },
-  "devDependencies": {
-    "vite": "^7.0.0"
+  "dependencies": {
+    "astro": "^5.16.0",
+    "@astrojs/sitemap": "^3.7.0",
+    "sharp": "^0.34.5"
   }
 }
