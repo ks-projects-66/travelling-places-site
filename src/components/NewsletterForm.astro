@@ -1,0 +1,41 @@
+---
+/**
+ * Genesys Marketing newsletter subscription.
+ *
+ * The embed snippet has not been supplied. Karim holds a Client ID and a Form ID,
+ * but Genesys publish no public documentation for how those are used, and their site
+ * did not resolve during research. Until the real snippet is confirmed this renders a
+ * styled, clearly-marked stand-in that submits nowhere.
+ *
+ * See docs/INTEGRATIONS.md, "Genesys", for what to ask them.
+ */
+const clientId = import.meta.env.PUBLIC_GENESYS_CLIENT_ID;
+const formId = import.meta.env.PUBLIC_GENESYS_FORM_ID;
+const configured = Boolean(clientId && formId);
+---
+
+<div class="newsletter">
+  <div class="newsletter-copy">
+    <p class="section-label section-label-red">The journal, by email</p>
+    <h2>Notes from the road, every fortnight.</h2>
+  </div>
+
+  {configured ? (
+    <form class="newsletter-form" data-genesys-client={clientId} data-genesys-form={formId}>
+      <label>
+        <span class="visually-hidden">Email address</span>
+        <input type="email" name="email" autocomplete="email" required placeholder="Your email address" />
+      </label>
+      <button class="button button-blue" type="submit">Subscribe</button>
+    </form>
+  ) : (
+    <div class="newsletter-form is-placeholder" data-placeholder>
+      <label>
+        <span class="visually-hidden">Email address</span>
+        <input type="email" name="email" placeholder="Your email address" disabled />
+      </label>
+      <button class="button button-blue" type="button" disabled>Subscribe</button>
+      <p class="placeholder-note">TODO: Genesys subscribe embed not yet supplied</p>
+    </div>
+  )}
+</div>

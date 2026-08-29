@@ -1,0 +1,69 @@
+---
+/**
+ * Enquiry form.
+ *
+ * Posts to Web3Forms when PUBLIC_WEB3FORMS_KEY is set (free tier, 250/month,
+ * delivered straight to the Microsoft 365 inbox). Without a key it falls back to
+ * preparing a mailto: draft, which is what the first draft did, so the form is never
+ * a dead end during development.
+ */
+import site from '../data/site.json';
+
+interface Props { context?: 'contact' | 'dialog' }
+const { context = 'contact' } = Astro.props;
+
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+const mode = web3formsKey ? 'web3forms' : 'mailto';
+---
+
+<form
+  class:list={['enquiry-form', context === 'contact' && 'contact-form']}
+  data-enquiry-form
+  data-mode={mode}
+  data-mailto={site.email}
+  novalidate
+>
+  {mode === 'web3forms' && <input type="hidden" name="access_key" value={web3formsKey} />}
+  {mode === 'web3forms' && <input type="hidden" name="subject" value="Travel enquiry from the website" />}
+  <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+  <label>
+    <span>Your name *</span>
+    <input type="text" name="name" autocomplete="name" required aria-describedby={`${context}-name-error`} />
+    <small class="field-error" id={`${context}-name-error`}></small>
+  </label>
+  <label>
+    <span>Email *</span>
+    <input type="email" name="email" autocomplete="email" required aria-describedby={`${context}-email-error`} />
+    <small class="field-error" id={`${context}-email-error`}></small>
+  </label>
+  <label>
+    <span>Phone</span>
+    <input type="tel" name="phone" autocomplete="tel" />
+  </label>
+  <label>
+    <span>When are you thinking?</span>
+    <input type="text" name="timing" placeholder="For example, September 2027" />
+  </label>
+  <label class="form-full">
+    <span>Who is travelling?</span>
+    <input type="text" name="party" placeholder="Number of adults and children, if relevant" />
+  </label>
+  <label class="form-full">
+    <span>Tell us about the journey *</span>
+    <textarea name="journey" rows="6" required aria-describedby={`${context}-journey-error`}
+      placeholder="Destinations, style of travel, celebrations, must-sees or anything else that matters to you…"></textarea>
+    <small class="field-error" id={`${context}-journey-error`}></small>
+  </label>
+  <div class="form-full form-submit-row">
+    <button class="button button-blue" type="submit">
+      {mode === 'web3forms' ? 'Send my enquiry' : 'Prepare my enquiry'}
+    </button>
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </div>
+  {mode === 'mailto' && (
+    <p class="form-full placeholder-note" data-placeholder>
+      TODO: Web3Forms key not set. Submissions open a mail draft instead of being delivered.
+    </p>
+  )}
+</form>

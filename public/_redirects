@@ -1,0 +1,9 @@
+# Legacy paths from the Vite first draft. The gh-pages build was never public, so this is
+# insurance rather than a real URL migration. Cloudflare Pages reads this file.
+/index.html              /                                     301
+/expertise.html          /expertise/                           301
+/virtuoso.html           /virtuoso/                            301
+/who-we-are.html         /who-we-are/                          301
+/journal.html            /journal/                             301
+/contact.html            /contact/                             301
+/article-antarctica.html /journal/looking-south-to-antarctica/  301

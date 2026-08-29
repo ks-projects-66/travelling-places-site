@@ -1,0 +1,29 @@
+---
+/**
+ * Calendly inline embed. Free plan allows one active event type and inline embedding.
+ * The URL lives in site data so it stays editable from the CMS.
+ */
+const url = import.meta.env.PUBLIC_CALENDLY_URL;
+---
+
+<div class="calendly-block">
+  <p class="section-label section-label-red">Prefer to talk it through?</p>
+  <h2>Book a discovery call.</h2>
+  <p>Fifteen minutes, no obligation. Pick a time that suits you.</p>
+
+  {url ? (
+    <>
+      <div class="calendly-inline-widget" data-url={`${url}?hide_gdpr_banner=1`} style="min-width:320px;height:700px;"></div>
+      <script is:inline async src="https://assets.calendly.com/assets/external/widget.js"></script>
+    </>
+  ) : (
+    <div class="calendly-placeholder" data-placeholder>
+      <p class="placeholder-note">TODO: Calendly account not yet created</p>
+      <p>
+        Create a free Calendly account under a business address, add one event type named
+        "Discovery call", then set <code>PUBLIC_CALENDLY_URL</code>. See docs/INTEGRATIONS.md.
+      </p>
+      <a class="button button-outline" href="/contact/#enquiry">Send an enquiry instead</a>
+    </div>
+  )}
+</div>

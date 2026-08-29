@@ -35,3 +35,40 @@ Use the supplied team and founder photography as the primary visual story. Keep 
 ## Motion
 
 Use one restrained first-load sequence and tactile hover/focus feedback. Respect `prefers-reduced-motion` and never hide content behind animation.
+
+## Imagery direction
+
+Reference: `belmond.com`. The visual system is what is being referenced, not the photographs.
+
+| Aspect | Specification |
+|---|---|
+| Primary ratio | 4:5 portrait for destination and feature cards |
+| Secondary ratio | 16:9 landscape for wider contextual scenes |
+| Grid thumbnails | 1:1 square |
+| Heroes | Full-bleed, edge to edge, no containing gutter |
+| Text over image | Heroes only. Cards place text beneath the image, never on it |
+| Overlays | Minimal darkening, and only where legibility demands it |
+| Captions | Never burned into the image. Descriptive text sits below as a separate element |
+| Grading | Warm and saturated, jewel tones, natural light |
+| Crop | Subject placed prominently rather than dead-centre |
+| Motion | Stills only. No video anywhere on the reference site |
+
+Every image needs a row in `src/assets/images/MANIFEST.md` before it is used.
+
+## Open decision: Belmond against the current system
+
+The imagery direction above conflicts with two rules set earlier in this file.
+
+| This file says | Belmond does |
+|---|---|
+| 12px image corners | Square corners, full-bleed |
+| "No decorative card grids" | Leans on grids for destination and property tiles |
+
+Both cannot hold. This has deliberately not been resolved: the incumbent look is approved and
+built, and redesigning it is a decision for the business, not a developer.
+
+The natural moment to settle it is when the brand kit lands, since that is the document that
+should govern. If Belmond stays pinned as the reference, this file is what changes, because a
+pinned reference is a brief and the brief wins.
+
+Until then the site renders in the approved style: 12px corners, open columns, ruled lists.

@@ -1,0 +1,27 @@
+---
+import nav from '../data/navigation.json';
+import site from '../data/site.json';
+
+interface Props { page?: string }
+const { page = 'home' } = Astro.props;
+const current = (key: string) => page === key || (page === 'article' && key === 'journal');
+---
+
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="site-header" data-header>
+  <div class="shell header-inner">
+    <a class="brand" href="/" aria-label={`${site.name} home`}>
+      <img src="/images/brand/logo-full.svg" width="997" height="463" alt={site.name} />
+    </a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+      <span class="menu-toggle-label">Menu</span>
+      <span class="menu-toggle-lines" aria-hidden="true"><i></i><i></i></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Primary navigation" data-nav>
+      {nav.primary.map((item) => (
+        <a href={item.href} aria-current={current(item.key) ? 'page' : undefined}>{item.label}</a>
+      ))}
+      <a class="button button-small button-blue" href="/contact/">Plan a journey</a>
+    </nav>
+  </div>
+</header>
