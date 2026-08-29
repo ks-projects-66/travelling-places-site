@@ -68,13 +68,19 @@ function assert(condition, message) {
     assert(pageErrors.length === 0, `${viewport.name}: page errors ${pageErrors.join(' | ')}`);
     assert(failedRequests.length === 0, `${viewport.name}: failed requests ${failedRequests.join(' | ')}`);
 
+    const pauseControl = page.locator('[data-carousel-pause]');
+    if (await pauseControl.getAttribute('aria-pressed') !== 'true') await pauseControl.click();
+    await page.locator('[data-carousel-dot="0"]').click();
+    await page.waitForTimeout(800);
+
+    await page.screenshot({ path: resolve(outputDir, `${viewport.name}.png`), fullPage: true });
+
     if (viewport.name === 'desktop') {
       const firstCaption = await page.locator('[data-slide].is-active h3').innerText();
       await page.locator('[data-carousel-next]').click();
       const nextCaption = await page.locator('[data-slide].is-active h3').innerText();
       assert(firstCaption !== nextCaption, 'desktop: carousel next control did not change slides');
-      await page.locator('[data-carousel-pause]').click();
-      assert(await page.locator('[data-carousel-pause]').getAttribute('aria-pressed') === 'true', 'desktop: carousel pause state did not update');
+      assert(await pauseControl.getAttribute('aria-pressed') === 'true', 'desktop: carousel pause state did not update');
     }
 
     if (viewport.name === 'mobile') {
@@ -84,8 +90,6 @@ function assert(condition, message) {
       await page.keyboard.press('Escape');
       assert(await page.locator('[data-menu-toggle]').getAttribute('aria-expanded') === 'false', 'mobile: menu did not close with Escape');
     }
-
-    await page.screenshot({ path: resolve(outputDir, `${viewport.name}.png`), fullPage: true });
 
     await page.locator('[data-demo-form] button[type="submit"]').click();
     assert(await page.locator('[data-demo-form] [aria-invalid="true"]').count() >= 3, `${viewport.name}: required-field validation did not run`);
