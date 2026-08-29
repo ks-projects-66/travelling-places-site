@@ -5,9 +5,14 @@
   "scripts": {
     "dev": "vite --host 127.0.0.1",
     "build": "vite build",
-    "preview": "vite preview --host 127.0.0.1"
+    "preview": "vite preview --host 127.0.0.1",
+    "brand:build": "node brand-kit-v2/scripts/run-build-assets.mjs",
+    "brand:check": "node brand-kit-v2/scripts/brand-check.mjs brand-kit-v2",
+    "brand:qa": "node brand-kit-v2/scripts/qa-browser.cjs",
+    "brand:report:site": "node brand-kit-v2/scripts/brand-check.mjs --report-only index.html expertise.html virtuoso.html who-we-are.html journal.html article-antarctica.html contact.html src"
   },
   "devDependencies": {
+    "playwright": "1.62.1",
     "vite": "^7.0.0"
   }
 }

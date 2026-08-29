@@ -22,6 +22,7 @@ export default defineConfig({
         journal: resolve(import.meta.dirname, 'journal.html'),
         article: resolve(import.meta.dirname, 'article-antarctica.html'),
         contact: resolve(import.meta.dirname, 'contact.html'),
+        brandKit: resolve(import.meta.dirname, 'brand-kit-v2/index.html'),
       },
     },
   },
