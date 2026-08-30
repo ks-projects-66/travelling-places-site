@@ -1,0 +1,75 @@
+---
+/**
+ * The full-bleed page hero. One photograph, edge to edge, with the title over it.
+ *
+ * This replaces the contained two-column and text-only heroes. DESIGN.md has always
+ * specified "Heroes: Full-bleed, edge to edge, no containing gutter"; the pages did not
+ * do it, which was the largest single gap against the imagery reference.
+ *
+ * Pages with no cleared photograph use tone="navy": the same full-bleed opening on the brand
+ * navy instead of an image. It reads as a finished design rather than a gap, and swapping in a
+ * licensed photograph later is a one-line prop change. See src/assets/images/MANIFEST.md for
+ * which pages are waiting on photography.
+ */
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  /** Cap the generated srcset when the source is smaller than the hero. See `widths` below. */
+  maxWidth?: number;
+  lead: string;
+  accent: string;
+  lede?: string;
+  image?: ImageMetadata;
+  alt?: string;
+  tone?: 'photo' | 'navy';
+  position?: string;
+  class?: string;
+}
+
+const {
+  maxWidth,
+  lead,
+  accent,
+  lede,
+  image,
+  alt = '',
+  tone = image ? 'photo' : 'navy',
+  position = 'center',
+  class: className = '',
+} = Astro.props;
+
+if (tone === 'photo' && !image) {
+  throw new Error('PageHero tone="photo" needs an image.');
+}
+
+/* Astro will not upscale past the source, so a photograph narrower than the hero silently loses
+   its larger candidates. `maxWidth` keeps every step below the source and then adds the source
+   width itself, so the largest candidate is the sharpest the file can actually give. */
+const HERO_WIDTHS = [768, 1280, 1920, 2560];
+const heroWidths = maxWidth
+  ? [...HERO_WIDTHS.filter((w) => w < maxWidth), maxWidth]
+  : HERO_WIDTHS;
+---
+
+<section class:list={['page-hero', `page-hero--${tone}`, className]}>
+  {image && (
+    <div class="page-hero-media">
+      <Image
+        src={image}
+        alt={alt}
+        widths={heroWidths}
+        sizes="100vw"
+        loading="eager"
+        style={`object-position: ${position};`}
+      />
+    </div>
+  )}
+
+  <div class="page-hero-inner shell">
+    <slot name="above" />
+    <h1><span class="hero-line">{lead}</span> <span class="hero-accent">{accent}</span></h1>
+    {lede && <p class="page-hero-lede">{lede}</p>}
+    <slot />
+  </div>
+</section>

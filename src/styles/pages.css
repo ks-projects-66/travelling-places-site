@@ -38,57 +38,106 @@
   color: var(--white);
 }
 
+/* Full-bleed hero. The photograph is the page opening; the container starts below it.
+   Height is viewport-relative so the image reads as a place rather than a banner, with a
+   ceiling so it does not become absurd on a tall monitor. */
 .page-hero {
+  position: relative;
   display: flex;
-  min-height: 660px;
   align-items: flex-end;
-  padding: clamp(10rem, 17vw, 14rem) 0 clamp(5rem, 9vw, 8rem);
-  border-bottom: 1px solid var(--line);
-  background: linear-gradient(145deg, var(--white) 0 67%, var(--mist) 67% 100%);
+  min-height: min(calc(88vh - var(--header-h)), 820px);
+  padding: clamp(5rem, 10vw, 8rem) 0 clamp(3rem, 6vw, 5rem);
+  isolation: isolate;
+  overflow: hidden;
 }
 
-.narrow-hero {
-  width: min(100% - (2 * var(--gutter)), 1000px);
+.page-hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+}
+
+.page-hero-media img,
+.page-hero-placeholder {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Scrim. Two stops only, weighted to the edges that carry text, so the photograph keeps
+   its own light. DESIGN.md: minimal darkening, and only where legibility demands it. */
+.page-hero--photo::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to bottom, oklch(20% 0.03 264 / 0.55) 0, transparent 26%),
+    linear-gradient(to top, oklch(18% 0.03 264 / 0.82) 0, oklch(18% 0.03 264 / 0.45) 55%, oklch(18% 0.03 264 / 0.28) 78%, transparent 100%);
+  content: "";
+  pointer-events: none;
+}
+
+.page-hero-inner {
+  position: relative;
 }
 
 .page-hero h1,
 .article-header h1 {
-  max-width: 24ch;
-  margin-bottom: 1.8rem;
+  max-width: 20ch;
+  margin-bottom: 1.5rem;
   color: var(--blue-deep);
   font-size: var(--tp-type-display);
 }
 
-.page-hero h1 .hero-accent,
-.article-header h1 .hero-accent {
-  color: var(--red);
-}
-
-.page-hero .narrow-hero > p:last-child {
-  max-width: 43rem;
+.page-hero-lede {
+  max-width: 40rem;
   margin: 0;
   color: var(--ink-muted);
   font-size: clamp(1.12rem, 1.8vw, 1.38rem);
 }
 
-.dark-hero {
+/* Both tones carry light text. Over a photograph the accent holds a tint of the brand red
+   rather than the full value, which vibrates against a busy image. On navy the full red is
+   too low-contrast, so it lightens the same way. */
+.page-hero--photo h1,
+.page-hero--photo .page-hero-lede,
+.page-hero--navy h1,
+.page-hero--navy .page-hero-lede {
   color: var(--white);
+}
+
+/* One colour per heading. The two-tone treatment split every hero title between white and a
+   red that had to be lightened to survive the photograph, which read as two competing
+   statements rather than one. The line break alone now carries the rhythm. */
+.page-hero h1 .hero-accent,
+.article-header h1 .hero-accent {
+  color: inherit;
+}
+
+.page-hero--navy .page-hero-lede {
+  color: color-mix(in oklch, var(--white) 78%, var(--blue));
+}
+
+/* The navy tone is the opening for a page whose photograph has not been cleared yet. It is a
+   finished design in its own right, not a gap: the same full-bleed height and type, on brand
+   navy. Passing an image switches it to tone="photo" with no other change. */
+.page-hero--navy {
+  min-height: min(62vh, 620px);
   background: var(--blue-deep);
 }
 
-.dark-hero h1,
-.dark-hero .narrow-hero > p:last-child {
-  color: var(--white);
-}
-
-.dark-hero h1 .hero-accent {
-  color: color-mix(in oklch, var(--white) 76%, var(--red));
+/* Utility pages (404, privacy) keep a contained opening. A full-viewport cinematic hero on an
+   error page or a policy page is noise, so this variant drops the height and the dark ground. */
+.page-hero--plain {
+  min-height: 0;
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 4.5rem);
+  border-bottom: 1px solid var(--line);
 }
 
 .hero-partner-logo {
-  width: min(300px, 65vw);
-  margin-bottom: 3rem;
-  padding: 1rem 1.3rem;
+  width: min(260px, 55vw);
+  margin-bottom: 2.5rem;
+  padding: 0.9rem 1.2rem;
   background: var(--white);
 }
 
@@ -165,9 +214,12 @@
   max-width: 30rem;
 }
 
+/* --red-text, not --red. At 0.78rem this is small text, and the brand red only reaches
+   4.13:1 on mist once the ground warmed in kit 2.2.0. See brand.tokens.json color.redText. */
 .story-meta,
-.role {
-  color: var(--red);
+.role,
+.roster-role {
+  color: var(--red-text);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -258,7 +310,6 @@
 
 .journal-teaser {
   border-top: 1px solid var(--line);
-  background: var(--white);
 }
 
 .teaser-story {
@@ -275,10 +326,12 @@
   object-fit: cover;
 }
 
+/* A card title sits a clear step below the section heading above it. At section-title
+   size the two competed, which is what flattened the homepage. */
 .teaser-story h3 {
   margin-bottom: 1.25rem;
   color: var(--blue-deep);
-  font-size: var(--tp-type-section-title);
+  font-size: var(--tp-type-subsection-title);
 }
 
 .teaser-story p:not(.story-meta) {
@@ -441,17 +494,6 @@
   margin-left: 1.25rem;
 }
 
-.team-panorama {
-  height: clamp(360px, 60vw, 760px);
-  overflow: hidden;
-}
-
-.team-panorama img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 42%;
-}
 
 .team-roster {
   background: var(--mist);
@@ -501,9 +543,6 @@
   color: var(--ink-muted);
 }
 
-.journal-hero {
-  background: linear-gradient(135deg, var(--white) 0 65%, color-mix(in oklch, var(--red) 7%, var(--white)) 65% 100%);
-}
 
 .featured-article {
   background: var(--mist);
@@ -602,7 +641,7 @@
 }
 
 .article-header {
-  padding: clamp(10rem, 16vw, 14rem) 0 clamp(4rem, 8vw, 7rem);
+  padding: clamp(4rem, 8vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
 }
 
 .article-header-inner {
@@ -711,9 +750,6 @@
   line-height: 1.6;
 }
 
-.contact-hero {
-  background: linear-gradient(145deg, var(--white) 0 68%, color-mix(in oklch, var(--blue) 8%, var(--white)) 68% 100%);
-}
 
 .contact-page {
   background: var(--mist);
@@ -793,7 +829,7 @@
 
 .field-error {
   min-height: 1.15rem;
-  color: var(--red);
+  color: var(--red-text);
   font-size: 0.78rem;
 }
 
@@ -815,7 +851,7 @@
 }
 
 .contact-photo {
-  background: var(--white);
+  background: var(--mist);
 }
 
 .contact-photo-grid > img {
@@ -886,9 +922,13 @@
 }
 
 @media (max-width: 680px) {
-  .page-hero {
-    min-height: 560px;
-    padding-top: 8rem;
+  .page-hero:not(.page-hero--plain) {
+    min-height: 520px;
+    padding-top: 4rem;
+  }
+
+  .page-hero--plain {
+    padding-top: 3rem;
   }
 
   .carousel-heading {
@@ -947,9 +987,6 @@
     margin: 1.25rem 0 0;
   }
 
-  .team-panorama {
-    height: 420px;
-  }
 
   .roster-feature .founder-visual img {
     height: 130vw;
@@ -960,7 +997,7 @@
   }
 
   .article-header {
-    padding-top: 8rem;
+    padding-top: 3rem;
   }
 
   .back-link {
@@ -992,5 +1029,103 @@
   .carousel-slide,
   .carousel-slide img {
     transition: none;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   Section rhythm
+
+   Every section used to share one padding value, which is what made the page read
+   as a metronome regardless of what each section was doing. Three bands instead of
+   one: list-led sections sit tight, prose keeps the standard, and the sections that
+   make a single statement are given room. Belmond's effect comes from this contrast
+   far more than from any individual value.
+   --------------------------------------------------------------------------- */
+
+.expertise-preview,
+.team-roster,
+.featured-article {
+  padding-block: clamp(3.5rem, 6vw, 4.5rem);
+}
+
+.closing-cta,
+.value-band,
+.team-values {
+  padding-block: clamp(6rem, 12vw, 10rem);
+}
+
+/* Contact ran three consecutive mist sections at one value and read as a single slab; the
+   enquiry block is the page's purpose, so it takes the open band and the two below it tighten. */
+.contact-page {
+  padding-block: clamp(6rem, 12vw, 10rem);
+}
+
+.contact-calendly,
+.contact-photo {
+  padding-block: clamp(3.5rem, 6vw, 4.5rem);
+}
+
+/* Expertise runs four service blocks. Tightening them lets the closing statement carry the page. */
+.service-detail {
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+/* ---------------------------------------------------------------------------
+   Container breaks
+
+   Two images leave the 1200px shell and run to the viewport edge on their outer
+   side. Nothing but the carousel did this before, so the page never varied its
+   width. `overflow-x: clip` on the root guarantees the negative margins cannot
+   introduce a horizontal scrollbar; `clip` rather than `hidden` so that sticky
+   positioning elsewhere keeps working.
+   --------------------------------------------------------------------------- */
+
+/* The 500px cap in site.css was sized for the contained layout. Left as-is it eats the bleed:
+   the image moves to the edge but does not grow, leaving a dead gap inside its own grid track. */
+.founder-visual {
+  margin-left: calc(-1 * max(var(--gutter), (100vw - var(--shell)) / 2));
+  max-width: calc(500px + max(var(--gutter), (100vw - var(--shell)) / 2));
+}
+
+.founder-visual > img {
+  max-width: none;
+}
+
+/* The journal teaser flips: copy on the left, image running off the right edge. The founder
+   block above it breaks left, so alternating the side is what stops two consecutive
+   full-bleed images reading as the same move twice. */
+.teaser-story {
+  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
+}
+
+.teaser-story > *:not(img) {
+  order: 1;
+}
+
+.teaser-story img {
+  order: 2;
+  width: calc(100% + max(var(--gutter), (100vw - var(--shell)) / 2));
+  max-width: none;
+}
+
+/* This block sits after the shared 940px collapse further up the file, so it has to restate
+   the single-column stack: at equal specificity the later rule wins regardless of the media
+   query. Reverting the flip here too, so the image goes back above the copy on a phone. */
+@media (max-width: 940px) {
+  .teaser-story {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-visual,
+  .teaser-story img {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .teaser-story img,
+  .teaser-story > *:not(img) {
+    order: initial;
   }
 }

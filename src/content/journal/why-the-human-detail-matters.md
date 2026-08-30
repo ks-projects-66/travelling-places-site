@@ -4,8 +4,8 @@ standfirst: On personal advice, trusted connections and planning journeys around
 category: Travel planning
 date: 2024-08-04
 author: Travelling Places
-cover: ../../assets/images/destinations/japan.webp
-coverAlt: A traditional Japanese landscape
+cover: ../../assets/images/destinations/japan-temple.jpg
+coverAlt: A traditional Japanese temple among bare winter trees
 externalUrl: https://tmnews.com.au/travelling-places-3/
 ---
 

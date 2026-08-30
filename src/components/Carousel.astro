@@ -21,7 +21,7 @@ const { slides } = Astro.props;
   <div class="carousel-viewport" aria-live="off">
     {slides.map((slide, i) => (
       <article class:list={['carousel-slide', i === 0 && 'is-active']} data-slide aria-hidden={i === 0 ? undefined : 'true'}>
-        <Image src={slide.src} alt={slide.alt} widths={[768, 1280, 1920]}
+        <Image src={slide.src} alt={slide.alt} widths={[768, 1280, 1920, 2560]}
           sizes="100vw" loading={i === 0 ? 'eager' : 'lazy'} />
         <div class="carousel-caption">
           <h3>{slide.headline}</h3>

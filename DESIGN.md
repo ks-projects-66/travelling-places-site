@@ -48,13 +48,14 @@ Reference: `belmond.com`. The visual system is what is being referenced, not the
 | Primary ratio | 4:5 portrait for destination and feature cards |
 | Secondary ratio | 16:9 landscape for wider contextual scenes |
 | Grid thumbnails | 1:1 square |
-| Heroes | Full-bleed, edge to edge, no containing gutter |
+| Heroes | Full-bleed, edge to edge, no containing gutter. Built 30 August 2026 as `PageHero.astro`, `min(85vh, 860px)` |
 | Text over image | Heroes only. Cards place text beneath the image, never on it |
 | Overlays | Minimal darkening, and only where legibility demands it |
 | Captions | Never burned into the image. Descriptive text sits below as a separate element |
 | Grading | Warm and saturated, jewel tones, natural light |
 | Crop | Subject placed prominently rather than dead-centre |
-| Motion | Stills only. No video anywhere on the reference site |
+| Panoramic | 2.46:1 for the home carousel. Verified against the built page on 29 August 2026 |
+| Motion | The reference site's hero is a **video loop**, not a still. Corrected 30 August 2026: the previous claim that it holds no video was wrong. This site remains stills-only by choice, not because the reference is |
 
 Every image needs a row in `src/assets/images/MANIFEST.md` before it is used.
 
@@ -96,13 +97,20 @@ The kit floors display type at 34px. With 20px gutters a 375px screen leaves 335
 which fits about 18 characters per line at that size. A hero therefore has a budget of roughly
 **36 characters, with no single word group longer than 18**. Four headings exceed it:
 
-| Page | Characters | Lines at 375px |
+Re-measured 30 August 2026 on the built output at 390px, after the line-break mechanism changed
+from a hidden `<br>` to `.hero-line`:
+
+| Page | Characters | Lines at 390px |
 |---|---|---|
-| Home | 31, but "beautifully planned." is 20 | 3 |
+| Home | 31, but "beautifully planned." is 20 | **2, resolved** |
 | Expertise | 42 | 3 |
-| Virtuoso | 35 | 3 |
+| Virtuoso | 35 | **2, resolved** |
 | Who we are | 43 | 3 |
 | Contact | 39 | 3 |
+| Journal | 27 | **2, resolved** |
+
+Three of the five resolved themselves when the hidden `<br>` was replaced. The remaining three are
+still an editorial call on the copy, not a styling one.
 
 `BRAND.md` offers three remedies. Widening the measure is already exhausted at 375px, and
 reducing the size below 34px would leave the token range. That leaves shortening the copy, which
@@ -110,3 +118,72 @@ is an editorial decision rather than a styling one. The headings are unchanged p
 
 The article page also runs to three lines at every width, but its title is placeholder text from
 the design mock-up and is replaced when Sienna's approved article arrives.
+
+
+## Hero tones, and which pages are waiting on photography
+
+Added 30 August 2026, when the full-bleed hero was finally built.
+
+`PageHero.astro` has two tones. `photo` is the intended state: one photograph, edge to edge, title
+over it under a two-stop scrim. `navy` is the same opening on `--tp-navy` with no image.
+
+The navy tone is not a placeholder. It is a finished design that a photograph replaces by passing
+one prop, which is exactly what happened on three pages when the licensed set arrived.
+
+Updated 30 August 2026, when the licensed imagery landed.
+
+| Page | Tone | Photograph | `object-position` |
+|---|---|---|---|
+| Home | photo | `team/team-outside.jpg`, owned | `center 22%` |
+| Who we are | photo | `team/team-office.jpg`, owned | `center 20%` |
+| Expertise | photo | `hero/expertise-mountain-lake.jpg` | `center 38%` |
+| Virtuoso | photo | `hero/virtuoso-island.jpg` | `center 42%` |
+| Contact | photo | `hero/contact-lookout.jpg` | `center 55%` |
+| Journal | navy | **awaiting**. The only page still on the navy tone | n/a |
+| Privacy, 404 | plain | none wanted. A cinematic opening on a policy or error page is noise | n/a |
+
+Crops are set per page with `object-position`, because both team photographs place faces near the
+top of the frame and an 85vh crop decapitates them at the default `center`. Home sits at
+`center 22%`, Who we are at `center 20%`. Any replacement photograph needs its own value checked at
+1440px **and** 390px, since the crop ratio runs from about 0.54:1 to 2.98:1.
+
+## Section rhythm
+
+Every section shared one padding value until 30 August 2026, which is what made the page read as a
+metronome. Three bands now:
+
+| Band | Value at 1440px | Used by |
+|---|---|---|
+| Tight | 72px | `expertise-preview`, `team-roster`, `featured-article` |
+| Standard | 120px | prose sections, and the default for anything unlisted |
+| Open | 160px | `closing-cta`, `value-band`, `team-values` |
+
+Two images leave the 1200px shell and run to the viewport edge, alternating side: the founder
+portrait breaks left, the journal teaser breaks right. `html { overflow-x: clip }` guarantees the
+negative margins cannot produce a horizontal scrollbar.
+
+
+## Header and heading colour
+
+Decided 30 August 2026, after reviewing the reference alongside the built pages.
+
+**The header is solid white and sits in the flow**, sticky to the top. It previously floated
+transparent over the hero and faded to a translucent tint past 24px of scroll. That forced the
+link colour, the logo lockup and the menu label all to invert over dark heroes and swap back
+mid-scroll, and it produced a white-on-white mobile menu at the top of six pages. A solid bar
+removes the whole class of problem, and roughly 30 lines of `:has()` inversion CSS went with it.
+
+**Hero headings are one colour.** The two-tone treatment set the first line in white and the
+second in a red that had to be lightened to survive the photograph, which read as two competing
+statements. The line break alone now carries the rhythm, matching how the reference sets a large
+serif heading above smaller body text in a single colour. `.hero-accent` is kept in the markup as
+the second-line wrapper but inherits its colour.
+
+The logo lockup is 22% smaller: `clamp(172px, 17vw, 207px)`, from `clamp(220px, 22vw, 265px)`.
+
+## Red is now two tokens
+
+Kit 2.2.1. `--tp-red` #d7333f stays the brand red for display type and non-text marks. Warming the
+page ground in 2.2.0 dropped it to 4.13:1 on mist and 4.47:1 on ground, both under AA for small
+text. `--tp-red-text` #c92b37 clears 4.71:1 on every light surface and carries all small red text:
+story meta, role labels, field errors, placeholder notes and text-link hover.

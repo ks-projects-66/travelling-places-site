@@ -1,11 +1,14 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+import virtuosoHero from '../assets/images/hero/virtuoso-island.jpg';
 import ClosingCta from '../components/ClosingCta.astro';
 import site from '../data/site.json';
 
 import virtuosoMark from '../assets/images/memberships/virtuoso-member.png';
-import orientExpress from '../assets/images/journal/orient-express.webp';
+import orientExpress from '../assets/images/journal/european-rail.jpg';
 
 const values = [
   { title: 'Recognition', body: 'Your preferences can travel ahead of you, helping partner hotels create a more personal welcome.' },
@@ -20,13 +23,16 @@ const values = [
   page="virtuoso"
 >
   <main id="main">
-    <section class="page-hero dark-hero">
-      <div class="shell narrow-hero">
-        <Image class="hero-partner-logo" src={virtuosoMark} alt="Virtuoso member" width={376} densities={[1, 2]} loading="eager" />
-        <h1>Connections that<br class="hero-break" /><span class="hero-accent">make travel richer.</span></h1>
-        <p>Virtuoso brings together leading travel advisors and carefully selected partners across the world.</p>
-      </div>
-    </section>
+    <PageHero
+      lead="Connections that"
+      accent="make travel richer."
+      lede="Virtuoso brings together leading travel advisors and carefully selected partners across the world."
+      image={virtuosoHero}
+      alt="An aerial view of a small green island ringed by turquoise reef"
+      position="center 42%"
+    >
+      <Image slot="above" class="hero-partner-logo" src={virtuosoMark} alt="Virtuoso member" width={376} densities={[1, 2]} loading="eager" />
+    </PageHero>
 
     <section class="section">
       <div class="shell editorial-grid">

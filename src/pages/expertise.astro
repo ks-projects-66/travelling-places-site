@@ -1,6 +1,10 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import { Image } from 'astro:assets';
+
+import expertiseHero from '../assets/images/hero/expertise-mountain-lake.jpg';
 import ClosingCta from '../components/ClosingCta.astro';
 import site from '../data/site.json';
 
@@ -16,12 +20,14 @@ const rendered = await Promise.all(
   page="expertise"
 >
   <main id="main">
-    <section class="page-hero">
-      <div class="shell narrow-hero">
-        <h1>Travel is personal.<br class="hero-break" /><span class="hero-accent">Planning should be too.</span></h1>
-        <p>We begin with how you want to feel, then bring together the right route, pace, people and places.</p>
-      </div>
-    </section>
+    <PageHero
+      lead="Travel is personal."
+      accent="Planning should be too."
+      lede="We begin with how you want to feel, then bring together the right route, pace, people and places."
+      image={expertiseHero}
+      alt="Snow-capped mountains and forested slopes reflected in a still alpine lake at golden hour"
+      position="center 38%"
+    />
 
     {rendered.map(({ data, Body }, i) => (
       <section class:list={['service-detail', 'section', i % 2 === 1 && 'alt']} id={data.anchor}>

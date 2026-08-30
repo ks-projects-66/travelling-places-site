@@ -1,6 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+
+import contactHero from '../assets/images/hero/contact-lookout.jpg';
 import EnquiryForm from '../components/EnquiryForm.astro';
 import CalendlyEmbed from '../components/CalendlyEmbed.astro';
 import site from '../data/site.json';
@@ -16,12 +19,14 @@ const { street, locality, region, postcode, mapUrl } = site.address;
   page="contact"
 >
   <main id="main">
-    <section class="page-hero contact-hero">
-      <div class="shell narrow-hero">
-        <h1>Tell us where your<br class="hero-break" /><span class="hero-accent">imagination is going.</span></h1>
-        <p>You don't need to have every detail. A place, a date, or a feeling is enough to begin.</p>
-      </div>
-    </section>
+    <PageHero
+      lead="Tell us where your"
+      accent="imagination is going."
+      lede="You don't need to have every detail. A place, a date, or a feeling is enough to begin."
+      image={contactHero}
+      alt="A wide view over forested hills and farmland to distant peaks"
+      position="center 55%"
+    />
 
     <section class="section contact-page" id="enquiry">
       <div class="shell contact-page-grid">

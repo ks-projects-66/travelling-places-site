@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "reviewedOn": "2026-08-30",
+  "licenceReference": "https://unsplash.com/license",
+  "releaseGuidance": "https://help.unsplash.com/en/articles/2612329-releases-and-trademarks",
+  "images": [
+    {
+      "file": "photos/expertise-hero-mountain-lake.jpg",
+      "spec": "A",
+      "use": "Expertise page hero",
+      "replaces": null,
+      "source": {
+        "provider": "Unsplash",
+        "creator": "Oskar Kadaksoo",
+        "itemUrl": "https://unsplash.com/photos/golden-hour-illuminates-mountains-reflecting-in-a-calm-lake-gfaE8EcYyvY"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Not needed",
+        "notes": "No people, identifiable private property, or branding visible."
+      },
+      "output": {
+        "width": 3600,
+        "height": 2400,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "62c3a95f9196444c04f440da9d778e2dcb1cebc7cbb74959414b9b09a763c6ce"
+      }
+    },
+    {
+      "file": "photos/virtuoso-hero-tropical-island.jpg",
+      "spec": "A",
+      "use": "Virtuoso page hero",
+      "replaces": null,
+      "source": {
+        "provider": "Unsplash",
+        "creator": "Nathan Feyssat",
+        "itemUrl": "https://unsplash.com/photos/an-aerial-view-of-an-island-in-the-middle-of-the-ocean-ddC7ffYjJmQ"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Not needed",
+        "notes": "No people, identifiable private property, or branding visible."
+      },
+      "output": {
+        "width": 3600,
+        "height": 2400,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "88c8922f98bc307037977c46aade0c31df3063a2dbac58a22caf0af3d1a0f159"
+      }
+    },
+    {
+      "file": "photos/contact-hero-tamborine-mountain.jpg",
+      "spec": "A",
+      "use": "Contact page hero",
+      "replaces": null,
+      "source": {
+        "provider": "Unsplash",
+        "creator": "Hayden",
+        "itemUrl": "https://unsplash.com/photos/a-view-of-a-valley-and-mountains-from-the-top-of-a-hill-FE6A8vpFyEY"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Not needed",
+        "notes": "Tamborine Mountain landscape with no people, identifiable private property, or branding visible."
+      },
+      "output": {
+        "width": 3600,
+        "height": 2400,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "85830f62e7ce46e2cb0006bf371f24c739b92784d72c284d6d0ecd6f51799bac"
+      }
+    },
+    {
+      "file": "photos/mediterranean-coast.jpg",
+      "spec": "B",
+      "use": "Mediterranean carousel",
+      "replaces": "mediterranean.webp",
+      "source": {
+        "provider": "Unsplash",
+        "creator": "Ruben Aster",
+        "itemUrl": "https://unsplash.com/photos/sunset-over-a-calm-ocean-with-silhouetted-coastline-_3bv5v9QKus"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Not needed",
+        "notes": "Natural coastal landscape with no identifiable people, property, or branding visible."
+      },
+      "output": {
+        "width": 3200,
+        "height": 2000,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "62a541917894fb32d180400223252ba9c6a0e12d94b973c42b514135a5678bb1"
+      }
+    },
+    {
+      "file": "photos/antarctica-ice-mountains.jpg",
+      "spec": "B",
+      "use": "Antarctica carousel",
+      "replaces": "antarctica.webp",
+      "source": {
+        "provider": "Unsplash",
+        "creator": "Torsten Dederichs",
+        "itemUrl": "https://unsplash.com/photos/landscape-photograph-of-ice-formation-dEzd6GpIEys"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Not needed",
+        "notes": "Natural landscape with no people, property, or branding visible."
+      },
+      "output": {
+        "width": 3200,
+        "height": 2000,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "7ec2f12eb651e12ae80213556c32ef7086726c6fc6ef7ab711674dbd1c1aafa4"
+      }
+    },
+    {
+      "file": "photos/cruise-dining-ocean-view.jpg",
+      "spec": "B",
+      "use": "Cruise dining carousel",
+      "replaces": "cruise.webp",
+      "source": {
+        "provider": "Unsplash",
+        "creator": "Jiayu Chan",
+        "itemUrl": "https://unsplash.com/photos/a-dining-room-table-with-a-view-of-the-ocean-c3NiO5AWz0A"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Unknown",
+        "notes": "The source page does not show a property release for the generic ship interior. No ship name, logo, artwork, or competitor branding is visible."
+      },
+      "output": {
+        "width": 3200,
+        "height": 2000,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "fb2d0ec8feaf71811ce153889a78132c0c1381985bb9df40f6ffd972a76a2796"
+      }
+    },
+    {
+      "file": "photos/japan-temple-landscape.jpg",
+      "spec": "C",
+      "use": "Japan editorial",
+      "replaces": "japan.webp",
+      "source": {
+        "provider": "Unsplash",
+        "creator": "Rudityas W Anggoro",
+        "itemUrl": "https://unsplash.com/photos/traditional-japanese-temple-architecture-with-bare-trees-a5N5eGI8wBs"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Unknown",
+        "notes": "Distant visitors are not identifiable. The source page does not show a property release for Kiyomizudera."
+      },
+      "output": {
+        "width": 3200,
+        "height": 1800,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "be33a14945081101e4704588242876e5afa1f61fb0ee39081de9567c69376e04"
+      }
+    },
+    {
+      "file": "photos/spain-white-village.jpg",
+      "spec": "C",
+      "use": "Spain editorial",
+      "replaces": "spain.webp",
+      "source": {
+        "provider": "Unsplash",
+        "creator": "inma santiago",
+        "itemUrl": "https://unsplash.com/photos/high-angle-photography-of-rural-area-_0_cVYXO-Bw"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Unknown",
+        "notes": "No identifiable people are visible. The source page does not show releases for the buildings in Olvera."
+      },
+      "output": {
+        "width": 3200,
+        "height": 1800,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "5dd8fe686ed376337e883c0baba649d3b05330c0de342cf55dedc5e03d7a60fc"
+      }
+    },
+    {
+      "file": "photos/amsterdam-canal-houses.jpg",
+      "spec": "C",
+      "use": "Amsterdam editorial",
+      "replaces": "amsterdam.webp",
+      "source": {
+        "provider": "Unsplash",
+        "creator": "Frans Ruiter",
+        "itemUrl": "https://unsplash.com/photos/brown-concrete-buildings-near-body-of-water--aJ7bGV80Jo"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Unknown",
+        "notes": "No identifiable people are visible. The source page does not show releases for the Amsterdam canal houses."
+      },
+      "output": {
+        "width": 3200,
+        "height": 1800,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "e356b7b12898abb1f3ac92de42fbaebf1c0d6f56c3d83806bc0d3113d0c38aca"
+      }
+    },
+    {
+      "file": "photos/european-rail-journey.jpg",
+      "spec": "C",
+      "use": "European rail editorial",
+      "replaces": "orient-express.webp",
+      "source": {
+        "provider": "Unsplash",
+        "creator": "Victor Suárez",
+        "itemUrl": "https://unsplash.com/photos/train-viaduct-curving-through-a-mountainous-autumnal-landscape-Nu4ym6twFWU"
+      },
+      "licence": {
+        "type": "Unsplash License",
+        "permitsCommercialWebUse": true,
+        "attributionRequired": false,
+        "attributionText": null,
+        "cost": { "amount": 0, "currency": "AUD", "note": "Free download" }
+      },
+      "release": {
+        "model": "Not needed",
+        "property": "Unknown",
+        "notes": "No people are visible. The source page does not show a property release for Glenfinnan Viaduct. No train name, logo, or competitor branding is visible."
+      },
+      "output": {
+        "width": 3200,
+        "height": 1800,
+        "format": "JPEG",
+        "colourProfile": "sRGB",
+        "exifStripped": true,
+        "sha256": "4ddeb26ad760ae868d393dca27ecf0185d9822acdd69049567292ecebb6a19fe"
+      }
+    }
+  ]
+}

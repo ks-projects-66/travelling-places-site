@@ -6,7 +6,7 @@ date: 2025-10-02
 readingTime: 5 min read
 author: Sienna Gardner
 authorRole: Travel advisor
-cover: ../../assets/images/destinations/antarctica.webp
+cover: ../../assets/images/destinations/antarctica-ice.jpg
 coverAlt: A wide Antarctic landscape of ice, sea and distant mountains
 featured: true
 ---

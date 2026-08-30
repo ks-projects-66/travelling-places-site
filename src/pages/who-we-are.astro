@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import ClosingCta from '../components/ClosingCta.astro';
 import site from '../data/site.json';
 
@@ -30,20 +31,15 @@ const values = [
   page="team"
 >
   <main id="main">
-    <section class="page-hero">
-      <div class="shell narrow-hero">
-        <h1>People who know travel.<br class="hero-break" /><span class="hero-accent">People who know you.</span></h1>
-        <p>
-          Five advisors, a shared curiosity about the world, and a remarkably long memory for the
-          details our clients care about.
-        </p>
-      </div>
-    </section>
-
-    <section class="team-panorama">
-      <Image src={teamOffice} alt="The Travelling Places team in their Tamborine Mountain office"
-        widths={[768, 1280, 1920]} sizes="100vw" loading="eager" />
-    </section>
+    <PageHero
+      lead="People who know travel."
+      accent="People who know you."
+      lede="Five advisors, a shared curiosity about the world, and a remarkably long memory for the details our clients care about."
+      image={teamOffice}
+      alt="The Travelling Places team in their Tamborine Mountain office"
+      position="center 20%"
+      maxWidth={904}
+    />
 
     <section class="section">
       <div class="shell editorial-grid">

@@ -4,7 +4,7 @@ standfirst: What sets a river itinerary apart, and how to find a sailing that ma
 category: River cruising
 date: 2025-10-02
 author: Travelling Places
-cover: ../../assets/images/journal/amsterdam.webp
+cover: ../../assets/images/journal/amsterdam-canals.jpg
 coverAlt: Amsterdam canal houses reflected in the water
 externalUrl: https://tmnews.com.au/uniword-cruises/
 ---

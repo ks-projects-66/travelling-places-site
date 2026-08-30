@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
 import Carousel from '../components/Carousel.astro';
 import ClosingCta from '../components/ClosingCta.astro';
 import site from '../data/site.json';
@@ -11,9 +12,9 @@ import womanOnPlane from '../assets/images/hero/woman-on-plane.jpg';
 import ginaPortrait from '../assets/images/team/gina-storey.webp';
 import virtuosoMark from '../assets/images/memberships/virtuoso-member.png';
 
-import mediterranean from '../assets/images/destinations/mediterranean.webp';
-import antarctica from '../assets/images/destinations/antarctica.webp';
-import cruise from '../assets/images/destinations/cruise.webp';
+import mediterranean from '../assets/images/destinations/mediterranean-coast.jpg';
+import antarctica from '../assets/images/destinations/antarctica-ice.jpg';
+import cruise from '../assets/images/destinations/cruise-dining.jpg';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const gina = await getEntry('team', 'gina-storey');
@@ -22,7 +23,7 @@ const featured = (await getCollection('journal', ({ data }) => data.featured && 
 const slides = [
   { src: mediterranean, alt: 'An elegant Mediterranean journey at golden hour', place: 'The Mediterranean', headline: 'Grand journeys, taken at your own pace.' },
   { src: antarctica, alt: 'A wide Antarctic landscape of ice, sea and distant mountains', place: 'Antarctica', headline: 'The far south, closer than you imagine.' },
-  { src: cruise, alt: 'A chef preparing a refined dining experience aboard a cruise ship', place: 'Life at sea', headline: 'Every day considered, down to dinner.' },
+  { src: cruise, alt: 'A dining table set beside a wide ocean view aboard ship', place: 'Life at sea', headline: 'Every day considered, down to dinner.' },
 ];
 
 const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -30,30 +31,20 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
 
 <BaseLayout title={`${site.name} | ${site.tagline}`} page="home">
   <main id="main">
-    <section class="hero" id="top">
-      <div class="shell hero-grid">
-        <div class="hero-copy">
-          <h1>Your world,<br class="hero-break" /><span class="hero-accent">beautifully planned.</span></h1>
-          <p class="hero-lede">
-            Thoughtful journeys, rare experiences and every detail looked after by people who know
-            travel, and take the time to know you.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-blue" href="/contact/">Start planning</a>
-            <a class="text-link" href="/expertise/">Explore our expertise</a>
-          </div>
-          <p class="hero-since">Personally planned on {site.address.locality} since {site.founded}.</p>
-        </div>
-        <div class="hero-visual">
-          <div class="hero-photo-wrap">
-            <Image class="hero-photo" src={teamOutside} alt="The Travelling Places team together on Tamborine Mountain"
-              widths={[520, 1037, 1560]} sizes="(max-width: 900px) 92vw, 46vw" loading="eager" />
-          </div>
-          <div class="hero-note"><strong>Local care.</strong><span>Worldwide connections.</span></div>
-        </div>
+    <PageHero
+      lead="Your world,"
+      accent="beautifully planned."
+      lede="Thoughtful journeys, rare experiences and every detail looked after by people who know travel, and take the time to know you."
+      image={teamOutside}
+      alt="The Travelling Places team together on Tamborine Mountain"
+      position="center 22%"
+      maxWidth={1037}
+    >
+      <div class="hero-actions">
+        <a class="button button-blue" href="/contact/">Start planning</a>
+        <a class="text-link text-link--onDark" href="/expertise/">Explore our expertise</a>
       </div>
-      <div class="hero-rule" aria-hidden="true"><span></span></div>
-    </section>
+    </PageHero>
 
     <section class="section intro">
       <div class="shell intro-grid">
@@ -79,7 +70,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
     <section class="section expertise-preview">
       <div class="shell">
         <div class="section-heading split-heading">
-          <h2>Journeys shaped<br class="hero-break" />around you.</h2>
+          <h2><span class="hero-line">Journeys shaped</span> around you.</h2>
           <p>
             Every traveller is different. We bring first-hand knowledge and careful judgement to the
             way you want to explore.
@@ -149,7 +140,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
         <div class="shell">
           <div class="section-heading split-heading">
             <div>
-              <h2>Notes from<br class="hero-break" />the road.</h2>
+              <h2><span class="hero-line">Notes from</span> the road.</h2>
             </div>
             <p>
               A fortnightly collection of practical advice, new discoveries and first-hand travel

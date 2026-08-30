@@ -82,8 +82,12 @@
   flex: 0 1 clamp(140px, 20vw, 190px);
 }
 
-.logo-placeholder {
+/* placeholders.css is imported last, so its .placeholder-image background beat this rule at
+   equal specificity and painted the near-white stripe under white text: 1.11:1. The extra
+   .placeholder-image here restores the intended dark-footer treatment. */
+.placeholder-image.logo-placeholder {
   background: color-mix(in oklch, var(--white) 12%, transparent);
+  background-image: none;
   border-color: color-mix(in oklch, var(--white) 45%, transparent);
   color: var(--white);
 }

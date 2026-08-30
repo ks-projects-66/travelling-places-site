@@ -2,18 +2,20 @@
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "brand": {
     "name": "Travelling Places",
-    "version": "2.1.0",
+    "version": "2.2.1",
     "reference": "Belmond for restraint, image priority, and typographic balance. Never copy layouts or proprietary assets."
   },
   "color": {
-    "white": { "value": "#FFFFFF", "role": "Primary page surface and text on brand colours" },
-    "mist": { "value": "#F1F2F6", "role": "Quiet secondary surface" },
+    "white": { "value": "#FFFFFF", "role": "Panels and text on brand colours" },
+    "ground": { "value": "#FAF8F5", "role": "Primary page surface. Warm off-white, not pure white" },
+    "mist": { "value": "#F2EFEA", "role": "Quiet secondary surface. Warm grey" },
     "navy": { "value": "#25335F", "role": "Dark sections, footer, and primary headings" },
     "blue": { "value": "#3E55A0", "role": "Primary interaction colour" },
-    "red": { "value": "#D7333F", "role": "Small accent and focus colour only" },
+    "red": { "value": "#D7333F", "role": "Small accent and focus colour only. Not for text below 24px on a light surface" },
+    "redText": { "value": "#C92B37", "role": "Red for small text. The brand red is 4.13:1 on mist and fails AA; this clears 4.71:1 on every light surface" },
     "ink": { "value": "#272B38", "role": "Body text" },
     "muted": { "value": "#5C6274", "role": "Secondary text" },
-    "line": { "value": "#D8DAE4", "role": "Borders and rules" }
+    "line": { "value": "#DED8D0", "role": "Borders and rules" }
   },
   "font": {
     "display": {
@@ -30,12 +32,13 @@
     }
   },
   "type": {
-    "display": { "min": "34px", "max": "56px", "lineHeight": 1.08, "maxWidth": "24ch", "maximumLines": 2 },
-    "pageTitle": { "min": "36px", "max": "48px", "lineHeight": 1.12, "maxWidth": "22ch" },
-    "sectionTitle": { "min": "30px", "max": "40px", "lineHeight": 1.16, "maxWidth": "24ch" },
-    "subsectionTitle": { "min": "22px", "max": "28px", "lineHeight": 1.25, "maxWidth": "30ch" },
+    "display": { "min": "34px", "max": "72px", "lineHeight": 1.06, "maxWidth": "20ch", "maximumLines": 2 },
+    "pageTitle": { "min": "36px", "max": "56px", "lineHeight": 1.1, "maxWidth": "22ch" },
+    "sectionTitle": { "min": "30px", "max": "44px", "lineHeight": 1.14, "maxWidth": "24ch" },
+    "subsectionTitle": { "min": "22px", "max": "30px", "lineHeight": 1.22, "maxWidth": "30ch" },
     "menuTitle": { "min": "26px", "max": "30px", "lineHeight": 1.2 },
     "lead": { "min": "18px", "max": "19px", "lineHeight": 1.55, "maxWidth": "58ch" },
+    "label": { "size": "16px", "lineHeight": 1.4, "weight": 500, "role": "Row and card labels. Body sans, never display serif" },
     "body": { "size": "16px", "lineHeight": 1.65, "maxWidth": "68ch" },
     "navigation": { "size": "14px", "lineHeight": 1.4, "weight": 500 },
     "button": { "size": "14px", "lineHeight": 1.4, "weight": 500 },

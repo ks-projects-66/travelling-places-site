@@ -5,6 +5,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* Full-bleed images use negative margins derived from 100vw. `clip` stops those from
+     ever producing a horizontal scrollbar, and unlike `hidden` it does not break sticky. */
+  overflow-x: clip;
 }
 
 section[id] {
@@ -14,7 +17,7 @@ section[id] {
 body {
   margin: 0;
   color: var(--ink);
-  background: var(--white);
+  background: var(--ground);
   font-family: var(--sans);
   font-size: 1rem;
   line-height: 1.65;
@@ -82,9 +85,16 @@ p {
   background: var(--blue);
 }
 
+/* Headings carry their own line break at desktop and run on below 700px. The word
+   space between the parts is a real space in the markup, so it survives into the
+   accessible name and into copied text. Do not replace it with generated content. */
+.hero-line {
+  display: block;
+}
+
 @media (max-width: 700px) {
-  .hero-break {
-    display: none;
+  .hero-line {
+    display: inline;
   }
 }
 
@@ -118,30 +128,32 @@ p {
   padding-block: var(--section);
 }
 
+/* Solid white, always, and in the flow rather than floating over the hero. It used to be
+   transparent over the photograph and fade to a translucent tint past 24px, which meant the
+   link colour, the logo and the menu label all had to invert and then swap back mid-scroll.
+   A solid bar removes that whole class of problem. `sticky` keeps it available on scroll. */
 .site-header {
-  position: absolute;
-  inset: 0 0 auto;
+  position: sticky;
+  top: 0;
   z-index: 30;
-  border-bottom: 1px solid color-mix(in oklch, var(--blue) 16%, transparent);
-  transition: background-color 240ms ease, box-shadow 240ms ease;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  transition: box-shadow 240ms ease;
 }
 
 .site-header.is-sticky {
-  position: fixed;
-  background: color-mix(in oklch, var(--white) 96%, transparent);
   box-shadow: 0 4px 8px color-mix(in oklch, var(--blue-deep) 8%, transparent);
-  backdrop-filter: blur(12px);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 92px;
+  min-height: var(--header-h);
 }
 
 .brand {
-  width: clamp(220px, 22vw, 265px);
+  width: clamp(172px, 17vw, 207px);
 }
 
 .brand img,
@@ -255,144 +267,37 @@ p {
 }
 
 .text-link span {
-  color: var(--red);
+  color: var(--red-text);
   transition: transform 220ms var(--ease);
 }
 
 .text-link:hover {
-  color: var(--red);
+  color: var(--red-text);
 }
 
 .text-link:hover span {
   transform: translate(3px, 3px);
 }
 
-.hero {
-  position: relative;
-  min-height: 760px;
-  padding-top: clamp(9rem, 15vw, 12rem);
-  overflow: hidden;
+/* The same link sitting on a dark hero. Red on navy fails contrast, so the accent lightens. */
+.text-link--onDark {
+  color: var(--white);
+  text-decoration-color: color-mix(in oklch, var(--white) 45%, transparent);
 }
 
-.hero::before {
-  position: absolute;
-  z-index: -1;
-  top: -18rem;
-  right: -12rem;
-  width: 48rem;
-  height: 48rem;
-  border-radius: 50%;
-  background: var(--mist);
-  content: "";
+.text-link--onDark:hover,
+.text-link--onDark:hover span,
+.text-link--onDark span {
+  color: color-mix(in oklch, var(--white) 62%, var(--red));
 }
 
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
-  align-items: center;
-  gap: clamp(3rem, 7vw, 7rem);
-}
-
-.hero-copy {
-  padding-block: 2rem 4rem;
-  animation: hero-copy 900ms var(--ease) both;
-}
-
-.hero-since {
-  max-width: 36rem;
-  margin: 2rem 0 0;
-  color: var(--ink-muted);
-  font-size: var(--tp-type-fine);
-}
-
-.hero h1 {
-  margin-bottom: 1.75rem;
-  color: var(--blue-deep);
-  font-size: var(--tp-type-display);
-}
-
-.hero h1 .hero-accent {
-  color: var(--red);
-  font-weight: inherit;
-}
-
-.hero-lede {
-  max-width: 36rem;
-  margin-bottom: 2.25rem;
-  color: var(--ink-muted);
-  font-size: clamp(1.1rem, 1.7vw, 1.32rem);
-}
-
+/* Kept from the retired two-column hero: the actions row is now a slot inside PageHero. */
 .hero-actions {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
-}
-
-.hero-visual {
-  position: relative;
-  align-self: stretch;
-  min-height: 560px;
-  animation: hero-visual 1100ms 100ms var(--ease) both;
-}
-
-.hero-photo-wrap {
-  position: absolute;
-  inset: 0 0 2.5rem;
-  overflow: hidden;
-  /* Square. Photographic imagery is uncorniced across the site, matching the
-     full-bleed carousel, team panorama and article hero. See DESIGN.md. */
-  border-radius: 0;
-}
-
-.hero-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 55% center;
-  transition: transform 900ms var(--ease);
-}
-
-.hero-visual:hover .hero-photo {
-  transform: scale(1.025);
-}
-
-.hero-note {
-  position: absolute;
-  right: -1px;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  min-width: 240px;
-  padding: 1.2rem 1.5rem;
-  color: var(--white);
-  background: var(--blue);
-}
-
-.hero-note strong {
-  font-family: var(--display);
-  font-size: 1.3rem;
-  font-weight: 400;
-}
-
-.hero-note span {
-  font-size: 0.86rem;
-}
-
-.hero-rule {
-  width: min(100% - (2 * var(--gutter)), var(--shell));
-  height: 1px;
-  margin: clamp(3rem, 6vw, 5rem) auto 0;
-  background: var(--line);
-}
-
-.hero-rule span {
-  display: block;
-  width: 12%;
-  height: 3px;
-  background: var(--red);
-  transform: translateY(-1px);
+  margin-top: 2.25rem;
 }
 
 .intro {
@@ -435,9 +340,6 @@ p {
   color: var(--ink-muted);
 }
 
-.expertise {
-  background: var(--mist);
-}
 
 .split-heading {
   display: grid;
@@ -484,6 +386,16 @@ p {
   margin: 0;
 }
 
+/* Row labels are body sans at label size, not display serif. A list item must not
+   carry the same weight as the section heading above it. See brand.tokens.json type.label. */
+.expertise-row h3 {
+  font-family: var(--sans);
+  font-size: var(--tp-type-label);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.4;
+}
+
 .expertise-row p {
   max-width: 42rem;
   color: var(--ink-muted);
@@ -495,10 +407,6 @@ p {
   color: var(--red);
 }
 
-.virtuoso {
-  color: var(--white);
-  background: var(--blue-deep);
-}
 
 .virtuoso-grid {
   display: grid;
@@ -627,9 +535,6 @@ blockquote {
   line-height: 1.4;
 }
 
-.process {
-  background: var(--mist);
-}
 
 .process-grid {
   display: grid;
@@ -686,9 +591,6 @@ blockquote {
   color: var(--ink-muted);
 }
 
-.partners {
-  padding-block: clamp(3.5rem, 7vw, 6rem);
-}
 
 .partners-title {
   text-align: center;
@@ -710,9 +612,6 @@ blockquote {
   filter: saturate(0.65);
 }
 
-.contact {
-  border-top: 1px solid var(--line);
-}
 
 .contact-grid {
   display: grid;
@@ -890,16 +789,6 @@ blockquote {
   grid-column: 1 / -1;
 }
 
-@keyframes hero-copy {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes hero-visual {
-  from { opacity: 0; clip-path: inset(0 0 100% 0); transform: translateY(20px); }
-  to { opacity: 1; clip-path: inset(0 0 0 0); transform: translateY(0); }
-}
-
 @media (max-width: 940px) {
   .header-inner {
     min-height: 78px;
@@ -973,28 +862,9 @@ blockquote {
     margin-top: 1rem;
   }
 
-  .hero-grid,
   .virtuoso-grid,
-  .about-grid,
-  .process-grid,
-  .contact-grid {
+  .about-grid {
     grid-template-columns: 1fr;
-  }
-
-  .hero {
-    padding-top: 7.5rem;
-  }
-
-  .hero-grid {
-    gap: 1rem;
-  }
-
-  .hero-copy {
-    padding-bottom: 2.5rem;
-  }
-
-  .hero-visual {
-    min-height: 570px;
   }
 
   .intro-grid {
@@ -1034,29 +904,18 @@ blockquote {
 
 @media (max-width: 680px) {
   :root {
-    --section: 4.75rem;
+    /* Was a flat 4.75rem, which sat between the tight and open bands and squeezed the mobile
+       rhythm to a 40px spread. Lowering the standard band restores the contrast on a phone. */
+    --section: 4rem;
   }
 
   .brand {
-    width: 175px;
+    width: 137px;
   }
 
   .hero-actions {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .hero-visual {
-    min-height: 450px;
-  }
-
-  .hero-photo-wrap {
-    bottom: 2rem;
-  }
-
-  .hero-note {
-    min-width: 210px;
-    padding: 1rem 1.1rem;
   }
 
   .intro-grid {

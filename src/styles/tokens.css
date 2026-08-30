@@ -7,10 +7,12 @@
 
 :root {
   --white: var(--tp-white);
+  --ground: var(--tp-ground);
   --mist: var(--tp-mist);
   --blue-deep: var(--tp-navy);
   --blue: var(--tp-blue);
   --red: var(--tp-red);
+  --red-text: var(--tp-red-text);
   --ink: var(--tp-ink);
   --ink-muted: var(--tp-muted);
   --line: var(--tp-line);
@@ -22,4 +24,7 @@
   --gutter: var(--tp-gutter);
   --section: var(--tp-space-section);
   --ease: var(--tp-ease);
+
+  /* Header height. The hero subtracts it so header + hero fill the viewport exactly. */
+  --header-h: 5.75rem;
 }

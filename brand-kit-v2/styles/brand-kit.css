@@ -4,7 +4,7 @@
 
 html {
   color: var(--tp-ink);
-  background: var(--tp-white);
+  background: var(--tp-ground);
   font-family: var(--tp-font-body);
   font-size: 100%;
   scroll-behavior: smooth;
