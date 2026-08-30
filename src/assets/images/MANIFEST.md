@@ -85,14 +85,14 @@ the office, without confirming with the photographer or replacing it with the te
 
 ## Brand kit reference imagery
 
-`brand-kit-v2/` vendors three photographs to demonstrate its carousel. These are now the same
+`brand-kit/` vendors three photographs to demonstrate its carousel. These are now the same
 licensed files as the site carousel, re-encoded to WebP at 1600px for the reference page.
 
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
-| `brand-kit-v2/assets/images/mediterranean.webp` | Sunset over a calm sea | Unsplash, Ruben Aster | owned | Unsplash License | Brand kit carousel demo |
-| `brand-kit-v2/assets/images/antarctica.webp` | Ice formation across a polar landscape | Unsplash, Torsten Dederichs | owned | Unsplash License | Brand kit carousel demo |
-| `brand-kit-v2/assets/images/cruise.webp` | Dining table with a wide ocean view | Unsplash, Jiayu Chan | owned | Unsplash License | Brand kit carousel demo |
+| `brand-kit/assets/images/mediterranean.webp` | Sunset over a calm sea | Unsplash, Ruben Aster | owned | Unsplash License | Brand kit carousel demo |
+| `brand-kit/assets/images/antarctica.webp` | Ice formation across a polar landscape | Unsplash, Torsten Dederichs | owned | Unsplash License | Brand kit carousel demo |
+| `brand-kit/assets/images/cruise.webp` | Dining table with a wide ocean view | Unsplash, Jiayu Chan | owned | Unsplash License | Brand kit carousel demo |
 
 ## Releases still open
 

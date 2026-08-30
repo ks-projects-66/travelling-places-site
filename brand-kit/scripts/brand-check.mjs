@@ -8,7 +8,7 @@ const repoRoot = resolve(kitRoot, '..');
 const argumentsList = process.argv.slice(2);
 const reportOnly = argumentsList.includes('--report-only');
 const requestedTargets = argumentsList.filter((argument) => !argument.startsWith('--'));
-const targets = requestedTargets.length ? requestedTargets : ['brand-kit-v2'];
+const targets = requestedTargets.length ? requestedTargets : ['brand-kit'];
 // .astro added when the site moved off plain HTML. Without it this check cannot see
 // a single page in the repository and reports a clean run over CSS alone.
 const allowedExtensions = new Set(['.html', '.css', '.js', '.astro']);
@@ -103,7 +103,7 @@ for (const [foreground, background] of requiredPairs) {
   const ratio = contrast(colours[foreground], colours[background]);
   if (ratio < 4.5) {
     findings.push({
-      file: 'brand-kit-v2/brand.tokens.json',
+      file: 'brand-kit/brand.tokens.json',
       line: 1,
       rule: 'approved contrast below 4.5 to 1',
       sample: `${foreground} on ${background}: ${ratio.toFixed(2)} to 1`,

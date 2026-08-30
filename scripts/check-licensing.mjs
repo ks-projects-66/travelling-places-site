@@ -16,7 +16,7 @@ import { join, relative } from 'node:path';
 const ROOT = new URL('..', import.meta.url).pathname.replace(/^\/([A-Za-z]:)/, '$1');
 const MANIFEST = join(ROOT, 'src/assets/images/MANIFEST.md');
 // The kit publishes with the site, so it is gated too.
-const SEARCH_ROOTS = [join(ROOT, 'src'), join(ROOT, 'brand-kit-v2')];
+const SEARCH_ROOTS = [join(ROOT, 'src'), join(ROOT, 'brand-kit')];
 
 const SKIP_DIRS = new Set(['node_modules', 'dist', '.astro', '.git']);
 const TEXT_EXT = /\.(astro|ts|tsx|js|mjs|json|md|css|html)$/;
@@ -65,7 +65,7 @@ for (const { file } of unlicensed) {
   // destination photographs under the same basenames, and a loose match reports
   // every reference twice, against the wrong row.
   const candidates = [file];
-  if (file.startsWith('brand-kit-v2/')) candidates.push(file.slice('brand-kit-v2/'.length));
+  if (file.startsWith('brand-kit/')) candidates.push(file.slice('brand-kit/'.length));
   for (const [path, text] of contents) {
     if (path.endsWith('MANIFEST.md') || path.endsWith('SOURCES.md')) continue;
     if (candidates.some((candidate) => text.includes(candidate))) {

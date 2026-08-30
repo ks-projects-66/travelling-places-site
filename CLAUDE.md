@@ -39,8 +39,8 @@ belongs in content instead.
 
 ## Design
 
-**The canonical brand system is `brand-kit-v2/`.** Read `brand-kit-v2/BRAND.md`,
-`brand-kit-v2/AGENT-BRIEF.md` and `brand-kit-v2/brand.tokens.json` before any interface work,
+**The canonical brand system is `brand-kit/`.** Read `brand-kit/BRAND.md`,
+`brand-kit/AGENT-BRIEF.md` and `brand-kit/brand.tokens.json` before any interface work,
 and reuse its tokens, logos, fonts and components rather than inventing new ones. Run
 `pnpm brand:check` alongside `pnpm build` before calling interface work finished. See also
 `AGENTS.md`.

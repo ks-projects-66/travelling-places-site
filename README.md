@@ -52,9 +52,9 @@ received an empty page and no CMS could attach. That file is gone.
 
 ## Brand system
 
-The canonical brand system is `brand-kit-v2/`. Coding agents start with
-`brand-kit-v2/BRAND.md` and `brand-kit-v2/AGENT-BRIEF.md`. The visual reference is served at
-`/brand-kit-v2/` in development and is published with the site.
+The canonical brand system is `brand-kit/`. Coding agents start with
+`brand-kit/BRAND.md` and `brand-kit/AGENT-BRIEF.md`. The visual reference is served at
+`/brand-kit/` in development and is published with the site.
 
 ```bash
 pnpm brand:check
@@ -65,8 +65,8 @@ pnpm brand:report:site
 
 | File | Covers |
 |---|---|
-| `brand-kit-v2/` | Canonical brand system: tokens, logos, fonts, components |
-| `BRAND.md` | Superseded by `brand-kit-v2/BRAND.md`; kept as a pointer |
+| `brand-kit/` | Canonical brand system: tokens, logos, fonts, components |
+| `BRAND.md` | Superseded by `brand-kit/BRAND.md`; kept as a pointer |
 | `DESIGN.md` | Design system, plus the Belmond imagery direction |
 | `PRODUCT.md` | Purpose, audience, voice, accessibility target |
 | `docs/CONTENT-REGISTER.md` | Every placeholder, who supplies it, what it blocks |

@@ -1,6 +1,6 @@
 # Travelling Places brand system
 
-Version 2.1.0 is the canonical source for website and marketing production.
+Version 3.0.0 is the canonical source for website and marketing production.
 
 Travelling Places should feel established, personal, and quietly confident. Belmond is a reference for restraint, image priority, and typographic balance. Do not reproduce Belmond layouts, wording, assets, or proprietary typefaces.
 
@@ -22,7 +22,7 @@ The official wordmark is Libre Baskerville Regular converted to SVG outlines. Th
 
 Clear space for a lockup or wordmark is one capital T height on every side. Clear space for the standalone mark is one eighth of its height.
 
-Minimum digital sizes are 220px wide for the combined lockup, 120px wide for the wordmark, and 48px high for the mark. Minimum print sizes are 58mm, 32mm, and 14mm respectively.
+Minimum digital sizes are 172px wide for the combined lockup, 120px wide for the wordmark, and 48px high for the mark. Minimum print sizes are 58mm, 32mm, and 14mm respectively.
 
 Do not stretch, rotate, recolour, add shadows, place in a container shape, repeat as decoration, or separate the lockup elements and recombine them at a new proportion.
 
@@ -30,7 +30,9 @@ Do not stretch, rotate, recolour, add shadows, place in a container shape, repea
 
 Use only tokens from `brand.tokens.json` or `styles/tokens.css`.
 
-White should occupy most of each page. Navy provides structure. Blue identifies actions. Red is limited to focus, validation, and small accents. Red is never a large background.
+Ground, a warm off-white, is the primary page surface and should occupy most of each page. White is reserved for panels and for text on brand colours. Navy provides structure. Blue identifies actions. Red is limited to focus, validation, and small accents. Red is never a large background.
+
+Brand red is not used for text below 24px on a light surface. It measures 4.13 to 1 on mist and fails AA at small sizes, so small red text uses the separate red text token.
 
 Approved button and text pairs:
 
@@ -41,7 +43,8 @@ Approved button and text pairs:
 | Navy | White | 12.23 to 1 | Headings and secondary action |
 | Ink | White | 14.10 to 1 | Body copy |
 | Muted | White | 6.08 to 1 | Supporting copy |
-| Red | White | 4.74 to 1 | Small accent and validation |
+| Red | White | 4.74 to 1 | Large accent marks and focus |
+| Red text | White | 4.71 to 1 | Small red text: meta labels, field errors, placeholder notes |
 
 Never use blue text on navy or red text on navy.
 
@@ -50,6 +53,8 @@ Never use blue text on navy or red text on navy.
 Libre Baskerville Regular is used for display, page headings, section headings, subsection headings, and menu headings. It is always weight 400 and always upright.
 
 IBM Plex Sans is used for body copy, navigation, buttons, forms, captions, and fine print. Use weights 400, 500, and 600 only.
+
+Delivery differs by surface, and both are approved. The kit self-hosts woff2 from `fonts/` through `styles/fonts.css`, so the reference page stands alone. The website loads both faces from Google Fonts. Whichever route is used, request weight 400 for Libre Baskerville only; the kit permits no other weight of the display face.
 
 | Role | Size | Line height | Maximum line width |
 |---|---|---:|---|
@@ -60,10 +65,14 @@ IBM Plex Sans is used for body copy, navigation, buttons, forms, captions, and f
 | Menu heading | 26px to 30px | 1.2 | Contextual |
 | Lead copy | 18px to 19px | 1.55 | 58ch |
 | Body copy | 16px | 1.65 | 68ch |
-| Navigation and buttons | 14px | 1.4 | Contextual |
+| Navigation | 14px | 1.4 | Contextual |
+| Buttons | 16px | 1.4 | Contextual |
 | Fine print | 13px | 1.5 | 72ch |
+| Meta label | 12.5px | 1.4 | Contextual |
 
-Headings use size and spacing for hierarchy, not bold weight. Keep sentence case. Do not use italics, all-caps headings, eyebrow headings, or decorative section numbering.
+The meta label is the one approved uppercase treatment: 12.5px, weight 600, 0.06em tracking, uppercase, in the body sans. It carries story meta, role labels and roster roles. It is not a heading and never uses a heading element.
+
+Headings use size and spacing for hierarchy, not bold weight. Keep sentence case. Do not use italics, all-caps headings, eyebrow headings, or decorative section numbering. The meta label sits outside this rule by name, because it is not a heading.
 
 Hero headings are an editorial and layout constraint, not a text-clamping effect. They must remain on one or two lines at approved breakpoints. Shorten the copy, widen the measure, or reduce the size within the token range if a third line appears.
 
@@ -71,7 +80,7 @@ Hero headings are an editorial and layout constraint, not a text-clamping effect
 
 Use the spacing tokens. Do not invent nearby values.
 
-The content shell is 1200px maximum with responsive gutters from 20px to 48px. Reading copy is limited to 720px or 68 characters. Section spacing ranges from 72px to 120px. Use 24px between a heading and lead copy, 16px between a heading and ordinary body copy, and 16px between paragraphs.
+The content shell is 1200px maximum with responsive gutters from 20px to 48px. Reading copy is limited to 720px or 68 characters. Section spacing ranges from 72px to 120px, with a documented 64px floor below 680px, where the standard band would otherwise squeeze the mobile rhythm to a 40px spread. Use 24px between a heading and lead copy, 16px between a heading and ordinary body copy, and 16px between paragraphs.
 
 Images and fields are normally square-cornered. Text buttons use the full pill radius. Avoid floating cards and repeated boxed content where an open layout or ruled list will work.
 
@@ -99,7 +108,11 @@ Input text is 16px minimum. Fields are 48px high minimum. Use a single-column fo
 
 ## Carousel
 
-The homepage carousel idles for six seconds. It supports previous, next, pause, dots, arrow keys, and swipe when integrated with a touch handler. Autoplay stops while hovered, focused, or hidden. Reduced-motion users receive no automatic movement.
+The kit component supports previous, next, pause, dots, arrow keys, and swipe when integrated with a touch handler.
+
+The website carousel advances every three seconds and carries no visible control, which was a deliberate design decision. Four mitigations stand in place of a pause button: it stops while the pointer is over it, it stops while anything inside it has keyboard focus, it does not run while the tab is hidden, and it never auto-advances under reduced motion. Arrow keys still step through slides.
+
+This leaves a known residual gap against WCAG 2.2.2, which asks for a way to pause content moving for more than five seconds. It is recorded here as an accepted risk rather than an oversight. If it becomes a problem the fix is to restore a visible control, not to lengthen the interval.
 
 Captions use white direct headings over a controlled dark gradient. Keep captions to two lines and use no eyebrow, numbering, decorative line markers, or opaque text boxes.
 

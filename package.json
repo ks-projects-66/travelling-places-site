@@ -10,11 +10,11 @@
     "check": "astro check",
     "check:licensing": "node scripts/check-licensing.mjs",
     "check:placeholders": "node scripts/check-placeholders.mjs",
-    "brand:build": "node brand-kit-v2/scripts/run-build-assets.mjs",
-    "brand:check": "node brand-kit-v2/scripts/brand-check.mjs brand-kit-v2",
-    "brand:qa": "node brand-kit-v2/scripts/qa-browser.cjs",
-    "brand:report:site": "node brand-kit-v2/scripts/brand-check.mjs --report-only src",
-    "brand:report:dist": "node brand-kit-v2/scripts/brand-check.mjs --report-only dist"
+    "brand:build": "node brand-kit/scripts/run-build-assets.mjs",
+    "brand:check": "node brand-kit/scripts/brand-check.mjs brand-kit",
+    "brand:qa": "node brand-kit/scripts/qa-browser.cjs",
+    "brand:report:site": "node brand-kit/scripts/brand-check.mjs --report-only src",
+    "brand:report:dist": "node brand-kit/scripts/brand-check.mjs --report-only dist"
   },
   "dependencies": {
     "astro": "^5.16.0",

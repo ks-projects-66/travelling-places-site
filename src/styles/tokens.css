@@ -3,7 +3,7 @@
    so a future kit release propagates without touching 2,000 lines of stylesheet.
    Add nothing here that is not an alias. */
 
-@import "../../brand-kit-v2/styles/tokens.css";
+@import "../../brand-kit/styles/tokens.css";
 
 :root {
   --white: var(--tp-white);

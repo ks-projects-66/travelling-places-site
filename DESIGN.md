@@ -6,7 +6,7 @@ A bright, image-led travel brand site with the welcoming poise of a long-establi
 
 ## What this file governs
 
-Since brand kit v2.1.0, `brand-kit-v2/` is canonical for **tokens, type scale, colour and
+Since brand kit v2.1.0, `brand-kit/` is canonical for **tokens, type scale, colour and
 controls**. This file governs **layout and imagery** and does not restate values the kit owns.
 Where the two disagree, the kit wins on values and this file wins on layout and imagery.
 
@@ -15,8 +15,8 @@ the site's variable names, so a kit release propagates without edits here.
 
 | Looking for | Read |
 |---|---|
-| Colour, type scale, spacing, shape, motion | `brand-kit-v2/styles/tokens.css` and `brand.tokens.json` |
-| Logo rules, contrast pairs, button and form specification | `brand-kit-v2/BRAND.md` |
+| Colour, type scale, spacing, shape, motion | `brand-kit/styles/tokens.css` and `brand.tokens.json` |
+| Logo rules, contrast pairs, button and form specification | `brand-kit/BRAND.md` |
 | Layout, imagery direction, the Belmond ruling | This file |
 
 ## Layout

@@ -7,3 +7,7 @@
 /journal.html            /journal/                             301
 /contact.html            /contact/                             301
 /article-antarctica.html /journal/looking-south-to-antarctica/  301
+
+# The brand kit dropped its version from the folder name at v3.0.0. This path was published on
+# the Vercel preview, so it redirects rather than disappearing.
+/brand-kit-v2/*          /brand-kit/:splat                     301

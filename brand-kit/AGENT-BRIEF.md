@@ -16,7 +16,7 @@ This file is a compact enforcement layer. `BRAND.md` contains the full reasoning
 
 ## Prohibited
 
-- Eyebrow headings.
+- Eyebrow headings. The approved meta label role is not an eyebrow, because it is never a heading element.
 - Decorative section numbering.
 - Italic type.
 - Em dash and en dash characters.

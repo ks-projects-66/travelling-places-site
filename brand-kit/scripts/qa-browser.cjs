@@ -2,7 +2,7 @@ const { chromium } = require('playwright');
 const { resolve } = require('node:path');
 
 const providedUrl = process.argv.slice(2).find((argument) => /^https?:\/\//.test(argument));
-const baseUrl = providedUrl || process.env.BRAND_KIT_URL || 'http://127.0.0.1:5173/brand-kit-v2/';
+const baseUrl = providedUrl || process.env.BRAND_KIT_URL || 'http://127.0.0.1:4322/brand-kit/';
 const outputDir = resolve(__dirname, '..', 'qa');
 const failures = [];
 

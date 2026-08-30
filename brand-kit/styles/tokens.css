@@ -13,10 +13,10 @@
   --tp-font-display: "Libre Baskerville", Baskerville, Georgia, serif;
   --tp-font-body: "IBM Plex Sans", "Segoe UI", Arial, sans-serif;
 
-  --tp-type-display: clamp(2.125rem, 5.4vw, 4.5rem);
-  --tp-type-page-title: clamp(2.25rem, 4.4vw, 3.5rem);
-  --tp-type-section-title: clamp(1.875rem, 3.5vw, 2.75rem);
-  --tp-type-subsection-title: clamp(1.375rem, 2.2vw, 1.875rem);
+  --tp-type-display: clamp(2.125rem, 4.2vw, 3.5rem);
+  --tp-type-page-title: clamp(2.25rem, 4vw, 3rem);
+  --tp-type-section-title: clamp(1.875rem, 3.3vw, 2.5rem);
+  --tp-type-subsection-title: clamp(1.375rem, 2vw, 1.75rem);
   --tp-type-menu-title: clamp(1.625rem, 2.2vw, 1.875rem);
   --tp-type-lead: clamp(1.125rem, 1.4vw, 1.1875rem);
   --tp-type-label: 1rem;
