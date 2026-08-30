@@ -122,14 +122,25 @@ document.querySelectorAll('[data-enquiry-form]').forEach((form) => {
 
 // --- destination carousel ---
 
+/**
+ * Advances on its own every 3 seconds. There is no visible control bar: the dots, the
+ * pause button and the arrows were removed by request.
+ *
+ * WCAG 2.2.2 asks for a way to pause content that moves for more than five seconds. With the
+ * visible control gone, the mitigations are: it stops while the pointer is over it, it stops
+ * while anything inside it has keyboard focus, arrow keys still step through slides, it does
+ * not run while the tab is hidden, and it never auto-advances at all under
+ * prefers-reduced-motion. That is weaker than a real pause button; if the missing control
+ * becomes a problem, add one back rather than lengthening the interval.
+ */
+
+const SLIDE_MS = 3000;
+
 const carousel = document.querySelector('[data-carousel]');
 if (carousel) {
   const slides = [...carousel.querySelectorAll('[data-slide]')];
-  const dots = [...carousel.querySelectorAll('[data-carousel-dot]')];
-  const playButton = carousel.querySelector('[data-carousel-play]');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let index = 0;
-  let paused = reduceMotion.matches;
   let timer;
 
   const showSlide = (next) => {
@@ -139,46 +150,16 @@ if (carousel) {
       slide.classList.toggle('is-active', active);
       slide.setAttribute('aria-hidden', String(!active));
     });
-    dots.forEach((dot, i) => {
-      const active = i === index;
-      dot.classList.toggle('is-active', active);
-      dot.setAttribute('aria-pressed', String(active));
-    });
   };
+
   const stop = () => window.clearInterval(timer);
   const start = () => {
     stop();
-    if (!paused && !document.hidden) timer = window.setInterval(() => showSlide(index + 1), 6000);
-  };
-  const playIcon = playButton.querySelector('use');
-  const setPaused = (value) => {
-    paused = value;
-    // The control is icon-only, so swap the sprite symbol rather than the text content,
-    // which would delete the SVG.
-    playIcon?.setAttribute(
-      'href',
-      `/brand-kit-v2/assets/icons/ui-icons.svg#icon-${paused ? 'play' : 'pause'}`,
-    );
-    playButton.setAttribute('aria-label', paused ? 'Play carousel' : 'Pause carousel');
-    playButton.setAttribute('aria-pressed', String(paused));
-    start();
+    if (!reduceMotion.matches && !document.hidden) {
+      timer = window.setInterval(() => showSlide(index + 1), SLIDE_MS);
+    }
   };
 
-  carousel.querySelector('[data-carousel-next]').addEventListener('click', () => {
-    showSlide(index + 1);
-    start();
-  });
-  carousel.querySelector('[data-carousel-prev]').addEventListener('click', () => {
-    showSlide(index - 1);
-    start();
-  });
-  dots.forEach((dot, i) =>
-    dot.addEventListener('click', () => {
-      showSlide(i);
-      start();
-    }),
-  );
-  playButton.addEventListener('click', () => setPaused(!paused));
   carousel.addEventListener('mouseenter', stop);
   carousel.addEventListener('mouseleave', start);
   carousel.addEventListener('focusin', stop);
@@ -188,7 +169,10 @@ if (carousel) {
     if (event.key === 'ArrowRight') showSlide(index + 1);
   });
   document.addEventListener('visibilitychange', start);
-  setPaused(paused);
+  reduceMotion.addEventListener('change', start);
+
+  showSlide(0);
+  start();
 }
 
 // --- journal year filter ---

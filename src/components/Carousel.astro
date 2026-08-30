@@ -29,23 +29,4 @@ const { slides } = Astro.props;
       </article>
     ))}
   </div>
-  <div class="carousel-controls shell">
-    <div class="carousel-dots" role="group" aria-label="Choose a destination">
-      {slides.map((slide, i) => (
-        <button type="button" class:list={[i === 0 && 'is-active']} data-carousel-dot={i}
-          aria-label={`Show ${slide.place}`} aria-pressed={i === 0 ? 'true' : 'false'}></button>
-      ))}
-    </div>
-    <div class="carousel-buttons">
-      <button class="carousel-icon-button" type="button" data-carousel-play aria-label="Pause carousel" aria-pressed="false">
-        <svg aria-hidden="true" focusable="false"><use href="/brand-kit-v2/assets/icons/ui-icons.svg#icon-pause" data-play-icon></use></svg>
-      </button>
-      <button class="carousel-icon-button" type="button" data-carousel-prev aria-label="Previous destination">
-        <svg aria-hidden="true" focusable="false"><use href="/brand-kit-v2/assets/icons/ui-icons.svg#icon-chevron-left"></use></svg>
-      </button>
-      <button class="carousel-icon-button" type="button" data-carousel-next aria-label="Next destination">
-        <svg aria-hidden="true" focusable="false"><use href="/brand-kit-v2/assets/icons/ui-icons.svg#icon-chevron-right"></use></svg>
-      </button>
-    </div>
-  </div>
 </section>
