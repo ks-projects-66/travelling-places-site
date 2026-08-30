@@ -7,27 +7,97 @@ const nav = document.querySelector('[data-nav]');
 const siteHeader = document.querySelector('[data-header]');
 const dialog = document.querySelector('[data-enquiry-dialog]');
 
-const closeMenu = () => {
+const menuIsOpen = () => menuToggle?.getAttribute('aria-expanded') === 'true';
+
+const closeMenu = ({ restoreFocus = false } = {}) => {
+  const wasOpen = menuIsOpen();
   menuToggle?.setAttribute('aria-expanded', 'false');
   nav?.classList.remove('is-open');
   document.body.classList.remove('menu-open');
+  // Focus goes back to the control that opened the panel, but only when the panel was actually
+  // open. Otherwise a stray Escape anywhere on the page would steal focus to the header.
+  if (wasOpen && restoreFocus) menuToggle?.focus();
 };
 
-menuToggle?.addEventListener('click', () => {
-  const willOpen = menuToggle.getAttribute('aria-expanded') !== 'true';
-  menuToggle.setAttribute('aria-expanded', String(willOpen));
-  nav?.classList.toggle('is-open', willOpen);
-  document.body.classList.toggle('menu-open', willOpen);
+const openMenu = () => {
+  menuToggle?.setAttribute('aria-expanded', 'true');
+  nav?.classList.add('is-open');
+  document.body.classList.add('menu-open');
+  // Move focus into the panel so a keyboard or screen-reader user is not left behind the overlay.
+  nav?.querySelector('a')?.focus();
+};
+
+menuToggle?.addEventListener('click', () => (menuIsOpen() ? closeMenu() : openMenu()));
+nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => closeMenu()));
+
+// The panel covers the page, so it needs the three things any overlay owes a keyboard user:
+// Escape to leave, a trap so Tab cannot wander behind it, and focus returned on close.
+document.addEventListener('keydown', (event) => {
+  if (!menuIsOpen()) return;
+
+  if (event.key === 'Escape') {
+    closeMenu({ restoreFocus: true });
+    return;
+  }
+
+  if (event.key !== 'Tab' || !nav) return;
+
+  const focusable = [...nav.querySelectorAll('a, button')].filter(
+    (el) => !el.hasAttribute('disabled') && el.offsetParent !== null,
+  );
+  if (focusable.length === 0) return;
+
+  const first = focusable[0];
+  const last = focusable[focusable.length - 1];
+  const active = document.activeElement;
+
+  if (event.shiftKey && (active === first || active === menuToggle)) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && active === last) {
+    event.preventDefault();
+    first.focus();
+  } else if (!nav.contains(active) && active !== menuToggle) {
+    // Focus escaped some other way, so bring it back rather than leaving it behind the overlay.
+    event.preventDefault();
+    first.focus();
+  }
 });
-nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
+
+// Dismiss by clicking away from the links.
+//
+// The panel is position: fixed with inset: 0, so it covers the viewport and there is no literal
+// outside to click. The equivalent gesture is a click landing on the panel's own background rather
+// than on one of its children, which is the same test the enquiry dialog uses for its backdrop.
+document.addEventListener('click', (event) => {
+  if (!menuIsOpen()) return;
+  if (menuToggle?.contains(event.target)) return;
+  if (event.target === nav || !nav?.contains(event.target)) closeMenu();
+});
+
+// Above 940px the toggle is display:none and the nav is an ordinary bar. Without this, opening the
+// menu on a narrow window and then widening it left body.menu-open set, so the page kept a desktop
+// nav with scrolling still locked and no visible control to release it.
+const desktopNav = window.matchMedia('(min-width: 941px)');
+const releaseMenuOnDesktop = (event) => {
+  if (event.matches) closeMenu();
+};
+desktopNav.addEventListener('change', releaseMenuOnDesktop);
 window.addEventListener('scroll', () => siteHeader?.classList.toggle('is-sticky', window.scrollY > 24), {
   passive: true,
 });
 
-document.querySelectorAll('[data-open-enquiry]').forEach((button) =>
-  button.addEventListener('click', () => {
+// Progressive enhancement. The opener is an ordinary link to /contact/, so it works with no JS,
+// on the contact page itself where no dialog is rendered, and if <dialog> is unsupported. Where
+// the dialog does exist, the click opens it instead of making the visitor leave the page.
+let enquiryOpener = null;
+document.querySelectorAll('[data-open-enquiry]').forEach((opener) =>
+  opener.addEventListener('click', (event) => {
+    if (!dialog || typeof dialog.showModal !== 'function') return;
+    event.preventDefault();
+    enquiryOpener = opener;
     closeMenu();
-    dialog?.showModal();
+    dialog.showModal();
     document.body.classList.add('dialog-open');
   }),
 );
@@ -39,7 +109,12 @@ document.querySelector('[data-close-enquiry]')?.addEventListener('click', closeD
 dialog?.addEventListener('click', (event) => {
   if (event.target === dialog) closeDialog();
 });
-dialog?.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+dialog?.addEventListener('close', () => {
+  document.body.classList.remove('dialog-open');
+  // Native Escape also fires this, so focus returns however the dialog was dismissed.
+  enquiryOpener?.focus();
+  enquiryOpener = null;
+});
 
 // --- enquiry form ---
 

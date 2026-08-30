@@ -74,6 +74,8 @@ The meta label is the one approved uppercase treatment: 12.5px, weight 600, 0.06
 
 Headings use size and spacing for hierarchy, not bold weight. Keep sentence case. Do not use italics, all-caps headings, eyebrow headings, or decorative section numbering. The meta label sits outside this rule by name, because it is not a heading.
 
+Journal article titles are editorial headlines rather than display copy, and may run to three lines. The two-line rule governs marketing heroes.
+
 Hero headings are an editorial and layout constraint, not a text-clamping effect. They must remain on one or two lines at approved breakpoints. Shorten the copy, widen the measure, or reduce the size within the token range if a third line appears.
 
 ## Spacing and layout
@@ -92,7 +94,7 @@ Button labels are direct and sentence case. Text buttons are 50px high with 28px
 
 Disabled buttons retain a white background and a clear ink border. Their label uses muted ink, and their cursor communicates that the control is unavailable. Do not fade the entire control with opacity.
 
-Every interactive target is at least 44px in each dimension. Focus uses the 3px brand red outline with a 3px offset.
+Interactive targets meet WCAG 2.5.8 (Minimum, AA): at least 24 by 24 CSS pixels, with the inline and spacing exceptions the standard allows. 44px stays the preferred size for a standalone control and is what `--tp-control-min` carries, but it is the AAA figure from 2.5.5 and is held as a target rather than a conformance floor. Focus uses the 3px brand red outline with a 3px offset.
 
 ## Navigation and footer
 

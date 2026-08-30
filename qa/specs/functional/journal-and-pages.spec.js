@@ -101,25 +101,40 @@ test.describe('404', () => {
 });
 
 test.describe('enquiry dialog', () => {
-  test('is present but unreachable through the interface', async ({ page }) => {
+  test('opens from the header call to action', async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/');
 
     await expect(page.locator('[data-enquiry-dialog]')).toHaveCount(1);
-    const openers = await page.locator('[data-open-enquiry]').count();
+    const opener = page.locator('[data-open-enquiry]');
+    await expect(opener).toHaveCount(1);
 
-    record({ suite: 'functional', route: '/', browser: 'chromium' }, [
-      {
-        id: 'dialog-unreachable',
-        severity: 'fail',
-        detail:
-          'The enquiry dialog is rendered on every non-contact page but nothing emits data-open-enquiry, so no user can open it. Either wire an opener or stop shipping the markup.',
-        expected: 'at least one [data-open-enquiry] control',
-        actual: `${openers} found`,
-        source: 'src/components/EnquiryDialog.astro, src/scripts/site.js',
-      },
-    ]);
-    expect(openers).toBeGreaterThan(0);
+    // Progressive enhancement: the opener stays an ordinary link to /contact/, so it still works
+    // without JS and on the contact page, where no dialog is rendered.
+    await expect(opener).toHaveAttribute('href', '/contact/');
+
+    await opener.click();
+    await expect(page.locator('[data-enquiry-dialog]')).toBeVisible();
+    await expect(page).toHaveURL('/');
+    await expect(page.locator('body')).toHaveClass(/dialog-open/);
+  });
+
+  test('returns focus to the opener when dismissed', async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await page.goto('/');
+    await page.locator('[data-open-enquiry]').click();
+    await expect(page.locator('[data-enquiry-dialog]')).toBeVisible();
+
+    await page.keyboard.press('Escape');
+    await expect(page.locator('[data-enquiry-dialog]')).toBeHidden();
+    await expect(page.locator('[data-open-enquiry]')).toBeFocused();
+  });
+
+  test('is not rendered on the contact page, where the form is inline', async ({ page }) => {
+    await page.setViewportSize(viewport);
+    await page.goto('/contact/');
+    await expect(page.locator('[data-enquiry-dialog]')).toHaveCount(0);
+    await expect(page.locator('[data-enquiry-form]')).toHaveCount(1);
   });
 
   test('closes correctly once opened programmatically', async ({ page }) => {

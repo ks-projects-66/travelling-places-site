@@ -19,7 +19,7 @@ body {
   color: var(--ink);
   background: var(--ground);
   font-family: var(--sans);
-  font-size: 1rem;
+  font-size: var(--tp-type-body);
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
@@ -62,18 +62,32 @@ h2,
 h3 {
   font-family: var(--display);
   font-weight: 400;
-  line-height: 1.08;
   letter-spacing: -0.025em;
   text-wrap: balance;
+}
+
+/* Line height is set per level, not shared. One 1.08 across all three applied the display setting
+   to section and subsection headings, which the kit sets looser at 1.16 and 1.25. */
+h1 {
+  line-height: 1.08;
 }
 
 h2 {
   margin-bottom: 1.5rem;
   font-size: var(--tp-type-section-title);
+  line-height: 1.16;
 }
 
 h3 {
   font-size: var(--tp-type-subsection-title);
+  line-height: 1.25;
+}
+
+/* The loaded IBM Plex Sans carries weights 400 to 600. The UA default of 700 on strong and b sits
+   outside that range, so the browser synthesises a faux bold instead of using a real weight. */
+strong,
+b {
+  font-weight: 600;
 }
 
 p {
@@ -685,7 +699,7 @@ blockquote {
   padding-top: 1.25rem;
   border-top: 1px solid color-mix(in oklch, var(--white) 15%, transparent);
   color: color-mix(in oklch, var(--white) 55%, var(--blue));
-  font-size: 0.78rem;
+  font-size: var(--meta-label);
 }
 
 .enquiry-dialog {
@@ -693,7 +707,7 @@ blockquote {
   max-height: min(800px, calc(100vh - 2rem));
   padding: 0;
   border: 0;
-  border-radius: 12px;
+  border-radius: var(--radius-panel);
   color: var(--ink);
   background: var(--white);
 }
@@ -767,7 +781,7 @@ blockquote {
   border-radius: var(--tp-radius-control);
   padding: 0.8rem 0.9rem;
   color: var(--ink);
-  font-size: 1rem;
+  font-size: var(--tp-type-body);
   background: var(--white);
 }
 

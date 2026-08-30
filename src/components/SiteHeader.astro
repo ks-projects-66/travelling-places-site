@@ -23,7 +23,7 @@ const current = (key: string) => page === key || (page === 'article' && key === 
       {nav.primary.map((item) => (
         <a href={item.href} aria-current={current(item.key) ? 'page' : undefined}>{item.label}</a>
       ))}
-      <a class="button button-small button-blue" href="/contact/">Plan a journey</a>
+      <a class="button button-small button-blue" href="/contact/" data-open-enquiry>Plan a journey</a>
     </nav>
   </div>
 </header>

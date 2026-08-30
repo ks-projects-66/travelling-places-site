@@ -62,62 +62,46 @@ for (const viewport of overlayViewports) {
 
     // --- Behaviours the brief requires that the site does not implement ---
 
-    test('closes on Escape', async ({ page }) => {
+    test('closes on Escape and returns focus to the toggle', async ({ page }) => {
       const toggle = page.locator('[data-menu-toggle]');
       await toggle.click();
       await expect(toggle).toHaveAttribute('aria-expanded', 'true');
 
       await page.keyboard.press('Escape');
-
-      record({ suite: 'functional', viewport: viewport.label, browser: 'chromium' }, [
-        {
-          id: 'menu-no-escape-close',
-          severity: 'fail',
-          detail: 'The overlay menu has no keydown handler, so Escape does not close it.',
-          expected: 'aria-expanded="false" after Escape',
-          source: 'src/scripts/site.js',
-        },
-      ]);
       await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+      await expect(page.locator('body')).not.toHaveClass(/menu-open/);
+      await expect(toggle).toBeFocused();
     });
 
-    test('closes on a click outside the panel', async ({ page }) => {
+    test('closes on a click away from the links', async ({ page }) => {
+      // The panel is fixed at inset: 0, so it covers the viewport and there is no literal outside
+      // to click. Dispatching on the nav element itself is the real gesture: a click landing on
+      // the panel background rather than on one of its links.
       const toggle = page.locator('[data-menu-toggle]');
       await toggle.click();
-      await page.mouse.click(viewport.width - 8, viewport.height - 8);
+      await expect(page.locator('[data-nav]')).toHaveClass(/is-open/);
 
-      record({ suite: 'functional', viewport: viewport.label, browser: 'chromium' }, [
-        {
-          id: 'menu-no-outside-click-close',
-          severity: 'fail',
-          detail: 'Only the toggle and the nav links close the menu. A click outside does nothing.',
-          expected: 'aria-expanded="false" after an outside click',
-          source: 'src/scripts/site.js',
-        },
-      ]);
+      await page.locator('[data-nav]').dispatchEvent('click');
       await expect(toggle).toHaveAttribute('aria-expanded', 'false');
     });
 
     test('traps focus inside the open panel', async ({ page }) => {
       await page.locator('[data-menu-toggle]').click();
-      // Tab past every link in the panel; focus should cycle back inside, not escape to the page.
+      // Tab past every link in the panel. Focus should cycle back inside rather than escaping to
+      // the page behind, which is still in the tab order under a fixed overlay.
       const linkCount = await page.locator('[data-nav] a').count();
-      for (let i = 0; i < linkCount + 2; i += 1) await page.keyboard.press('Tab');
+      for (let i = 0; i < linkCount + 3; i += 1) {
+        await page.keyboard.press('Tab');
+        const inside = await page.evaluate(() => !!document.activeElement?.closest('[data-nav]'));
+        expect(inside, `focus escaped the panel after ${i + 1} tab(s)`).toBe(true);
+      }
+    });
 
-      const focusInsideNav = await page.evaluate(
-        () => !!document.activeElement?.closest('[data-nav]'),
-      );
-
-      record({ suite: 'functional', viewport: viewport.label, browser: 'chromium' }, [
-        {
-          id: 'menu-no-focus-trap',
-          severity: 'fail',
-          detail: 'Focus leaves the full-screen overlay into the page behind it, which is still present in the tab order.',
-          expected: 'focus cycles within [data-nav] while open',
-          source: 'src/scripts/site.js',
-        },
-      ]);
-      expect(focusInsideNav).toBe(true);
+    test('cycles backwards without escaping', async ({ page }) => {
+      await page.locator('[data-menu-toggle]').click();
+      for (let i = 0; i < 3; i += 1) await page.keyboard.press('Shift+Tab');
+      const inside = await page.evaluate(() => !!document.activeElement?.closest('[data-nav]'));
+      expect(inside).toBe(true);
     });
 
     // There is deliberately no separate "restores focus to the toggle" test. Closing by clicking
@@ -126,20 +110,9 @@ for (const viewport of overlayViewports) {
     // both of those are covered above as the failures they currently are.
 
     test('moves focus into the panel when opened', async ({ page }) => {
-      const toggle = page.locator('[data-menu-toggle]');
-      await toggle.click();
+      await page.locator('[data-menu-toggle]').click();
       const landed = await page.evaluate(() => !!document.activeElement?.closest('[data-nav]'));
-
-      record({ suite: 'functional', viewport: viewport.label, browser: 'chromium' }, [
-        {
-          id: 'menu-no-initial-focus-move',
-          severity: 'warn',
-          detail: 'Opening the overlay leaves focus on the toggle rather than moving it into the panel, so a screen-reader user must tab past the header to reach the menu.',
-          expected: 'focus inside [data-nav] after open',
-          actual: landed ? 'inside' : 'still on the toggle',
-          source: 'src/scripts/site.js',
-        },
-      ]);
+      expect(landed).toBe(true);
     });
 
     test('releases the scroll lock when widened past the breakpoint', async ({ page }) => {
@@ -147,17 +120,8 @@ for (const viewport of overlayViewports) {
       await expect(page.locator('body')).toHaveClass(/menu-open/);
 
       await page.setViewportSize({ width: 1200, height: viewport.height });
-
-      record({ suite: 'functional', viewport: viewport.label, browser: 'chromium' }, [
-        {
-          id: 'menu-no-resize-handling',
-          severity: 'fail',
-          detail: 'Opening the menu below 940px then widening past it leaves body.menu-open set, so the page renders a desktop nav with scrolling still locked.',
-          expected: 'body.menu-open cleared once the desktop nav applies',
-          source: 'src/scripts/site.js',
-        },
-      ]);
       await expect(page.locator('body')).not.toHaveClass(/menu-open/);
+      await expect(page.locator('body')).toHaveCSS('overflow', 'visible');
     });
   });
 }

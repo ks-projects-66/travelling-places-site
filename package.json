@@ -22,7 +22,7 @@
     "test:a11y": "playwright test --config qa/playwright.config.js --project=a11y",
     "test:brand": "node qa/brand/run-brand.mjs",
     "test:visual": "backstop test --config=qa/visual/backstop.config.cjs",
-    "test:visual:ref": "backstop reference --config=qa/visual/backstop.config.cjs",
+    "test:visual:ref": "backstop reference --config=qa/visual/backstop.config.cjs && node qa/visual/make-baseline-status.cjs",
     "test:visual:approve": "node qa/visual/approve.mjs",
     "test:qa": "node qa/run-all.mjs"
   },

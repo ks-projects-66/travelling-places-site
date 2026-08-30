@@ -23,6 +23,7 @@
   --tp-type-body: 1rem;
   --tp-type-navigation: 0.875rem;
   --tp-type-fine: 0.8125rem;
+  --tp-type-meta-label: 0.78rem;
 
   --tp-space-xs: 0.25rem;
   --tp-space-sm: 0.5rem;
@@ -43,6 +44,9 @@
   --tp-button-height: 3.125rem;
   --tp-radius-button: 999px;
   --tp-radius-control: 0.125rem;
+  /* Interface chrome. DESIGN.md keeps 12px on the enquiry dialog and booking panels; the
+     square-corner rule governs photography, not panels. */
+  --tp-radius-panel: 0.75rem;
 
   --tp-motion-fast: 160ms;
   --tp-motion-standard: 220ms;

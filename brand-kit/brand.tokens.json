@@ -71,7 +71,8 @@
       "max": "56px",
       "lineHeight": 1.08,
       "maxWidth": "24ch",
-      "maximumLines": 2
+      "maximumLines": 2,
+      "maximumLinesArticleTitle": 3
     },
     "pageTitle": {
       "min": "36px",
@@ -168,11 +169,13 @@
     "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
   },
   "interaction": {
-    "minimumTarget": "44px",
+    "minimumTarget": "24px",
     "preferredButtonHeight": "50px",
     "buttonInlinePadding": "28px",
     "focusWidth": "3px",
-    "focusOffset": "3px"
+    "focusOffset": "3px",
+    "minimumTargetStandard": "WCAG 2.5.8 AA, with the inline and spacing exceptions",
+    "preferredTarget": "44px"
   },
   "logo": {
     "minimumLockupWidth": "172px",

@@ -139,6 +139,10 @@
   margin-bottom: 2.5rem;
   padding: 0.9rem 1.2rem;
   background: var(--white);
+  /* Padding on the image itself makes the border box a different shape from the aspect-ratio
+     Astro derives from the declared width, and object-fit defaults to fill, so the Virtuoso mark
+     rendered stretched. contain preserves the ratio. Same defect as the footer logo wall. */
+  object-fit: contain;
 }
 
 .destination-carousel {
@@ -220,7 +224,7 @@
 .role,
 .roster-role {
   color: var(--red-text);
-  font-size: 0.78rem;
+  font-size: var(--meta-label);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -540,7 +544,7 @@
   min-height: 44px;
   padding: 0.6rem 1rem;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: var(--tp-radius-button);
   color: var(--blue-deep);
   background: var(--white);
   cursor: pointer;
@@ -776,7 +780,7 @@
 .field-error {
   min-height: 1.15rem;
   color: var(--red-text);
-  font-size: 0.78rem;
+  font-size: var(--meta-label);
 }
 
 .enquiry-form [aria-invalid="true"] {

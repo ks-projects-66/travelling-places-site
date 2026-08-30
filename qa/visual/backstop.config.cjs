@@ -27,12 +27,30 @@ const base = {
   readySelector: 'body',
 };
 
-/** Full pages. */
+/**
+ * Full pages, captured above the fold at one viewport.
+ *
+ * Sizing is the constraint, and it is a real one on a public repository. This site is
+ * photography-led, so a full-document PNG of a 7,000px page runs to 2.4MB at 1440 and 4.6MB at
+ * 2560. Capturing all nine routes as full documents across six viewports came to roughly 130MB of
+ * committed binaries, growing by that much again on every regeneration.
+ *
+ * What that spend buys is also weak: on a page that tall, one shifted element cascades into a
+ * whole-page diff that says little. So page-level geometry is left to the responsive suite, which
+ * audits nine routes across all nineteen viewports and stores no pixels at all, and the pixels are
+ * spent on components below, where a diff is precise.
+ *
+ * The one page-level capture kept is mobile above the fold, because CLAUDE.md records mobile
+ * centring as a repeat regression on exactly this kind of work.
+ */
+const MOBILE_PAGE_VIEWPORT = VISUAL_PAGES.filter((v) => v.label === 'mobile-390');
+
 const pages = ROUTES.map((route) => ({
   ...base,
   label: `page-${routeId(route)}`,
   url: `${BASE}${route}`,
-  viewports: vp(VISUAL_PAGES),
+  selectors: ['viewport'],
+  viewports: vp(MOBILE_PAGE_VIEWPORT),
   delay: 600,
 }));
 
@@ -102,8 +120,8 @@ module.exports = {
     html_report: 'qa/visual/report',
     json_report: 'qa/visual/report',
   },
-  onBeforeScript: 'playwright/onBefore.js',
-  onReadyScript: 'playwright/onReady.js',
+  onBeforeScript: 'playwright/onBefore.cjs',
+  onReadyScript: 'playwright/onReady.cjs',
   engine: 'playwright',
   engineOptions: { browser: 'chromium' },
   report: ['browser', 'json'],

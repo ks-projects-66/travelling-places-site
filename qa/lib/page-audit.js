@@ -97,8 +97,20 @@ export async function auditPage(page) {
     }
 
     // 5. Container width. Every .shell should agree at a given viewport and none may pass 1200px.
+    //
+    //    A shell carrying its own narrower max-width is a deliberate reading column, not an
+    //    inconsistency, so only shells sharing the default constraint are compared.
     const shells = [...document.querySelectorAll('.shell')].filter(visible);
-    const widths = [...new Set(shells.map((s) => Math.round(s.getBoundingClientRect().width)))];
+    const defaultMax = shells.length
+      ? shells.map((s) => getComputedStyle(s).maxWidth).sort((a, b) => parseFloat(b) - parseFloat(a))[0]
+      : null;
+    const widths = [
+      ...new Set(
+        shells
+          .filter((s) => getComputedStyle(s).maxWidth === defaultMax)
+          .map((s) => Math.round(s.getBoundingClientRect().width)),
+      ),
+    ];
     if (widths.length > 1) {
       add('container-width-inconsistent', 'warn', '.shell renders at ' + widths.join(', ') + 'px on one page');
     }
@@ -106,11 +118,12 @@ export async function auditPage(page) {
       add('container-exceeds-max', 'fail', '.shell exceeds the 1200px content max: ' + widths.join(', ') + 'px');
     }
 
-    // 6. Header. It is sticky, so it legitimately passes over content on scroll. What matters is
-    //    that it does not cover the first heading at rest.
+    // 6. Header. It is sticky, so passing over content while scrolled is correct behaviour, not a
+    //    defect. The check is only meaningful at rest, and it says so rather than assuming: run
+    //    mid-scroll it reported the sticky header working as designed as a failure.
     const header = document.querySelector('[data-header]');
     const main = document.querySelector('#main');
-    if (header && main) {
+    if (header && main && window.scrollY <= 1) {
       const hr = header.getBoundingClientRect();
       const firstHeading = main.querySelector('h1, h2');
       if (firstHeading && visible(firstHeading)) {
@@ -154,18 +167,47 @@ export async function auditPage(page) {
       }
     }
 
-    // 10. Touch targets. The kit sets --tp-control-min to 44px, so this is the kit's own rule.
+    // 10. Target size, to WCAG 2.5.8 (Minimum, AA): 24 by 24 CSS pixels.
+    //
+    //     Not the kit's 44px, which is WCAG 2.5.5 (Enhanced, AAA) and remains the preferred size
+    //     for a standalone control. Two of the standard's exceptions are implemented, because
+    //     without them this rule fires on every link in a paragraph:
+    //
+    //       Inline  - the target sits within a sentence or block of text.
+    //       Spacing - a 24px circle centred on the target does not intersect another target's.
+    const TARGET_MIN = 24;
+    const targets = [...document.querySelectorAll('a, button, input:not([type=hidden]), select, textarea, [role=button]')].filter(visible);
+    const boxes = targets.map((el) => el.getBoundingClientRect());
+
     const seen = new Set();
-    for (const el of document.querySelectorAll('a, button, input:not([type=hidden]), select, textarea, [role=button]')) {
-      if (!visible(el)) continue;
-      const r = el.getBoundingClientRect();
-      if (r.width < 44 || r.height < 44) {
-        const key = describe(el) + Math.round(r.width) + 'x' + Math.round(r.height);
-        if (seen.has(key)) continue;
-        seen.add(key);
-        add('touch-target-small', 'warn', describe(el) + ' "' + (el.textContent || '').trim().slice(0, 24) + '" is ' + px(r.width) + 'x' + px(r.height));
-      }
-    }
+    targets.forEach((el, i) => {
+      const r = boxes[i];
+      if (r.width >= TARGET_MIN && r.height >= TARGET_MIN) return;
+
+      // Inline exception: a link inside a run of prose.
+      const parent = el.parentElement;
+      const inProse = parent && /^(P|LI|SPAN|ADDRESS|BLOCKQUOTE|TD)$/.test(parent.tagName) &&
+        parent.textContent.trim().length > el.textContent.trim().length + 10;
+      if (el.tagName === 'A' && inProse) return;
+
+      // Spacing exception: nothing else is close enough for the small size to cause a mis-tap.
+      const cx = r.left + r.width / 2;
+      const cy = r.top + r.height / 2;
+      const crowded = boxes.some((o, j) => {
+        if (j === i) return false;
+        const ox = o.left + o.width / 2;
+        const oy = o.top + o.height / 2;
+        return Math.hypot(cx - ox, cy - oy) < TARGET_MIN;
+      });
+      if (!crowded) return;
+
+      const key = describe(el) + Math.round(r.width) + 'x' + Math.round(r.height);
+      if (seen.has(key)) return;
+      seen.add(key);
+      add('target-size-below-wcag', 'fail',
+        describe(el) + ' "' + (el.textContent || '').trim().slice(0, 24) + '" is ' + px(r.width) + 'x' + px(r.height) + ' and sits within 24px of another target',
+        { expected: '24x24 (WCAG 2.5.8 AA)', actual: px(r.width) + 'x' + px(r.height), source: 'https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html' });
+    });
 
     // 11. Hero heading line count, and an orphaned last word measured from real line boxes
     //     rather than guessed from a character count.
@@ -174,8 +216,13 @@ export async function auditPage(page) {
       const cs = getComputedStyle(h1);
       const lh = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.08;
       const lines = Math.round(h1.getBoundingClientRect().height / lh);
-      if (lines > 2) {
-        add('hero-heading-lines', 'fail', 'h1 renders ' + lines + ' lines at ' + cs.fontSize + ': "' + h1.textContent.trim().slice(0, 60) + '"');
+      // Journal article titles are editorial headlines, not display copy, and v3 allows them three
+      // lines. The two-line rule governs marketing heroes.
+      const isArticle = document.body.dataset.page === 'article';
+      const maxLines = isArticle ? 3 : 2;
+      if (lines > maxLines) {
+        add('hero-heading-lines', 'fail',
+          'h1 renders ' + lines + ' lines at ' + cs.fontSize + ' (max ' + maxLines + (isArticle ? ', article title' : '') + '): "' + h1.textContent.trim().slice(0, 60) + '"');
       }
       const range = document.createRange();
       range.selectNodeContents(h1);

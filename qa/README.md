@@ -70,6 +70,19 @@ clip` plus two deliberately full-bleed images would otherwise trip it on every p
 **The current references are not approved.** Read `visual/BASELINE-STATUS.md` before trusting them.
 A first baseline records what was there, defects included; it is not evidence the design is right.
 
+47 images, 11.7MB: every component at three viewports, plus each page above the fold at 390px.
+Full-page captures across the matrix were measured and rejected at roughly 130MB of committed
+binaries, because this site is photography-led and a full-document PNG runs 2.4MB at 1440. Page
+geometry is covered by the responsive suite instead, which audits nine routes at all nineteen
+viewports and stores no pixels.
+
+**The engine scripts must stay `.cjs`.** `package.json` sets `"type": "module"`, so a `.js` engine
+script using `module.exports` throws `module is not defined in ES module scope`. BackstopJS catches
+that, writes its "Unexpected error" placeholder as the reference image, and then reports a clean
+pass forever after, because every placeholder matches every other placeholder. It cost a full run
+before it was caught. If a suite of visual tests ever passes 100% first time, check that the
+references are photographs of the site and not 232x180 cartoons.
+
 Approval is deliberately two steps:
 
 ```bash

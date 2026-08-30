@@ -24,6 +24,8 @@
   --gutter: var(--tp-gutter);
   --section: var(--tp-space-section);
   --ease: var(--tp-ease);
+  --meta-label: var(--tp-type-meta-label);
+  --radius-panel: var(--tp-radius-panel);
 
   /* Header height. The hero subtracts it so header + hero fill the viewport exactly. */
   --header-h: 5.75rem;
