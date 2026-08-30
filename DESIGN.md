@@ -97,27 +97,31 @@ The kit floors display type at 34px. With 20px gutters a 375px screen leaves 335
 which fits about 18 characters per line at that size. A hero therefore has a budget of roughly
 **36 characters, with no single word group longer than 18**. Four headings exceed it:
 
-Re-measured 30 August 2026 on the built output at 390px, after the line-break mechanism changed
-from a hidden `<br>` to `.hero-line`:
+**Resolved 30 August 2026.** Approved by Karim, and measured across seven widths from 320 to 430px
+on the built output rather than reasoned about.
 
-| Page | Characters | Lines at 390px |
-|---|---|---|
-| Home | 31, but "beautifully planned." is 20 | **2, resolved** |
-| Expertise | 42 | 3 |
-| Virtuoso | 35 | **2, resolved** |
-| Who we are | 43 | 3 |
-| Contact | 39 | 3 |
-| Journal | 27 | **2, resolved** |
+Two of the three remedies `BRAND.md` offers were taken together, because neither was sufficient
+alone. Four headings were shortened to a 32-character budget, and display type steps to 29px below
+375px, where the 34px floor makes two lines unachievable rather than merely tight.
 
-Three of the five resolved themselves when the hidden `<br>` was replaced. The remaining three are
-still an editorial call on the copy, not a styling one.
+| Page | Was | Now | Chars |
+|---|---|---|---|
+| Home | Your world, beautifully planned. | unchanged | 32 |
+| Expertise | Travel is personal. Planning should be too. | Planned around how you travel. | 30 |
+| Who we are | People who know travel. People who know you. | People who know travel, and you. | 32 |
+| Contact | Tell us where your imagination is going. | Where is your imagination going? | 32 |
+| Virtuoso | Connections that make travel richer. | Connections that enrich travel. | 31 |
+| Journal | Ideas worth travelling for. | unchanged | 27 |
 
-`BRAND.md` offers three remedies. Widening the measure is already exhausted at 375px, and
-reducing the size below 34px would leave the token range. That leaves shortening the copy, which
-is an editorial decision rather than a styling one. The headings are unchanged pending that call.
+Measured result: 48 of 49 page and width combinations hold two lines. The single exception is the
+home hero at 320px, where "beautifully" is an eleven-character word that cannot share a line at any
+size the scale permits. The kit therefore tolerates a third line below 375px, and the automated
+check encodes that. From 375px up, every hero on every route holds two lines.
 
-The article page also runs to three lines at every width, but its title is placeholder text from
-the design mock-up and is replaced when Sienna's approved article arrives.
+The article title is allowed three lines as an editorial headline rather than display copy, which
+is also recorded in the kit. Karim confirmed on 30 August 2026 that the Antarctica piece is a real
+Sienna article rather than mock-up copy; `CLAUDE.md` and `docs/CONTENT-REGISTER.md` C10 still
+describe it as written for the mock-up, and need correcting to match.
 
 
 ## Hero tones, and which pages are waiting on photography

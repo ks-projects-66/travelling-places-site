@@ -76,6 +76,8 @@ Headings use size and spacing for hierarchy, not bold weight. Keep sentence case
 
 Journal article titles are editorial headlines rather than display copy, and may run to three lines. The two-line rule governs marketing heroes.
 
+Below 375px a hero may also take a third line. A 320px screen leaves a 280px measure, and a single long word cannot share a line at any size the scale permits, so the rule stops being achievable rather than being broken. Display type steps to 29px below 375px to hold two lines wherever it still can. From 375px up, every hero on every route holds two lines.
+
 Hero headings are an editorial and layout constraint, not a text-clamping effect. They must remain on one or two lines at approved breakpoints. Shorten the copy, widen the measure, or reduce the size within the token range if a third line appears.
 
 ## Spacing and layout

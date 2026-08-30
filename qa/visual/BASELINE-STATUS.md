@@ -84,11 +84,11 @@ There is no script that approves without that flag, deliberately.
 | `component-team-cards_0_roster-list_1_ipad-portrait.png` | 82 KB | `6faf470a55816a3a` |
 | `component-team-cards_0_roster-list_2_mobile-390.png` | 72 KB | `2c3682168a3816bc` |
 | `page-404_0_viewport_0_mobile-390.png` | 46 KB | `8266614744f5f1d8` |
-| `page-contact_0_viewport_0_mobile-390.png` | 191 KB | `766cde43e4e0dcbe` |
-| `page-expertise_0_viewport_0_mobile-390.png` | 276 KB | `a172bb78bfc0652c` |
+| `page-contact_0_viewport_0_mobile-390.png` | 191 KB | `4f405cd1a8ac93de` |
+| `page-expertise_0_viewport_0_mobile-390.png` | 272 KB | `018d5b9107759496` |
 | `page-home_0_viewport_0_mobile-390.png` | 345 KB | `aec3dcbb03d1b533` |
 | `page-journal-looking-south-to-antarctica_0_viewport_0_mobile-390.png` | 178 KB | `826dcb3db6dd4c7c` |
 | `page-journal_0_viewport_0_mobile-390.png` | 117 KB | `d8ce4f102fe6872d` |
 | `page-privacy_0_viewport_0_mobile-390.png` | 55 KB | `f15ad2ac32942a08` |
-| `page-virtuoso_0_viewport_0_mobile-390.png` | 329 KB | `6e52c1d67b57f6b0` |
-| `page-who-we-are_0_viewport_0_mobile-390.png` | 252 KB | `8e0ee7f7716362a7` |
+| `page-virtuoso_0_viewport_0_mobile-390.png` | 329 KB | `a24ea5e367702ca5` |
+| `page-who-we-are_0_viewport_0_mobile-390.png` | 249 KB | `bf028c94a6a7e8c3` |

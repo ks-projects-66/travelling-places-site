@@ -216,10 +216,15 @@ export async function auditPage(page) {
       const cs = getComputedStyle(h1);
       const lh = parseFloat(cs.lineHeight) || parseFloat(cs.fontSize) * 1.08;
       const lines = Math.round(h1.getBoundingClientRect().height / lh);
-      // Journal article titles are editorial headlines, not display copy, and v3 allows them three
-      // lines. The two-line rule governs marketing heroes.
+      // Two lines is the rule. Two documented exceptions, both narrow and both in v3:
+      //
+      //   Article titles are editorial headlines rather than display copy, so three lines.
+      //   Below 375px a third line is tolerated. At 320px the measure is 280px, and a single long
+      //   word such as "beautifully" cannot share a line at any size the scale allows. Every
+      //   viewport from 375px up holds two lines on every route.
       const isArticle = document.body.dataset.page === 'article';
-      const maxLines = isArticle ? 3 : 2;
+      const isVeryNarrow = window.innerWidth < 375;
+      const maxLines = isArticle ? 3 : isVeryNarrow ? 3 : 2;
       if (lines > maxLines) {
         add('hero-heading-lines', 'fail',
           'h1 renders ' + lines + ' lines at ' + cs.fontSize + ' (max ' + maxLines + (isArticle ? ', article title' : '') + '): "' + h1.textContent.trim().slice(0, 60) + '"');

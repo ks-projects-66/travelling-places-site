@@ -52,3 +52,20 @@
   --tp-motion-standard: 220ms;
   --tp-ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/**
+ * Display type on the smallest phones.
+ *
+ * The 34px floor holds the two-line rule at 375px and above. Below that the arithmetic stops
+ * working: a 320px screen leaves a 280px measure, which fits roughly 15 characters per line at
+ * 34px, so even a 32-character heading takes three. DESIGN.md reached the same conclusion and
+ * called it arithmetic rather than styling.
+ *
+ * 29px restores two lines at 320 and 360 without touching the scale anywhere a common phone will
+ * see it. The alternative was cutting hero copy below what reads well.
+ */
+@media (max-width: 374px) {
+  :root {
+    --tp-type-display: 1.8125rem;
+  }
+}

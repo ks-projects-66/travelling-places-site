@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-30T12:35:20.415Z",
+  "generatedAt": "2026-08-30T13:23:47.609Z",
   "brandKitVersion": "3.0.0",
   "environment": {
     "platform": "win32",
@@ -7,8 +7,8 @@
   },
   "tests": {
     "total": 358,
-    "passed": 336,
-    "failed": 21,
+    "passed": 357,
+    "failed": 0,
     "skipped": 1,
     "byProject": {
       "a11y": {
@@ -33,565 +33,21 @@
       },
       "responsive": {
         "total": 171,
-        "failed": 21
+        "failed": 0
       }
     },
-    "failures": [
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-430 › expertise at 430x932",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 1920,
-        "error": "Error: 1 layout failure(s) on /expertise/ at mobile-430",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-430 › who-we-are at 430x932",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2936,
-        "error": "Error: 1 layout failure(s) on /who-we-are/ at mobile-430",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-414 › expertise at 414x896",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 1981,
-        "error": "Error: 1 layout failure(s) on /expertise/ at mobile-414",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-414 › who-we-are at 414x896",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2784,
-        "error": "Error: 1 layout failure(s) on /who-we-are/ at mobile-414",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-393 › expertise at 393x852",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2400,
-        "error": "Error: 1 layout failure(s) on /expertise/ at mobile-393",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-393 › who-we-are at 393x852",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2951,
-        "error": "Error: 1 layout failure(s) on /who-we-are/ at mobile-393",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-390 › expertise at 390x844",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2336,
-        "error": "Error: 1 layout failure(s) on /expertise/ at mobile-390",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-390 › who-we-are at 390x844",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2921,
-        "error": "Error: 1 layout failure(s) on /who-we-are/ at mobile-390",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-375 › contact at 375x812",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2257,
-        "error": "Error: 1 layout failure(s) on /contact/ at mobile-375",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-375 › expertise at 375x812",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2702,
-        "error": "Error: 1 layout failure(s) on /expertise/ at mobile-375",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-375 › who-we-are at 375x812",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2981,
-        "error": "Error: 1 layout failure(s) on /who-we-are/ at mobile-375",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-360 › home at 360x800",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 3402,
-        "error": "Error: 1 layout failure(s) on / at mobile-360",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-360 › contact at 360x800",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2326,
-        "error": "Error: 1 layout failure(s) on /contact/ at mobile-360",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-360 › expertise at 360x800",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2516,
-        "error": "Error: 1 layout failure(s) on /expertise/ at mobile-360",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-360 › who-we-are at 360x800",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 3061,
-        "error": "Error: 1 layout failure(s) on /who-we-are/ at mobile-360",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-320 › home at 320x568",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 3896,
-        "error": "Error: 1 layout failure(s) on / at mobile-320",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-320 › contact at 320x568",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2746,
-        "error": "Error: 1 layout failure(s) on /contact/ at mobile-320",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-320 › expertise at 320x568",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2702,
-        "error": "Error: 1 layout failure(s) on /expertise/ at mobile-320",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-320 › journal-looking-south-to-antarctica at 320x568",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2749,
-        "error": "Error: 1 layout failure(s) on /journal/looking-south-to-antarctica/ at mobile-320",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-320 › virtuoso at 320x568",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 2681,
-        "error": "Error: 1 layout failure(s) on /virtuoso/ at mobile-320",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      },
-      {
-        "project": "responsive",
-        "title": "responsive\\layout.spec.js › responsive layout › mobile-320 › who-we-are at 320x568",
-        "status": "failed",
-        "expected": "passed",
-        "durationMs": 3271,
-        "error": "Error: 1 layout failure(s) on /who-we-are/ at mobile-320",
-        "file": "responsive/layout.spec.js",
-        "line": 19
-      }
-    ]
+    "failures": []
   },
   "findings": {
-    "total": 89,
-    "occurrences": 138,
-    "fail": 9,
+    "total": 82,
+    "occurrences": 117,
+    "fail": 0,
     "warn": 57,
-    "info": 23,
+    "info": 25,
     "items": [
       {
-        "suite": "responsive",
-        "route": "/expertise/",
-        "viewport": "mobile-430",
-        "browser": "chromium",
-        "id": "hero-heading-lines",
-        "severity": "fail",
-        "detail": "h1 renders 3 lines at 34px (max 2): \"Travel is personal. Planning should be too.\"",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/expertise/",
-            "viewport": "mobile-430",
-            "browser": "chromium"
-          },
-          {
-            "route": "/expertise/",
-            "viewport": "mobile-390",
-            "browser": "chromium"
-          },
-          {
-            "route": "/expertise/",
-            "viewport": "mobile-393",
-            "browser": "chromium"
-          },
-          {
-            "route": "/expertise/",
-            "viewport": "mobile-360",
-            "browser": "chromium"
-          },
-          {
-            "route": "/expertise/",
-            "viewport": "mobile-414",
-            "browser": "chromium"
-          },
-          {
-            "route": "/expertise/",
-            "viewport": "mobile-375",
-            "browser": "chromium"
-          }
-        ],
-        "count": 6,
-        "routes": [
-          "/expertise/"
-        ],
-        "viewports": [
-          "mobile-430",
-          "mobile-390",
-          "mobile-393",
-          "mobile-360",
-          "mobile-414",
-          "mobile-375"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/who-we-are/",
-        "viewport": "mobile-390",
-        "browser": "chromium",
-        "id": "hero-heading-lines",
-        "severity": "fail",
-        "detail": "h1 renders 3 lines at 34px (max 2): \"People who know travel. People who know you.\"",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/who-we-are/",
-            "viewport": "mobile-390",
-            "browser": "chromium"
-          },
-          {
-            "route": "/who-we-are/",
-            "viewport": "mobile-414",
-            "browser": "chromium"
-          },
-          {
-            "route": "/who-we-are/",
-            "viewport": "mobile-360",
-            "browser": "chromium"
-          },
-          {
-            "route": "/who-we-are/",
-            "viewport": "mobile-393",
-            "browser": "chromium"
-          },
-          {
-            "route": "/who-we-are/",
-            "viewport": "mobile-430",
-            "browser": "chromium"
-          },
-          {
-            "route": "/who-we-are/",
-            "viewport": "mobile-375",
-            "browser": "chromium"
-          }
-        ],
-        "count": 6,
-        "routes": [
-          "/who-we-are/"
-        ],
-        "viewports": [
-          "mobile-390",
-          "mobile-414",
-          "mobile-360",
-          "mobile-393",
-          "mobile-430",
-          "mobile-375"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "mobile-320",
-        "browser": "chromium",
-        "id": "hero-heading-lines",
-        "severity": "fail",
-        "detail": "h1 renders 3 lines at 34px (max 2): \"Your world, beautifully planned.\"",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "mobile-320",
-            "browser": "chromium"
-          },
-          {
-            "route": "/",
-            "viewport": "mobile-360",
-            "browser": "chromium"
-          }
-        ],
-        "count": 2,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "mobile-320",
-          "mobile-360"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/contact/",
-        "viewport": "mobile-360",
-        "browser": "chromium",
-        "id": "hero-heading-lines",
-        "severity": "fail",
-        "detail": "h1 renders 3 lines at 34px (max 2): \"Tell us where your imagination is going.\"",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/contact/",
-            "viewport": "mobile-360",
-            "browser": "chromium"
-          },
-          {
-            "route": "/contact/",
-            "viewport": "mobile-375",
-            "browser": "chromium"
-          }
-        ],
-        "count": 2,
-        "routes": [
-          "/contact/"
-        ],
-        "viewports": [
-          "mobile-360",
-          "mobile-375"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/virtuoso/",
-        "viewport": "mobile-320",
-        "browser": "chromium",
-        "id": "hero-heading-lines",
-        "severity": "fail",
-        "detail": "h1 renders 3 lines at 34px (max 2): \"Connections that make travel richer.\"",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/virtuoso/",
-            "viewport": "mobile-320",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/virtuoso/"
-        ],
-        "viewports": [
-          "mobile-320"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/who-we-are/",
-        "viewport": "mobile-320",
-        "browser": "chromium",
-        "id": "hero-heading-lines",
-        "severity": "fail",
-        "detail": "h1 renders 4 lines at 34px (max 2): \"People who know travel. People who know you.\"",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/who-we-are/",
-            "viewport": "mobile-320",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/who-we-are/"
-        ],
-        "viewports": [
-          "mobile-320"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/contact/",
-        "viewport": "mobile-320",
-        "browser": "chromium",
-        "id": "hero-heading-lines",
-        "severity": "fail",
-        "detail": "h1 renders 4 lines at 34px (max 2): \"Tell us where your imagination is going.\"",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/contact/",
-            "viewport": "mobile-320",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/contact/"
-        ],
-        "viewports": [
-          "mobile-320"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/expertise/",
-        "viewport": "mobile-320",
-        "browser": "chromium",
-        "id": "hero-heading-lines",
-        "severity": "fail",
-        "detail": "h1 renders 4 lines at 34px (max 2): \"Travel is personal. Planning should be too.\"",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/expertise/",
-            "viewport": "mobile-320",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/expertise/"
-        ],
-        "viewports": [
-          "mobile-320"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/journal/looking-south-to-antarctica/",
-        "viewport": "mobile-320",
-        "browser": "chromium",
-        "id": "hero-heading-lines",
-        "severity": "fail",
-        "detail": "h1 renders 4 lines at 34px (max 3, article title): \"Travelling with Sienna: looking south to Antarctica\"",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/journal/looking-south-to-antarctica/",
-            "viewport": "mobile-320",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/journal/looking-south-to-antarctica/"
-        ],
-        "viewports": [
-          "mobile-320"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
         "suite": "brand",
-        "route": "/journal/",
+        "route": "/",
         "viewport": "desktop-1440",
         "browser": "chromium",
         "id": "token-derived-colour-uncertified",
@@ -602,7 +58,7 @@
         "source": null,
         "occurrences": [
           {
-            "route": "/journal/",
+            "route": "/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -612,17 +68,7 @@
             "browser": "chromium"
           },
           {
-            "route": "/privacy/",
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          },
-          {
-            "route": "/",
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          },
-          {
-            "route": "/expertise/",
+            "route": "/404.html",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -632,7 +78,17 @@
             "browser": "chromium"
           },
           {
+            "route": "/privacy/",
+            "viewport": "desktop-1440",
+            "browser": "chromium"
+          },
+          {
             "route": "/contact/",
+            "viewport": "desktop-1440",
+            "browser": "chromium"
+          },
+          {
+            "route": "/expertise/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -642,22 +98,22 @@
             "browser": "chromium"
           },
           {
-            "route": "/404.html",
+            "route": "/journal/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           }
         ],
         "count": 9,
         "routes": [
-          "/journal/",
-          "/journal/looking-south-to-antarctica/",
-          "/privacy/",
           "/",
-          "/expertise/",
+          "/journal/looking-south-to-antarctica/",
+          "/404.html",
           "/virtuoso/",
+          "/privacy/",
           "/contact/",
+          "/expertise/",
           "/who-we-are/",
-          "/404.html"
+          "/journal/"
         ],
         "viewports": [
           "desktop-1440"
@@ -668,7 +124,7 @@
       },
       {
         "suite": "brand",
-        "route": "/journal/",
+        "route": "/",
         "viewport": "desktop-1440",
         "browser": "chromium",
         "id": "token-derived-colour-uncertified",
@@ -679,7 +135,7 @@
         "source": null,
         "occurrences": [
           {
-            "route": "/journal/",
+            "route": "/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -689,17 +145,7 @@
             "browser": "chromium"
           },
           {
-            "route": "/privacy/",
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          },
-          {
-            "route": "/",
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          },
-          {
-            "route": "/expertise/",
+            "route": "/404.html",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -709,7 +155,17 @@
             "browser": "chromium"
           },
           {
+            "route": "/privacy/",
+            "viewport": "desktop-1440",
+            "browser": "chromium"
+          },
+          {
             "route": "/contact/",
+            "viewport": "desktop-1440",
+            "browser": "chromium"
+          },
+          {
+            "route": "/expertise/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -719,22 +175,22 @@
             "browser": "chromium"
           },
           {
-            "route": "/404.html",
+            "route": "/journal/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           }
         ],
         "count": 9,
         "routes": [
-          "/journal/",
-          "/journal/looking-south-to-antarctica/",
-          "/privacy/",
           "/",
-          "/expertise/",
+          "/journal/looking-south-to-antarctica/",
+          "/404.html",
           "/virtuoso/",
+          "/privacy/",
           "/contact/",
+          "/expertise/",
           "/who-we-are/",
-          "/404.html"
+          "/journal/"
         ],
         "viewports": [
           "desktop-1440"
@@ -745,7 +201,7 @@
       },
       {
         "suite": "brand",
-        "route": "/journal/",
+        "route": "/",
         "viewport": "desktop-1440",
         "browser": "chromium",
         "id": "token-derived-colour-uncertified",
@@ -756,7 +212,7 @@
         "source": null,
         "occurrences": [
           {
-            "route": "/journal/",
+            "route": "/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -766,17 +222,7 @@
             "browser": "chromium"
           },
           {
-            "route": "/privacy/",
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          },
-          {
-            "route": "/",
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          },
-          {
-            "route": "/expertise/",
+            "route": "/404.html",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -786,7 +232,17 @@
             "browser": "chromium"
           },
           {
+            "route": "/privacy/",
+            "viewport": "desktop-1440",
+            "browser": "chromium"
+          },
+          {
             "route": "/contact/",
+            "viewport": "desktop-1440",
+            "browser": "chromium"
+          },
+          {
+            "route": "/expertise/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -796,22 +252,22 @@
             "browser": "chromium"
           },
           {
-            "route": "/404.html",
+            "route": "/journal/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           }
         ],
         "count": 9,
         "routes": [
-          "/journal/",
-          "/journal/looking-south-to-antarctica/",
-          "/privacy/",
           "/",
-          "/expertise/",
+          "/journal/looking-south-to-antarctica/",
+          "/404.html",
           "/virtuoso/",
+          "/privacy/",
           "/contact/",
+          "/expertise/",
           "/who-we-are/",
-          "/404.html"
+          "/journal/"
         ],
         "viewports": [
           "desktop-1440"
@@ -823,7 +279,7 @@
       {
         "suite": "responsive",
         "route": "/journal/looking-south-to-antarctica/",
-        "viewport": "desktop-1366",
+        "viewport": "ipad-pro-landscape",
         "browser": "chromium",
         "id": "container-width-inconsistent",
         "severity": "warn",
@@ -834,17 +290,12 @@
         "occurrences": [
           {
             "route": "/journal/looking-south-to-antarctica/",
-            "viewport": "desktop-1366",
+            "viewport": "ipad-pro-landscape",
             "browser": "chromium"
           },
           {
             "route": "/journal/looking-south-to-antarctica/",
             "viewport": "desktop-1920",
-            "browser": "chromium"
-          },
-          {
-            "route": "/journal/looking-south-to-antarctica/",
-            "viewport": "ipad-pro-landscape",
             "browser": "chromium"
           },
           {
@@ -859,6 +310,11 @@
           },
           {
             "route": "/journal/looking-south-to-antarctica/",
+            "viewport": "desktop-1366",
+            "browser": "chromium"
+          },
+          {
+            "route": "/journal/looking-south-to-antarctica/",
             "viewport": "desktop-1680",
             "browser": "chromium"
           }
@@ -868,11 +324,11 @@
           "/journal/looking-south-to-antarctica/"
         ],
         "viewports": [
-          "desktop-1366",
-          "desktop-1920",
           "ipad-pro-landscape",
+          "desktop-1920",
           "desktop-2560",
           "desktop-1440",
+          "desktop-1366",
           "desktop-1680"
         ],
         "browsers": [
@@ -957,35 +413,6 @@
       },
       {
         "suite": "brand",
-        "route": "/journal/",
-        "viewport": "desktop-1440",
-        "browser": "chromium",
-        "id": "token-derived-colour-uncertified",
-        "severity": "warn",
-        "detail": "oklch(0.883521 0.0273314 268.509) on p.page-hero-lede (a color-mix of tokens; no certified contrast figure)",
-        "expected": "a brand.tokens.json colour",
-        "actual": "oklch(0.883521 0.0273314 268.509)",
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/journal/",
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/journal/"
-        ],
-        "viewports": [
-          "desktop-1440"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "brand",
         "route": "/",
         "viewport": "desktop-1440",
         "browser": "chromium",
@@ -1014,58 +441,29 @@
         ]
       },
       {
-        "suite": "responsive",
-        "route": "/contact/",
-        "viewport": "ipad-air-portrait",
+        "suite": "brand",
+        "route": "/journal/",
+        "viewport": "desktop-1440",
         "browser": "chromium",
-        "id": "line-length-long",
+        "id": "token-derived-colour-uncertified",
         "severity": "warn",
-        "detail": "p measures about 94ch against a 68ch guide",
-        "expected": null,
-        "actual": null,
+        "detail": "oklch(0.883521 0.0273314 268.509) on p.page-hero-lede (a color-mix of tokens; no certified contrast figure)",
+        "expected": "a brand.tokens.json colour",
+        "actual": "oklch(0.883521 0.0273314 268.509)",
         "source": null,
         "occurrences": [
           {
-            "route": "/contact/",
-            "viewport": "ipad-air-portrait",
+            "route": "/journal/",
+            "viewport": "desktop-1440",
             "browser": "chromium"
           }
         ],
         "count": 1,
         "routes": [
-          "/contact/"
+          "/journal/"
         ],
         "viewports": [
-          "ipad-air-portrait"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/journal/looking-south-to-antarctica/",
-        "viewport": "ipad-air-landscape",
-        "browser": "chromium",
-        "id": "container-width-inconsistent",
-        "severity": "warn",
-        "detail": ".shell renders at 1086, 980px on one page",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/journal/looking-south-to-antarctica/",
-            "viewport": "ipad-air-landscape",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/journal/looking-south-to-antarctica/"
-        ],
-        "viewports": [
-          "ipad-air-landscape"
+          "desktop-1440"
         ],
         "browsers": [
           "chromium"
@@ -1124,6 +522,64 @@
         ],
         "viewports": [
           "desktop-1280"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/journal/looking-south-to-antarctica/",
+        "viewport": "ipad-air-landscape",
+        "browser": "chromium",
+        "id": "container-width-inconsistent",
+        "severity": "warn",
+        "detail": ".shell renders at 1086, 980px on one page",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/journal/looking-south-to-antarctica/",
+            "viewport": "ipad-air-landscape",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/journal/looking-south-to-antarctica/"
+        ],
+        "viewports": [
+          "ipad-air-landscape"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/contact/",
+        "viewport": "ipad-air-portrait",
+        "browser": "chromium",
+        "id": "line-length-long",
+        "severity": "warn",
+        "detail": "p measures about 94ch against a 68ch guide",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/contact/",
+            "viewport": "ipad-air-portrait",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/contact/"
+        ],
+        "viewports": [
+          "ipad-air-portrait"
         ],
         "browsers": [
           "chromium"
@@ -2168,7 +1624,7 @@
         "suite": "crossbrowser",
         "route": "/",
         "viewport": "ipad-pro-portrait",
-        "browser": "firefox",
+        "browser": "webkit",
         "id": "element-outside-viewport",
         "severity": "info",
         "detail": "2 element(s) past a 1024px document, first: img spans -30.7 to 1054.7 (contained by overflow-x: clip, intended full-bleed)",
@@ -2179,12 +1635,12 @@
           {
             "route": "/",
             "viewport": "ipad-pro-portrait",
-            "browser": "firefox"
+            "browser": "webkit"
           },
           {
             "route": "/",
             "viewport": "ipad-pro-portrait",
-            "browser": "webkit"
+            "browser": "firefox"
           }
         ],
         "count": 2,
@@ -2195,15 +1651,15 @@
           "ipad-pro-portrait"
         ],
         "browsers": [
-          "firefox",
-          "webkit"
+          "webkit",
+          "firefox"
         ]
       },
       {
         "suite": "crossbrowser",
         "route": "/",
         "viewport": "mobile-390",
-        "browser": "webkit",
+        "browser": "firefox",
         "id": "element-outside-viewport",
         "severity": "info",
         "detail": "2 element(s) past a 390px document, first: img spans -11.7 to 401.7 (contained by overflow-x: clip, intended full-bleed)",
@@ -2214,12 +1670,12 @@
           {
             "route": "/",
             "viewport": "mobile-390",
-            "browser": "webkit"
+            "browser": "firefox"
           },
           {
             "route": "/",
             "viewport": "mobile-390",
-            "browser": "firefox"
+            "browser": "webkit"
           }
         ],
         "count": 2,
@@ -2230,8 +1686,8 @@
           "mobile-390"
         ],
         "browsers": [
-          "webkit",
-          "firefox"
+          "firefox",
+          "webkit"
         ]
       },
       {
@@ -2270,76 +1726,6 @@
         ]
       },
       {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "ipad-pro-landscape",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 1366px document, first: img spans -41 to 1407 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "ipad-pro-landscape",
-            "browser": "chromium"
-          },
-          {
-            "route": "/",
-            "viewport": "desktop-1366",
-            "browser": "chromium"
-          }
-        ],
-        "count": 2,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "ipad-pro-landscape",
-          "desktop-1366"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "ipad-pro-portrait",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 1024px document, first: img spans -30.7 to 1054.7 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "ipad-pro-portrait",
-            "browser": "chromium"
-          },
-          {
-            "route": "/",
-            "viewport": "ipad-landscape",
-            "browser": "chromium"
-          }
-        ],
-        "count": 2,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "ipad-pro-portrait",
-          "ipad-landscape"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
         "suite": "a11y",
         "route": "/",
         "viewport": "desktop-1440",
@@ -2361,33 +1747,6 @@
         "routes": [
           "/"
         ],
-        "viewports": [
-          "desktop-1440"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "functional",
-        "route": null,
-        "viewport": "desktop-1440",
-        "browser": "chromium",
-        "id": "carousel-no-pause-control",
-        "severity": "info",
-        "detail": "The carousel advances every 3s with no visible pause control. Approved in brand kit v3 with four mitigations in place; the residual WCAG 2.2.2 gap is a recorded accepted risk, not a new finding.",
-        "expected": "a visible pause control, per WCAG 2.2.2",
-        "actual": "0 controls present",
-        "source": "brand-kit/BRAND.md, carousel section",
-        "occurrences": [
-          {
-            "route": null,
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [],
         "viewports": [
           "desktop-1440"
         ],
@@ -2423,29 +1782,27 @@
         ]
       },
       {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "ipad-portrait",
+        "suite": "functional",
+        "route": null,
+        "viewport": "desktop-1440",
         "browser": "chromium",
-        "id": "element-outside-viewport",
+        "id": "carousel-no-pause-control",
         "severity": "info",
-        "detail": "2 element(s) past a 768px document, first: img spans -23 to 791 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
+        "detail": "The carousel advances every 3s with no visible pause control. Approved in brand kit v3 with four mitigations in place; the residual WCAG 2.2.2 gap is a recorded accepted risk, not a new finding.",
+        "expected": "a visible pause control, per WCAG 2.2.2",
+        "actual": "0 controls present",
+        "source": "brand-kit/BRAND.md, carousel section",
         "occurrences": [
           {
-            "route": "/",
-            "viewport": "ipad-portrait",
+            "route": null,
+            "viewport": "desktop-1440",
             "browser": "chromium"
           }
         ],
         "count": 1,
-        "routes": [
-          "/"
-        ],
+        "routes": [],
         "viewports": [
-          "ipad-portrait"
+          "desktop-1440"
         ],
         "browsers": [
           "chromium"
@@ -2454,18 +1811,18 @@
       {
         "suite": "responsive",
         "route": "/",
-        "viewport": "desktop-1280",
+        "viewport": "ipad-pro-landscape",
         "browser": "chromium",
         "id": "element-outside-viewport",
         "severity": "info",
-        "detail": "2 element(s) past a 1280px document, first: img spans -38.4 to 1318.4 (contained by overflow-x: clip, intended full-bleed)",
+        "detail": "3 element(s) past a 1366px document, first: img spans -28.7 to 1394.7 (contained by overflow-x: clip, intended full-bleed)",
         "expected": null,
         "actual": null,
         "source": null,
         "occurrences": [
           {
             "route": "/",
-            "viewport": "desktop-1280",
+            "viewport": "ipad-pro-landscape",
             "browser": "chromium"
           }
         ],
@@ -2474,7 +1831,36 @@
           "/"
         ],
         "viewports": [
-          "desktop-1280"
+          "ipad-pro-landscape"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "mobile-393",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "3 element(s) past a 393px document, first: img spans -6.5 to 399.5 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "mobile-393",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "mobile-393"
         ],
         "browsers": [
           "chromium"
@@ -2487,7 +1873,7 @@
         "browser": "chromium",
         "id": "element-outside-viewport",
         "severity": "info",
-        "detail": "2 element(s) past a 430px document, first: img spans -12.9 to 442.9 (contained by overflow-x: clip, intended full-bleed)",
+        "detail": "3 element(s) past a 430px document, first: img spans -3.9 to 433.9 (contained by overflow-x: clip, intended full-bleed)",
         "expected": null,
         "actual": null,
         "source": null,
@@ -2512,18 +1898,18 @@
       {
         "suite": "responsive",
         "route": "/",
-        "viewport": "ipad-air-portrait",
+        "viewport": "desktop-1366",
         "browser": "chromium",
         "id": "element-outside-viewport",
         "severity": "info",
-        "detail": "2 element(s) past a 820px document, first: img spans -24.6 to 844.6 (contained by overflow-x: clip, intended full-bleed)",
+        "detail": "2 element(s) past a 1366px document, first: img spans -41 to 1407 (contained by overflow-x: clip, intended full-bleed)",
         "expected": null,
         "actual": null,
         "source": null,
         "occurrences": [
           {
             "route": "/",
-            "viewport": "ipad-air-portrait",
+            "viewport": "desktop-1366",
             "browser": "chromium"
           }
         ],
@@ -2532,181 +1918,7 @@
           "/"
         ],
         "viewports": [
-          "ipad-air-portrait"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "desktop-1680",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 1680px document, first: img spans -50.4 to 1730.4 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "desktop-1680",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "desktop-1680"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "mobile-320",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 320px document, first: img spans -9.6 to 329.6 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "mobile-320",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "mobile-320"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "ipad-air-landscape",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 1180px document, first: img spans -35.4 to 1215.4 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "ipad-air-landscape",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "ipad-air-landscape"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "mobile-375",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 375px document, first: img spans -11.2 to 386.3 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "mobile-375",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "mobile-375"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "mobile-360",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 360px document, first: img spans -10.8 to 370.8 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "mobile-360",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "mobile-360"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "desktop-2560",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 2560px document, first: img spans -76.8 to 2636.8 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "desktop-2560",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "desktop-2560"
+          "desktop-1366"
         ],
         "browsers": [
           "chromium"
@@ -2719,7 +1931,7 @@
         "browser": "chromium",
         "id": "element-outside-viewport",
         "severity": "info",
-        "detail": "2 element(s) past a 390px document, first: img spans -11.7 to 401.7 (contained by overflow-x: clip, intended full-bleed)",
+        "detail": "3 element(s) past a 390px document, first: img spans -1.8 to 391.8 (contained by overflow-x: clip, intended full-bleed)",
         "expected": null,
         "actual": null,
         "source": null,
@@ -2744,18 +1956,18 @@
       {
         "suite": "responsive",
         "route": "/",
-        "viewport": "mobile-393",
+        "viewport": "mobile-320",
         "browser": "chromium",
         "id": "element-outside-viewport",
         "severity": "info",
-        "detail": "2 element(s) past a 393px document, first: img spans -11.8 to 404.8 (contained by overflow-x: clip, intended full-bleed)",
+        "detail": "3 element(s) past a 320px document, first: img spans -9.6 to 329.6 (contained by overflow-x: clip, intended full-bleed)",
         "expected": null,
         "actual": null,
         "source": null,
         "occurrences": [
           {
             "route": "/",
-            "viewport": "mobile-393",
+            "viewport": "mobile-320",
             "browser": "chromium"
           }
         ],
@@ -2764,7 +1976,152 @@
           "/"
         ],
         "viewports": [
-          "mobile-393"
+          "mobile-320"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "ipad-portrait",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "3 element(s) past a 768px document, first: img spans -14.7 to 782.7 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "ipad-portrait",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "ipad-portrait"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "ipad-air-landscape",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "3 element(s) past a 1180px document, first: img spans -23.6 to 1203.6 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "ipad-air-landscape",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "ipad-air-landscape"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "ipad-pro-portrait",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 1024px document, first: img spans -30.7 to 1054.7 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "ipad-pro-portrait",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "ipad-pro-portrait"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "desktop-1440",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 1440px document, first: img spans -43.2 to 1483.2 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "desktop-1440",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "desktop-1440"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "mobile-375",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "3 element(s) past a 375px document, first: img spans -2.8 to 377.8 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "mobile-375",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "mobile-375"
         ],
         "browsers": [
           "chromium"
@@ -2802,11 +2159,127 @@
       {
         "suite": "responsive",
         "route": "/",
+        "viewport": "desktop-1680",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 1680px document, first: img spans -50.4 to 1730.4 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "desktop-1680",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "desktop-1680"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "desktop-1280",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 1280px document, first: img spans -38.4 to 1318.4 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "desktop-1280",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "desktop-1280"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "ipad-air-portrait",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "3 element(s) past a 820px document, first: img spans -5.7 to 825.7 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "ipad-air-portrait",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "ipad-air-portrait"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "mobile-360",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "3 element(s) past a 360px document, first: img spans -1.1 to 361.1 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "mobile-360",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "mobile-360"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
         "viewport": "mobile-414",
         "browser": "chromium",
         "id": "element-outside-viewport",
         "severity": "info",
-        "detail": "2 element(s) past a 414px document, first: img spans -12.4 to 426.4 (contained by overflow-x: clip, intended full-bleed)",
+        "detail": "3 element(s) past a 414px document, first: img spans -1.3 to 415.3 (contained by overflow-x: clip, intended full-bleed)",
         "expected": null,
         "actual": null,
         "source": null,
@@ -2831,18 +2304,18 @@
       {
         "suite": "responsive",
         "route": "/",
-        "viewport": "desktop-1440",
+        "viewport": "desktop-2560",
         "browser": "chromium",
         "id": "element-outside-viewport",
         "severity": "info",
-        "detail": "2 element(s) past a 1440px document, first: img spans -43.2 to 1483.2 (contained by overflow-x: clip, intended full-bleed)",
+        "detail": "2 element(s) past a 2560px document, first: img spans -76.8 to 2636.8 (contained by overflow-x: clip, intended full-bleed)",
         "expected": null,
         "actual": null,
         "source": null,
         "occurrences": [
           {
             "route": "/",
-            "viewport": "desktop-1440",
+            "viewport": "desktop-2560",
             "browser": "chromium"
           }
         ],
@@ -2851,7 +2324,36 @@
           "/"
         ],
         "viewports": [
-          "desktop-1440"
+          "desktop-2560"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "ipad-landscape",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "3 element(s) past a 1024px document, first: img spans -17.9 to 1041.9 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "ipad-landscape",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "ipad-landscape"
         ],
         "browsers": [
           "chromium"

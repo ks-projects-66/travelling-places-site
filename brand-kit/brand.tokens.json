@@ -72,7 +72,10 @@
       "lineHeight": 1.08,
       "maxWidth": "24ch",
       "maximumLines": 2,
-      "maximumLinesArticleTitle": 3
+      "maximumLinesArticleTitle": 3,
+      "minNarrow": "29px",
+      "narrowBreakpoint": "375px",
+      "maximumLinesBelowNarrowBreakpoint": 3
     },
     "pageTitle": {
       "min": "36px",
