@@ -143,9 +143,8 @@
 
 .destination-carousel {
   position: relative;
-  /* Bottom padding used to come from the control bar's 94px min-height. The bar is gone, so
-     the section carries its own. */
-  padding-bottom: clamp(3.5rem, 6vw, 4.5rem);
+  /* No bottom padding: the image band is the last thing in the section, running straight
+     into the pale section below it. */
   padding-top: var(--section);
   color: var(--white);
   background: var(--blue-deep);
@@ -153,25 +152,23 @@
 }
 
 .carousel-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 3rem;
   margin-bottom: 3rem;
 }
 
+/* One line. The 12ch cap broke the question across three lines, which read as a stack of
+   fragments rather than a single question. */
 .carousel-heading h2 {
-  max-width: 12ch;
   margin: 0;
-}
-
-.carousel-heading > p {
-  color: color-mix(in oklch, var(--white) 72%, var(--blue));
+  text-wrap: nowrap;
 }
 
 .carousel-viewport {
   position: relative;
   height: clamp(420px, 48vw, 580px);
+  /* The slow zoom scales the image past its box. Without clipping, ~17px of undarkened
+     image showed above and below the scrim, which is inset to the slide rather than the
+     image. Clipping makes the photograph and its scrim the same rectangle. */
+  overflow: hidden;
   background: var(--ink);
 }
 
@@ -814,7 +811,7 @@
     gap: 1.2rem;
   }
 
-  .site-nav > a {
+  .site-nav > a:not(.button) {
     font-size: 0.85rem;
   }
 
@@ -829,7 +826,10 @@
 }
 
 @media (max-width: 940px) {
-  .site-nav > a {
+  /* Same exclusion as site.css: the call to action is a direct-child <a>, and without
+     :not(.button) this sets it to menu-title size, which rendered a 26px pill in the
+     open menu. */
+  .site-nav > a:not(.button) {
     font-size: var(--tp-type-menu-title);
   }
 
@@ -852,8 +852,17 @@
     grid-template-columns: 1fr;
   }
 
-  .service-grid {
-    grid-template-columns: 50px 1fr;
+  /* No second declaration of the columns here: the collapse above already sets 1fr. This
+     used to re-declare `50px 1fr`, which squeezed the heading and its tagline into 50px and
+     wrapped them one word per line. The 50px was a lead column for numbering that no longer
+     exists in the markup. */
+  .service-grid h2,
+  .virtuoso-copy h2 {
+    max-width: none;
+  }
+
+  .service-tagline {
+    max-width: 40ch;
   }
 
   .service-copy {
@@ -917,8 +926,10 @@
     margin-top: 2rem;
   }
 
+  /* Single column. This was `32px 1fr`, the same removed-numbering leftover as the 940px
+     rule above, and it put the heading in a 32px track. */
   .service-grid {
-    grid-template-columns: 32px 1fr;
+    grid-template-columns: 1fr;
     gap: 1.25rem;
   }
 
