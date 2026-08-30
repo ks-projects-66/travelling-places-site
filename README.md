@@ -26,11 +26,23 @@ pnpm dev          # http://127.0.0.1:4321
 | `pnpm check` | Astro type and content-schema check |
 | `pnpm check:licensing` | Fails if unlicensed imagery is still referenced |
 | `pnpm check:placeholders` | Lists placeholders remaining in the built site |
+| `pnpm test:qa` | The whole QA suite, then writes the report |
+| `pnpm test:ui` | Functional behaviour in Chromium |
+| `pnpm test:responsive` | Layout audit, 9 routes across 19 viewports |
+| `pnpm test:a11y` | axe-core, plus keyboard and focus checks |
+| `pnpm test:brand` | Stylelint, css-analyzer and computed-style brand checks |
+| `pnpm test:crossbrowser` | Firefox and WebKit smoke at three viewports |
+| `pnpm test:visual` | Compare against the visual reference images |
+| `pnpm lint:css` | Stylelint on its own |
 
-`pnpm check:licensing` currently fails, and that is correct. Nine photographs were saved from
-virtuoso.com for the first draft and hold no licence. They are kept so the design can be
-reviewed, and the check exists so they cannot reach production unnoticed. See
-`src/assets/images/MANIFEST.md`.
+`pnpm check:licensing` **now passes.** It fails by design whenever an unlicensed image is
+referenced, and it did so for as long as the nine unlicensed virtuoso.com photographs were in use.
+Licensed replacements landed in `cc194c7`, so the manifest now holds 30 images with none
+unlicensed. See `src/assets/images/MANIFEST.md`.
+
+The QA suite has its own documentation in [`qa/README.md`](qa/README.md), including how visual
+baselines are approved and why the current ones are not. `docs/QA.md` is the manual record from the
+first draft, kept as history; the automated suite supersedes it.
 
 ## Where things live
 

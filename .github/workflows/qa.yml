@@ -1,0 +1,145 @@
+name: QA
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qa:
+    name: Functional, responsive, accessibility, brand and visual
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.24.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Install browsers
+        run: pnpm exec playwright install --with-deps chromium firefox webkit
+
+      - name: Build
+        run: pnpm build
+
+      # Content and brand gates that do not need a browser. check:licensing is run on its own so
+      # its status is never conflated with the test result.
+      - name: Licensing
+        if: always()
+        run: pnpm check:licensing
+
+      - name: Placeholders
+        if: always()
+        run: pnpm check:placeholders
+
+      - name: Brand check
+        if: always()
+        run: pnpm brand:check
+
+      # Each suite runs regardless of what came before. One red step must not hide the rest,
+      # because the report is built from all of them.
+      - name: Functional
+        if: always()
+        run: pnpm test:ui
+
+      - name: Responsive
+        if: always()
+        run: pnpm test:responsive
+
+      - name: Accessibility
+        if: always()
+        run: pnpm test:a11y
+
+      - name: Cross-browser
+        if: always()
+        run: pnpm test:crossbrowser
+
+      - name: Brand compliance
+        if: always()
+        run: pnpm test:brand
+
+      # Reference images are generated on ubuntu-latest and committed from the refresh job below.
+      # Comparing them here is therefore like-for-like. A run started from a machine whose
+      # references were made on Windows will diff on text rendering alone.
+      - name: Visual regression
+        if: always()
+        run: pnpm test:visual
+
+      - name: Aggregate results
+        if: always()
+        run: |
+          node qa/report/aggregate.mjs
+          node qa/report/render.mjs
+
+      - name: Upload QA report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-report
+          path: |
+            qa/reports/
+          retention-days: 30
+
+      - name: Upload failure artifacts
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-failures
+          path: |
+            playwright-report/
+            test-results/
+            qa/visual/test/
+            qa/visual/report/
+          retention-days: 14
+
+  refresh-visual-baselines:
+    name: Refresh visual baselines (manual)
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 11.24.0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm exec playwright install --with-deps chromium
+      - run: pnpm build
+
+      - name: Generate references
+        run: |
+          pnpm preview --port 4322 &
+          npx wait-on http://127.0.0.1:4322/ --timeout 60000 || sleep 10
+          pnpm test:visual:ref
+
+      # Deliberately an artifact, not a commit. New baselines are a statement that the current
+      # appearance is correct, and only a person can make that statement.
+      - name: Upload references for human review
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-references-for-review
+          path: qa/visual/reference/
+          retention-days: 14

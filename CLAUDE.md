@@ -62,12 +62,22 @@ welcoming someone into a calm local office. It is the brand's voice, not the rep
 
 ```bash
 pnpm build
+pnpm test:qa             # functional, responsive, a11y, cross-browser, brand, visual
 pnpm check:placeholders
-pnpm check:licensing     # expected to fail until imagery is replaced
+pnpm check:licensing     # passes since the licensed imagery landed in cc194c7
 ```
 
+`pnpm test:qa` writes `qa/reports/QA-REPORT.md` and `qa/reports/results.json`. Read the report
+rather than the exit code: it separates real defects from heuristics, and some failures are
+recorded gaps the site has not fixed yet rather than things you broke.
+
 Verify on a live render at 1440px and 390px. Mobile centring has regressed on this kind of work
-before, so a desktop-only pass is not a pass.
+before, so a desktop-only pass is not a pass. The responsive suite now covers both, but it measures
+geometry, not whether something looks right.
+
+Never make a suite green by raising a threshold, masking a region, disabling a rule or approving a
+baseline. If a check is wrong, fix the check and say why in the code. `qa/README.md` explains the
+severity model and carries worked examples of doing that correctly.
 
 ## History worth knowing
 

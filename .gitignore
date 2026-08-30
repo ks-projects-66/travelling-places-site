@@ -6,3 +6,10 @@ dist/
 .env
 .env.local
 __pycache__/
+
+# QA test output. References under qa/visual/reference are committed; everything here is transient.
+test-results/
+playwright-report/
+qa/reports/raw/
+qa/visual/test/
+qa/visual/report/

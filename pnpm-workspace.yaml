@@ -3,8 +3,14 @@ packages:
 
 allowBuilds:
   esbuild: true
+  puppeteer: false
   sharp: true
 
 onlyBuiltDependencies:
   - esbuild
   - sharp
+
+# BackstopJS depends on puppeteer, which would download its own Chrome on install. We drive
+# Backstop with engine: "playwright" against the browsers Playwright already manages, so that
+# download is dead weight. Declared explicitly because pnpm 11 refuses to proceed on an
+# undecided build script.

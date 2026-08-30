@@ -14,14 +14,31 @@
     "brand:check": "node brand-kit/scripts/brand-check.mjs brand-kit",
     "brand:qa": "node brand-kit/scripts/qa-browser.cjs",
     "brand:report:site": "node brand-kit/scripts/brand-check.mjs --report-only src",
-    "brand:report:dist": "node brand-kit/scripts/brand-check.mjs --report-only dist"
+    "brand:report:dist": "node brand-kit/scripts/brand-check.mjs --report-only dist",
+    "lint:css": "node qa/brand/lint-css.mjs",
+    "test:ui": "playwright test --config qa/playwright.config.js --project=functional",
+    "test:crossbrowser": "playwright test --config qa/playwright.config.js --project=crossbrowser-firefox --project=crossbrowser-webkit",
+    "test:responsive": "playwright test --config qa/playwright.config.js --project=responsive",
+    "test:a11y": "playwright test --config qa/playwright.config.js --project=a11y",
+    "test:brand": "node qa/brand/run-brand.mjs",
+    "test:visual": "backstop test --config=qa/visual/backstop.config.cjs",
+    "test:visual:ref": "backstop reference --config=qa/visual/backstop.config.cjs",
+    "test:visual:approve": "node qa/visual/approve.mjs",
+    "test:qa": "node qa/run-all.mjs"
   },
   "dependencies": {
-    "astro": "^5.16.0",
     "@astrojs/sitemap": "^3.7.0",
+    "astro": "^5.16.0",
     "sharp": "^0.34.5"
   },
   "devDependencies": {
-    "playwright": "1.62.1"
-  }
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "1.62.1",
+    "@projectwallace/css-analyzer": "^9.9.3",
+    "backstopjs": "^6.3.25",
+    "playwright": "1.62.1",
+    "stylelint": "^17.14.1",
+    "stylelint-declaration-strict-value": "^1.12.1"
+  },
+  "packageManager": "pnpm@11.24.0"
 }
