@@ -4,14 +4,14 @@
 
 **No person has looked at these images and agreed the design is correct.**
 
-They were generated on 2026-08-30 on win32 and they record what the site
+They were generated on 2026-08-31 on win32 and they record what the site
 rendered that day. That is all they record. A first baseline cannot validate a design: it captures
 whatever was there, defects included, and every later run is measured against it. If something was
 wrong when these were taken, the suite now treats that wrongness as correct and stays silent.
 
 ## What is captured, and why not more
 
-47 images, 11.7 MB.
+47 images, 8.4 MB.
 
 - **Components at three viewports.** Header, navigation, both menu states, footer, both hero tones,
   carousel, journal cards, team cards, contact form, and buttons in normal, hover, focus, active and
@@ -54,9 +54,9 @@ There is no script that approves without that flag, deliberately.
 | `component-button-normal_0_hero-actions_0_desktop-1440.png` | 56 KB | `78d6c39c694fc707` |
 | `component-button-normal_0_hero-actions_1_ipad-portrait.png` | 26 KB | `3eb0b2b9365c00e9` |
 | `component-button-normal_0_hero-actions_2_mobile-390.png` | 33 KB | `710783c407eceadd` |
-| `component-carousel_0_data-carousel_0_desktop-1440.png` | 759 KB | `82e524e1269df2c9` |
-| `component-carousel_0_data-carousel_1_ipad-portrait.png` | 300 KB | `9bb292a45ad16151` |
-| `component-carousel_0_data-carousel_2_mobile-390.png` | 223 KB | `d678c2508a8f2463` |
+| `component-carousel_0_data-carousel_0_desktop-1440.png` | 759 KB | `0477618006a209d2` |
+| `component-carousel_0_data-carousel_1_ipad-portrait.png` | 300 KB | `3724f8dc8403a3ad` |
+| `component-carousel_0_data-carousel_2_mobile-390.png` | 223 KB | `36151abc38e40762` |
 | `component-contact-form_0_enquiry-form_0_desktop-1440.png` | 31 KB | `6e3193dcb90fbfbe` |
 | `component-contact-form_0_enquiry-form_1_ipad-portrait.png` | 31 KB | `2bb3312f1c12eec1` |
 | `component-contact-form_0_enquiry-form_2_mobile-390.png` | 31 KB | `25d4f4c3f660d8dc` |
@@ -77,8 +77,8 @@ There is no script that approves without that flag, deliberately.
 | `component-journal-cards_0_article-list_2_mobile-390.png` | 583 KB | `80c315ea00d51972` |
 | `component-menu-closed_0_data-header_0_ipad-portrait.png` | 7 KB | `d5110d32dc08b583` |
 | `component-menu-closed_0_data-header_1_mobile-390.png` | 5 KB | `4a6519213ecc6d72` |
-| `component-menu-open_0_data-nav_0_ipad-portrait.png` | 2275 KB | `0b8c125ae88ba6c4` |
-| `component-menu-open_0_data-nav_1_mobile-390.png` | 1170 KB | `fb6881c516ad8f09` |
+| `component-menu-open_0_viewport_0_ipad-portrait.png` | 19 KB | `c386a26c23cd74c5` |
+| `component-menu-open_0_viewport_1_mobile-390.png` | 17 KB | `4f20b1d8470103ba` |
 | `component-nav-desktop_0_data-nav_0_desktop-1440.png` | 6 KB | `9b767b9b4faea971` |
 | `component-team-cards_0_roster-list_0_desktop-1440.png` | 80 KB | `0a4ced1477bde7a7` |
 | `component-team-cards_0_roster-list_1_ipad-portrait.png` | 82 KB | `6faf470a55816a3a` |

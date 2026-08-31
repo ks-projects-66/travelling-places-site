@@ -45,4 +45,19 @@ module.exports = async (page, scenario) => {
   await page.evaluate(() => document.fonts.ready);
   await page.evaluate(() => window.scrollTo(0, 0));
   await new Promise((r) => setTimeout(r, 250));
+
+  // Open the overlay menu here rather than through Backstop's clickSelector. The same click made
+  // by hand opens the panel every time, but routed through clickSelector the capture came back
+  // with the menu shut, so that scenario spent every run photographing a closed menu and passing.
+  // Doing it explicitly, and waiting on the state rather than on a timer, makes the open panel a
+  // precondition of the capture instead of a race.
+  if (scenario.label.includes('menu-open')) {
+    await page.click('[data-menu-toggle]');
+    await page.waitForFunction(
+      () => document.querySelector('[data-menu-toggle]').getAttribute('aria-expanded') === 'true',
+      null,
+      { timeout: 5000 },
+    );
+    await new Promise((r) => setTimeout(r, 400));
+  }
 };

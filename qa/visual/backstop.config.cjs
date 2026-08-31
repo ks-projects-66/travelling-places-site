@@ -62,10 +62,13 @@ const components = [
   {
     label: 'menu-open',
     url: '/',
-    selectors: ['[data-nav]'],
+    // 'viewport', not '[data-nav]'. The open panel is position: fixed with inset: 0, and a
+    // full-page screenshot expands the viewport to the document height, so the fixed element
+    // stretched to 7,834px and the capture was the whole page rather than the menu. Capturing the
+    // visible area instead gives the panel as a person actually sees it.
+    selectors: ['viewport'],
     viewports: OVERLAY,
-    clickSelector: '[data-menu-toggle]',
-    postInteractionWait: 500,
+    postInteractionWait: 200,
   },
   { label: 'footer', url: '/', selectors: ['.site-footer'], viewports: VISUAL_COMPONENTS },
   { label: 'hero-photo', url: '/', selectors: ['.page-hero'], viewports: VISUAL_COMPONENTS },
