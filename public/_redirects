@@ -8,6 +8,7 @@
 /contact.html            /contact/                             301
 /article-antarctica.html /journal/looking-south-to-antarctica/  301
 
-# The brand kit dropped its version from the folder name at v3.0.0. This path was published on
-# the Vercel preview, so it redirects rather than disappearing.
+# The brand kit dropped its version from the folder name at v3.0.0. This path was published, so it
+# redirects rather than disappearing. Cloudflare Pages reads this file; Vercel does not, so the
+# same rule is duplicated in vercel.json for the review deployment.
 /brand-kit-v2/*          /brand-kit/:splat                     301

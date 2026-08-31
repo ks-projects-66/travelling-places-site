@@ -1,0 +1,10 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/brand-kit-v2/:path*",
+      "destination": "/brand-kit/:path*",
+      "permanent": true
+    }
+  ]
+}
