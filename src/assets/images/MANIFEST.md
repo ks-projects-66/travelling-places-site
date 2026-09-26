@@ -32,6 +32,7 @@ Logos live in `public/images/brand/`, not here, because SVGs need no processing.
 | `team/gina-storey.webp` | Gina Storey portrait, web derivative | Same original | owned | Gina Storey | Home, Who we are |
 | `team/team-office.jpg` | Team inside the Main Street office | `FW_ Logos/Edited Inside Staff Photo Office 2025 [4}.jpg` | owned | Gina Storey | Who we are |
 | `team/team-outside.jpg` | Team outdoors on Tamborine Mountain | `FW_ Logos/Edited Staff Photo Outside 2025 [4].jpg` | owned | Gina Storey | Home hero, Contact |
+| `public/og-default.jpg` | Team outdoors, cropped to 1200x630 for social sharing | Derived from `team/team-outside.jpg` | owned | Gina Storey | Every page, `og:image` |
 
 ## Memberships and accreditation
 

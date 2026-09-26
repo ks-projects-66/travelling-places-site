@@ -239,20 +239,27 @@ collections:
           - { name: heroAccent, label: Hero heading line 2, widget: string }
           - { name: heroLede, label: Hero subtitle, widget: string }
           - { name: intro, label: Introduction, widget: object, fields: *section }
-          - name: ways
-            label: Ways we provide luxury
+          - name: themes
+            label: Themes
+            hint: Gina's sections, grouped into three themes. Her text sits inside each theme unchanged.
             widget: list
             fields:
-              - { name: title, label: Title, widget: string }
-              - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
-              - name: link
-                label: Link
-                widget: object
-                required: false
+              - { name: title, label: Theme heading, widget: string }
+              - { name: photo, label: Photo placeholder note, widget: string }
+              - name: ways
+                label: Sections
+                widget: list
                 fields:
-                  - { name: label, label: Link text, widget: string }
-                  - { name: href, label: Link address, widget: string }
-              - { name: virtuosoLink, label: Show the Virtuoso mark and offers link, widget: boolean, required: false }
+                  - { name: title, label: Title, widget: string }
+                  - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
+                  - name: link
+                    label: Link
+                    widget: object
+                    required: false
+                    fields:
+                      - { name: label, label: Link text, widget: string }
+                      - { name: href, label: Link address, widget: string }
+                  - { name: virtuosoLink, label: Show the Virtuoso mark and offers link, widget: boolean, required: false }
       - name: virtuoso
         label: Virtuoso
         file: src/data/virtuoso.json

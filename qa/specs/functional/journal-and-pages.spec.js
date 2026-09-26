@@ -12,46 +12,50 @@ test.describe('journal', () => {
     await page.goto('/journal/');
   });
 
-  test('the year filter shows All plus a button per year', async ({ page }) => {
+  test('the category filter shows All plus a button per category', async ({ page }) => {
     const filters = page.locator('[data-filter]');
     expect(await filters.count()).toBeGreaterThanOrEqual(2);
     await expect(page.locator('[data-filter="all"]')).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('[role="group"][aria-label="Filter articles by year"]')).toBeVisible();
+    await expect(page.locator('[role="group"][aria-label="Filter articles by category"]')).toBeVisible();
   });
 
-  test('filtering by year hides the other years', async ({ page }) => {
-    const years = await page.locator('[data-year-item]').evaluateAll((els) => [
-      ...new Set(els.map((e) => e.dataset.yearItem)),
+  test('filtering by category hides the other categories', async ({ page }) => {
+    const categories = await page.locator('[data-category-item]').evaluateAll((els) => [
+      ...new Set(els.map((e) => e.dataset.categoryItem)),
     ]);
-    expect(years.length).toBeGreaterThan(1);
+    expect(categories.length).toBeGreaterThan(1);
 
-    const target = years[0];
+    const target = categories[0];
     await page.locator(`[data-filter="${target}"]`).click();
     await expect(page.locator(`[data-filter="${target}"]`)).toHaveAttribute('aria-pressed', 'true');
     await expect(page.locator('[data-filter="all"]')).toHaveAttribute('aria-pressed', 'false');
 
-    for (const el of await page.locator('[data-year-item]').all()) {
-      const year = await el.getAttribute('data-year-item');
-      if (year === target) await expect(el).toBeVisible();
+    for (const el of await page.locator('[data-category-item]').all()) {
+      const category = await el.getAttribute('data-category-item');
+      if (category === target) await expect(el).toBeVisible();
       else await expect(el).toBeHidden();
     }
   });
 
-  test('All restores every card', async ({ page }) => {
-    const total = await page.locator('[data-year-item]').count();
-    const years = await page.locator('[data-year-item]').evaluateAll((els) => [...new Set(els.map((e) => e.dataset.yearItem))]);
-    await page.locator(`[data-filter="${years[0]}"]`).click();
+  test('All restores every row on the first page', async ({ page }) => {
+    const categories = await page.locator('[data-category-item]').evaluateAll((els) => [
+      ...new Set(els.map((e) => e.dataset.categoryItem)),
+    ]);
+    await page.locator(`[data-filter="${categories[0]}"]`).click();
     await page.locator('[data-filter="all"]').click();
-    for (const el of await page.locator('[data-year-item]').all()) await expect(el).toBeVisible();
-    expect(await page.locator('[data-year-item]').count()).toBe(total);
+    for (const el of await page.locator('[data-category-item]:not([data-beyond-page])').all()) {
+      await expect(el).toBeVisible();
+    }
   });
 
-  test('the empty state stays hidden while every year has articles', async ({ page }) => {
+  test('the empty state stays hidden while every category has articles', async ({ page }) => {
     await expect(page.locator('[data-empty-state]')).toBeHidden();
   });
 
   test('external entries open in a new tab, internal ones do not', async ({ page }) => {
-    for (const link of await page.locator('.article-list a.text-link').all()) {
+    const links = await page.locator('.journal-feature, .journal-row').all();
+    expect(links.length).toBeGreaterThan(1);
+    for (const link of links) {
       const href = await link.getAttribute('href');
       if (href.startsWith('http')) {
         await expect(link).toHaveAttribute('target', '_blank');
@@ -62,10 +66,18 @@ test.describe('journal', () => {
     }
   });
 
-  test('the featured article links to a real page', async ({ page }) => {
-    const cta = page.locator('.featured-article a.button');
-    await expect(cta).toHaveText('Read the article');
-    await cta.click();
+  test('the feature is the newest article, with its title, byline and date', async ({ page }) => {
+    const feature = page.locator('.journal-feature');
+    await expect(feature.locator('h2')).toBeVisible();
+    await expect(feature.locator('.byline')).toHaveText(/^By /);
+    await expect(feature.locator('.dateline')).toHaveText(/\d{4}$/);
+  });
+
+  test('an internal feature links to a real article page', async ({ page }) => {
+    const feature = page.locator('.journal-feature');
+    const href = await feature.getAttribute('href');
+    test.skip(href.startsWith('http'), 'The newest article is an external archive entry.');
+    await feature.click();
     await expect(page.locator('article.article-page')).toBeVisible();
   });
 });

@@ -85,7 +85,7 @@ test.describe('navigation', () => {
   test('social links open externally and are safely rel-tagged', async ({ page }) => {
     await page.setViewportSize(desktop);
     await page.goto('/');
-    const social = page.locator('nav.social-links a');
+    const social = page.locator('nav[aria-label="Social media"] a');
     await expect(social).toHaveCount(2);
     for (const link of await social.all()) {
       await expect(link).toHaveAttribute('target', '_blank');

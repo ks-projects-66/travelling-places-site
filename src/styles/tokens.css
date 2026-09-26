@@ -21,6 +21,8 @@
   --sans: var(--tp-font-body);
 
   --shell: var(--tp-content-max);
+  --measure: var(--tp-reading-max);
+  --measure: var(--tp-reading-max);
   --gutter: var(--tp-gutter);
   --section: var(--tp-space-section);
   --ease: var(--tp-ease);

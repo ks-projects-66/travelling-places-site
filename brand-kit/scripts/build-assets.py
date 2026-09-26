@@ -125,10 +125,17 @@ def clean_mark() -> None:
     root.insert(0, title)
     tree.write(source, encoding="utf-8", xml_declaration=True)
 
+    # The keyline is a dilation of the artwork, so it extends past the artwork's own bounds. The
+    # figure touches the top and left of its viewBox (the hair and the wingtip), and a viewBox cut
+    # exactly to the artwork clipped the keyline there. Pad the box by more than the dilation radius
+    # so the outline is continuous all the way round.
+    keyline_pad = 12.0
+    vx, vy, vw, vh = [float(v) for v in root.get("viewBox", "0 0 828 1079").split()]
+    dark_view = f"{vx - keyline_pad:g} {vy - keyline_pad:g} {vw + 2 * keyline_pad:g} {vh + 2 * keyline_pad:g}"
     dark_root = ET.Element(
         qname("svg"),
         {
-            "viewBox": root.get("viewBox", "0 0 828 1079"),
+            "viewBox": dark_view,
             "role": "img",
             "aria-labelledby": "mark-dark-title",
             "shape-rendering": "geometricPrecision",
@@ -142,10 +149,10 @@ def clean_mark() -> None:
         qname("filter"),
         {
             "id": "mark-keyline",
-            "x": "-6%",
-            "y": "-6%",
-            "width": "112%",
-            "height": "112%",
+            "x": "-10%",
+            "y": "-10%",
+            "width": "120%",
+            "height": "120%",
             "color-interpolation-filters": "sRGB",
         },
     )

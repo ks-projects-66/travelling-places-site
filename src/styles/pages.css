@@ -3,41 +3,6 @@
   transform: scaleX(1);
 }
 
-.footer-note address {
-  display: grid;
-  gap: 0.15rem;
-  margin-top: 0.75rem;
-  font-style: normal;
-}
-
-.footer-note address a {
-  color: var(--white);
-  text-decoration-color: color-mix(in oklch, var(--white) 30%, transparent);
-  text-underline-offset: 0.25rem;
-}
-
-.footer-nav-wrap {
-  display: grid;
-  gap: 1.4rem;
-  justify-items: end;
-}
-
-.social-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.social-links a {
-  color: color-mix(in oklch, var(--white) 76%, var(--blue));
-  font-size: 0.85rem;
-  font-weight: 500;
-  text-decoration: none;
-}
-
-.social-links a:hover {
-  color: var(--white);
-}
-
 /* Full-bleed hero. The photograph is the page opening; the container starts below it.
    Height is viewport-relative so the image reads as a place rather than a banner, with a
    ceiling so it does not become absurd on a tall monitor. */
@@ -228,8 +193,7 @@
 /* --red-text, not --red. At 0.78rem this is small text, and the brand red only reaches
    4.13:1 on mist once the ground warmed in kit 2.2.0. See brand.tokens.json color.redText. */
 .story-meta,
-.role,
-.roster-role {
+.role {
   color: var(--red-text);
   font-size: var(--meta-label);
   font-weight: 600;
@@ -244,8 +208,6 @@
   font-size: var(--tp-type-section-title);
   text-wrap: balance;
 }
-
-
 
 .expertise-preview {
   background: var(--mist);
@@ -414,65 +376,12 @@
 
 /* The Tailor-made page opens on Gina's own standfirst, set large, before any heading. */
 .lead-statement p {
-  max-width: 46ch;
+  max-width: var(--measure);
   margin: 0;
   color: var(--blue-deep);
   font-family: var(--serif);
   font-size: var(--tp-type-subsection-title);
   line-height: 1.5;
-}
-
-.services-heading {
-  padding-block: clamp(4rem, 8vw, 6rem) 0;
-}
-
-.services-heading h2 {
-  margin: 0;
-  color: var(--blue-deep);
-}
-
-.about-virtuoso-mark {
-  width: 180px;
-  height: auto;
-  margin-bottom: 2rem;
-}
-
-/* Luxury: Gina's seven ways, as ruled rows rather than cards. */
-.luxury-ways {
-  padding-top: 0;
-}
-
-.ruled-rows {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--line);
-}
-
-.ruled-rows > li {
-  display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(350px, 0.7fr);
-  gap: clamp(2rem, 10vw, 10rem);
-  padding-block: clamp(2.5rem, 5vw, 4rem);
-  border-bottom: 1px solid var(--line);
-}
-
-.ruled-rows h2 {
-  max-width: 16ch;
-  margin: 0;
-  color: var(--blue-deep);
-  font-size: var(--tp-type-subsection-title);
-}
-
-.ruled-rows .long-copy p:first-child {
-  font-size: var(--tp-type-body);
-  color: var(--ink-muted);
-}
-
-.ruled-rows-mark {
-  width: 160px;
-  height: auto;
-  margin-bottom: 1.5rem;
 }
 
 @media (max-width: 1100px) {
@@ -482,13 +391,6 @@
 
   .why-book-intro {
     grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 940px) {
-  .ruled-rows > li {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
   }
 }
 
@@ -511,38 +413,26 @@
   background: var(--mist);
 }
 
-.service-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(300px, 0.7fr);
-  align-items: start;
-  gap: clamp(2rem, 6vw, 6rem);
-}
-
 .service-tagline {
   margin: 0.5rem 0 0;
   color: var(--ink-muted);
   font-weight: 600;
 }
 
-.service-grid .service-name {
-  max-width: 12ch;
-  margin: 0;
-  color: var(--blue-deep);
-}
-
 .service-copy > p,
 .long-copy p,
-.image-editorial-grid > div > p,
-.roster-feature > div > p,
-.article-list article > div > p:not(.story-meta) {
+.image-editorial-grid > div > p {
   color: var(--ink-muted);
   font-size: 1.08rem;
 }
 
+/* Lists are hairline rows with no marker (design review, change 4). Without a marker a wrapped
+   line aligns with the first word by itself. Benchmark: the list treatment on belmond.com. */
 .tick-list {
   margin: 2rem 0 0;
   padding: 0;
   list-style: none;
+  border-top: 1px solid var(--line);
 }
 
 .tick-list li {
@@ -550,20 +440,19 @@
   border-bottom: 1px solid var(--line);
 }
 
-.tick-list li::before {
-  margin-right: 0.8rem;
-  color: var(--red);
-  content: "-";
-}
-
+/* One text column per section, heading above body, at the reading width, so every paragraph on a
+   page ends on the same right edge (design review, G2). The grid is also the .shell, so the
+   measure goes on its children and the column stays on the page's left edge. */
 .editorial-grid {
   display: grid;
-  grid-template-columns: minmax(0, 0.85fr) minmax(350px, 0.7fr);
-  gap: clamp(3rem, 10vw, 10rem);
+}
+
+.editorial-grid > * {
+  max-width: var(--measure);
 }
 
 .editorial-grid h2 {
-  max-width: 10ch;
+  max-width: 24ch;
   color: var(--blue-deep);
 }
 
@@ -626,98 +515,13 @@
   margin-left: 1.25rem;
 }
 
-
 .team-roster {
   background: var(--mist);
 }
 
-.roster-feature {
-  display: grid;
-  grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(3rem, 9vw, 9rem);
-  margin-bottom: clamp(5rem, 10vw, 9rem);
-}
-
-.roster-feature .founder-visual img {
-  height: min(680px, 125vw);
-  object-fit: cover;
-  object-position: center 25%;
-}
-
-.roster-feature h2 {
-  color: var(--blue-deep);
-}
-
-.roster-list {
-  border-top: 1px solid var(--line);
-}
-
-.roster-list article {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.65fr) minmax(300px, 1fr);
-  gap: 3rem;
-  padding: 2.4rem 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.roster-list h3,
-.roster-list p {
-  margin: 0;
-}
-
-.roster-list h3 {
-  color: var(--blue-deep);
-  font-size: var(--tp-type-subsection-title);
-}
-
-.roster-list article > p {
-  color: var(--ink-muted);
-}
-
-
-.featured-article {
-  background: var(--mist);
-}
-
-.featured-article-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-  align-items: center;
-  gap: clamp(3rem, 8vw, 8rem);
-}
-
-.featured-article-grid > img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-.featured-article-grid h2 {
-  color: var(--blue-deep);
-  font-size: var(--tp-type-section-title);
-}
-
-.featured-article-grid p:not(.story-meta) {
-  color: var(--ink-muted);
-  font-size: 1.08rem;
-}
-
-.archive-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 3rem;
-  margin-bottom: clamp(3rem, 7vw, 6rem);
-}
-
-.archive-heading h2 {
-  margin: 0;
-  color: var(--blue-deep);
-}
-
 .archive-filters {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -736,35 +540,6 @@
   border-color: var(--blue);
   color: var(--white);
   background: var(--blue);
-}
-
-.article-list {
-  border-top: 1px solid var(--line);
-}
-
-.article-list article {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1fr);
-  gap: clamp(2rem, 6vw, 6rem);
-  padding: 2.5rem 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.article-list article[hidden] {
-  display: none;
-}
-
-.article-list img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-.article-list h3 {
-  max-width: 24ch;
-  margin-bottom: 1rem;
-  color: var(--blue-deep);
-  font-size: var(--tp-type-subsection-title);
 }
 
 .empty-state {
@@ -881,7 +656,6 @@
   font-size: 0.87rem;
   line-height: 1.6;
 }
-
 
 .contact-page {
   background: var(--mist);
@@ -1000,15 +774,6 @@
   .site-nav > a:not(.button) {
     font-size: 0.85rem;
   }
-
-  .footer-main {
-    grid-template-columns: 220px 1fr;
-  }
-
-  .footer-nav-wrap {
-    grid-column: 1 / -1;
-    justify-items: start;
-  }
 }
 
 @media (max-width: 940px) {
@@ -1019,8 +784,7 @@
     font-size: var(--tp-type-menu-title);
   }
 
-  .carousel-heading,
-  .archive-heading {
+  .carousel-heading {
     align-items: flex-start;
     flex-direction: column;
     gap: 1.5rem;
@@ -1028,11 +792,8 @@
 
   .teaser-story,
   .closing-grid,
-  .service-grid,
   .editorial-grid,
   .image-editorial-grid,
-  .roster-feature,
-  .featured-article-grid,
   .contact-page-grid,
   .contact-photo-grid {
     grid-template-columns: 1fr;
@@ -1042,7 +803,6 @@
      used to re-declare `50px 1fr`, which squeezed the heading and its tagline into 50px and
      wrapped them one word per line. The 50px was a lead column for numbering that no longer
      exists in the markup. */
-  .service-grid .service-name,
   .virtuoso-copy h2 {
     max-width: none;
   }
@@ -1091,8 +851,6 @@
   }
 
   .teaser-story,
-  .article-list article,
-  .roster-list article,
   .article-body {
     grid-template-columns: 1fr;
   }
@@ -1112,13 +870,6 @@
     margin-top: 2rem;
   }
 
-  /* Single column. This was `32px 1fr`, the same removed-numbering leftover as the 940px
-     rule above, and it put the heading in a 32px track. */
-  .service-grid {
-    grid-template-columns: 1fr;
-    gap: 1.25rem;
-  }
-
   .service-copy {
     grid-column: 1 / -1;
   }
@@ -1127,11 +878,6 @@
     display: flex;
     width: fit-content;
     margin: 1.25rem 0 0;
-  }
-
-
-  .roster-feature .founder-visual img {
-    height: 130vw;
   }
 
   .contact-form-wrap {
@@ -1149,22 +895,6 @@
   .article-body aside {
     max-width: 240px;
   }
-
-  .footer-nav-wrap,
-  .footer-links,
-  .social-links {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .footer-main {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-nav-wrap {
-    grid-column: auto;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -1173,7 +903,6 @@
     transition: none;
   }
 }
-
 
 /* ---------------------------------------------------------------------------
    Section rhythm
@@ -1186,8 +915,7 @@
    --------------------------------------------------------------------------- */
 
 .expertise-preview,
-.team-roster,
-.featured-article {
+.team-roster {
   padding-block: clamp(3.5rem, 6vw, 4.5rem);
 }
 
@@ -1269,5 +997,306 @@
   .teaser-story img,
   .teaser-story > *:not(img) {
     order: initial;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Design review, 27 September 2026: cards, image rows and the journal.
+   Card grids were previously refused (DESIGN.md, the Belmond ruling); Karim approved them on
+   27 September where they are restrained: square photography, hairline structure, no shadows.
+   --------------------------------------------------------------------------- */
+
+.card-grid,
+.theme-grid {
+  display: grid;
+  gap: clamp(2.5rem, 4vw, 3.5rem) clamp(1.5rem, 3vw, 2.5rem);
+  align-items: start;
+}
+
+.card-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card-grid--three,
+.theme-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.service-cards h2,
+.team-roster h2 {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  color: var(--blue-deep);
+}
+
+.service-card h3,
+.team-card h3,
+.theme h2 {
+  margin: 1.5rem 0 0.35rem;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-subsection-title);
+}
+
+.service-card .service-copy p,
+.team-card p:not(.role, .placeholder-note),
+.theme-way p:not(.placeholder-note) {
+  color: var(--ink-muted);
+}
+
+.team-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Luxury: Gina's sections, grouped by theme, each under its own hairline. */
+.luxury-themes {
+  padding-top: 0;
+}
+
+.theme-way {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+}
+
+.theme-way h3 {
+  margin: 0 0 0.5rem;
+  color: var(--blue-deep);
+  font-family: var(--sans);
+  font-size: var(--tp-type-label);
+  font-weight: 600;
+}
+
+.theme-mark {
+  display: block;
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+/* About: story, cruise and Virtuoso alternate image and text. */
+.image-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.image-row + .image-row {
+  margin-top: clamp(4rem, 8vw, 6.5rem);
+}
+
+.image-row--reverse > :first-child {
+  order: 2;
+}
+
+.image-row h2 {
+  color: var(--blue-deep);
+}
+
+.image-row-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 9;
+  background: var(--mist);
+}
+
+.image-row-panel img {
+  width: min(280px, 60%);
+  height: auto;
+}
+
+/* How we work sits on navy, so its hairline list needs light rules. */
+.team-values .tick-list {
+  margin-top: 1rem;
+  border-color: color-mix(in oklch, var(--white) 17%, transparent);
+}
+
+.team-values .tick-list li {
+  color: color-mix(in oklch, var(--white) 70%, var(--blue));
+  border-color: color-mix(in oklch, var(--white) 17%, transparent);
+}
+
+/* Journal: header, the latest feature, then a continuous log of hairline rows. */
+.journal-header {
+  padding-block: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 3rem);
+}
+
+.journal-header-grid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+}
+
+.journal-header h1 {
+  margin: 0;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-page-title);
+}
+
+.journal-standfirst {
+  max-width: 48ch;
+  margin: 1rem 0 0;
+  color: var(--ink-muted);
+  font-family: var(--display);
+  font-size: var(--tp-type-lead);
+}
+
+.journal-feature {
+  position: relative;
+  display: block;
+  height: clamp(360px, 42vw, 540px);
+  overflow: hidden;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.journal-feature img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 600ms var(--ease);
+}
+
+.journal-feature::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, color-mix(in oklch, var(--blue-deep) 88%, transparent) 0%, color-mix(in oklch, var(--blue-deep) 40%, transparent) 45%, transparent 75%);
+  content: "";
+}
+
+.journal-feature:hover img {
+  transform: scale(1.02);
+}
+
+.journal-feature-text {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+.journal-feature h2 {
+  max-width: 24ch;
+  margin: 0 0 1rem;
+  color: var(--white);
+  font-size: var(--tp-type-page-title);
+}
+
+.byline,
+.dateline {
+  margin: 0;
+  font-size: var(--tp-type-fine);
+}
+
+.byline {
+  font-weight: 600;
+}
+
+.dateline {
+  margin-top: 0.2rem;
+  color: var(--ink-muted);
+}
+
+.journal-feature .dateline {
+  color: color-mix(in oklch, var(--white) 80%, var(--blue));
+}
+
+.journal-log-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--blue-deep);
+}
+
+.journal-log-heading h2 {
+  margin: 0;
+  color: var(--blue-deep);
+  font-family: var(--sans);
+  font-size: var(--tp-type-label);
+  font-weight: 600;
+}
+
+.journal-rows {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.journal-rows > li {
+  border-bottom: 1px solid var(--line);
+}
+
+.journal-rows > li[hidden] {
+  display: none;
+}
+
+.journal-row {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  padding-block: 1.5rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.journal-row img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+}
+
+.journal-row h3 {
+  max-width: 32ch;
+  margin: 0.35rem 0 0.6rem;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-subsection-title);
+  transition: color 200ms ease;
+}
+
+.journal-row:hover h3 {
+  color: var(--blue);
+}
+
+.journal-more {
+  margin-top: 2rem;
+}
+
+@media (max-width: 1000px) {
+  .card-grid--three,
+  .theme-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .card-grid--two,
+  .card-grid--three,
+  .theme-grid,
+  .image-row {
+    grid-template-columns: 1fr;
+  }
+
+  .image-row--reverse > :first-child {
+    order: 0;
+  }
+
+  .journal-row {
+    grid-template-columns: 1fr;
   }
 }

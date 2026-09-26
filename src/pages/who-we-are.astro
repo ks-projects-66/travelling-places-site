@@ -3,24 +3,29 @@ import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import PlaceholderImage from '../components/PlaceholderImage.astro';
 import WhyBook from '../components/WhyBook.astro';
 import site from '../data/site.json';
 import about from '../data/about.json';
 
 import teamOffice from '../assets/images/team/team-office.jpg';
-import ginaPortrait from '../assets/images/team/gina-storey.webp';
 import virtuosoMark from '../assets/images/memberships/virtuoso-member.png';
 
-const team = (await getCollection('team')).sort((a, b) => a.data.order - b.data.order);
-const founder = team.find((member) => member.data.founder);
-const advisors = await Promise.all(
-  team
-    .filter((member) => !member.data.founder)
+const team = await Promise.all(
+  (await getCollection('team'))
+    .sort((a, b) => a.data.order - b.data.order)
     .map(async (member) => ({ ...member, Body: (await render(member)).Content })),
 );
-const FounderBody = founder ? (await render(founder)).Content : null;
 
 const atia = site.identifiers.atiaAccreditation;
+
+// Story, cruise and Virtuoso alternate image and text, switching sides each row (design review,
+// change 11). Two photographs are still to come and render as marked placeholders.
+const rows = [
+  { section: about.story, photo: 'TODO: photo of Gina, or the original Main Street office' },
+  { section: about.cruise, photo: 'TODO: photo of a team member aboard ship' },
+  { section: about.virtuoso, mark: true },
+];
 ---
 
 <BaseLayout
@@ -41,74 +46,42 @@ const atia = site.identifiers.atiaAccreditation;
 
     <section class="section">
       <div class="shell editorial-grid">
-        <div>
-          <h2>{about.intro.heading}</h2>
-        </div>
+        <h2>{about.intro.heading}</h2>
         <div class="long-copy">
           {about.intro.paragraphs.map((p) => <p>{p}</p>)}
         </div>
       </div>
     </section>
 
-    <section class="section about-story">
-      <div class="shell editorial-grid">
-        <div>
-          <h2>{about.story.heading}</h2>
-        </div>
-        <div class="long-copy">
-          {about.story.paragraphs.map((p) => <p>{p}</p>)}
-        </div>
-      </div>
-    </section>
-
-    <section class="section service-detail alt">
-      <div class="shell editorial-grid">
-        <div>
-          <h2>{about.cruise.heading}</h2>
-        </div>
-        <div class="long-copy">
-          {about.cruise.paragraphs.map((p) => <p>{p}</p>)}
-          <a class="text-link" href={about.cruise.link.href}>{about.cruise.link.label}</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="shell editorial-grid">
-        <div>
-          <Image class="about-virtuoso-mark" src={virtuosoMark} alt="Virtuoso member" width={240} densities={[1, 2]} loading="lazy" />
-          <h2>{about.virtuoso.heading}</h2>
-        </div>
-        <div class="long-copy">
-          {about.virtuoso.paragraphs.map((p) => <p>{p}</p>)}
-          <a class="text-link" href={about.virtuoso.link.href}>{about.virtuoso.link.label}</a>
-        </div>
+    <section class="section about-rows">
+      <div class="shell">
+        {rows.map(({ section, photo, mark }, i) => (
+          <div class:list={['image-row', i % 2 === 1 && 'image-row--reverse']}>
+            {mark
+              ? <div class="image-row-panel"><Image src={virtuosoMark} alt="Virtuoso member" width={280} densities={[1, 2]} loading="lazy" /></div>
+              : <PlaceholderImage label={photo!} ratio="16/9" />}
+            <div class="long-copy">
+              <h2>{section.heading}</h2>
+              {section.paragraphs.map((p) => <p>{p}</p>)}
+              {'link' in section && section.link && <a class="text-link" href={section.link.href}>{section.link.label}</a>}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
 
     <section class="section team-roster">
       <div class="shell">
-        {founder && FounderBody && (
-          <div class="roster-feature">
-            <div class="founder-visual">
-              <Image src={ginaPortrait} alt={founder.data.portraitAlt ?? founder.data.name}
-                widths={[400, 800]} sizes="(max-width: 900px) 80vw, 38vw" loading="lazy" />
-            </div>
-            <div>
-              <h2>{founder.data.name}</h2>
-              <p class="roster-role">{founder.data.role}</p>
-              <FounderBody />
-            </div>
-          </div>
-        )}
-
-        <div class="roster-list">
-          {advisors.map(({ data, Body }) => (
-            <article>
-              <div>
-                <p class="role">{data.role}</p>
-                <h3>{data.name}</h3>
-              </div>
+        <h2>Meet your advisors</h2>
+        <div class="card-grid card-grid--three">
+          {team.map(({ id, data, Body }) => (
+            <article class="team-card" id={`team-${id}`}>
+              {data.portrait
+                ? <Image src={data.portrait} alt={data.portraitAlt ?? data.name}
+                    widths={[360, 720]} sizes="(max-width: 700px) 92vw, 30vw" loading="lazy" />
+                : <PlaceholderImage label={`TODO: portrait of ${data.name}`} ratio="4/5" />}
+              <h3>{data.name}</h3>
+              <p class="role">{data.role}</p>
               <Body />
               {!data.approved && (
                 <p class="placeholder-note" data-placeholder>TODO: title and bio not yet approved</p>
@@ -124,14 +97,18 @@ const atia = site.identifiers.atiaAccreditation;
         {about.promises.map((promise) => (
           <article>
             <h3>{promise.title}</h3>
-            {promise.paragraphs.map((p, i) => (
+            {promise.atiaNumber ? (
               <>
-                <p>{p}</p>
-                {promise.atiaNumber && i === 0 && (atia.status === 'placeholder'
+                <ul class="tick-list">
+                  {promise.paragraphs.map((p) => <li>{p}</li>)}
+                </ul>
+                {atia.status === 'placeholder'
                   ? <p class="placeholder-note" data-placeholder>TODO: ATIA number (Gina's copy reads "??????")</p>
-                  : <p>Our ATIA number is {atia.value}.</p>)}
+                  : <p>Our ATIA number is {atia.value}.</p>}
               </>
-            ))}
+            ) : (
+              promise.paragraphs.map((p) => <p>{p}</p>)
+            )}
           </article>
         ))}
       </div>

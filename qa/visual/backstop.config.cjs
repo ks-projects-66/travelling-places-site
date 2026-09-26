@@ -72,12 +72,12 @@ const components = [
   },
   { label: 'footer', url: '/', selectors: ['.site-footer'], viewports: VISUAL_COMPONENTS },
   { label: 'hero-photo', url: '/', selectors: ['.page-hero'], viewports: VISUAL_COMPONENTS },
-  { label: 'hero-navy', url: '/journal/', selectors: ['.page-hero'], viewports: VISUAL_COMPONENTS },
   { label: 'carousel', url: '/', selectors: ['[data-carousel]'], viewports: VISUAL_COMPONENTS },
-  { label: 'journal-cards', url: '/journal/', selectors: ['.article-list'], viewports: VISUAL_COMPONENTS },
-  { label: 'team-cards', url: '/who-we-are/', selectors: ['.roster-list'], viewports: VISUAL_COMPONENTS },
+  { label: 'journal-feature', url: '/journal/', selectors: ['.journal-feature'], viewports: VISUAL_COMPONENTS },
+  { label: 'journal-rows', url: '/journal/', selectors: ['.journal-rows'], viewports: VISUAL_COMPONENTS },
+  { label: 'team-cards', url: '/who-we-are/', selectors: ['.team-roster .card-grid'], viewports: VISUAL_COMPONENTS },
   { label: 'contact-form', url: '/contact/', selectors: ['.enquiry-form'], viewports: VISUAL_COMPONENTS },
-  // Button states. Disabled exists only on the unconfigured newsletter placeholder.
+  // Button states. No disabled button remains on the site since the newsletter moved to its dialog.
   { label: 'button-normal', url: '/', selectors: ['.hero-actions'], viewports: VISUAL_COMPONENTS },
   {
     label: 'button-hover',
@@ -103,7 +103,6 @@ const components = [
     clickSelector: '.hero-actions .text-link',
     postInteractionWait: 200,
   },
-  { label: 'button-disabled', url: '/', selectors: ['.newsletter-form'], viewports: VISUAL_COMPONENTS },
 ].map((s) => ({
   ...base,
   ...s,

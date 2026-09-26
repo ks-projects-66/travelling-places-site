@@ -181,12 +181,10 @@ p {
   gap: clamp(1.1rem, 2.5vw, 2.4rem);
 }
 
-/* :not(.button) on the nav selector only. Without it this rule outranks .button-blue and
-   paints the call to action navy on blue: a contrast failure, and a colour pairing
-   BRAND.md forbids. It is deliberately not applied to .footer-links, which carries no
-   buttons and whose white colour is set further down at a matching specificity. */
-.site-nav > a:not(.button),
-.footer-links a {
+/* :not(.button) keeps this rule off the call to action. Without it the rule outranks
+   .button-blue and paints the button navy on blue: a contrast failure, and a colour pairing
+   BRAND.md forbids. */
+.site-nav > a:not(.button) {
   position: relative;
   color: var(--blue-deep);
   font-size: 0.92rem;
@@ -194,8 +192,7 @@ p {
   text-decoration: none;
 }
 
-.site-nav > a::after,
-.footer-links a::after {
+.site-nav > a::after {
   position: absolute;
   right: 0;
   bottom: -0.35rem;
@@ -208,8 +205,7 @@ p {
   transition: transform 240ms var(--ease);
 }
 
-.site-nav > a:hover::after,
-.footer-links a:hover::after {
+.site-nav > a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
@@ -354,7 +350,6 @@ p {
   color: var(--ink-muted);
 }
 
-
 .split-heading {
   display: grid;
   grid-template-columns: 1fr minmax(280px, 0.55fr);
@@ -420,7 +415,6 @@ p {
   height: 22px;
   color: var(--red);
 }
-
 
 .virtuoso-grid {
   display: grid;
@@ -549,7 +543,6 @@ blockquote {
   line-height: 1.4;
 }
 
-
 .process-grid {
   display: grid;
   grid-template-columns: 0.78fr 1fr;
@@ -605,7 +598,6 @@ blockquote {
   color: var(--ink-muted);
 }
 
-
 .partners-title {
   text-align: center;
 }
@@ -625,7 +617,6 @@ blockquote {
   object-fit: contain;
   filter: saturate(0.65);
 }
-
 
 .contact-grid {
   display: grid;
@@ -667,34 +658,15 @@ blockquote {
   background: var(--blue-deep);
 }
 
-.footer-main {
-  display: grid;
-  grid-template-columns: 250px 1fr auto;
-  align-items: center;
-  gap: 3rem;
-}
-
 .footer-brand {
   display: block;
 }
 
-.footer-main p {
-  margin: 0;
-  color: color-mix(in oklch, var(--white) 72%, var(--blue));
-}
-
-.footer-links {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.footer-links a {
-  color: var(--white);
-}
-
 .footer-legal {
   display: flex;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 2rem;
   margin-top: 3rem;
   padding-top: 1.25rem;
   border-top: 1px solid color-mix(in oklch, var(--white) 15%, transparent);
@@ -927,14 +899,6 @@ blockquote {
   .contact-details {
     max-width: 600px;
   }
-
-  .footer-main {
-    grid-template-columns: 220px 1fr;
-  }
-
-  .footer-links {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (max-width: 680px) {
@@ -998,20 +962,6 @@ blockquote {
   .partner-logos {
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
-  }
-
-  .footer-main {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .footer-brand {
-    width: 220px;
-  }
-
-  .footer-links {
-    grid-column: auto;
-    flex-wrap: wrap;
   }
 
   .footer-legal {

@@ -1,6 +1,6 @@
 # Travelling Places brand system
 
-Version 3.0.0 is the canonical source for website and marketing production.
+Version 3.0.1 is the canonical source for website and marketing production.
 
 Travelling Places should feel established, personal, and quietly confident. Belmond is a reference for restraint, image priority, and typographic balance. Do not reproduce Belmond layouts, wording, assets, or proprietary typefaces.
 

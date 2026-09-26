@@ -275,23 +275,40 @@ if (carousel) {
   start();
 }
 
-// --- journal year filter ---
+// --- journal category filter and "Load more" ---
+//
+// Rows past the first page are server-rendered with `hidden` and marked data-beyond-page. A
+// category filter shows every matching row, paged or not, because a filtered list is short;
+// "All" returns to the paged view until "Load more" has been used.
+
+let journalExpanded = false;
+const moreButton = document.querySelector('[data-load-more]');
+
+const applyJournalFilter = (filter) => {
+  let visible = 0;
+  document.querySelectorAll('[data-category-item]').forEach((row) => {
+    const matches = filter === 'all' || row.dataset.categoryItem === filter;
+    const paged = filter === 'all' && !journalExpanded && row.hasAttribute('data-beyond-page');
+    row.hidden = !matches || paged;
+    if (!row.hidden) visible += 1;
+  });
+  const empty = document.querySelector('[data-empty-state]');
+  if (empty) empty.hidden = visible !== 0;
+  if (moreButton) moreButton.hidden = filter !== 'all' || journalExpanded;
+};
 
 document.querySelectorAll('[data-filter]').forEach((button) =>
   button.addEventListener('click', () => {
-    const filter = button.dataset.filter;
     document.querySelectorAll('[data-filter]').forEach((item) => {
       const active = item === button;
       item.classList.toggle('is-active', active);
       item.setAttribute('aria-pressed', String(active));
     });
-    let visible = 0;
-    document.querySelectorAll('[data-year-item]').forEach((article) => {
-      const show = filter === 'all' || article.dataset.yearItem === filter;
-      article.hidden = !show;
-      if (show) visible += 1;
-    });
-    const empty = document.querySelector('[data-empty-state]');
-    if (empty) empty.hidden = visible !== 0;
+    applyJournalFilter(button.dataset.filter);
   }),
 );
+
+moreButton?.addEventListener('click', () => {
+  journalExpanded = true;
+  applyJournalFilter('all');
+});

@@ -4,6 +4,15 @@ The version lives in `brand.tokens.json` and in the header of `BRAND.md`. It is 
 name. Between 2.1.0 and 3.0.0 those two files disagreed, and that gap is what let the kit fork from
 itself, so any release that changes a value changes both.
 
+## 3.0.1
+
+**The dark mark's white keyline is now continuous.** It was missing on the top of the hair and the
+left wingtip, where the figure touches the edge of its artwork. The keyline is a dilation of the
+artwork, and both the viewBox and the filter region were cut to the artwork's own bounds, so the
+outline was clipped exactly where it met the frame. `mark-dark.svg` now pads its viewBox by 12
+units, more than the 8-unit dilation, and the filter region widens to 120%. `lockup-dark.svg` is
+regenerated from it. No colour, size or artwork changed.
+
 ## 3.0.0
 
 The folder dropped its version suffix: `brand-kit-v2/` became `brand-kit/`, with a 301 from

@@ -36,6 +36,10 @@
       "href": "/luxury/"
     },
     {
+      "label": "Virtuoso",
+      "href": "/virtuoso/"
+    },
+    {
       "label": "About us",
       "href": "/who-we-are/"
     },
@@ -46,10 +50,6 @@
     {
       "label": "Contact",
       "href": "/contact/"
-    },
-    {
-      "label": "Privacy",
-      "href": "/privacy/"
     }
   ]
 }

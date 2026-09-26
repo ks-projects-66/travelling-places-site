@@ -132,7 +132,7 @@ test.describe('copy', () => {
 
         // Uppercase treatments. v3 approves exactly one role for this; anything else is an
         // eyebrow by another name.
-        const approved = ['story-meta', 'role', 'roster-role', 'placeholder-image'];
+        const approved = ['story-meta', 'role', 'placeholder-image'];
         for (const el of document.querySelectorAll('body *')) {
           const cs = getComputedStyle(el);
           if (cs.textTransform !== 'uppercase') continue;

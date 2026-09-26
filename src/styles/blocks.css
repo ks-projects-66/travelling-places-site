@@ -34,57 +34,62 @@
   letter-spacing: 0.02em;
 }
 
-.logo-wall + .footer-heading {
-  margin-top: 2.5rem;
+.logo-row + .footer-heading {
+  margin-top: 3rem;
 }
 
-.logo-wall {
+/* Accreditation and partner rows run the full content width, evenly spread, with the first
+   mark aligned to the heading above it. */
+.logo-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: clamp(1.5rem, 4vw, 3rem);
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.logo-wall li {
+.logo-row > li {
   display: flex;
+  flex: 0 1 220px;
   align-items: center;
+  justify-content: center;
+  height: 110px;
 }
 
-.logo-wall img {
-  height: 56px;
+.logo-row img {
   width: auto;
-  /* The wall is a flex row, so a narrow item squeezes a mark below its natural width. Astro's
-     max-width: 100% then clamps the width while this fixed height holds, and object-fit defaults
-     to fill, which stretched four accreditation marks by 11 to 20 percent. contain keeps the
-     ratio, which the kit requires of any lockup. */
+  max-width: 100%;
+  height: 80px;
+  /* A flex item can squeeze a mark below its natural width while the fixed height holds, and
+     object-fit defaults to fill, which stretched four accreditation marks by 11 to 20 percent.
+     contain keeps the ratio, which the kit requires of any lockup. */
   object-fit: contain;
-  /* Supplied marks are dark-on-white artwork sitting on a navy footer. Until vector
-     inverse versions are supplied, a white plate keeps them legible and on-brand.
-     Tracked in docs/CONTENT-REGISTER.md. */
+  /* Supplied marks are dark-on-white artwork sitting on a navy footer. Until vector inverse
+     versions are supplied, a white plate keeps them legible. Tracked in the content register. */
   background: var(--white);
   border-radius: 6px;
-  padding: 0.5rem 0.75rem;
+  padding: 0.6rem 0.9rem;
 }
 
-.logo-wall a {
+.logo-row a {
   display: block;
   border-radius: 6px;
   transition: transform 0.3s var(--ease);
 }
 
-.logo-wall a:hover {
+.logo-row a:hover {
   transform: translateY(-2px);
 }
 
-.logo-wall-partners {
-  gap: 1.25rem;
+.logo-row--partners > li {
+  align-items: stretch;
 }
 
-.logo-wall-partners li {
-  flex: 0 1 clamp(140px, 20vw, 190px);
+.logo-row--partners .logo-placeholder {
+  width: 100%;
 }
 
 /* placeholders.css is imported last, so its .placeholder-image background beat this rule at
@@ -304,12 +309,25 @@
     align-items: start;
   }
 
-  .logo-wall img {
-    height: 44px;
+  .logo-row {
+    justify-content: flex-start;
+    gap: 1rem;
   }
 
-  .logo-wall-partners li {
-    flex: 1 1 calc(50% - 0.75rem);
+  .logo-row > li {
+    flex: 1 1 calc(50% - 0.5rem);
+    /* A flex item's minimum width defaults to its content, and a placeholder's label is wider
+       than half a phone screen, so each partner slot took a whole row. */
+    min-width: 0;
+    height: 88px;
+  }
+
+  .newsletter .button {
+    justify-self: start;
+  }
+
+  .logo-row img {
+    height: 64px;
   }
 }
 
@@ -347,14 +365,75 @@
   stroke: none;
 }
 
-/* .text-link is navy by default, which is invisible on the navy footer. The Virtuoso
-   profile link sits there, so it takes the white-on-navy pair the kit approves. */
-.footer-note .text-link {
-  color: var(--tp-white);
+/* --- footer: four columns and the bottom bar --- */
+
+.footer-columns {
+  display: grid;
+  grid-template-columns: minmax(200px, 1.3fr) repeat(3, minmax(150px, 1fr));
+  gap: 2.5rem clamp(2rem, 5vw, 4rem);
+  padding-top: 4rem;
 }
 
-.footer-note .text-link:hover {
-  color: color-mix(in oklch, var(--tp-white) 82%, var(--tp-blue));
+.footer-columns p {
+  max-width: 26ch;
+  margin: 1.25rem 0 0;
+  color: color-mix(in oklch, var(--white) 72%, var(--blue));
+}
+
+.footer-brand {
+  width: clamp(172px, 17vw, 220px);
+}
+
+.footer-list {
+  display: grid;
+  justify-items: start;
+  gap: 0.6rem;
+  font-style: normal;
+}
+
+.footer-list a,
+.footer-legal a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+.footer-list a:hover,
+.footer-legal a:hover {
+  color: color-mix(in oklch, var(--white) 76%, var(--blue));
+}
+
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-social-icon {
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid color-mix(in oklch, var(--white) 35%, transparent);
+  border-radius: 50%;
+}
+
+.footer-social-icon svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+@media (max-width: 940px) {
+  .footer-columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 520px) {
+  .footer-columns {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Placeholder markers on the navy footer. Red on navy is both a contrast failure and a

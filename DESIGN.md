@@ -26,8 +26,12 @@ the site's variable names, so a kit release propagates without edits here.
 - Vertical section rhythm follows the kit's `--tp-space-section`, 72px to 120px.
 - Photographic imagery is square-cornered and uncorniced. Fields are square-cornered.
   Text buttons use the full pill radius, per v2.1.0.
-- No card grids; information is organised with open columns and ruled lists. This is a
-  deliberate departure from the imagery reference and is explained below.
+- Card grids are allowed where they are restrained: square photography, hairline structure, no
+  shadows or raised panels, every card in a group built the same way. Approved by Karim on
+  27 September 2026; the earlier refusal and its reasoning are kept below.
+- Body and intro text sits in one left-aligned column at the kit's `--tp-reading-max`, so every
+  paragraph on a page ends on the same right edge.
+- Lists are hairline rows with no marker: no dash, dot or icon.
 - No eyebrow headings, no decorative numbering, no diagonal arrows. Section openings are the
   heading itself.
 
@@ -88,6 +92,18 @@ one element of the reference that fights the product rather than the design file
 So Expertise keeps its numbered ruled rows and the Journal keeps its horizontal article list. If a
 future brief asks for a grid, this is the reasoning it has to argue with.
 
+**Revised 27 September 2026.** The Claude Design review argued with it and Karim approved card
+grids "if tasteful". What was adopted is narrower than Belmond's tile grid: three to five cards
+per group, each carrying the advisor's own words rather than a product to compare. Luxury groups
+Gina's seven sections under three themes, Expertise shows its four services as two-by-two cards,
+and About shows the team as one uniform grid. The Journal is a latest feature plus a hairline log,
+not a grid. The anti-reference above still stands: nothing on the site asks a visitor to compare
+dozens of products.
+
+The same review proposed eyebrow labels over section headings and "01, 02, 03" step numbering.
+Both were refused on 27 September 2026 and the rules above stand. It also proposed replacing
+Gina's copy with shorter drafts on four pages; Karim kept her copy, presented more compactly.
+
 ## Known residual: hero line count at 375px
 
 `BRAND.md` requires hero headings to hold to two lines at 375, 768, 1280 and 1440px. At 1280 and
@@ -143,7 +159,7 @@ Updated 30 August 2026, when the licensed imagery landed.
 | Expertise | photo | `hero/expertise-mountain-lake.jpg` | `center 38%` |
 | Virtuoso | photo | `hero/virtuoso-island.jpg` | `center 42%` |
 | Contact | photo | `hero/contact-lookout.jpg` | `center 55%` |
-| Journal | navy | **awaiting**. The only page still on the navy tone | n/a |
+| Journal | none | No hero since 27 September 2026: the newest article's photograph opens the page as a 540px feature | n/a |
 | Privacy, 404 | plain | none wanted. A cinematic opening on a policy or error page is noise | n/a |
 
 Crops are set per page with `object-position`, because both team photographs place faces near the

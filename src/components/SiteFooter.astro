@@ -15,30 +15,34 @@ const markFor = (file: string) => marks[`../assets/images/memberships/${file}`]?
 
 const year = new Date().getFullYear();
 const unresolvedIdentifiers = Object.values(site.identifiers).filter((i) => i.status === 'placeholder');
+const socials = [
+  { label: 'Instagram', icon: 'icon-instagram', url: site.socials.instagram.url },
+  { label: 'Facebook', icon: 'icon-facebook', url: site.socials.facebook.url },
+];
 ---
 
 <footer class="site-footer">
   <div class="shell footer-memberships">
     <h2 class="footer-heading">Accredited and connected</h2>
-    <ul class="logo-wall" aria-label="Industry memberships and accreditations">
+    <ul class="logo-row" aria-label="Industry memberships and accreditations">
       {memberships.map((m) => {
         const img = markFor(m.image);
         return (
           <li>
             {m.url
               ? <a href={m.url} target="_blank" rel="noreferrer" aria-label={`${m.name} (opens in a new tab)`}>
-                  <Image src={img} alt={m.alt} height={56} densities={[1, 2]} loading="lazy" />
+                  <Image src={img} alt={m.alt} height={80} densities={[1, 2]} loading="lazy" />
                </a>
-              : <Image src={img} alt={m.alt} height={56} densities={[1, 2]} loading="lazy" />}
+              : <Image src={img} alt={m.alt} height={80} densities={[1, 2]} loading="lazy" />}
           </li>
         );
       })}
     </ul>
 
     <h2 class="footer-heading">Travel partners</h2>
-    <ul class="logo-wall logo-wall-partners" aria-label="Travel partners">
+    <ul class="logo-row logo-row--partners" aria-label="Travel partners">
       {partners.map((p) => (
-        <li><PlaceholderImage label={p.name} ratio="3/2" class="logo-placeholder" /></li>
+        <li><PlaceholderImage label={p.name} ratio="2/1" class="logo-placeholder" /></li>
       ))}
     </ul>
   </div>
@@ -54,29 +58,39 @@ const unresolvedIdentifiers = Object.values(site.identifiers).filter((i) => i.st
     </div>
   </div>
 
-  <div class="shell footer-main">
-    <a class="footer-brand" href="/" aria-label={`${site.name} home`}>
-      <img src="/brand-kit/assets/logos/lockup-dark.svg" width="958" height="360" alt={site.name} loading="lazy" />
-   </a>
-    <div class="footer-note">
+  <div class="shell footer-columns">
+    <div class="footer-column">
+      <a class="footer-brand" href="/" aria-label={`${site.name} home`}>
+        <img src="/brand-kit/assets/logos/lockup-dark.svg" width="958" height="360" alt={site.name} loading="lazy" />
+      </a>
       <p>Personal travel planning from {site.address.locality}.</p>
-      <address>
+    </div>
+    <div class="footer-column">
+      <h2 class="footer-heading">Contact</h2>
+      <address class="footer-list">
         <a href={site.phoneLink}>{site.phone}</a>
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </address>
-      <a class="text-link secondary-link" href={site.virtuoso.profileUrl} target="_blank" rel="noreferrer">
-        Our Virtuoso profile
-     </a>
     </div>
-    <div class="footer-nav-wrap">
-      <nav class="footer-links" aria-label="Footer navigation">
+    <nav class="footer-column" aria-label="Footer navigation">
+      <h2 class="footer-heading">Explore</h2>
+      <div class="footer-list">
         {nav.footer.map((item) => <a href={item.href}>{item.label}</a>)}
-      </nav>
-      <nav class="social-links" aria-label="Social media">
-        <a href={site.socials.instagram.url} target="_blank" rel="noreferrer">Instagram</a>
-        <a href={site.socials.facebook.url} target="_blank" rel="noreferrer">Facebook</a>
-      </nav>
-    </div>
+      </div>
+    </nav>
+    <nav class="footer-column" aria-label="Social media">
+      <h2 class="footer-heading">Follow</h2>
+      <div class="footer-list">
+        {socials.map((s) => (
+          <a class="footer-social" href={s.url} target="_blank" rel="noreferrer">
+            <span class="footer-social-icon" aria-hidden="true">
+              <svg focusable="false"><use href={`/brand-kit/assets/icons/ui-icons.svg#${s.icon}`}></use></svg>
+            </span>
+            {s.label}
+          </a>
+        ))}
+      </div>
+    </nav>
   </div>
 
   <div class="shell footer-legal">
@@ -84,5 +98,6 @@ const unresolvedIdentifiers = Object.values(site.identifiers).filter((i) => i.st
     {unresolvedIdentifiers.length > 0
       ? <span class="placeholder-note" data-placeholder>TODO: ABN, ATIA and CLIA numbers</span>
       : <span>ABN {site.identifiers.abn.value} · ATIA {site.identifiers.atiaAccreditation.value} · CLIA {site.identifiers.cliaMembership.value}</span>}
+    <a href="/privacy/">Privacy</a>
   </div>
 </footer>

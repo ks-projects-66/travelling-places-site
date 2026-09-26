@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import PlaceholderImage from '../components/PlaceholderImage.astro';
 
 import expertiseHero from '../assets/images/hero/expertise-mountain-lake.jpg';
 import WhyBook from '../components/WhyBook.astro';
@@ -34,40 +35,33 @@ const rendered = await Promise.all(
       </div>
     </section>
 
-    {copy.sections.map((section, i) => (
-      <section class:list={['section', i % 2 === 0 && 'service-detail alt']}>
-        <div class="shell editorial-grid">
-          <div>
-            <h2>{section.heading}</h2>
-          </div>
-          <div class="long-copy">
-            {section.paragraphs.map((p) => <p>{p}</p>)}
-          </div>
-        </div>
-      </section>
-    ))}
-
-    <section class="section services-heading">
+    <section class="section service-cards">
       <div class="shell">
         <h2>{copy.servicesHeading}</h2>
+        <div class="card-grid card-grid--two">
+          {rendered.map(({ data, Body }) => (
+            <article class="service-card" id={data.anchor}>
+              <PlaceholderImage label={`TODO: photo for ${data.label}`} ratio="3/2" />
+              <h3>{data.label}</h3>
+              <p class="service-tagline">{data.title}</p>
+              <div class="service-copy">
+                <Body />
+              </div>
+              <ul class="tick-list">
+                {data.points.map((point) => <li>{point}</li>)}
+              </ul>
+            </article>
+          ))}
+        </div>
       </div>
     </section>
 
-    {rendered.map(({ data, Body }, i) => (
-      <section class:list={['service-detail', 'section', i % 2 === 1 && 'alt']} id={data.anchor}>
-        <div class="shell service-grid">
-          <div>
-            <h3 class="service-name">{data.label}</h3>
-            <p class="service-tagline">{data.title}</p>
-          </div>
-          <div class="service-copy">
-            <Body />
-            <ul class="tick-list">
-              {data.points.map((point) => <li>{point}</li>)}
-            </ul>
-            {data.anchor === 'luxury' && (
-              <a class="text-link secondary-link" href="/luxury/">Luxury travel with Travelling Places</a>
-            )}
+    {copy.sections.map((section, i) => (
+      <section class:list={['section', i % 2 === 0 && 'service-detail alt']}>
+        <div class="shell editorial-grid">
+          <h2>{section.heading}</h2>
+          <div class="long-copy">
+            {section.paragraphs.map((p) => <p>{p}</p>)}
           </div>
         </div>
       </section>

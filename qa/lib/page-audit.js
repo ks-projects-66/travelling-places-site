@@ -243,7 +243,7 @@ export async function auditPage(page) {
     // 12. Reading measure. The kit limits body copy to 68ch. Meta labels, placeholder notes and
     //     form hints are short single-line strings whose box width says nothing about measure, so
     //     they are excluded rather than counted as over-long prose.
-    const notProse = '.story-meta, .role, .roster-role, .placeholder-note, .field-error, .form-status, .footer-legal';
+    const notProse = '.story-meta, .role, .placeholder-note, .field-error, .form-status, .footer-legal';
     for (const p of document.querySelectorAll('.article-prose p, main p')) {
       if (!visible(p) || p.matches(notProse) || p.closest(notProse)) continue;
       if (p.textContent.trim().split(/\s+/).length < 20) continue;

@@ -2,7 +2,7 @@
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "brand": {
     "name": "Travelling Places",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "reference": "Belmond for restraint, image priority, and typographic balance. Never copy layouts or proprietary assets."
   },
   "color": {
