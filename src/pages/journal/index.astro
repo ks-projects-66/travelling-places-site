@@ -3,7 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
-import ClosingCta from '../../components/ClosingCta.astro';
+import WhyBook from '../../components/WhyBook.astro';
 import site from '../../data/site.json';
 
 const posts = (await getCollection('journal', ({ data }) => !data.draft)).sort(
@@ -84,6 +84,6 @@ const href = (post: (typeof posts)[number]) => post.data.externalUrl ?? `/journa
       </div>
     </section>
 
-    <ClosingCta />
+    <WhyBook />
   </main>
 </BaseLayout>

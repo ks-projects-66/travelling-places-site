@@ -1,6 +1,6 @@
 /**
  * Routes, discovered from the build rather than hand-listed, so a new page is tested the moment
- * it exists. Discovery failure is loud: if the nine known routes are not all present, this throws
+ * it exists. Discovery failure is loud: if the ten known routes are not all present, this throws
  * rather than quietly running a shorter suite.
  *
  * The site sets trailingSlash: 'always', so every path here ends in a slash except 404.html.
@@ -19,6 +19,7 @@ const EXCLUDED = ['brand-kit', 'admin'];
 const REQUIRED = [
   '/',
   '/expertise/',
+  '/luxury/',
   '/virtuoso/',
   '/contact/',
   '/who-we-are/',

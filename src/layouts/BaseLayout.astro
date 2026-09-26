@@ -8,6 +8,7 @@ import '../styles/placeholders.css';
 import SiteHeader from '../components/SiteHeader.astro';
 import SiteFooter from '../components/SiteFooter.astro';
 import EnquiryDialog from '../components/EnquiryDialog.astro';
+import NewsletterDialog from '../components/NewsletterDialog.astro';
 import site from '../data/site.json';
 
 interface Props {
@@ -83,6 +84,7 @@ const structuredData = {
     <slot />
     <SiteFooter />
     {page !== 'contact' && <EnquiryDialog />}
+    <NewsletterDialog />
     <script src="../scripts/site.js"></script>
   </body>
 </html>

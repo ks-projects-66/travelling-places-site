@@ -43,7 +43,7 @@ for (const viewport of overlayViewports) {
 
     test('closes when a destination is chosen', async ({ page }) => {
       await page.locator('[data-menu-toggle]').click();
-      await page.locator('[data-nav] > a', { hasText: 'Expertise' }).click();
+      await page.locator('[data-nav] > a', { hasText: 'Tailor-made' }).click();
       await expect(page).toHaveURL(/\/expertise\/$/);
       await expect(page.locator('body')).not.toHaveClass(/menu-open/);
     });

@@ -1,6 +1,7 @@
 ---
 import nav from '../data/navigation.json';
 import site from '../data/site.json';
+import TopBar from './TopBar.astro';
 
 interface Props { page?: string }
 const { page = 'home' } = Astro.props;
@@ -8,6 +9,7 @@ const current = (key: string) => page === key || (page === 'article' && key === 
 ---
 
 <a class="skip-link" href="#main">Skip to content</a>
+<TopBar />
 <header class="site-header" data-header>
   <div class="shell header-inner">
     <a class="brand" href="/" aria-label={`${site.name} home`}>

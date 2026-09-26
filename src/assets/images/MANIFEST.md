@@ -58,7 +58,7 @@ licence at all.
 |---|---|---|---|---|---|
 | `destinations/mediterranean-coast.jpg` | Sunset over a calm sea and silhouetted coastline | Unsplash, Ruben Aster | owned | Unsplash License | Home carousel |
 | `destinations/antarctica-ice.jpg` | Ice formation across a polar landscape | Unsplash, Torsten Dederichs | owned | Unsplash License | Home carousel, Journal |
-| `destinations/cruise-dining.jpg` | Dining table with a wide ocean view | Unsplash, Jiayu Chan | owned | Unsplash License | Home carousel |
+| `destinations/cruise-dining.jpg` | Dining table with a wide ocean view | Unsplash, Jiayu Chan | owned | Unsplash License | Home carousel, Luxury hero |
 | `destinations/japan-temple.jpg` | Japanese temple architecture among bare trees | Unsplash, Rudityas W Anggoro | owned | Unsplash License | Journal archive |
 | `destinations/spain-village.jpg` | Whitewashed Spanish hill village | Unsplash, inma santiago | owned | Unsplash License | Journal archive |
 

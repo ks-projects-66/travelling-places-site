@@ -46,6 +46,9 @@ see on screen gets fixed, and a gap recorded only in a register gets shipped.
 | C14 | Facebook URL | `src/data/site.json` | Confirmed profile | Same. |
 | C15 | Trading hours | `src/data/site.json` | Confirmed hours | Renders as a TODO pill on the contact page. |
 | C16 | Alatus destination URL | `src/data/memberships.json` | The correct URL | Logo renders unlinked until supplied. |
+| C18 | Virtuoso white-label link | `src/data/virtuoso.json` → `whiteLabel.url` | The white-label site address from Gina | Her Luxury copy links to it. Renders as a TODO pill on Luxury and Virtuoso. |
+| C19 | Newsletter delivery | `src/components/NewsletterDialog.astro` | Genesys embed (C7) | Gina's fields are built. Until Genesys is connected, sign-ups reach the office inbox through the enquiry route and are added by hand. Collecting postal addresses must be covered by the privacy policy (C2). |
+| C20 | Claims in Gina's copy | `src/data/*.json` | Her confirmation | Published as supplied on Karim's instruction of 26 September 2026: Global Cruise Icon (under 300 worldwide), Virtuoso top 1%, IATA TIDS affiliate, client trust account, "ATIA protected", in-house events, brochures, travel insurance. Several passages match wexas.com word for word. |
 
 ## Deployment
 

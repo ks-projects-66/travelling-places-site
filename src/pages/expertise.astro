@@ -2,11 +2,11 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import { Image } from 'astro:assets';
 
 import expertiseHero from '../assets/images/hero/expertise-mountain-lake.jpg';
-import ClosingCta from '../components/ClosingCta.astro';
+import WhyBook from '../components/WhyBook.astro';
 import site from '../data/site.json';
+import copy from '../data/tailor-made.json';
 
 const services = (await getCollection('services')).sort((a, b) => a.data.order - b.data.order);
 const rendered = await Promise.all(
@@ -15,25 +15,49 @@ const rendered = await Promise.all(
 ---
 
 <BaseLayout
-  title={`Our expertise | ${site.name}`}
-  description="Ocean and river cruising, expedition journeys, luxury travel and tailor-made itineraries, planned personally from Tamborine Mountain."
+  title={`${copy.heading} | ${site.name}`}
+  description="Tell us what you're looking for and speak to a specialist who knows your destination. Tailor-made holidays, cruising, expeditions and luxury travel from Tamborine Mountain."
   page="expertise"
 >
   <main id="main">
     <PageHero
-      lead="Planned around"
-      accent="how you travel."
-      lede="We begin with how you want to feel, then bring together the right route, pace, people and places."
+      lead="Tailor-made and"
+      accent="luxury holidays."
       image={expertiseHero}
       alt="Snow-capped mountains and forested slopes reflected in a still alpine lake at golden hour"
       position="center 38%"
     />
 
+    <section class="section lead-statement">
+      <div class="shell">
+        <p>{copy.intro}</p>
+      </div>
+    </section>
+
+    {copy.sections.map((section, i) => (
+      <section class:list={['section', i % 2 === 0 && 'service-detail alt']}>
+        <div class="shell editorial-grid">
+          <div>
+            <h2>{section.heading}</h2>
+          </div>
+          <div class="long-copy">
+            {section.paragraphs.map((p) => <p>{p}</p>)}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="section services-heading">
+      <div class="shell">
+        <h2>{copy.servicesHeading}</h2>
+      </div>
+    </section>
+
     {rendered.map(({ data, Body }, i) => (
       <section class:list={['service-detail', 'section', i % 2 === 1 && 'alt']} id={data.anchor}>
         <div class="shell service-grid">
           <div>
-            <h2>{data.label}</h2>
+            <h3 class="service-name">{data.label}</h3>
             <p class="service-tagline">{data.title}</p>
           </div>
           <div class="service-copy">
@@ -41,11 +65,14 @@ const rendered = await Promise.all(
             <ul class="tick-list">
               {data.points.map((point) => <li>{point}</li>)}
             </ul>
+            {data.anchor === 'luxury' && (
+              <a class="text-link secondary-link" href="/luxury/">Luxury travel with Travelling Places</a>
+            )}
           </div>
         </div>
       </section>
     ))}
 
-    <ClosingCta />
+    <WhyBook />
   </main>
 </BaseLayout>

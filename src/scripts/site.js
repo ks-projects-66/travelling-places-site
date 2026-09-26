@@ -87,34 +87,37 @@ window.addEventListener('scroll', () => siteHeader?.classList.toggle('is-sticky'
   passive: true,
 });
 
-// Progressive enhancement. The opener is an ordinary link to /contact/, so it works with no JS,
-// on the contact page itself where no dialog is rendered, and if <dialog> is unsupported. Where
-// the dialog does exist, the click opens it instead of making the visitor leave the page.
-let enquiryOpener = null;
-document.querySelectorAll('[data-open-enquiry]').forEach((opener) =>
-  opener.addEventListener('click', (event) => {
-    if (!dialog || typeof dialog.showModal !== 'function') return;
-    event.preventDefault();
-    enquiryOpener = opener;
-    closeMenu();
-    dialog.showModal();
-    document.body.classList.add('dialog-open');
-  }),
-);
-const closeDialog = () => {
-  dialog?.close();
-  document.body.classList.remove('dialog-open');
+// Progressive enhancement. Every opener is an ordinary link (to /contact/, or a mailto for the
+// newsletter), so it works with no JS, on the contact page where no enquiry dialog is rendered,
+// and where <dialog> is unsupported. Where the dialog exists, the click opens it instead.
+const wireDialog = (target, openerSelector) => {
+  if (!target) return;
+  let opener = null;
+  document.querySelectorAll(openerSelector).forEach((el) =>
+    el.addEventListener('click', (event) => {
+      if (typeof target.showModal !== 'function') return;
+      event.preventDefault();
+      opener = el;
+      closeMenu();
+      target.showModal();
+      document.body.classList.add('dialog-open');
+    }),
+  );
+  target.querySelectorAll('[data-close-enquiry], [data-close-dialog]').forEach((button) =>
+    button.addEventListener('click', () => target.close()),
+  );
+  target.addEventListener('click', (event) => {
+    if (event.target === target) target.close();
+  });
+  target.addEventListener('close', () => {
+    document.body.classList.remove('dialog-open');
+    // Native Escape also fires this, so focus returns however the dialog was dismissed.
+    opener?.focus();
+    opener = null;
+  });
 };
-document.querySelector('[data-close-enquiry]')?.addEventListener('click', closeDialog);
-dialog?.addEventListener('click', (event) => {
-  if (event.target === dialog) closeDialog();
-});
-dialog?.addEventListener('close', () => {
-  document.body.classList.remove('dialog-open');
-  // Native Escape also fires this, so focus returns however the dialog was dismissed.
-  enquiryOpener?.focus();
-  enquiryOpener = null;
-});
+wireDialog(dialog, '[data-open-enquiry]');
+wireDialog(document.querySelector('[data-newsletter-dialog]'), '[data-open-newsletter]');
 
 // --- enquiry form ---
 
@@ -129,11 +132,27 @@ const validateField = (field) => {
   return !message;
 };
 
+const newsletterLines = (value) => [
+  'Hello Travelling Places,',
+  '',
+  'Please add me to your newsletter.',
+  '',
+  'Name: ' + value('name'),
+  'Email: ' + value('email'),
+  'Address: ' + (value('address') || 'Not provided'),
+  'Phone: ' + (value('phone') || 'Not provided'),
+  'Luxury travel magazine: ' + (value('magazine') ? 'Yes, please' : 'No'),
+  '',
+  'Kind regards,',
+  value('name'),
+];
+
 const sendViaMailto = (form, data) => {
   const value = (name) => String(data.get(name) || '').trim();
   const name = value('name');
-  const subject = encodeURIComponent('Travel enquiry from ' + name);
-  const lines = [
+  const newsletter = form.dataset.kind === 'newsletter';
+  const subject = encodeURIComponent((newsletter ? 'Newsletter sign-up from ' : 'Travel enquiry from ') + name);
+  const lines = newsletter ? newsletterLines(value) : [
     'Hello Travelling Places,',
     '',
     'My name is ' + name + '.',
@@ -167,7 +186,12 @@ const sendViaWeb3Forms = async (form, data) => {
     });
     if (!response.ok) throw new Error('Web3Forms responded ' + response.status);
     form.reset();
-    if (status) status.textContent = 'Thank you. We have your enquiry and will be in touch.';
+    if (status) {
+      status.textContent =
+        form.dataset.kind === 'newsletter'
+          ? 'Thank you. You are signed up for our newsletter.'
+          : 'Thank you. We have your enquiry and will be in touch.';
+    }
   } catch (error) {
     console.error('Enquiry submission failed', error);
     if (status) {
@@ -179,7 +203,8 @@ const sendViaWeb3Forms = async (form, data) => {
   }
 };
 
-document.querySelectorAll('[data-enquiry-form]').forEach((form) => {
+// The newsletter sign-up shares the enquiry form's validation and delivery.
+document.querySelectorAll('[data-enquiry-form], [data-newsletter-form]').forEach((form) => {
   form.querySelectorAll('[required]').forEach((field) => field.addEventListener('blur', () => validateField(field)));
   form.addEventListener('submit', (event) => {
     event.preventDefault();

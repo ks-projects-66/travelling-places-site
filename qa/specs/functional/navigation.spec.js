@@ -14,7 +14,9 @@ test.describe('navigation', () => {
     await expect(nav).toBeVisible();
 
     const links = nav.locator('> a:not(.button)');
-    await expect(links).toHaveText(['Home', 'Expertise', 'Virtuoso', 'Who we are', 'Journal']);
+    // Home is the logo. Gina's copy added Luxury, and the five-destination limit held by moving
+    // Home to the lockup rather than by dropping one of her pages.
+    await expect(links).toHaveText(['Tailor-made', 'Luxury', 'Virtuoso', 'About us', 'Journal']);
 
     // BRAND.md: "Primary navigation contains no more than five destinations plus the
     // Plan a journey action."
@@ -32,7 +34,7 @@ test.describe('navigation', () => {
     await page.setViewportSize(desktop);
 
     await page.goto('/expertise/');
-    await expect(page.locator('[data-nav] > a[aria-current="page"]')).toHaveText('Expertise');
+    await expect(page.locator('[data-nav] > a[aria-current="page"]')).toHaveText('Tailor-made');
 
     await page.goto(ARTICLE_ROUTE);
     await expect(page.locator('[data-nav] > a[aria-current="page"]')).toHaveText('Journal');

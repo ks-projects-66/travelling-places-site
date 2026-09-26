@@ -116,6 +116,7 @@ collections:
           - { name: description, label: Search description, widget: text }
           - { name: founded, label: Year founded, widget: number, value_type: int }
           - { name: phone, label: Phone (display), widget: string }
+          - { name: phoneInternational, label: Phone (international, top bar), widget: string }
           - { name: phoneLink, label: Phone (link), widget: string, hint: 'Format: tel:+61755451600' }
           - { name: email, label: Email, widget: string }
           - name: address
@@ -181,3 +182,130 @@ collections:
                 fields:
                   - { name: value, label: Value, widget: string }
                   - { name: status, label: Status, widget: select, options: [confirmed, placeholder] }
+
+  # Gina's page copy, supplied 25 September 2026. Each file keeps her wording; headings marked
+  # editorial in a file's `source` note were added to lay the page out.
+  - name: page_copy
+    label: Page copy
+    files:
+      - name: about
+        label: About us
+        file: src/data/about.json
+        fields:
+          - { name: source, label: Source note, widget: text }
+          - name: intro
+            label: About Travelling Places
+            widget: object
+            fields: &section
+              - { name: heading, label: Heading, widget: string }
+              - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
+          - { name: story, label: Our story, widget: object, fields: *section }
+          - name: cruise
+            label: Cruising
+            widget: object
+            fields: &sectionWithLink
+              - { name: heading, label: Heading, widget: string }
+              - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
+              - name: link
+                label: Link
+                widget: object
+                fields:
+                  - { name: label, label: Link text, widget: string }
+                  - { name: href, label: Link address, widget: string }
+          - { name: virtuoso, label: Virtuoso, widget: object, fields: *sectionWithLink }
+          - name: promises
+            label: Experts, service, pricing and security
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
+              - { name: atiaNumber, label: Show the ATIA number after the first paragraph, widget: boolean, required: false }
+      - name: tailor_made
+        label: Tailor-made and luxury holidays
+        file: src/data/tailor-made.json
+        fields:
+          - { name: source, label: Source note, widget: text }
+          - { name: heading, label: Page title, widget: string }
+          - { name: intro, label: Opening paragraph, widget: text }
+          - { name: sections, label: Sections, widget: list, fields: *section }
+          - { name: servicesHeading, label: Heading above the services, widget: string }
+      - name: luxury
+        label: Luxury travel
+        file: src/data/luxury.json
+        fields:
+          - { name: source, label: Source note, widget: text }
+          - { name: title, label: Page title, widget: string }
+          - { name: heroLead, label: Hero heading line 1, widget: string, hint: 'Keep each line to 18 characters so it holds two lines on phones.' }
+          - { name: heroAccent, label: Hero heading line 2, widget: string }
+          - { name: heroLede, label: Hero subtitle, widget: string }
+          - { name: intro, label: Introduction, widget: object, fields: *section }
+          - name: ways
+            label: Ways we provide luxury
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
+              - name: link
+                label: Link
+                widget: object
+                required: false
+                fields:
+                  - { name: label, label: Link text, widget: string }
+                  - { name: href, label: Link address, widget: string }
+              - { name: virtuosoLink, label: Show the Virtuoso mark and offers link, widget: boolean, required: false }
+      - name: virtuoso
+        label: Virtuoso
+        file: src/data/virtuoso.json
+        fields:
+          - { name: source, label: Source note, widget: text }
+          - { name: intro, label: Introduction, widget: object, fields: *section }
+          - name: benefits
+            label: Benefits
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: body, label: Text, widget: text }
+          - { name: closing, label: Closing line, widget: string }
+          - name: whiteLabel
+            label: Virtuoso offers link
+            widget: object
+            fields:
+              - { name: label, label: Link text, widget: string }
+              - { name: url, label: Address, widget: string, required: false }
+              - { name: status, label: Status, widget: select, options: [confirmed, placeholder] }
+      - name: why_book
+        label: Why book with Travelling Places
+        file: src/data/why-book.json
+        fields:
+          - { name: source, label: Source note, widget: text }
+          - { name: heading, label: Heading, widget: string }
+          - { name: intro, label: Introduction, widget: text }
+          - { name: contactLead, label: Text before the phone number, widget: string }
+          - { name: contactMiddle, label: Text between phone and email, widget: string }
+          - name: lists
+            label: Lists
+            widget: list
+            fields:
+              - { name: title, label: Title, widget: string }
+              - { name: lead, label: Lead-in, widget: string }
+              - { name: points, label: Points, widget: list, field: { name: point, label: Point, widget: string } }
+          - { name: cta, label: Button, widget: string }
+          - { name: secondaryCta, label: Link, widget: string }
+      - name: top_bar
+        label: Top of every page
+        file: src/data/top-bar.json
+        fields:
+          - { name: source, label: Source note, widget: text }
+          - name: newsletter
+            label: Newsletter
+            widget: object
+            fields:
+              - { name: button, label: Button text, widget: string }
+              - { name: heading, label: Form heading, widget: string }
+              - { name: magazineLabel, label: Magazine opt-in text, widget: string }
+          - name: zoom
+            label: Zoom meeting link
+            widget: object
+            fields:
+              - { name: label, label: Link text, widget: string }
+              - { name: href, label: Link address, widget: string }

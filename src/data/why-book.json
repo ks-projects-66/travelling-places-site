@@ -1,0 +1,30 @@
+{
+  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'Why book with Travelling Places.docx'.",
+  "heading": "Why book with Travelling Places?",
+  "intro": "At Travelling Places, we specialise in bespoke travel experiences. Our itineraries are just samples of what we can arrange, and can be changed depending on your precise needs, finances and ideas by our experienced destination advisors.",
+  "contactLead": "Contact one of our consultants on",
+  "contactMiddle": "to discuss how we can tailor your holiday. Or email",
+  "lists": [
+    {
+      "title": "Expert advice & support",
+      "lead": "Let our travel advisors curate the perfect holiday:",
+      "points": [
+        "Inspirational ideas based on experience",
+        "Established for over 30 years",
+        "Tailor a holiday to your precise requirements",
+        "Personalised quotes and documentation"
+      ]
+    },
+    {
+      "title": "Every step of the way",
+      "lead": "Our services are with you from start to finish:",
+      "points": [
+        "Dedicated personal consultants",
+        "Care and guidance pre, post and during holiday",
+        "Full financial security: ATIA protected"
+      ]
+    }
+  ],
+  "cta": "Start planning your holiday",
+  "secondaryCta": "Contact Travelling Places"
+}

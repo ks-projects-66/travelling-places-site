@@ -13,6 +13,7 @@
 import { test, expect } from '@playwright/test';
 import { FUNCTIONAL } from '../../viewports.js';
 import { record } from '../../lib/collect.js';
+import { waitForScript } from '../../lib/settle.js';
 
 const viewport = FUNCTIONAL[0];
 const form = '[data-enquiry-form]';
@@ -89,12 +90,12 @@ test.describe('enquiry form', () => {
         route.fulfill({ status: 200, contentType: 'application/json', body: '{"success":true}' }),
       );
       await page.locator(`${form} button[type="submit"]`).click();
-      await expect(page.locator('.form-status')).toHaveText('Thank you. We have your enquiry and will be in touch.');
+      await expect(page.locator(`${form} .form-status`)).toHaveText('Thank you. We have your enquiry and will be in touch.');
     } else {
       // mailto mode navigates the window; intercept rather than let the OS handler fire.
       await page.route('**/*', (route) => route.continue());
       await page.locator(`${form} button[type="submit"]`).click();
-      await expect(page.locator('.form-status')).toHaveText('Your email is ready to review in your mail app.');
+      await expect(page.locator(`${form} .form-status`)).toHaveText('Your email is ready to review in your mail app.');
 
       record({ suite: 'functional', route: '/contact/', browser: 'chromium' }, [
         {
@@ -116,17 +117,31 @@ test.describe('enquiry form', () => {
     await page.locator(form).getByLabel('Email *').fill('karim@example.com');
     await page.locator(form).getByLabel('Tell us about the journey *').fill('Test');
     await page.locator(`${form} button[type="submit"]`).click();
-    await expect(page.locator('.form-status')).toContainText('Sorry, that did not send');
+    await expect(page.locator(`${form} .form-status`)).toContainText('Sorry, that did not send');
     await expect(page.locator(`${form} button[type="submit"]`)).toBeEnabled();
   });
 
-  test('the newsletter form states its disabled condition', async ({ page }) => {
+  test('the top bar opens the newsletter sign-up with the fields Gina specified', async ({ page }) => {
     await page.goto('/');
-    const newsletter = page.locator('.newsletter-form');
-    await expect(newsletter).toBeVisible();
-    if (await newsletter.evaluate((el) => el.classList.contains('is-placeholder'))) {
-      await expect(newsletter.locator('input')).toBeDisabled();
-      await expect(newsletter.locator('button')).toBeDisabled();
+    // The opener is a mailto link until site.js wires the dialog, so wait for the script.
+    await waitForScript(page);
+    await page.locator('.top-bar [data-open-newsletter]').click();
+    const dialog = page.locator('[data-newsletter-dialog]');
+    await expect(dialog).toBeVisible();
+    for (const label of ['Name *', 'Email *', 'Address', 'Phone', 'Opt in for our luxury travel magazine']) {
+      await expect(dialog.getByLabel(label)).toBeVisible();
     }
+    await dialog.locator('button[type="submit"]').click();
+    await expect(dialog.getByLabel('Email *')).toHaveAttribute('aria-invalid', 'true');
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    await expect(page.locator('.top-bar [data-open-newsletter]')).toBeFocused();
+  });
+
+  test('the footer opens the same newsletter sign-up', async ({ page }) => {
+    await page.goto('/');
+    await waitForScript(page);
+    await page.locator('.footer-newsletter [data-open-newsletter]').click();
+    await expect(page.locator('[data-newsletter-dialog]')).toBeVisible();
   });
 });

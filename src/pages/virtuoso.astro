@@ -4,22 +4,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 
 import virtuosoHero from '../assets/images/hero/virtuoso-island.jpg';
-import ClosingCta from '../components/ClosingCta.astro';
+import WhyBook from '../components/WhyBook.astro';
 import site from '../data/site.json';
+import copy from '../data/virtuoso.json';
 
 import virtuosoMark from '../assets/images/memberships/virtuoso-member.png';
 import orientExpress from '../assets/images/journal/european-rail.jpg';
-
-const values = [
-  { title: 'Recognition', body: 'Your preferences can travel ahead of you, helping partner hotels create a more personal welcome.' },
-  { title: 'Added value', body: 'Selected bookings may include benefits such as breakfast, credits, upgrades or flexible check-in.' },
-  { title: 'Local access', body: 'Trusted destination specialists bring context, contacts and first-hand knowledge on the ground.' },
-];
 ---
 
 <BaseLayout
   title={`Virtuoso | ${site.name}`}
-  description="What Virtuoso membership means for the way we plan your travel, and the partners it opens up."
+  description="Travelling Places is part of the invitation only Virtuoso travel group. Complimentary breakfast, hotel credits, upgrades and on board credits for our clients."
   page="virtuoso"
 >
   <main id="main">
@@ -37,26 +32,27 @@ const values = [
     <section class="section">
       <div class="shell editorial-grid">
         <div>
-          <h2>More than a booking.</h2>
+          <h2>{copy.intro.heading}</h2>
         </div>
         <div class="long-copy">
-          <p>
-            As a Virtuoso member, {site.name} can connect clients with a global community of respected
-            hotels, cruise lines, tour operators and destination experts.
-          </p>
-          <p>
-            Depending on the partner and booking, that can mean thoughtful amenities, preferred
-            treatment and the confidence that local relationships are working behind the scenes.
-          </p>
+          {copy.intro.paragraphs.map((p) => <p>{p}</p>)}
         </div>
       </div>
     </section>
 
     <section class="section value-band">
-      <div class="shell value-grid">
-        {values.map((value) => (
-          <article><h3>{value.title}</h3><p>{value.body}</p></article>
-        ))}
+      <div class="shell">
+        <div class="value-grid value-grid--pairs">
+          {copy.benefits.map((benefit) => (
+            <article><h3>{benefit.title}</h3><p>{benefit.body}</p></article>
+          ))}
+        </div>
+        <div class="value-band-closing">
+          <p>{copy.closing}</p>
+          {copy.whiteLabel.url
+            ? <a class="text-link text-link--onDark" href={copy.whiteLabel.url} target="_blank" rel="noreferrer">{copy.whiteLabel.label}</a>
+            : <p class="placeholder-note" data-placeholder>TODO: Virtuoso white-label link not yet supplied</p>}
+        </div>
       </div>
     </section>
 
@@ -78,6 +74,6 @@ const values = [
       </div>
     </section>
 
-    <ClosingCta />
+    <WhyBook />
   </main>
 </BaseLayout>

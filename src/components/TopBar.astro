@@ -1,0 +1,50 @@
+---
+/**
+ * The strip Gina asked for at the top of every page: contact details, the three membership
+ * marks, a Zoom meeting and the newsletter. It scrolls away; the header below it stays sticky.
+ */
+import { Image } from 'astro:assets';
+import site from '../data/site.json';
+import memberships from '../data/memberships.json';
+import copy from '../data/top-bar.json';
+
+const marks = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/images/memberships/*.{jpg,png,webp,svg}',
+  { eager: true },
+);
+// Gina named three marks for the top of the page. Alatus stays in the footer.
+const shown = ['ATIA', 'CLIA', 'Virtuoso']
+  .map((name) => memberships.find((m) => m.name === name))
+  .filter((m) => m !== undefined);
+const { street, locality, region, postcode, mapUrl } = site.address;
+---
+
+<div class="top-bar">
+  <div class="shell top-bar-inner">
+    <address class="top-bar-contact">
+      <a class="top-bar-address" href={mapUrl} target="_blank" rel="noreferrer">
+        {site.name}, {street}, {locality} {region} {postcode} Australia
+      </a>
+      <span class="top-bar-line">
+        <a href={site.phoneLink}><span class="top-bar-key">P:</span> {site.phoneInternational}</a>
+        <a href={`mailto:${site.email}`}><span class="top-bar-key">E:</span> {site.email}</a>
+      </span>
+    </address>
+    <div class="top-bar-actions">
+      <ul class="top-bar-marks" aria-label="Memberships">
+        {shown.map((m) => (
+          <li>
+            <Image src={marks[`../assets/images/memberships/${m.image}`].default} alt={m.alt}
+              height={28} densities={[1, 2]} loading="eager" />
+          </li>
+        ))}
+      </ul>
+      <span class="top-bar-line">
+        <a class="top-bar-zoom" href={copy.zoom.href}>{copy.zoom.label}</a>
+        <a class="button button-small button-outline top-bar-newsletter" href={`mailto:${site.email}?subject=Newsletter%20sign-up`} data-open-newsletter>
+          {copy.newsletter.button}
+        </a>
+      </span>
+    </div>
+  </div>
+</div>

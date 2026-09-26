@@ -4,7 +4,7 @@ import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import Carousel from '../components/Carousel.astro';
-import ClosingCta from '../components/ClosingCta.astro';
+import WhyBook from '../components/WhyBook.astro';
 import site from '../data/site.json';
 
 import teamOutside from '../assets/images/team/team-outside.jpg';
@@ -118,7 +118,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
           <div class="about-copy">
             <h2>A travel company built on curiosity and care.</h2>
             <p class="about-lead">
-              Gina brought her industry experience from England to {site.address.locality} and founded
+              Gina brought her industry experience from New Zealand and London to {site.address.locality} and founded
               {' '}{site.name} in {site.founded}.
             </p>
             <p>
@@ -162,6 +162,6 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
       </section>
     )}
 
-    <ClosingCta />
+    <WhyBook />
   </main>
 </BaseLayout>

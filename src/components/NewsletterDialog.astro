@@ -1,0 +1,63 @@
+---
+/**
+ * Newsletter sign-up, with the fields Gina listed: name, address, email, phone and an opt-in
+ * for the luxury travel magazine. Opened from the top bar and the footer.
+ *
+ * Genesys, the business's mailing tool, has not supplied its embed (register C7), so sign-ups
+ * go through the same delivery as the enquiry form: Web3Forms when its key is set, otherwise a
+ * prepared email. Either way the sign-up reaches the office inbox rather than going nowhere.
+ */
+import site from '../data/site.json';
+import copy from '../data/top-bar.json';
+
+const web3formsKey = import.meta.env.PUBLIC_WEB3FORMS_KEY;
+const mode = web3formsKey ? 'web3forms' : 'mailto';
+---
+
+<dialog class="enquiry-dialog newsletter-dialog" id="newsletter" data-newsletter-dialog aria-labelledby="newsletter-title">
+  <div class="dialog-topline">
+    <span>Newsletter</span>
+    <button class="dialog-close" type="button" aria-label="Close newsletter sign-up" data-close-dialog>
+      <svg aria-hidden="true" focusable="false"><use href="/brand-kit/assets/icons/ui-icons.svg#icon-close"></use></svg>
+    </button>
+  </div>
+  <div class="dialog-content">
+    <h2 id="newsletter-title">{copy.newsletter.heading}</h2>
+    <form class="enquiry-form newsletter-form" data-newsletter-form data-kind="newsletter" data-mode={mode}
+      data-mailto={site.email} novalidate>
+      {mode === 'web3forms' && <input type="hidden" name="access_key" value={web3formsKey} />}
+      {mode === 'web3forms' && <input type="hidden" name="subject" value="Newsletter sign-up from the website" />}
+      <input type="checkbox" name="botcheck" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <label>
+        <span>Name *</span>
+        <input type="text" name="name" autocomplete="name" required aria-describedby="newsletter-name-error" />
+        <small class="field-error" id="newsletter-name-error"></small>
+      </label>
+      <label>
+        <span>Email *</span>
+        <input type="email" name="email" autocomplete="email" required aria-describedby="newsletter-email-error" />
+        <small class="field-error" id="newsletter-email-error"></small>
+      </label>
+      <label class="form-full">
+        <span>Address</span>
+        <input type="text" name="address" autocomplete="street-address" />
+      </label>
+      <label>
+        <span>Phone</span>
+        <input type="tel" name="phone" autocomplete="tel" />
+      </label>
+      <label class="form-full form-check">
+        <input type="checkbox" name="magazine" value="Yes" />
+        <span>{copy.newsletter.magazineLabel}</span>
+      </label>
+      <div class="form-full form-submit-row">
+        <button class="button button-blue" type="submit">Sign up</button>
+        <p class="form-status" role="status" aria-live="polite"></p>
+      </div>
+      <p class="form-full placeholder-note" data-placeholder>
+        TODO: Genesys not connected. Sign-ups reach the office inbox and are added by hand.
+      </p>
+    </form>
+  </div>
+</dialog>

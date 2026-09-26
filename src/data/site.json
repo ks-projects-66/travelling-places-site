@@ -4,6 +4,7 @@
   "description": "Personal travel planning from Tamborine Mountain. Cruises, expeditions and tailor-made journeys by Travelling Places.",
   "founded": 1993,
   "phone": "07 5545 1600",
+  "phoneInternational": "+61 7 5545 1600",
   "phoneLink": "tel:+61755451600",
   "email": "travel@travellingplaces.com.au",
   "address": {
@@ -36,8 +37,17 @@
     "note": "Co-branded Virtuoso member profile. Renders the agency name client-side. Link out, never iframe."
   },
   "identifiers": {
-    "abn": { "value": "TODO: ABN", "status": "placeholder" },
-    "atiaAccreditation": { "value": "TODO: ATIA accreditation number", "status": "placeholder" },
-    "cliaMembership": { "value": "TODO: CLIA membership number", "status": "placeholder" }
+    "abn": {
+      "value": "TODO: ABN",
+      "status": "placeholder"
+    },
+    "atiaAccreditation": {
+      "value": "TODO: ATIA accreditation number",
+      "status": "placeholder"
+    },
+    "cliaMembership": {
+      "value": "TODO: CLIA membership number",
+      "status": "placeholder"
+    }
   }
 }

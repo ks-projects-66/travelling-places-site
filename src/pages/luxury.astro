@@ -1,0 +1,66 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import WhyBook from '../components/WhyBook.astro';
+import site from '../data/site.json';
+import copy from '../data/luxury.json';
+import virtuoso from '../data/virtuoso.json';
+
+import luxuryHero from '../assets/images/destinations/cruise-dining.jpg';
+import virtuosoMark from '../assets/images/memberships/virtuoso-member.png';
+---
+
+<BaseLayout
+  title={`${copy.title} | ${site.name}`}
+  description="Extraordinary tailor-made journeys to the world's finest destinations: your own travel specialist, Virtuoso benefits, ATIA accreditation and support while you travel."
+  page="luxury"
+>
+  <main id="main">
+    <PageHero
+      lead={copy.heroLead}
+      accent={copy.heroAccent}
+      lede={copy.heroLede}
+      image={luxuryHero}
+      alt="A dining table set beside a wide ocean view aboard ship"
+      position="center 60%"
+    />
+
+    <section class="section">
+      <div class="shell editorial-grid">
+        <div>
+          <h2>{copy.intro.heading}</h2>
+        </div>
+        <div class="long-copy">
+          {copy.intro.paragraphs.map((p) => <p>{p}</p>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section luxury-ways">
+      <div class="shell">
+        <ol class="ruled-rows">
+          {copy.ways.map((way) => (
+            <li>
+              <div>
+                {way.virtuosoLink && (
+                  <Image class="ruled-rows-mark" src={virtuosoMark} alt="Virtuoso member" width={200} densities={[1, 2]} loading="lazy" />
+                )}
+                <h2>{way.title}</h2>
+              </div>
+              <div class="long-copy">
+                {way.paragraphs.map((p) => <p>{p}</p>)}
+                {way.link && <a class="text-link" href={way.link.href}>{way.link.label}</a>}
+                {way.virtuosoLink && (virtuoso.whiteLabel.url
+                  ? <a class="text-link" href={virtuoso.whiteLabel.url} target="_blank" rel="noreferrer">{virtuoso.whiteLabel.label}</a>
+                  : <p class="placeholder-note" data-placeholder>TODO: Virtuoso white-label link not yet supplied</p>)}
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <WhyBook />
+  </main>
+</BaseLayout>

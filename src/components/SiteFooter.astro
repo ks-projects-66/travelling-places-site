@@ -5,7 +5,7 @@ import site from '../data/site.json';
 import memberships from '../data/memberships.json';
 import partners from '../data/partners.json';
 import PlaceholderImage from './PlaceholderImage.astro';
-import NewsletterForm from './NewsletterForm.astro';
+import topBar from '../data/top-bar.json';
 
 const marks = import.meta.glob<{ default: ImageMetadata }>(
   '../assets/images/memberships/*.{jpg,png,webp,svg}',
@@ -44,7 +44,14 @@ const unresolvedIdentifiers = Object.values(site.identifiers).filter((i) => i.st
   </div>
 
   <div class="shell footer-newsletter">
-    <NewsletterForm />
+    <div class="newsletter">
+      <div class="newsletter-copy">
+        <h2>Notes from the road, every fortnight.</h2>
+      </div>
+      <a class="button button-blue" href={`mailto:${site.email}?subject=Newsletter%20sign-up`} data-open-newsletter>
+        {topBar.newsletter.button}
+      </a>
+    </div>
   </div>
 
   <div class="shell footer-main">

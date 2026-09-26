@@ -328,6 +328,181 @@
   font-size: 1.1rem;
 }
 
+/* Gina's "Why book" band: her reasons on the right, the way to call on the left. */
+.why-book-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 0.9fr);
+  align-items: start;
+  gap: clamp(2.5rem, 5vw, 5rem);
+}
+
+.why-book-intro h2 {
+  max-width: 12ch;
+  margin: 0 0 1.25rem;
+  color: var(--blue-deep);
+}
+
+.why-book-intro > p,
+.why-book-list > p {
+  color: var(--ink-muted);
+}
+
+.why-book-intro > p {
+  max-width: 38ch;
+}
+
+.why-book-intro > p a {
+  color: var(--blue-deep);
+  font-weight: 600;
+}
+
+.why-book-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin-top: 2rem;
+}
+
+.why-book-list h3 {
+  margin: 0 0 0.5rem;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-subsection-title);
+}
+
+.why-book-list .tick-list {
+  margin-top: 1rem;
+}
+
+/* Two columns of Gina's longer paragraphs. Four across left each promise about 30 words a line
+   short of readable once her full text went in. */
+.value-grid.value-grid--pairs {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.value-grid--pairs article {
+  min-height: 0;
+  padding-block: 2.5rem 3rem;
+}
+
+.value-grid--pairs article:nth-child(odd) {
+  border-left: 1px solid color-mix(in oklch, var(--white) 17%, transparent);
+}
+
+.value-grid--pairs article:nth-child(n + 3) {
+  border-top: 1px solid color-mix(in oklch, var(--white) 17%, transparent);
+}
+
+.value-grid--pairs h3 {
+  margin-top: 0;
+}
+
+.value-band-closing {
+  max-width: 44rem;
+  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
+  text-align: center;
+}
+
+.value-band-closing p {
+  color: color-mix(in oklch, var(--white) 80%, var(--blue));
+  font-size: var(--tp-type-lead);
+}
+
+.value-band-closing .placeholder-note {
+  font-size: var(--meta-label);
+}
+
+/* The Tailor-made page opens on Gina's own standfirst, set large, before any heading. */
+.lead-statement p {
+  max-width: 46ch;
+  margin: 0;
+  color: var(--blue-deep);
+  font-family: var(--serif);
+  font-size: var(--tp-type-subsection-title);
+  line-height: 1.5;
+}
+
+.services-heading {
+  padding-block: clamp(4rem, 8vw, 6rem) 0;
+}
+
+.services-heading h2 {
+  margin: 0;
+  color: var(--blue-deep);
+}
+
+.about-virtuoso-mark {
+  width: 180px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+/* Luxury: Gina's seven ways, as ruled rows rather than cards. */
+.luxury-ways {
+  padding-top: 0;
+}
+
+.ruled-rows {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.ruled-rows > li {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(350px, 0.7fr);
+  gap: clamp(2rem, 10vw, 10rem);
+  padding-block: clamp(2.5rem, 5vw, 4rem);
+  border-bottom: 1px solid var(--line);
+}
+
+.ruled-rows h2 {
+  max-width: 16ch;
+  margin: 0;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-subsection-title);
+}
+
+.ruled-rows .long-copy p:first-child {
+  font-size: var(--tp-type-body);
+  color: var(--ink-muted);
+}
+
+.ruled-rows-mark {
+  width: 160px;
+  height: auto;
+  margin-bottom: 1.5rem;
+}
+
+@media (max-width: 1100px) {
+  .why-book-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .why-book-intro {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 940px) {
+  .ruled-rows > li {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .why-book-grid,
+  .value-grid.value-grid--pairs {
+    grid-template-columns: 1fr;
+  }
+
+  .value-grid--pairs article:nth-child(n + 2) {
+    border-top: 1px solid color-mix(in oklch, var(--white) 17%, transparent);
+  }
+}
+
 .service-detail {
   scroll-margin-top: 5rem;
 }
@@ -349,7 +524,7 @@
   font-weight: 600;
 }
 
-.service-grid h2 {
+.service-grid .service-name {
   max-width: 12ch;
   margin: 0;
   color: var(--blue-deep);
@@ -867,7 +1042,7 @@
      used to re-declare `50px 1fr`, which squeezed the heading and its tagline into 50px and
      wrapped them one word per line. The 50px was a lead column for numbering that no longer
      exists in the markup. */
-  .service-grid h2,
+  .service-grid .service-name,
   .virtuoso-copy h2 {
     max-width: none;
   }

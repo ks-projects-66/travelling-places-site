@@ -1,0 +1,12 @@
+{
+  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'One every page at the top.docx'.",
+  "newsletter": {
+    "button": "Sign up for our newsletter",
+    "heading": "Sign up for our newsletter",
+    "magazineLabel": "Opt in for our luxury travel magazine"
+  },
+  "zoom": {
+    "label": "Set up a Zoom meeting",
+    "href": "/contact/#calendly"
+  }
+}
