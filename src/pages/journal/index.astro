@@ -19,6 +19,8 @@ const PAGE_SIZE = 10;
 
 const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
 const href = (post: (typeof posts)[number]) => post.data.externalUrl ?? `/journal/${post.id}/`;
+const publishedOn = (post: (typeof posts)[number]) =>
+  post.data.externalUrl ? new URL(post.data.externalUrl).hostname.replace(/^www\./, '') : null;
 const external = (post: (typeof posts)[number]) =>
   post.data.externalUrl ? { target: '_blank', rel: 'noreferrer' } : {};
 ---
@@ -54,6 +56,7 @@ const external = (post: (typeof posts)[number]) =>
               <h2>{feature.data.title}</h2>
               <p class="byline">By {feature.data.author}</p>
               <p class="dateline">{dateFormat.format(feature.data.date)}</p>
+              {publishedOn(feature) && <p class="dateline">Published on {publishedOn(feature)}</p>}
             </div>
           </a>
         </div>
@@ -85,6 +88,7 @@ const external = (post: (typeof posts)[number]) =>
                     <h3>{post.data.title}</h3>
                     <p class="byline">By {post.data.author}</p>
                     <p class="dateline">{dateFormat.format(post.data.date)}</p>
+                    {publishedOn(post) && <p class="dateline">Published on {publishedOn(post)}</p>}
                   </div>
                 </a>
               </li>

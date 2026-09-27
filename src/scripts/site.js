@@ -249,6 +249,7 @@ if (carousel) {
       const active = i === index;
       slide.classList.toggle('is-active', active);
       slide.setAttribute('aria-hidden', String(!active));
+      slide.inert = !active;
     });
   };
 

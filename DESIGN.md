@@ -136,8 +136,8 @@ check encodes that. From 375px up, every hero on every route holds two lines.
 
 The article title is allowed three lines as an editorial headline rather than display copy, which
 is also recorded in the kit. Karim confirmed on 30 August 2026 that the Antarctica piece is a real
-Sienna article rather than mock-up copy; `CLAUDE.md` and `docs/CONTENT-REGISTER.md` C10 still
-describe it as written for the mock-up, and need correcting to match.
+Sienna article rather than mock-up copy, and confirmed it again on 28 September 2026; `CLAUDE.md`
+and register C10 now say so.
 
 
 ## Hero tones, and which pages are waiting on photography

@@ -21,9 +21,9 @@ const gina = await getEntry('team', 'gina-storey');
 const featured = (await getCollection('journal', ({ data }) => data.featured && !data.draft))[0];
 
 const slides = [
-  { src: mediterranean, alt: 'An elegant Mediterranean journey at golden hour', place: 'The Mediterranean', headline: 'Grand journeys, taken at your own pace.' },
-  { src: antarctica, alt: 'A wide Antarctic landscape of ice, sea and distant mountains', place: 'Antarctica', headline: 'The far south, closer than you imagine.' },
-  { src: cruise, alt: 'A dining table set beside a wide ocean view aboard ship', place: 'Life at sea', headline: 'Every day considered, down to dinner.' },
+  { src: mediterranean, alt: 'An elegant Mediterranean journey at golden hour', place: 'The Mediterranean', headline: 'Grand journeys, taken at your own pace.', href: '/expertise/#tailor-made' },
+  { src: antarctica, alt: 'A wide Antarctic landscape of ice, sea and distant mountains', place: 'Antarctica', headline: 'The far south, closer than you imagine.', href: '/journal/looking-south-to-antarctica/' },
+  { src: cruise, alt: 'A dining table set beside a wide ocean view aboard ship', place: 'Life at sea', headline: 'Every day considered, down to dinner.', href: '/expertise/#cruising' },
 ];
 
 const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });

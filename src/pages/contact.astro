@@ -48,6 +48,9 @@ const { street, locality, region, postcode, mapUrl } = site.address;
             <p>Follow the journey</p>
             <a href={site.socials.instagram.url} target="_blank" rel="noreferrer">Instagram</a>
             <a href={site.socials.facebook.url} target="_blank" rel="noreferrer">Facebook</a>
+            {(site.socials.instagram.status !== 'confirmed' || site.socials.facebook.status !== 'confirmed') && (
+              <span class="placeholder-note" data-placeholder>TODO: social links not yet confirmed</span>
+            )}
           </div>
         </div>
         <div class="contact-form-wrap">

@@ -16,9 +16,9 @@ not a bug to work around. Do not silence the check, do not delete the images, an
 one licensed without evidence that a licence exists.
 
 **Never invent content.** Four team members have unconfirmed job titles and three have no
-surname recorded. The Antarctica article was written for the mock-up and is not Sienna
-Gardner's work. Guessing a colleague's job title or publishing draft copy under a real byline
-misattributes words to a real person. Leave the placeholder, which is visible and marked.
+surname recorded. Guessing a colleague's job title or publishing draft copy under a real byline
+misattributes words to a real person. (The Antarctica article is Sienna Gardner's: Karim confirmed
+it on 30 August and again on 28 September 2026. See register C10.) Leave the placeholder, which is visible and marked.
 
 **Never draft the privacy policy.** `src/pages/privacy.astro` is a scaffold listing what the
 policy must cover. It is a legal document. Leave it as a scaffold.

@@ -15,6 +15,8 @@ const markFor = (file: string) => marks[`../assets/images/memberships/${file}`]?
 
 const year = new Date().getFullYear();
 const unresolvedIdentifiers = Object.values(site.identifiers).filter((i) => i.status === 'placeholder');
+const socialsUnconfirmed =
+  site.socials.instagram.status !== 'confirmed' || site.socials.facebook.status !== 'confirmed';
 const socials = [
   { label: 'Instagram', icon: 'icon-instagram', url: site.socials.instagram.url },
   { label: 'Facebook', icon: 'icon-facebook', url: site.socials.facebook.url },
@@ -89,6 +91,9 @@ const socials = [
             {s.label}
           </a>
         ))}
+        {socialsUnconfirmed && (
+          <span class="placeholder-note" data-placeholder>TODO: social links not yet confirmed</span>
+        )}
       </div>
     </nav>
   </div>

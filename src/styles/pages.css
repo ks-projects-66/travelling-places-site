@@ -209,6 +209,19 @@
   text-wrap: balance;
 }
 
+/* Each headline links to the journey it describes. It stays white on the photograph; hover and
+   focus lighten it rather than underline, which BRAND.md reserves for text links on light ground. */
+.carousel-caption h3 a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.carousel-caption h3 a:hover,
+.carousel-caption h3 a:focus-visible {
+  color: color-mix(in oklch, var(--tp-white) 78%, var(--tp-blue));
+}
+
 .expertise-preview {
   background: var(--mist);
 }

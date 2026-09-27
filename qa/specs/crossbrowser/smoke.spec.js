@@ -85,6 +85,12 @@ for (const viewport of CROSS_BROWSER) {
     test('form validation reports in the same words', async ({ page }) => {
       await page.setViewportSize(viewport);
       await page.goto('/contact/');
+      // Validation is attached by site.js, a deferred module. Clicking before it boots submits the
+      // form natively and shows no message, which failed intermittently in WebKit.
+      await waitForScript(page);
+      // Webfonts swap in after first paint and reflow the form, which can move the button out from
+      // under a click already in flight. Wait for them too.
+      await page.evaluate(() => document.fonts.ready);
       await page.locator('[data-enquiry-form] button[type="submit"]').click();
       await expect(page.locator('#contact-name-error')).toHaveText('Please complete this field.');
     });
