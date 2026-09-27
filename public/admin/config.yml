@@ -241,25 +241,19 @@ collections:
           - { name: intro, label: Introduction, widget: object, fields: *section }
           - name: themes
             label: Themes
-            hint: Gina's sections, grouped into three themes. Her text sits inside each theme unchanged.
+            hint: Three themes, each a photo, a heading and one or two sentences.
             widget: list
             fields:
               - { name: title, label: Theme heading, widget: string }
               - { name: photo, label: Photo placeholder note, widget: string }
-              - name: ways
-                label: Sections
-                widget: list
+              - { name: body, label: Text, widget: text }
+              - name: link
+                label: Link
+                widget: object
+                required: false
                 fields:
-                  - { name: title, label: Title, widget: string }
-                  - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
-                  - name: link
-                    label: Link
-                    widget: object
-                    required: false
-                    fields:
-                      - { name: label, label: Link text, widget: string }
-                      - { name: href, label: Link address, widget: string }
-                  - { name: virtuosoLink, label: Show the Virtuoso mark and offers link, widget: boolean, required: false }
+                  - { name: label, label: Link text, widget: string }
+                  - { name: href, label: Link address, widget: string }
       - name: virtuoso
         label: Virtuoso
         file: src/data/virtuoso.json

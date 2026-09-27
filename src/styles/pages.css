@@ -1038,7 +1038,7 @@
 
 .service-card .service-copy p,
 .team-card p:not(.role, .placeholder-note),
-.theme-way p:not(.placeholder-note) {
+.theme p {
   color: var(--ink-muted);
 }
 
@@ -1050,30 +1050,9 @@
   object-fit: cover;
 }
 
-/* Luxury: Gina's sections, grouped by theme, each under its own hairline. */
+/* Luxury: three themes, each a photo, a heading and one short paragraph. */
 .luxury-themes {
   padding-top: 0;
-}
-
-.theme-way {
-  margin-top: 1.25rem;
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
-}
-
-.theme-way h3 {
-  margin: 0 0 0.5rem;
-  color: var(--blue-deep);
-  font-family: var(--sans);
-  font-size: var(--tp-type-label);
-  font-weight: 600;
-}
-
-.theme-mark {
-  display: block;
-  width: 120px;
-  height: auto;
-  margin-bottom: 1rem;
 }
 
 /* About: story, cruise and Virtuoso alternate image and text. */
