@@ -131,11 +131,18 @@
   margin-bottom: var(--carousel-band-space);
 }
 
-/* One line. The 12ch cap broke the question across three lines, which read as a stack of
-   fragments rather than a single question. */
+/* One line where it fits. The 12ch cap broke the question across three lines, which read as a
+   stack of fragments rather than a single question. On a phone one line does not fit, and nowrap
+   pushed "you?" off the screen, so below 760px it wraps into two balanced lines instead. */
 .carousel-heading h2 {
   margin: 0;
-  text-wrap: nowrap;
+  text-wrap: balance;
+}
+
+@media (min-width: 760px) {
+  .carousel-heading h2 {
+    text-wrap: nowrap;
+  }
 }
 
 .carousel-viewport {
