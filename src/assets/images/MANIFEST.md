@@ -88,8 +88,8 @@ the office, without confirming with the photographer or replacing it with the te
 
 Approved by Karim on 5 October 2026 for the Luxury themes, the Tailor-made service cards and the
 About cruise row. Unsplash License; the full record, including the retouched river ship, is in
-`imagery-delivery/LICENSING.md`. Six are installed. The row still marked `placeholder` is approved but not yet on disk:
-`imagery-delivery/install_approved_2026_10.py` fetches it and sets it to `owned`. Until then the
+`imagery-delivery/LICENSING.md`. All seven are installed. `imagery-delivery/install_approved_2026_10.py` can re-fetch the six
+unretouched originals from Unsplash and re-check their licence lines. Until then the
 page shows a marked placeholder naming the missing file. Slot 1 (Your specialist) is still open.
 
 | File | Subject | Source | Status | Approved by | Used on |
@@ -99,7 +99,7 @@ page shows a marked placeholder naming the missing file. Slot 1 (Your specialist
 | `features/cruise-river-lyon.jpg` | River cruise ship passing the Lyon riverfront, ship name and emblem removed | Unsplash, Thomas K (retouched derivative) | owned | Unsplash License | Tailor-made, cruising card |
 | `features/expedition-penguins.jpg` | Penguins on a dark pebble beach | Unsplash, Rod Long | owned | Unsplash License | Tailor-made, expeditions card |
 | `features/luxury-lakeside-villa.jpg` | Lakeside villa at dusk, Lake Como | Unsplash, Emanuel Ekström | owned | Unsplash License | Tailor-made, luxury card |
-| `features/rail-nine-arch-bridge.jpg` | Train on the Nine Arch Bridge, Sri Lanka | Unsplash, llxvisuals | placeholder | Unsplash License | Tailor-made, tailor-made card |
+| `features/rail-nine-arch-bridge.jpg` | Train on the Nine Arch Bridge, Sri Lanka | Unsplash, llxvisuals | owned | Unsplash License | Tailor-made, tailor-made card |
 | `features/ship-at-sunset.jpg` | Small ship silhouetted at sunset | Unsplash, Tayler Lyons | owned | Unsplash License | About, cruising row |
 
 ## Brand kit reference imagery

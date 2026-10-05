@@ -139,10 +139,10 @@ not re-read them.
 
 Delivery: slots 2, 3, 5, 6 and 8 were installed on 5 October 2026 from Karim's package
 `Gina Projects/TRAVELLING-PLACES-SELECTED-IMAGES-2026-10-05/images/` (full-frame Unsplash exports
-at native size), cropped to the slot ratio, capped at 2000px, sRGB, metadata stripped. Slot 7
-(`07-tailor-made-llxvisuals.jpg`, 6.2 MB) could not be transferred by the SharePoint connector, which
-stops at 5 MB; install it with `install_approved_2026_10.py` (which also re-checks the licence line)
-or from a smaller export. Files sit in `src/assets/images/features/`, not `photos/`; no master is
+at native size), cropped to the slot ratio, capped at 2000px, sRGB, metadata stripped. Slot 7 was
+installed the same day from `07-tailor-made-llxvisuals-transfer.jpg` (4,146,911 bytes), Karim's
+re-export of the same original at full 4393 x 6589 with only JPEG compression changed, because the
+6.2 MB export exceeded the SharePoint connector's 5 MB limit. Files sit in `src/assets/images/features/`, not `photos/`; no master is
 committed.
 
 ## Luxury, Privileged access
@@ -224,8 +224,8 @@ committed.
 - Licence type: Unsplash License ("Free to use under the Unsplash License", 5 October 2026)
 - Licence permits commercial web use: Yes
 - Attribution required: No
-- Model release: Not supplied; distant visitors are present, no identifiable faces at card size
-- Property release: Not supplied; Nine Arch Bridge, Sri Lanka, no readable branding. Deliberate 3:2 crop of a portrait original.
+- Model release: Not supplied; a couple and a seated visitor are on the bridge at lower right, about 16px tall at card size, not identifiable
+- Property release: Not supplied; Nine Arch Bridge, Sri Lanka. The locomotive's running number (985) is visible; no operator logo or readable branding. Deliberate 3:2 crop of a portrait original (centring 0.5, 0.80): keeps the locomotive, curve and upper arches, and leaves out the tourist crowd at the tunnel mouth.
 - Cost: AUD 0, free download
 
 ## About, We sail on the ships we recommend
