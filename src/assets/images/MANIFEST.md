@@ -87,13 +87,14 @@ the office, without confirming with the photographer or replacing it with the te
 ## Card photographs
 
 Approved by Karim on 5 October 2026 for the Luxury themes, the Tailor-made service cards and the
-About cruise row. Unsplash License; the full record, including the retouched river ship, is in
-`imagery-delivery/LICENSING.md`. All seven are installed. `imagery-delivery/install_approved_2026_10.py` can re-fetch the six
+About cruise row, and slot 1 (Your specialist) the same day. Unsplash License; the full record, including the retouched river ship, is in
+`imagery-delivery/LICENSING.md`. All eight are installed. `imagery-delivery/install_approved_2026_10.py` can re-fetch the six
 unretouched originals from Unsplash and re-check their licence lines. Until then the
-page shows a marked placeholder naming the missing file. Slot 1 (Your specialist) is still open.
+page shows a marked placeholder naming the missing file.
 
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
+| `features/luxury-ravello-garden-arch.jpg` | Stone archway onto a garden with a glimpse of sea, Ravello | Unsplash, Lo Sarno | owned | Unsplash License | Luxury, Your specialist |
 | `features/luxury-terrace-camogli.jpg` | Shaded terrace table above the sea at Camogli | Unsplash, Ekaterina Bogdan | owned | Unsplash License | Luxury, Privileged access |
 | `features/luxury-stone-portico-sea.jpg` | Stone table under a portico with a sea view | Unsplash, Paréj Richárd | owned | Unsplash License | Luxury, Peace of mind |
 | `features/cruise-river-lyon.jpg` | River cruise ship passing the Lyon riverfront, ship name and emblem removed | Unsplash, Thomas K (retouched derivative) | owned | Unsplash License | Tailor-made, cruising card |

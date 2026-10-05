@@ -131,7 +131,7 @@ No editorial-only image was selected.
 
 # Card photographs, approved 5 October 2026
 
-Visual selections approved by Karim on 5 October 2026 from the research shortlist
+Visual selections approved by Karim on 5 October 2026 (slot 1 later the same day) from the research shortlist
 (`Gina Projects/IMAGERY-SHORTLIST-2026-10-05.md`, researched the same day). Approval is a visual
 selection, not a claim that any release exists. Licence lines below were read on each source page
 by the research session on 5 October 2026. The build session could not reach unsplash.com and did
@@ -144,6 +144,20 @@ installed the same day from `07-tailor-made-llxvisuals-transfer.jpg` (4,146,911 
 re-export of the same original at full 4393 x 6589 with only JPEG compression changed, because the
 6.2 MB export exceeded the SharePoint connector's 5 MB limit. Files sit in `src/assets/images/features/`, not `photos/`; no master is
 committed.
+
+## Luxury, Your specialist
+
+- File: `features/luxury-ravello-garden-arch.jpg`
+- Source: Unsplash, [View through an archway to a sunny garden and ocean](https://unsplash.com/photos/view-through-an-archway-to-a-sunny-garden-and-ocean-dpT611dckOA)
+- Creator: Lo Sarno
+- Licence type: Unsplash License ("Free to use under the Unsplash License", verified by the research session 5 October 2026)
+- Licence permits commercial web use: Yes
+- Attribution required: No (appreciated; credit kept here)
+- Model release: Not needed, no people are visible
+- Property release: Not supplied; exterior architecture and garden in Ravello, no branding
+- Approval: Karim, 5 October 2026 (candidate 1D), recorded in `IMAGERY-HANDOVER-2026-10-05.md`
+- Delivery: `01-your-specialist-lo-sarno-transfer.jpg` (3480 x 6183, JPEG quality 75, full composition), because the higher-quality copy exceeds the SharePoint connector's 5 MB limit. Centred 4:5 crop (3480 x 4350) keeping the arch apex, garden and glimpse of sea; capped at 2000px. No AI edit.
+- Cost: AUD 0, free download
 
 ## Luxury, Privileged access
 

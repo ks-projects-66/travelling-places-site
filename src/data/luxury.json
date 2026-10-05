@@ -18,7 +18,9 @@
       "link": {
         "label": "Meet our team",
         "href": "/who-we-are/"
-      }
+      },
+      "image": "features/luxury-ravello-garden-arch.jpg",
+      "imageAlt": "A stone archway opening onto a sunlit garden, with a glimpse of the sea beyond, in Ravello"
     },
     {
       "title": "Privileged access",
