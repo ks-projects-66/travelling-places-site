@@ -94,6 +94,7 @@ band stays on every page it is on; repetition may be removed from her copy, with
 | R13 | Team | Titles, surnames, bios, three portraits | Awaiting Gina | Gina and team (C11, C12) | Visible placeholders | Blocks launch |
 | R14 | Footer | ABN, ATIA, CLIA numbers; trading hours | Awaiting Gina | C3, C4, C5, C15 | Visible placeholders | Blocks launch |
 | R15 | Luxury, Tailor-made, About | Photographs for themes, service cards and two About rows | Awaiting supply | Karim or Gina | Visible placeholders | Review; blocks launch if kept in the layout |
+| R22 | Luxury, Tailor-made, About | Seven approved Unsplash photographs installed (Karim, 5 October 2026); Lake Como crop approved on the preview | Done | Gina to say whether she would rather use her own photographs anywhere on the site, and whether the river ship (Swiss Corona, name removed) should stay | `MANIFEST.md`, `imagery-delivery/LICENSING.md` | Review; Your specialist photo and the 1993 row still open |
 | R16 | Luxury | Three theme blurbs signed off | Awaiting Gina | C21 | Draft copy | Blocks launch |
 | R17 | Factual claims | Cruise Icon figure, Virtuoso top 1%, "ATIA protected", trust account | Awaiting Gina | C20; copy map, claims table | Published as supplied | Blocks launch |
 | R18 | Privacy | Policy text | Blocked | Gina or her adviser; not drafted by agents (`CLAUDE.md`) | Data-flow inventory below | Blocks launch (C2) |
