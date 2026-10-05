@@ -134,9 +134,16 @@ No editorial-only image was selected.
 Visual selections approved by Karim on 5 October 2026 from the research shortlist
 (`Gina Projects/IMAGERY-SHORTLIST-2026-10-05.md`, researched the same day). Approval is a visual
 selection, not a claim that any release exists. Licence lines below were read on each source page
-by the research session on 5 October 2026. The build session could not reach unsplash.com, so
-`install_approved_2026_10.py` re-checks each line at download; record the date it was run here.
-Files sit in `src/assets/images/features/`, not `photos/`; no master is committed.
+by the research session on 5 October 2026. The build session could not reach unsplash.com and did
+not re-read them.
+
+Delivery: slots 2, 3, 5, 6 and 8 were installed on 5 October 2026 from Karim's package
+`Gina Projects/TRAVELLING-PLACES-SELECTED-IMAGES-2026-10-05/images/` (full-frame Unsplash exports
+at native size), cropped to the slot ratio, capped at 2000px, sRGB, metadata stripped. Slot 7
+(`07-tailor-made-llxvisuals.jpg`, 6.2 MB) could not be transferred by the SharePoint connector, which
+stops at 5 MB; install it with `install_approved_2026_10.py` (which also re-checks the licence line)
+or from a smaller export. Files sit in `src/assets/images/features/`, not `photos/`; no master is
+committed.
 
 ## Luxury, Privileged access
 
@@ -206,7 +213,7 @@ Files sit in `src/assets/images/features/`, not `photos/`; no master is committe
 - Licence permits commercial web use: Yes
 - Attribution required: No
 - Model release: Not needed, no identifiable people are visible
-- Property release: Not supplied; distant villa exterior on Lake Como, no branding. Deliberate 3:2 crop of a portrait original.
+- Property release: Not supplied; distant villa exterior on Lake Como, no branding; a few cars on the lakeside road, no readable plates. Deliberate 3:2 crop of a portrait original (centring 0.5, 0.65, keeping the lit house above and the lake below).
 - Cost: AUD 0, free download
 
 ## Tailor-made, Tailor-made journeys
@@ -229,6 +236,6 @@ Files sit in `src/assets/images/features/`, not `photos/`; no master is committe
 - Licence type: Unsplash License ("Free to use under the Unsplash License", 5 October 2026)
 - Licence permits commercial web use: Yes
 - Attribution required: No
-- Model release: Not needed, no people are visible
+- Model release: Not needed; one distant swimmer is visible as a silhouette, not identifiable
 - Property release: Not supplied; vessel silhouette, operator not established, no visible name
 - Cost: AUD 0, free download
