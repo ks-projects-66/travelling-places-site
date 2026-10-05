@@ -24,7 +24,7 @@
 ## Content confirmation before launch
 
 - Confirm the official Instagram and Facebook profile URLs. The draft keeps both URLs together at the top of `src/main.js` for a one-line update.
-- Confirm Renee, Sienna, Jodie, and Krista’s preferred job titles and final bios.
+- Confirm Renee, Sienna and Jodie’s preferred job titles and final bios.
 - Replace the sample article body with the approved original article text.
 - Connect the enquiry form to the preferred production form service; this draft prepares a reviewable email in the visitor’s mail app.
 

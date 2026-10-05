@@ -25,7 +25,7 @@ see on screen gets fixed, and a gap recorded only in a register gets shipped.
 | C3 | ABN | `src/data/site.json` → `identifiers.abn` | The registered ABN | Renders as a TODO pill in the footer. |
 | C4 | ATIA accreditation number | `src/data/site.json` | The accreditation number | ATIA also sets logo display rules that need checking. |
 | C5 | CLIA membership number | `src/data/site.json` | The membership number | |
-| C6 | Web3Forms access key | `.env` → `PUBLIC_WEB3FORMS_KEY` | Key from web3forms.com | Without it the form prepares a mail draft instead of delivering. |
+| C6 | Web3Forms access key | `.env` → `PUBLIC_WEB3FORMS_KEY` | Not required for launch | Karim, 5 October 2026: the form opening the visitor's own email program is acceptable at launch. A key can be added later without design change. |
 
 ## Blocks a feature, not launch
 
@@ -40,8 +40,8 @@ see on screen gets fixed, and a gap recorded only in a register gets shipped.
 | ID | Placeholder | Where | Replaced by | Notes |
 |---|---|---|---|---|
 | C10 | Antarctica article byline | `src/content/journal/looking-south-to-antarctica.md` | Resolved | Karim confirmed on 30 August and again on 28 September 2026 that the article is Sienna Gardner's. The earlier record that it was mock-up copy is superseded. |
-| C11 | Four job titles | `src/content/team/*.md` | Confirmed titles | `approved: false` renders a warning on the page. |
-| C12 | Four surnames and bios | `src/content/team/` | Approved bios | Renee, Jodie and Krista have no surname recorded. |
+| C11 | Three job titles | `src/content/team/*.md` | Confirmed titles | `approved: false` renders a warning on the page. |
+| C12 | Three surnames and bios | `src/content/team/` | Approved bios | Renee and Jodie have no surname recorded. Krista has left and was removed from the site (Karim, 5 October 2026). |
 | C13 | Instagram URL | `src/data/site.json` | Confirmed profile | Marked `unconfirmed`. Carried over as a guess from the first draft. |
 | C14 | Facebook URL | `src/data/site.json` | Confirmed profile | Same. |
 | C15 | Trading hours | `src/data/site.json` | Confirmed hours | Renders as a TODO pill on the contact page. |
@@ -88,10 +88,10 @@ band stays on every page it is on; repetition may be removed from her copy, with
 | R7 | Journal | Articles published elsewhere say where | Done | - | "Published on tmnews.com.au" | Review |
 | R8 | Records | Antarctica authorship corrected | Done | - | `CLAUDE.md`, C10, `DESIGN.md` | Required |
 | R9 | Virtuoso | Member profile link verified | Done | - | `virtuoso.com/member/travelli34092` returns 200, 28 Sep 2026 | Required |
-| R10 | Enquiry form | Delivery | Blocked | Karim: Web3Forms key and inbox; no key is set locally or in Vercel | Without a key the form prepares an email draft and says so; it never claims delivery | Blocks launch (C6) |
-| R11 | Newsletter | Delivery | Blocked | Genesys snippet (C7) | Same route as the enquiry form until then | Blocks the feature (C19) |
-| R12 | Calendly, Zoom link | Booking | Blocked | Karim creates the account (C8) | Top-strip Zoom link goes to the Calendly placeholder | Blocks the feature |
-| R13 | Team | Titles, surnames, bios, four portraits | Awaiting Gina | Gina and team (C11, C12) | Visible placeholders | Blocks launch |
+| R10 | Enquiry form | Delivery | Decided | Karim, 5 October 2026: launch with the mail-draft route | The form prepares an email draft in the visitor's own program and says so; it never claims delivery. The "Web3Forms key not set" TODO pill still shows and needs replacing with final wording | Does not block launch (C6) |
+| R11 | Newsletter | Delivery | Blocked | Genesys snippet (C7); Karim has access and will locate the embed (5 October 2026) | Same route as the enquiry form until then | Blocks the feature (C19) |
+| R12 | Calendly, Zoom link | Booking | Blocked | Gina's availability; Gina creates the account, or Karim creates it and transfers ownership (C8) | Top-strip Zoom link goes to the Calendly placeholder | Blocks the feature |
+| R13 | Team | Titles, surnames, bios, three portraits | Awaiting Gina | Gina and team (C11, C12) | Visible placeholders | Blocks launch |
 | R14 | Footer | ABN, ATIA, CLIA numbers; trading hours | Awaiting Gina | C3, C4, C5, C15 | Visible placeholders | Blocks launch |
 | R15 | Luxury, Tailor-made, About | Photographs for themes, service cards and two About rows | Awaiting supply | Karim or Gina | Visible placeholders | Review; blocks launch if kept in the layout |
 | R16 | Luxury | Three theme blurbs signed off | Awaiting Gina | C21 | Draft copy | Blocks launch |

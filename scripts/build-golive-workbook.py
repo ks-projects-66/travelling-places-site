@@ -137,7 +137,7 @@ TASKS = [
   "Three routes: ask Virtuoso about their asset library, use the team's own travel photography, or licence stock. Brief is in DESIGN.md."),
  ("G2", 6, "Confirm the Instagram and Facebook profile URLs", "Gina", "", "Yes", N,
   "The URLs in the site are guesses carried over from the first draft and are marked unconfirmed."),
- ("G3", 6, "Confirm job titles and surnames for Renee, Sienna, Jodie and Krista", "Gina", "", "Yes", N,
+ ("G3", 6, "Confirm job titles and surnames for Renee, Sienna and Jodie", "Gina", "", "Yes", N,
   "Three of the four have no surname recorded. Each profile shows a warning on the site until approved."),
  ("G4", 6, "Have each team member read and approve their own biography", "Travelling Places staff", "G3", "Yes", N,
   "Set approved to true in the CMS once they have."),
