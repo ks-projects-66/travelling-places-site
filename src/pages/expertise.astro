@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import PlaceholderImage from '../components/PlaceholderImage.astro';
+import CardImage from '../components/CardImage.astro';
 
 import expertiseHero from '../assets/images/hero/expertise-mountain-lake.jpg';
 import WhyBook from '../components/WhyBook.astro';
@@ -37,11 +37,20 @@ const rendered = await Promise.all(
 
     <section class="section service-cards">
       <div class="shell">
-        <h2>{copy.servicesHeading}</h2>
+        {/* Gina's Tailor copy has no heading for the cards; render one only if the CMS sets it. */}
+        {'servicesHeading' in copy && copy.servicesHeading && <h2>{copy.servicesHeading}</h2>}
         <div class="card-grid card-grid--two">
           {rendered.map(({ data, Body }) => (
             <article class="service-card" id={data.anchor}>
-              <PlaceholderImage label={`TODO: photo for ${data.label}`} ratio="3/2" />
+              <CardImage
+                image={data.image}
+                alt={data.imageAlt}
+                label={`TODO: photo for ${data.label}`}
+                ratio="3/2"
+                position={data.imagePosition}
+                widths={[480, 720, 1080]}
+                sizes="(min-width: 900px) 45vw, 100vw"
+              />
               <h3>{data.label}</h3>
               <p class="service-tagline">{data.title}</p>
               <div class="service-copy">

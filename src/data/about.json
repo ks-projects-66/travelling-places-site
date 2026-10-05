@@ -21,7 +21,9 @@
     "link": {
       "label": "Explore cruising",
       "href": "/expertise/#cruising"
-    }
+    },
+    "image": "features/ship-at-sunset.jpg",
+    "imageAlt": "A small ship silhouetted at sea beneath the setting sun"
   },
   "virtuoso": {
     "heading": "Part of Virtuoso.",

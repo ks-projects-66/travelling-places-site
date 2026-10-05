@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
+import CardImage from '../components/CardImage.astro';
 import PlaceholderImage from '../components/PlaceholderImage.astro';
 import WhyBook from '../components/WhyBook.astro';
 import site from '../data/site.json';
@@ -59,7 +60,15 @@ const rows = [
           <div class:list={['image-row', i % 2 === 1 && 'image-row--reverse']}>
             {mark
               ? <div class="image-row-panel"><Image src={virtuosoMark} alt="Virtuoso member" width={280} densities={[1, 2]} loading="lazy" /></div>
-              : <PlaceholderImage label={photo!} ratio="16/9" />}
+              : <CardImage
+                  image={'image' in section ? section.image : undefined}
+                  alt={'imageAlt' in section ? section.imageAlt : undefined}
+                  label={photo!}
+                  ratio="16/9"
+                  position={'imagePosition' in section ? section.imagePosition : undefined}
+                  widths={[600, 900, 1200]}
+                  sizes="(min-width: 900px) 46vw, 100vw"
+                />}
             <div class="long-copy">
               <h2>{section.heading}</h2>
               {section.paragraphs.map((p) => <p>{p}</p>)}

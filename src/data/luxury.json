@@ -23,12 +23,16 @@
     {
       "title": "Privileged access",
       "photo": "TODO: photo for Privileged access",
-      "body": "Virtuoso benefits at hotels and on cruises, plus in-house events and invitations for our clients."
+      "body": "Virtuoso benefits at hotels and on cruises, plus in-house events and invitations for our clients.",
+      "image": "features/luxury-terrace-camogli.jpg",
+      "imageAlt": "A shaded terrace table above a calm blue sea at Camogli, on the Italian Riviera"
     },
     {
       "title": "Peace of mind",
       "photo": "TODO: photo for Peace of mind",
-      "body": "An independent, ATIA-accredited company with long-standing partners, and comprehensive travel insurance on offer."
+      "body": "An independent, ATIA-accredited company with long-standing partners, and comprehensive travel insurance on offer.",
+      "image": "features/luxury-stone-portico-sea.jpg",
+      "imageAlt": "A pale stone table beneath an open portico, looking out to a calm sea"
     }
   ]
 }

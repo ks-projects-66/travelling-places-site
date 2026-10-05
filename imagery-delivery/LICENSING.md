@@ -126,3 +126,109 @@ No editorial-only image was selected.
 - Property release: Unknown, the source page does not show a property release for Glenfinnan Viaduct; no train name, logo, or competitor branding is visible
 - Cost: AUD 0, free download
 
+
+---
+
+# Card photographs, approved 5 October 2026
+
+Visual selections approved by Karim on 5 October 2026 from the research shortlist
+(`Gina Projects/IMAGERY-SHORTLIST-2026-10-05.md`, researched the same day). Approval is a visual
+selection, not a claim that any release exists. Licence lines below were read on each source page
+by the research session on 5 October 2026. The build session could not reach unsplash.com, so
+`install_approved_2026_10.py` re-checks each line at download; record the date it was run here.
+Files sit in `src/assets/images/features/`, not `photos/`; no master is committed.
+
+## Luxury, Privileged access
+
+- File: `features/luxury-terrace-camogli.jpg`
+- Source: Unsplash, [Table with umbrella overlooking calm blue ocean](https://unsplash.com/photos/table-with-umbrella-overlooking-calm-blue-ocean-9d2XwiBOh_o)
+- Creator: Ekaterina Bogdan
+- Licence type: Unsplash License ("Free to use under the Unsplash License", 5 October 2026)
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people are visible
+- Property release: Not supplied; outdoor terrace in Camogli, a painted number on the parapet, no hotel branding
+- Cost: AUD 0, free download
+
+## Luxury, Peace of mind
+
+- File: `features/luxury-stone-portico-sea.jpg`
+- Source: Unsplash, [White stone table on a patio with a sea view](https://unsplash.com/photos/white-stone-table-on-a-patio-with-a-sea-view-Tl9ntkhaimg)
+- Creator: Paréj Richárd
+- Licence type: Unsplash License ("Free to use under the Unsplash License", 5 October 2026)
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people are visible
+- Property release: Not supplied; open-air architectural terrace, no branding
+- Cost: AUD 0, free download
+
+## Tailor-made, Ocean and river cruising (retouched derivative)
+
+- File: `features/cruise-river-lyon.jpg`
+- Source: Unsplash, [A large river cruise ship sails on a river](https://unsplash.com/photos/a-large-river-cruise-ship-sails-on-a-river-63fVjNpJcAY)
+- Creator: Thomas K. Credit and provenance kept for the derivative.
+- Licence type: Unsplash License ("Free to use under the Unsplash License", 5 October 2026). The
+  Unsplash License permits modification; editing does not change the copyright position.
+- Derivative: two edits, at Karim's express request, as a narrow exception to the brief's no-AI rule.
+  1. Generative retouch (built-in imagegen editing mode, 5 October 2026; input
+     `4C-thomas-k-source.jpg`): removed the SWISS CORONA, BASEL and CH lettering, the Swiss-cross
+     emblem and the registration numbers. Output `4C-thomas-k-unbranded-v1.png`, 1536 x 1024. The
+     retouch also changed some scene details and removed the flag; it is not pixel-identical to
+     the original outside the lettering.
+  2. Local fill (build session, 5 October 2026, `emblem_fill.py`, Pillow): the operator's circular
+     hull emblem left by step 1 was filled by interpolating the surrounding white panel. No
+     generative model was used for this step.
+  Output at native 1536 x 1024. Not upscaled; do not describe it as 6000 x 4000 detail.
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not supplied; passengers on the stern deck and pedestrians on the bridge and quay are small and not identifiable at card size
+- Property release: Not supplied; the vessel (Swiss Corona) remains identifiable to anyone who knows it, and a small crest is visible inside the lounge glazing at full size. Lettering removal does not remove trademark or property rights.
+- Cost: AUD 0, free download
+
+## Tailor-made, Expedition journeys
+
+- File: `features/expedition-penguins.jpg`
+- Source: Unsplash, [Penguins on black sand during daytime](https://unsplash.com/photos/penguins-on-black-sand-during-daytime-ZFA5c0loQE8)
+- Creator: Rod Long
+- Licence type: Unsplash License ("Free to use under the Unsplash License", 5 October 2026)
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people are visible
+- Property release: Not needed, wildlife and beach only
+- Cost: AUD 0, free download
+
+## Tailor-made, Luxury travel
+
+- File: `features/luxury-lakeside-villa.jpg`
+- Source: Unsplash, [Lakeside villa illuminated at dusk with hills behind](https://unsplash.com/photos/lakeside-villa-illuminated-at-dusk-with-hills-behind-sGIMrQSEaGI)
+- Creator: Emanuel Ekström
+- Licence type: Unsplash License ("Free to use under the Unsplash License", 5 October 2026)
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no identifiable people are visible
+- Property release: Not supplied; distant villa exterior on Lake Como, no branding. Deliberate 3:2 crop of a portrait original.
+- Cost: AUD 0, free download
+
+## Tailor-made, Tailor-made journeys
+
+- File: `features/rail-nine-arch-bridge.jpg`
+- Source: Unsplash, [A train travels across a viaduct in a lush jungle](https://unsplash.com/photos/a-train-travels-across-a-viaduct-in-a-lush-jungle--E7dpukTajA)
+- Creator: llxvisuals
+- Licence type: Unsplash License ("Free to use under the Unsplash License", 5 October 2026)
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not supplied; distant visitors are present, no identifiable faces at card size
+- Property release: Not supplied; Nine Arch Bridge, Sri Lanka, no readable branding. Deliberate 3:2 crop of a portrait original.
+- Cost: AUD 0, free download
+
+## About, We sail on the ships we recommend
+
+- File: `features/ship-at-sunset.jpg`
+- Source: Unsplash, [Cruise ship on sea](https://unsplash.com/photos/cruise-ship-on-sea-Jk6DYRdnSMs)
+- Creator: Tayler Lyons
+- Licence type: Unsplash License ("Free to use under the Unsplash License", 5 October 2026)
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people are visible
+- Property release: Not supplied; vessel silhouette, operator not established, no visible name
+- Cost: AUD 0, free download

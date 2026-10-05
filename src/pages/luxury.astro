@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import PlaceholderImage from '../components/PlaceholderImage.astro';
+import CardImage from '../components/CardImage.astro';
 import WhyBook from '../components/WhyBook.astro';
 import site from '../data/site.json';
 import copy from '../data/luxury.json';
@@ -37,7 +37,15 @@ import luxuryHero from '../assets/images/destinations/cruise-dining.jpg';
       <div class="shell theme-grid">
         {copy.themes.map((theme) => (
           <article class="theme">
-            <PlaceholderImage label={theme.photo} ratio="4/5" />
+            <CardImage
+              image={theme.image}
+              alt={theme.imageAlt}
+              label={theme.photo}
+              ratio="4/5"
+              position={theme.imagePosition}
+              widths={[400, 640, 960]}
+              sizes="(min-width: 900px) 31vw, 100vw"
+            />
             <h2>{theme.title}</h2>
             <p>{theme.body}</p>
             {theme.link && <a class="text-link" href={theme.link.href}>{theme.link.label}</a>}

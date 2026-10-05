@@ -9,6 +9,8 @@ points:
   - Multi-city and round-the-world planning
   - Rail, air and private transfers
   - A complete, cohesive itinerary
+image: features/rail-nine-arch-bridge.jpg
+imageAlt: A train curving across the Nine Arch Bridge through rainforest in Sri Lanka
 ---
 
 Complex itineraries become simple when one team sees the whole picture. We coordinate flights, rail, touring, stays and transfers around the way you prefer to travel.

@@ -1070,6 +1070,15 @@
   object-fit: cover;
 }
 
+/* Card photographs on Luxury, Tailor-made and About. The ratio and crop position are set inline
+   by CardImage, so the photograph holds the same shape as the placeholder it replaces. */
+.card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
 /* Luxury: three themes, each a photo, a heading and one short paragraph. */
 .luxury-themes {
   padding-top: 0;

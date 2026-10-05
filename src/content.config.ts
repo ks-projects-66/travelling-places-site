@@ -45,6 +45,10 @@ const services = defineCollection({
     order: z.number(),
     anchor: z.string(),
     points: z.array(z.string()),
+    // Card photograph, as a path under src/assets/images. See src/lib/images.ts.
+    image: z.string().optional(),
+    imageAlt: z.string().optional(),
+    imagePosition: z.string().optional(),
   }),
 });
 

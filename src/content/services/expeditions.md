@@ -9,6 +9,8 @@ points:
   - The Kimberley and remote islands
   - Wildlife, photography and specialist departures
   - Equipment, insurance and preparation guidance
+image: features/expedition-penguins.jpg
+imageAlt: Penguins walking along a dark pebble beach in Antarctica
 ---
 
 Remote journeys reward careful choices. We'll match your interests, comfort level and sense of adventure with an experienced operator and the vessel best suited to the environment.

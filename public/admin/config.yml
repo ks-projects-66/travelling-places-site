@@ -102,6 +102,9 @@ collections:
       - { name: order, label: Order, widget: number, value_type: int, min: 1 }
       - { name: anchor, label: Anchor, widget: string, hint: 'Lowercase, no spaces. Forms the link, e.g. cruising.' }
       - { name: points, label: What we cover, widget: list, field: { name: point, label: Point, widget: string } }
+      - { name: image, label: Photo file, widget: string, required: false, hint: 'Path under src/assets/images, e.g. features/expedition-penguins.jpg. Needs a MANIFEST.md row first.' }
+      - { name: imageAlt, label: Photo description, widget: string, required: false, hint: Describe the photograph for someone who cannot see it. }
+      - { name: imagePosition, label: Photo crop position, widget: string, required: false, hint: 'CSS position, e.g. center 60%. Leave blank for centre.' }
       - { name: body, label: Description, widget: markdown }
 
   - name: settings
@@ -212,6 +215,9 @@ collections:
                 fields:
                   - { name: label, label: Link text, widget: string }
                   - { name: href, label: Link address, widget: string }
+              - { name: image, label: Photo file, widget: string, required: false, hint: 'Path under src/assets/images, e.g. features/expedition-penguins.jpg. Needs a MANIFEST.md row first.' }
+              - { name: imageAlt, label: Photo description, widget: string, required: false, hint: Describe the photograph for someone who cannot see it. }
+              - { name: imagePosition, label: Photo crop position, widget: string, required: false, hint: 'CSS position, e.g. center 60%. Leave blank for centre.' }
           - { name: virtuoso, label: Virtuoso, widget: object, fields: *sectionWithLink }
           - name: promises
             label: Experts, service, pricing and security
@@ -246,6 +252,9 @@ collections:
             fields:
               - { name: title, label: Theme heading, widget: string }
               - { name: photo, label: Photo placeholder note, widget: string }
+              - { name: image, label: Photo file, widget: string, required: false, hint: 'Path under src/assets/images, e.g. features/expedition-penguins.jpg. Needs a MANIFEST.md row first.' }
+              - { name: imageAlt, label: Photo description, widget: string, required: false, hint: Describe the photograph for someone who cannot see it. }
+              - { name: imagePosition, label: Photo crop position, widget: string, required: false, hint: 'CSS position, e.g. center 60%. Leave blank for centre.' }
               - { name: body, label: Text, widget: text }
               - name: link
                 label: Link
