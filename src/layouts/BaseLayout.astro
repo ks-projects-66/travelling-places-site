@@ -46,6 +46,10 @@ const structuredData = {
     { '@type': 'Organization', name: 'Australian Travel Industry Association' },
     { '@type': 'Organization', name: 'Cruise Lines International Association' },
   ],
+  // Only confirmed profiles are published (owner, 25 October 2026).
+  sameAs: Object.values(site.socials)
+    .filter((s) => s.status === 'confirmed')
+    .map((s) => s.url),
 };
 ---
 

@@ -53,10 +53,14 @@ built the original visual system. `DESIGN.md` carries the layout and imagery dec
 carries the tokens and components. Where they disagree, the kit wins on tokens and components
 and `DESIGN.md` wins on layout and imagery.
 
-The design is approved and built. Use the refinement path, not redesign. The Belmond imagery
-reference is settled at the end of `DESIGN.md`: the look was adopted, the tile grid was refused
-because it fights the product brief. Do not reintroduce a card grid without arguing with that
-reasoning first.
+**Lead and lag (owner, 25 October 2026).** Until the site is live with a settled visual language,
+expert design judgement toward an elite, editorial-standard result leads, and `DESIGN.md` lags: it
+is updated after each change to record what was built and why. A rule in `DESIGN.md` is a record of
+the last decision, not a reason to refuse a better one. Argue with its reasoning, then update it in
+the same commit. This does not loosen anything that is not a design taste call: the content,
+licensing, placeholder, privacy and DNS rules above, the kit's tokens (amend the kit deliberately and
+run `pnpm brand:check`), WCAG 2.2 AA and the owner's approval of visual baselines all still bind.
+The scoped round of 25 October 2026 is `docs/CALLOUTS-2026-10-25.md`.
 
 The brand voice is in `PRODUCT.md`: warm, assured, well-travelled, an experienced advisor
 welcoming someone into a calm local office. It is the brand's voice, not the repository owner's.

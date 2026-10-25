@@ -42,8 +42,8 @@ see on screen gets fixed, and a gap recorded only in a register gets shipped.
 | C10 | Antarctica article byline | `src/content/journal/looking-south-to-antarctica.md` | Resolved | Karim confirmed on 30 August and again on 28 September 2026 that the article is Sienna Gardner's. The earlier record that it was mock-up copy is superseded. |
 | C11 | Three job titles | `src/content/team/*.md` | Confirmed titles | `approved: false` renders a warning on the page. |
 | C12 | Three surnames and bios | `src/content/team/` | Approved bios | Renee and Jodie have no surname recorded. Krista has left and was removed from the site (Karim, 5 October 2026). |
-| C13 | Instagram URL | `src/data/site.json` | Confirmed profile | Marked `unconfirmed`. Carried over as a guess from the first draft. |
-| C14 | Facebook URL | `src/data/site.json` | Confirmed profile | Same. |
+| C13 | Instagram URL | `src/data/site.json` | Confirmed profile | **Closed 25 October 2026**: @travelling_places_tamborine, confirmed by the owner. |
+| C14 | Facebook URL | `src/data/site.json` | Confirmed profile | **Closed 25 October 2026**: facebook.com/travellingplacestravel, confirmed by the owner. |
 | C15 | Trading hours | `src/data/site.json` | Confirmed hours | Renders as a TODO pill on the contact page. |
 | C16 | Alatus destination URL | `src/data/memberships.json` | The correct URL | Logo renders unlinked until supplied. |
 | C18 | Virtuoso white-label link | `src/data/virtuoso.json` → `whiteLabel.url` | The white-label site address from Gina | Her Luxury copy links to it. Renders as a TODO pill in the Virtuoso section of Luxury (the Virtuoso page folded into Luxury on 25 October 2026). |
@@ -87,7 +87,7 @@ band stays on every page it is on; repetition may be removed from her copy, with
 | R3 | Luxury | Insurance described as offered, not included | Done | Gina to confirm (C20) | `luxury.json` Peace of mind | Required |
 | R4 | Home | Carousel slides link to the journeys they show | Done | - | Tailor-made, cruising, the Antarctica article | Review |
 | R5 | Contact | Developer setup instructions removed from the Calendly placeholder | Done | Karim to create Calendly (C8) | Placeholder pill kept | Required before launch |
-| R6 | Footer, Contact | Guessed social links flagged on the page | Done | Gina to confirm handles (C13, C14) | TODO pill beside the links | Required |
+| R6 | Footer, Contact | Social links | Done | Owner confirmed both handles, 25 October 2026 (C13, C14) | Pill removed; links published in `sameAs` | Required |
 | R7 | Journal | Articles published elsewhere say where | Done | - | "Published on tmnews.com.au" | Review |
 | R8 | Records | Antarctica authorship corrected | Done | - | `CLAUDE.md`, C10, `DESIGN.md` | Required |
 | R9 | Virtuoso | Member profile link verified | Done | - | `virtuoso.com/member/travelli34092` returns 200, 28 Sep 2026 | Required |

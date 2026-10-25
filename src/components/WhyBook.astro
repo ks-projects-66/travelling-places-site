@@ -22,13 +22,16 @@ interface Props {
   variant?: 'full' | 'short';
 }
 const { variant = 'short' } = Astro.props;
+// The spaces around the phone link are explicit {' '}: Astro's HTML compression drops a literal
+// space that sits between an expression and a tag, which glued the number to "on" and "to" on
+// every page (owner callout, 25 October 2026). qa/specs/functional/spacing.spec.js guards it.
 ---
 
 {variant === 'short' ? (
 <section class="section closing-cta why-book why-book--short" aria-label="Start planning">
   <div class="shell why-book-short">
     <p class="why-book-contact">
-      {copy.contactLead} <a href={site.phoneLink}>{site.phone}</a> {copy.contactMiddle}{' '}
+      {copy.contactLead}{' '}<a href={site.phoneLink}>{site.phone}</a>{' '}{copy.contactMiddle}{' '}
       <a href={`mailto:${site.email}`}>{site.email}</a>
     </p>
     <a class="button button-blue" href="/contact/#enquiry">{copy.cta}</a>
@@ -42,7 +45,7 @@ const { variant = 'short' } = Astro.props;
       <h2 id="why-book-heading">{copy.heading}</h2>
       <p>{copy.intro}</p>
       <p class="why-book-contact">
-        {copy.contactLead} <a href={site.phoneLink}>{site.phone}</a> {copy.contactMiddle}{' '}
+        {copy.contactLead}{' '}<a href={site.phoneLink}>{site.phone}</a>{' '}{copy.contactMiddle}{' '}
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </p>
       <a class="button button-blue" href="/contact/#enquiry">{copy.cta}</a>
