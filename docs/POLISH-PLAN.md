@@ -2,7 +2,8 @@
 
 How the site gets from approved design to launch-ready without guessing. Baseline set 25 October
 2026 by an Impeccable critique of all ten routes: **20/32 on the applicable Nielsen heuristics
-(Acceptable)**. The full critique is archived under `.impeccable/critique/`.
+(Acceptable)**. Re-critique after Phases 1 to 3, same day: **22/32**, one P1 and four P2s, all
+acted on (section 5a). Both critiques are archived under `.impeccable/critique/`.
 
 ## 1. Rules of the work
 
@@ -101,15 +102,32 @@ Baseline from the critique, 1 to 5. Re-score after each pass.
 visible control, four mitigations). The underlined hero text link needs checking against the
 `BRAND.md` distinction between text links and calls to action before anything changes.
 
-## 6. Decisions needed (Karim)
+## 5a. Re-critique, 25 October 2026 (22/32)
 
-| ID | Question | Recommendation |
+| Sev | Finding | Done |
 |---|---|---|
-| D1 | Keep "Why book", the logo wall and the newsletter strip on every page? | Home and Expertise only; one invitation elsewhere |
-| D2 | Gina asked for the top bar. Keep it in full on phones? | Full on desktop, one line under 680px |
-| D3 | One label for the main action, and should a link to a not-yet-existing Calendly appear on every page? `CLAUDE.md` says gaps stay visible; a dead end in the header is a different thing from a marked gap | Pick one label. Keep the Calendly TODO on `/contact/`, drop the header link until it exists |
-| D4 | Is Luxury a page or a section of Expertise? | Decide on Gina's content, not on layout |
-| D5 | The partner row is four TODO tiles on every page. Show the row until partners arrive, or hold it back? | Show it on one page only, marked |
+| P1 | Tablets 681 to 940px: leftover grid rules put the home introduction one word a line and squeezed Why book | Rules deleted; marks two by two below 940px |
+| P2 | The same closing stack ended six of nine pages | Full Why book on home only; elsewhere Gina's contact line and Start planning |
+| P2 | Trust marks loud in the footer and absent beside the form | Optical sizes evened; marks beside the form on Contact; home Virtuoso band states Gina's two benefits |
+| P2 | Start planning landed on Contact's photograph, 1,154px above the form | Goes to `/contact/#enquiry` |
+| P2 | Eight sans sizes, several invented | Mapped to the kit's body, lead, fine and navigation roles |
+| Detector | Lines of 90 to 125 characters (`ch` is narrower than Plex's average character) | Rem widths measured to 64 to 72 characters |
+| Detector | Home headline over the village slide had little contrast headroom | Protection strengthened; every slide 4.0:1 or better at the 5th percentile |
+
+Left for the owner, from the same review: a phone number in the header (the client removed the
+ribbon that carried it; peers keep one quiet number), and the third hero photograph (the ship's
+dining room is the coolest image of the three).
+
+## 6. Decisions
+
+| ID | Question | Status |
+|---|---|---|
+| D1 | Keep "Why book" on every page? | **Made 25 October 2026, for review**: full band on home only, a short close elsewhere (re-critique P2). Reversible in one prop |
+| D2 | The top bar on phones | **Closed**: the client removed the bar (change 1) |
+| D3 | One label for the main action; the Calendly link | **Closed**: "Start planning" (Q13); the Zoom link went with the bar, the Calendly TODO stays on Contact |
+| D4 | Is Luxury a page or a section of Expertise? | **Closed**: a page, now carrying Virtuoso (Q4) |
+| D5 | The partner row | **Closed**: removed at the client's request (change 7) |
+| D6 | A quiet phone number in the header | Open, for the owner |
 
 ## 7. Content needed (Gina)
 
@@ -117,8 +135,11 @@ Recorded in `docs/CONTENT-REGISTER.md`. The items this plan is waiting on:
 
 - **C1** More licensed photography so no image appears twice.
 - **C2** Portraits for the three team members still shown as placeholders.
-- **C3** The Journal's real cadence, or new posts.
-- Trading hours (for the top bar and enquiry rail), cruise partners, Calendly account.
+- **C3** New journal posts (the cadence promise is gone, Q7).
+- **C22** Larger originals of the two team photographs.
+- **C23** The Cruising card's destination.
+- **C24** One or two sentences on what happens after an enquiry.
+- Trading hours, Calendly account, the privacy facts in `docs/PRIVACY-NOTES.md`.
 
 ## 8. Client review loop
 

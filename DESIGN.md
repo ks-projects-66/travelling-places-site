@@ -184,6 +184,15 @@ originals; the Virtuoso band; the founder; the journal as one story beside its p
 reasons to book on a white panel with no rules or markers; and in the footer one row of the four
 marks on white, then a single newsletter row. Copy for all of it lives in `src/data/home.json`.
 
+Gina's full "Why book" band ends the home page only. Every other page closes on a short row: her
+contact line and Start planning (`WhyBook variant="short"`). The full band at the end of six pages
+read as the same checklist everywhere and repeated whole sections on Expertise and About.
+
+Start planning goes to `/contact/#enquiry`, the form, not the top of Contact. The four marks also
+sit beside the form on Contact, on white, because two of the supplied files carry their own white
+ground. Their heights are evened per mark (`stripHeight` in `memberships.json`); the artwork is
+never altered.
+
 ## Section rhythm
 
 Every section shared one padding value until 30 August 2026, which is what made the page read as a

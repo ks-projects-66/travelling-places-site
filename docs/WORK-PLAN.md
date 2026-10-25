@@ -130,6 +130,8 @@ owner's answers.
 
 ### Phase 4: Polish passes (from `docs/POLISH-PLAN.md`)
 
+**Done 25 October 2026** (`a2edc12`, `76fca6d`). Re-critique 22/32 from 20/32; its P1 and P2s are fixed (`docs/POLISH-PLAN.md`, section 5a).
+
 In order: `typeset` (B6, B7: kit roles only, 68-character measure, heading levels), `layout`
 (rhythm after the new sections), `polish` for imagery (B8: one use per photograph), stragglers
 (B13), hard-coded prose to content (B15). Re-run `/impeccable critique` after the pass.
