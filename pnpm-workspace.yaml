@@ -5,6 +5,7 @@ allowBuilds:
   esbuild: true
   puppeteer: false
   sharp: true
+  vue-demi: false
 
 onlyBuiltDependencies:
   - esbuild

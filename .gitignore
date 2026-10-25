@@ -13,3 +13,9 @@ playwright-report/
 qa/reports/raw/
 qa/visual/test/
 qa/visual/report/
+qa/reports/lighthouse/
+
+# Impeccable platform binary (21MB). The launcher in .claude/skills/impeccable/scripts/
+# fetches it on first use; `npx impeccable install --project --providers=claude --force` restores it.
+.claude/skills/impeccable/scripts/bin/
+.impeccable/live/

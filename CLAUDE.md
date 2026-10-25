@@ -65,7 +65,12 @@ pnpm build
 pnpm test:qa             # functional, responsive, a11y, cross-browser, brand, visual
 pnpm check:placeholders
 pnpm check:licensing     # passes since the licensed imagery landed in cc194c7
+pnpm qa:lighthouse       # Lighthouse on every route, mobile and desktop; report-only
+.claude/skills/impeccable/scripts/impeccable detect --json dist/   # design anti-patterns
 ```
+
+Design refinement follows `docs/POLISH-PLAN.md`: one pass at a time across the whole site, and
+every change cites the rule it serves.
 
 `pnpm test:qa` writes `qa/reports/QA-REPORT.md` and `qa/reports/results.json`. Read the report
 rather than the exit code: it separates real defects from heuristics, and some failures are

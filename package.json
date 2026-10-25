@@ -24,7 +24,8 @@
     "test:visual": "backstop test --config=qa/visual/backstop.config.cjs",
     "test:visual:ref": "backstop reference --config=qa/visual/backstop.config.cjs && node qa/visual/make-baseline-status.cjs",
     "test:visual:approve": "node qa/visual/approve.mjs",
-    "test:qa": "node qa/run-all.mjs"
+    "test:qa": "node qa/run-all.mjs",
+    "qa:lighthouse": "node qa/lighthouse/run.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.0",
@@ -38,7 +39,8 @@
     "backstopjs": "^6.3.25",
     "playwright": "1.62.1",
     "stylelint": "^17.14.1",
-    "stylelint-declaration-strict-value": "^1.12.1"
+    "stylelint-declaration-strict-value": "^1.12.1",
+    "unlighthouse": "0.19.1"
   },
   "packageManager": "pnpm@11.24.0"
 }

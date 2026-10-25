@@ -21,6 +21,7 @@ process is indistinguishable from a 200 from ours. Playwright owns the server li
 | `pnpm test:visual` | Compare against the reference images. |
 | `pnpm test:visual:ref` | Regenerate references. Resets them to unapproved. |
 | `pnpm lint:css` | Stylelint on its own. |
+| `pnpm qa:lighthouse` | Lighthouse on every route via Unlighthouse, mobile and desktop, on port 4323. Report-only: writes `qa/reports/LIGHTHOUSE.md`. Not part of `test:qa`. Set `CHROME_PATH` if Playwright's Chromium build is missing. |
 
 The existing `pnpm check`, `check:licensing`, `check:placeholders`, `brand:check` and `brand:qa`
 are unchanged and still work as before.
