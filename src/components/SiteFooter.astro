@@ -51,61 +51,76 @@ const socials = [
     </div>
   </div>
 
-  <div class="shell footer-newsletter">
-    <div class="newsletter">
+  {/* The footer is its own surface since 25 October 2026: night, one step below the navy used by
+      the bands above it, so it no longer reads as one more navy section (owner callout CO7). The
+      newsletter is an inline field, as on the peer sites, and leads into the dialog for the rest of
+      Gina's fields. Without script the form is an ordinary mailto, so it still reaches the office. */}
+  <div class="footer-main">
+    <div class="shell footer-newsletter">
       <div class="newsletter-copy">
-        <h2>{topBar.newsletter.heading}</h2>
+        <h2 id="footer-newsletter-title">{topBar.newsletter.heading}</h2>
         <p>{topBar.newsletter.footerLine}</p>
       </div>
-      <a class="button button-white" href={`mailto:${site.email}?subject=Newsletter%20sign-up`} data-open-newsletter>
-        {topBar.newsletter.footerButton}
-      </a>
+      <form class="footer-signup" action={`mailto:${site.email}`} method="get" data-footer-signup
+        aria-labelledby="footer-newsletter-title" novalidate>
+        <input type="hidden" name="subject" value="Newsletter sign-up" />
+        <label class="visually-hidden" for="footer-signup-email">Email address</label>
+        <input id="footer-signup-email" type="email" name="body" autocomplete="email"
+          placeholder="Your email address" required aria-describedby="footer-signup-error" />
+        <button class="button button-white" type="submit">{topBar.newsletter.footerButton}</button>
+        <small class="field-error" id="footer-signup-error"></small>
+      </form>
     </div>
-  </div>
 
-  <div class="shell footer-columns">
-    <div class="footer-column">
-      <a class="footer-brand" href="/" aria-label={`${site.name} home`}>
-        <img src="/brand-kit/assets/logos/lockup-dark.svg" width="958" height="360" alt={site.name} loading="lazy" />
-      </a>
-      <p>Personal travel planning from {site.address.locality}.</p>
-    </div>
-    <div class="footer-column">
-      <h2 class="footer-heading">Contact</h2>
-      <address class="footer-list">
-        <a href={site.phoneLink}>{site.phone}</a>
-        <a href={`mailto:${site.email}`}>{site.email}</a>
-      </address>
-    </div>
-    <nav class="footer-column" aria-label="Footer navigation">
-      <h2 class="footer-heading">Explore</h2>
-      <div class="footer-list">
-        {nav.footer.map((item) => <a href={item.href}>{item.label}</a>)}
+    <div class="shell footer-columns">
+      <div class="footer-column footer-column--brand">
+        <a class="footer-brand" href="/" aria-label={`${site.name} home`}>
+          <img src="/brand-kit/assets/logos/lockup-dark.svg" width="958" height="360" alt={site.name} loading="lazy" />
+        </a>
+        <p>Personal travel planning from {site.address.locality}.</p>
       </div>
-    </nav>
-    <nav class="footer-column" aria-label="Social media">
-      <h2 class="footer-heading">Follow</h2>
-      <div class="footer-list">
-        {socials.map((s) => (
-          <a class="footer-social" href={s.url} target="_blank" rel="noreferrer">
-            <span class="footer-social-icon" aria-hidden="true">
-              <svg focusable="false"><use href={`/brand-kit/assets/icons/ui-icons.svg#${s.icon}`}></use></svg>
-            </span>
-            {s.label}
+      <div class="footer-column">
+        <h2 class="footer-heading">Visit or call</h2>
+        <address class="footer-list">
+          <a href={site.address.mapUrl} target="_blank" rel="noreferrer">
+            {site.address.street}<br />{`${site.address.locality} ${site.address.region} ${site.address.postcode}`}
+            <span class="visually-hidden"> (opens Google Maps in a new tab)</span>
           </a>
-        ))}
-        {socialsUnconfirmed && (
-          <span class="placeholder-note" data-placeholder>TODO: social links not yet confirmed</span>
-        )}
+          <a href={site.phoneLink}>{site.phone}</a>
+          <a href={`mailto:${site.email}`}>{site.email}</a>
+        </address>
       </div>
-    </nav>
-  </div>
+      <nav class="footer-column" aria-label="Footer navigation">
+        <h2 class="footer-heading">Explore</h2>
+        <div class="footer-list">
+          {nav.footer.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+      </nav>
+      <nav class="footer-column" aria-label="Social media">
+        <h2 class="footer-heading">Follow</h2>
+        <div class="footer-list">
+          {socials.map((s) => (
+            <a class="footer-social" href={s.url} target="_blank" rel="noreferrer">
+              <span class="footer-social-icon" aria-hidden="true">
+                <svg focusable="false"><use href={`/brand-kit/assets/icons/ui-icons.svg#${s.icon}`}></use></svg>
+              </span>
+              {s.label}
+              <span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          ))}
+          {socialsUnconfirmed && (
+            <span class="placeholder-note" data-placeholder>TODO: social links not yet confirmed</span>
+          )}
+        </div>
+      </nav>
+    </div>
 
   <div class="shell footer-legal">
     <span>© {year} {site.name}</span>
     {unresolvedIdentifiers.length > 0
       ? <span class="placeholder-note" data-placeholder>TODO: ABN, ATIA and CLIA numbers</span>
-      : <span>ABN {site.identifiers.abn.value} · ATIA {site.identifiers.atiaAccreditation.value} · CLIA {site.identifiers.cliaMembership.value}</span>}
+      : <span class="footer-identifiers"><span>ABN {site.identifiers.abn.value}</span>{' '}<span>ATIA {site.identifiers.atiaAccreditation.value}</span>{' '}<span>CLIA {site.identifiers.cliaMembership.value}</span></span>}
     <a href="/privacy/">Privacy</a>
+  </div>
   </div>
 </footer>

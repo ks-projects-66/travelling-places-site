@@ -3,10 +3,9 @@
  * "Why book with Travelling Places?", Gina's closing band. It ends every page, so the last
  * thing a visitor reads is her reasons to book and a way to call.
  *
- * Rebalanced 25 October 2026 at the client's request (docs/WORK-PLAN.md, change 6). The three
- * equal columns with hairline lists read as categories that led nowhere. Now the invitation and
- * the way to call sit on the left, and her two groups of reasons sit together on the right as
- * plain statements on a white panel: no rules, no markers, nothing that looks clickable.
+ * Rebalanced 25 October 2026 at the client's request (docs/WORK-PLAN.md, change 6), then again the
+ * same day (docs/CALLOUTS-2026-10-25.md, CO6): the invitation and the way to call on the left, her
+ * services and her two credentials on the right, on the page rather than on a white panel.
  */
 import copy from '../data/why-book.json';
 import site from '../data/site.json';
@@ -50,16 +49,17 @@ const { variant = 'short' } = Astro.props;
       </p>
       <a class="button button-blue" href="/contact/#enquiry">{copy.cta}</a>
     </div>
+    {/* Services and credentials, apart (CO6). On a white panel the two lists read as leftovers;
+        on the page, the services take the site's inclusions set and the two credentials the proof
+        lines used for financial security on About. */}
     <div class="why-book-reasons">
-      {copy.lists.map((list) => (
-        <div class="why-book-group">
-          <h3>{list.title}</h3>
-          <p>{list.lead}</p>
-          <ul>
-            {list.points.map((point) => <li>{point}</li>)}
-          </ul>
-        </div>
-      ))}
+      <h3>{copy.services.title}</h3>
+      <ul class="inclusions">
+        {copy.services.points.map((point) => <li>{point}</li>)}
+      </ul>
+      <ul class="proof-list why-book-proof">
+        {copy.proof.map((item) => <li>{item}</li>)}
+      </ul>
     </div>
   </div>
 </section>

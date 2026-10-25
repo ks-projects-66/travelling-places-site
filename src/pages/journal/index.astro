@@ -55,13 +55,16 @@ const external = (post: Post) =>
                 widths={[768, 1280, 1920]} sizes="(max-width: 1248px) 100vw, 1200px" loading="eager" />
             </a>
             <div class="journal-lead-text">
-              <p class="story-meta">{feature.data.category} · <time datetime={isoDate(feature)}>{dateFormat.format(feature.data.date)}</time></p>
+              <p class="story-meta">{feature.data.category}</p>
               <h2><a href={href(feature)} {...external(feature)}>{feature.data.title}{publishedOn(feature) && <span class="visually-hidden"> ({copy.externalNote})</span>}</a></h2>
               <p class="journal-lead-standfirst">{feature.data.standfirst}</p>
-              <p class="byline">{copy.byPrefix} {feature.data.author}</p>
-              {publishedOn(feature)
-                ? <p class="dateline">{copy.externalPrefix} {publishedOn(feature)}</p>
-                : <a class="text-link" href={href(feature)}>{copy.readLink}</a>}
+              <p class="byline">
+                <span class="byline-author">{`${copy.byPrefix} ${feature.data.author}`}</span>{' '}
+                <time datetime={isoDate(feature)}>{dateFormat.format(feature.data.date)}</time>
+              </p>
+              {/* The headline and photograph are the link; a "Read the story" button under one story
+                  said the same thing a third time (CO5). */}
+              {publishedOn(feature) && <p class="dateline">{copy.externalPrefix} {publishedOn(feature)}</p>}
             </div>
           </article>
         </div>
@@ -79,9 +82,12 @@ const external = (post: Post) =>
                   <Image src={post.data.cover} alt={post.data.coverAlt}
                     widths={[220, 440]} sizes="(max-width: 700px) 92vw, 220px" loading="lazy" />
                   <div>
-                    <p class="story-meta">{post.data.category} · <time datetime={isoDate(post)}>{dateFormat.format(post.data.date)}</time></p>
+                    <p class="story-meta">{post.data.category}</p>
                     <h3>{post.data.title}</h3>
-                    <p class="byline">{copy.byPrefix} {post.data.author}</p>
+                    <p class="byline">
+                      <span class="byline-author">{`${copy.byPrefix} ${post.data.author}`}</span>{' '}
+                      <time datetime={isoDate(post)}>{dateFormat.format(post.data.date)}</time>
+                    </p>
                     {publishedOn(post) && (
                       <p class="dateline">{copy.externalPrefix} {publishedOn(post)} <span class="visually-hidden">({copy.externalNote})</span></p>
                     )}

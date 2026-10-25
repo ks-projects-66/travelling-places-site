@@ -26,12 +26,26 @@ the site's variable names, so a kit release propagates without edits here.
 - Vertical section rhythm follows the kit's `--tp-space-section`, 72px to 120px.
 - Photographic imagery is square-cornered and uncorniced. Fields are square-cornered.
   Text buttons use the full pill radius, per v2.1.0.
-- Card grids are allowed where they are restrained: square photography, hairline structure, no
-  shadows or raised panels, every card in a group built the same way. Approved by Karim on
-  27 September 2026; the earlier refusal and its reasoning are kept below.
-- Body and intro text sits in one left-aligned column at the kit's `--tp-reading-max`, so every
-  paragraph on a page ends on the same right edge.
-- Lists are hairline rows with no marker: no dash, dot or icon.
+- Card grids are allowed where they are restrained: square photography, no shadows, every card in
+  a group built the same way. Approved by Karim on 27 September 2026; the earlier refusal and its
+  reasoning are kept below. Equal promises with no photograph sit on white square cards on mist
+  (About, since 25 October 2026). A large white panel holding a logo or a list on a coloured ground
+  is not a card and is not used.
+- **Page openings** (since 25 October 2026, owner callouts CO8 and CO12): a page that opens with a
+  statement under its hero centres it, `OpeningStatement.astro`. One serif line leads (the heading,
+  or the first sentence of Gina's paragraph when there is no heading) and the rest follows at the lead
+  size, centred at about 40rem, left-aligned on phones. Tailor-made, Luxury and About open this way.
+- **Long copy beside its heading** (CO10): `split-section`, heading in a lead column of five parts,
+  paragraphs in a second column of six, every paragraph at the lead size and one measure (about 60
+  characters). Measured against Belmond and A&K, who both pin copy to one side and leave the rest
+  open. Replaced the single left-hand column that left the right half of the page empty.
+- **Lists of inclusions** are short phrases in navy, two by two, separated by space: no rules, no
+  marker (CO9). The hairline-row list it replaced read like a form against the photographs.
+  Credentials ("proof") are separate from services and set as short serif lines, two by two (CO6,
+  CO13).
+- Images beside text sit inside the shell at their own aspect ratio, so they scale as one piece and
+  their crop never changes with the screen width (CO2). Nothing bleeds to the viewport edge except
+  heroes.
 - No eyebrow headings, no decorative numbering, no diagonal arrows. Section openings are the
   heading itself.
 
@@ -161,8 +175,8 @@ moved the carousel into the home hero, the team photograph to About and Virtuoso
 
 | Page | Tone | Photograph | `object-position` |
 |---|---|---|---|
-| Home | photo, sequence | `destinations/mediterranean-coast.jpg`, `antarctica-ice.jpg`, `cruise-dining.jpg`, cross-fading every 6s under one fixed title, previous and next at either side | `center 55%`, `center 45%`, `center 55%` |
-| Who we are | photo | `team/team-outside.jpg`, owned. The office photograph moved into the story row | `center 22%` |
+| Home | photo, sequence | `destinations/positano-golden-hour.jpg`, `varenna-loggia-lake-como.jpg`, `lake-como-sunset.jpg` since 25 October 2026 (CO1: coast, a place to stay, water at dusk), cross-fading every 6s under one fixed title, previous and next at either side. Phone crops lean left onto calm water. Lowest title contrast: 3.63:1 on slide 1 at 390px (large text, AA 3:1) | `28% 78%`, `center 58%`, `35% 50%` |
+| Who we are | photo | `team/team-outside.jpg`, owned. Gina's portrait is the story row; the office photograph is the home founder section | `center 14%` |
 | Expertise | photo | `hero/expertise-mountain-lake.jpg` | `center 38%` |
 | Luxury | photo | `hero/virtuoso-island.jpg`, freed when the Virtuoso page folded into Luxury | `center 42%` |
 | Contact | photo | `hero/contact-lookout.jpg` | `center 55%` |
@@ -234,3 +248,22 @@ Kit 2.2.1. `--tp-red` #d7333f stays the brand red for display type and non-text 
 page ground in 2.2.0 dropped it to 4.13:1 on mist and 4.47:1 on ground, both under AA for small
 text. `--tp-red-text` #c92b37 clears 4.71:1 on every light surface and carries all small red text:
 story meta, role labels, field errors, placeholder notes and text-link hover.
+
+## Callout round, 25 October 2026
+
+The owner reviewed the preview and raised fourteen callouts (`docs/CALLOUTS-2026-10-25.md`). Under
+the lead-and-lag rule in `CLAUDE.md` the site changed first and this file records it. Beyond the
+rules rewritten above:
+
+- **Founder section, home:** the team photograph in the Main Street office, at its own ratio, with a
+  quiet caption beneath, replaces Gina's portrait, which zoomed to a close-up on wide screens.
+- **Virtuoso:** one component, `VirtuosoBenefits.astro`, for home and Luxury. The supplied mark is a
+  transparent derivative; on navy it takes a small white plate. On About its row carries a
+  photograph, and the mark sits small above the heading.
+- **Footer:** night, the darkest surface on the site, with an inline email field that opens the
+  sign-up dialog for Gina's other fields, and the street address beside phone and email.
+- **Journal:** the rubric is the category alone, sentence case and muted; the date moves to the
+  byline. Home's teaser carries no rubric, no date and no "Read the story": the headline and the
+  photograph are the link.
+- **Hover:** linked headlines take a hairline in their own colour; story photographs scale by 1.5
+  per cent inside their frame.

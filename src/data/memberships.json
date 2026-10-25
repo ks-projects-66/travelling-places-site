@@ -19,12 +19,12 @@
   },
   {
     "name": "Virtuoso",
-    "image": "virtuoso-member.png",
+    "image": "virtuoso-member-transparent.png",
     "alt": "Virtuoso member",
     "url": "https://www.virtuoso.com/member/travelli34092",
     "status": "supplied",
     "note": "Vector master available as PDF in FW_ Logos. Convert to SVG before launch.",
-    "stripHeight": 78
+    "stripHeight": 62
   },
   {
     "name": "Alatus",

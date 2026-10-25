@@ -1,5 +1,5 @@
 {
-  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'About Travelling Places.docx'. Section headings other than 'About Travelling Places' and the four promise titles are editorial. Repetition removed on Karim's instruction of 28 September 2026; see docs/COPY-MAP.md.",
+  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'About Travelling Places.docx'. Section headings other than 'About Travelling Places' and the four promise titles are editorial. Repetition removed on Karim's instruction of 28 September 2026; see docs/COPY-MAP.md. On 25 October 2026 the story row took Gina's portrait and the office photograph moved to the home page, so each photograph appears once (docs/CALLOUTS-2026-10-25.md, CO2).",
   "intro": {
     "heading": "About Travelling Places",
     "paragraphs": [
@@ -8,8 +8,8 @@
   },
   "story": {
     "heading": "On the Mountain since 1993.",
-    "image": "team/team-office.jpg",
-    "imageAlt": "The Travelling Places team inside the Main Street office",
+    "image": "team/gina-storey.webp",
+    "imageAlt": "Gina Storey, founder of Travelling Places",
     "imagePosition": "center 30%",
     "paragraphs": [
       "Travelling Places was established by Gina Storey in 1993 on Tamborine Mountain. Gina's experience in the industry began in New Zealand and took her to London for 10 years where she worked as a product development manager for British Airways and marketing manager for Australian company Jetset in the UK and Europe. Relocating to Australia Gina put her extensive industry experience into creating a travel agency with a focus on service and creating wonderful experiences for travellers. Over the years Travelling Places has developed a client base all over Australia who have come to the agency for our focus on service.",
@@ -36,7 +36,9 @@
     "link": {
       "label": "What Virtuoso means for you",
       "href": "/luxury/#virtuoso"
-    }
+    },
+    "image": "features/sea-view-room-greece.jpg",
+    "imageAlt": "A quiet hotel room with a brass lamp and an open balcony door onto the sea at sunset"
   },
   "promises": [
     {

@@ -29,8 +29,8 @@ Logos live in `public/images/brand/`, not here, because SVGs need no processing.
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
 | `team/gina-storey.jpg` | Gina Storey portrait | `FW_ Logos/Gina Headshot 2025.jpg` | owned | Gina Storey | Not currently referenced |
-| `team/gina-storey.webp` | Gina Storey portrait, web derivative | Same original | owned | Gina Storey | Home, Who we are |
-| `team/team-office.jpg` | Team inside the Main Street office | `FW_ Logos/Edited Inside Staff Photo Office 2025 [4}.jpg` | owned | Gina Storey | Who we are, story row (the page hero until 25 October 2026) |
+| `team/gina-storey.webp` | Gina Storey portrait, web derivative | Same original | owned | Gina Storey | Who we are, story row (the home founder section until 25 October 2026) |
+| `team/team-office.jpg` | Team inside the Main Street office | `FW_ Logos/Edited Inside Staff Photo Office 2025 [4}.jpg` | owned | Gina Storey | Home, founder section (Who we are story row until 25 October 2026) |
 | `team/team-outside.jpg` | Team outdoors on Tamborine Mountain | `FW_ Logos/Edited Staff Photo Outside 2025 [4].jpg` | owned | Gina Storey | Who we are hero, Contact (the home hero until 25 October 2026) |
 | `public/og-default.jpg` | Team outdoors, cropped to 1200x630 for social sharing | Derived from `team/team-outside.jpg` | owned | Gina Storey | Every page, `og:image` |
 
@@ -41,7 +41,8 @@ particular need checking before launch.
 
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
-| `memberships/virtuoso-member.png` | Virtuoso member mark | Virtuoso | supplied | Virtuoso member terms | Footer, Home, Virtuoso |
+| `memberships/virtuoso-member.png` | Virtuoso member mark, as supplied (opaque white ground) | Virtuoso | supplied | Virtuoso member terms | Not currently referenced; the master for the derivative below |
+| `memberships/virtuoso-member-transparent.png` | Virtuoso member mark, trimmed to the artwork with the white ground made transparent. Colours and proportions unchanged | Derived from `virtuoso-member.png`, 25 October 2026 | supplied | Virtuoso member terms. TODO: confirm with Virtuoso's member logo rules, or replace with the official vector from `FW_ Logos` | Footer trust row, Home (on a white plate), Luxury, Who we are |
 | `memberships/atia.jpg` | ATIA accredited mark | ATIA | supplied | TODO: confirm ATIA logo usage rules | Footer |
 | `memberships/clia.png` | CLIA member mark | CLIA | supplied | TODO: confirm CLIA logo usage rules | Footer |
 | `memberships/alatus.jpg` | Alatus mark | Alatus | supplied | TODO: confirm | Footer |
@@ -57,11 +58,15 @@ licence at all.
 
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
-| `destinations/mediterranean-coast.jpg` | Sunset over a calm sea and silhouetted coastline | Unsplash, Ruben Aster | owned | Unsplash License | Home carousel |
-| `destinations/antarctica-ice.jpg` | Ice formation across a polar landscape | Unsplash, Torsten Dederichs | owned | Unsplash License | Home carousel, Journal |
-| `destinations/cruise-dining.jpg` | Dining table with a wide ocean view | Unsplash, Jiayu Chan | owned | Unsplash License | Home hero |
+| `destinations/mediterranean-coast.jpg` | Sunset over a calm sea and silhouetted coastline | Unsplash, Ruben Aster | owned | Unsplash License | Not currently referenced (home hero until 25 October 2026) |
+| `destinations/antarctica-ice.jpg` | Ice formation across a polar landscape | Unsplash, Torsten Dederichs | owned | Unsplash License | Not currently referenced (Antarctica article cover until 25 October 2026) |
+| `destinations/cruise-dining.jpg` | Dining table with a wide ocean view | Unsplash, Jiayu Chan | owned | Unsplash License | Not currently referenced (home hero until 25 October 2026) |
 | `destinations/japan-temple.jpg` | Japanese temple architecture among bare trees | Unsplash, Rudityas W Anggoro | owned | Unsplash License | Journal archive |
-| `destinations/spain-village.jpg` | Whitewashed Spanish hill village | Unsplash, inma santiago | owned | Unsplash License | Journal archive |
+| `destinations/spain-village.jpg` | Whitewashed Spanish hill village | Unsplash, inma santiago | owned | Unsplash License | Journal archive (also the home hero until 25 October 2026) |
+| `destinations/positano-golden-hour.jpg` | Positano on its cliffs above a calm sea at golden hour | Unsplash, Kristijan Nikodinovski (IuvZ3QXgwXQ) | owned | Unsplash License, verified 25 October 2026 | Home hero, slide 1 |
+| `destinations/varenna-loggia-lake-como.jpg` | Stone loggia of a lakeside villa framing Lake Como, Varenna | Unsplash, Yianni Mathioudakis (gzKf0_sVTxc) | owned | Unsplash License, verified 25 October 2026 | Home hero, slide 2 |
+| `destinations/lake-como-sunset.jpg` | Villa and cypresses beside Lake Como at sunset | Unsplash, Bart Ros (hRAwKkd8rF4) | owned | Unsplash License, verified 25 October 2026 | Home hero, slide 3 |
+| `destinations/antarctica-pastel-bay.jpg` | Still Antarctic bay below snow-covered mountains in pastel light | Unsplash, Tetiana GRY (aj7SvmAZdqY) | owned | Unsplash License, verified 25 October 2026 | Antarctica article cover: home journal teaser, Journal, article |
 
 ## Page heroes
 
@@ -102,6 +107,7 @@ page shows a marked placeholder naming the missing file.
 | `features/luxury-lakeside-villa.jpg` | Lakeside villa at dusk, Lake Como | Unsplash, Emanuel Ekström | owned | Unsplash License | Tailor-made, luxury card |
 | `features/rail-nine-arch-bridge.jpg` | Train on the Nine Arch Bridge, Sri Lanka | Unsplash, llxvisuals | owned | Unsplash License | Tailor-made, tailor-made card |
 | `features/ship-at-sunset.jpg` | Small ship silhouetted at sunset | Unsplash, Tayler Lyons | owned | Unsplash License | About, cruising row |
+| `features/sea-view-room-greece.jpg` | Quiet hotel room with a lamp and an open balcony door onto the sea, Greece | Unsplash, Ruben Aster (QStrN6Pr4wM) | owned | Unsplash License, verified 25 October 2026 | About, Virtuoso row |
 
 ## Brand kit reference imagery
 
@@ -114,12 +120,23 @@ licensed files as the site carousel, re-encoded to WebP at 1600px for the refere
 | `brand-kit/assets/images/antarctica.webp` | Ice formation across a polar landscape | Unsplash, Torsten Dederichs | owned | Unsplash License | Brand kit carousel demo |
 | `brand-kit/assets/images/cruise.webp` | Dining table with a wide ocean view | Unsplash, Jiayu Chan | owned | Unsplash License | Brand kit carousel demo |
 
+## Owner callout round, 25 October 2026
+
+The five photographs marked "verified 25 October 2026" were chosen in the owner's callout round
+(`docs/CALLOUTS-2026-10-25.md`), with the choice delegated to the agent. Each source page was read
+that day and showed "Free to use under the Unsplash License", not Unsplash+. Downloaded at 3200px
+from the public CDN by `imagery-delivery/install_callouts_2026_10_25.py`. Full records are in
+`imagery-delivery/LICENSING.md`.
+
 ## Releases still open
 
 The Unsplash License covers copyright. It does not grant model, property or trademark rights, and
 Unsplash says so. Five files show identifiable places whose source pages record no property
 release: `cruise-dining` (a ship interior), `japan-temple` (Kiyomizudera), `spain-village`
-(Olvera), `amsterdam-canals`, and `european-rail` (Glenfinnan Viaduct). None shows a name, logo,
+(Olvera), `amsterdam-canals`, and `european-rail` (Glenfinnan Viaduct). Three more from 25 October
+2026 join them: `positano-golden-hour` (the town, with people too small to identify),
+`varenna-loggia-lake-como` (a private villa garden, likely Villa Monastero) and `lake-como-sunset`
+(a lakeside villa). None shows a name, logo,
 artwork or competitor branding, and all are used as editorial context rather than to imply a
 partnership. That is the position taken; it has not been reviewed by a solicitor.
 

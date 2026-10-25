@@ -1,6 +1,6 @@
 # Travelling Places brand system
 
-Version 3.0.2 is the canonical source for website and marketing production.
+Version 3.1.0 is the canonical source for website and marketing production.
 
 Travelling Places should feel established, personal, and quietly confident. Belmond is a reference for restraint, image priority, and typographic balance. Do not reproduce Belmond layouts, wording, assets, or proprietary typefaces.
 
@@ -30,7 +30,7 @@ Do not stretch, rotate, recolour, add shadows, place in a container shape, repea
 
 Use only tokens from `brand.tokens.json` or `styles/tokens.css`.
 
-Ground, a warm off-white, is the primary page surface and should occupy most of each page. White is reserved for panels and for text on brand colours. Navy provides structure. Blue identifies actions. Red is limited to focus, validation, and small accents. Red is never a large background.
+Ground, a warm off-white, is the primary page surface and should occupy most of each page. White is reserved for panels and for text on brand colours. Navy provides structure. Night, one step below navy, is the footer's surface and nothing else's, so the footer reads as its own place at the end of every page. Blue identifies actions. Red is limited to focus, validation, and small accents. Red is never a large background.
 
 Brand red is not used for text below 24px on a light surface. It measures 4.13 to 1 on mist and fails AA at small sizes, so small red text uses the separate red text token.
 
@@ -40,6 +40,7 @@ Approved button and text pairs:
 |---|---|---:|---|
 | White | Blue | 6.97 to 1 | Primary action |
 | White | Navy | 12.23 to 1 | Text and controls on dark sections |
+| White | Night | 15.86 to 1 | Footer text and controls |
 | Navy | White | 12.23 to 1 | Headings and secondary action |
 | Ink | White | 14.10 to 1 | Body copy |
 | Muted | White | 6.08 to 1 | Supporting copy |
@@ -68,11 +69,11 @@ Delivery differs by surface, and both are approved. The kit self-hosts woff2 fro
 | Navigation | 14px | 1.4 | Contextual |
 | Buttons | 16px | 1.4 | Contextual |
 | Fine print | 13px | 1.5 | 72ch |
-| Meta label | 12.5px | 1.4 | Contextual |
+| Meta label | 13px | 1.4 | Contextual |
 
-The meta label is the one approved uppercase treatment: 12.5px, weight 600, 0.06em tracking, uppercase, in the body sans. It carries story meta, role labels and roster roles. It is not a heading and never uses a heading element.
+The meta label is a quiet rubric: the fine size, weight 500, sentence case, no tracking, in muted ink. It carries a story's category above its headline and a team member's role. The date sits with the byline below the standfirst, and parts of a byline are separated by space, never by dots. It is not a heading and never uses a heading element. Until 3.1.0 this was a red, tracked, uppercase label; the owner found it read as a filing tag rather than an editorial rubric.
 
-Headings use size and spacing for hierarchy, not bold weight. Keep sentence case. Do not use italics, all-caps headings, eyebrow headings, or decorative section numbering. The meta label sits outside this rule by name, because it is not a heading.
+Headings use size and spacing for hierarchy, not bold weight. Keep sentence case. Do not use italics, all-caps headings, eyebrow headings, or decorative section numbering. Linked headlines respond to the pointer with a hairline underline in their own colour, never a coloured rule.
 
 Journal article titles are editorial headlines rather than display copy, and may run to three lines. The two-line rule governs marketing heroes.
 
@@ -86,7 +87,7 @@ Use the spacing tokens. Do not invent nearby values.
 
 The content shell is 1200px maximum with responsive gutters from 20px to 48px. Reading copy is limited to 720px or 68 characters. Section spacing ranges from 72px to 120px, with a documented 64px floor below 680px, where the standard band would otherwise squeeze the mobile rhythm to a 40px spread. Use 24px between a heading and lead copy, 16px between a heading and ordinary body copy, and 16px between paragraphs.
 
-Images and fields are normally square-cornered. Text buttons use the full pill radius. Avoid floating cards and repeated boxed content where an open layout or ruled list will work.
+Images and fields are normally square-cornered. Text buttons use the full pill radius. Avoid floating cards and repeated boxed content where an open layout will work. Where content is a set of equal promises, white square cards on mist, with no shadow, are allowed. Lists of inclusions are short phrases in navy, two by two, separated by space rather than rules or markers. Supplied partner marks made for light grounds sit on a small white plate sized to their clear space when they appear on navy, never inside a large panel.
 
 ## Buttons and links
 

@@ -253,3 +253,77 @@ committed.
 - Model release: Not needed; one distant swimmer is visible as a silhouette, not identifiable
 - Property release: Not supplied; vessel silhouette, operator not established, no visible name
 - Cost: AUD 0, free download
+
+## Owner callout round, 25 October 2026
+
+Licence review date: 25 October 2026. Each source page was read with a web fetch (unsplash.com now blocks scripted access) and showed `Free to use under the Unsplash License`; none is Unsplash+. Files were downloaded at 3200px from images.unsplash.com by `install_callouts_2026_10_25.py`.
+
+## Home hero, slide 1
+
+- File: `src/assets/images/destinations/positano-golden-hour.jpg`
+- Source: Unsplash, [A view of a town on the edge of a cliff (Positano at golden hour)](https://unsplash.com/photos/IuvZ3QXgwXQ)
+- Creator: Kristijan Nikodinovski
+- Location: Positano, SA, Italy
+- Original size: 6000x4000
+- Licence type: Unsplash License
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed: beach figures are too small to identify
+- Property release: Town of Positano; no name, logo or signage legible at display size
+- Cost: AUD 0, free download
+
+## Home hero, slide 3
+
+- File: `src/assets/images/destinations/lake-como-sunset.jpg`
+- Source: Unsplash, [Sunset over a calm lake with mountains and buildings](https://unsplash.com/photos/hRAwKkd8rF4)
+- Creator: Bart Ros
+- Location: Como, Province of Como, Italy
+- Original size: 7932x4462
+- Licence type: Unsplash License
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people visible
+- Property release: Lakeside villa at a distance; no name or branding shown; no release recorded
+- Cost: AUD 0, free download
+
+## Home hero, slide 2
+
+- File: `src/assets/images/destinations/varenna-loggia-lake-como.jpg`
+- Source: Unsplash, [Potted cacti and flowers on a stone balcony overlooking Lake Como](https://unsplash.com/photos/gzKf0_sVTxc)
+- Creator: Yianni Mathioudakis
+- Location: Varenna, Italy
+- Original size: 7008x4672
+- Licence type: Unsplash License
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people visible
+- Property release: Private villa loggia and garden (likely Villa Monastero, Varenna); used as context, no name or branding shown; no release recorded
+- Cost: AUD 0, free download
+
+## Antarctica article cover
+
+- File: `src/assets/images/destinations/antarctica-pastel-bay.jpg`
+- Source: Unsplash, [A large body of water surrounded by snow covered mountains](https://unsplash.com/photos/aj7SvmAZdqY)
+- Creator: Tetiana GRY
+- Location: Antarctica
+- Original size: 4000x2250
+- Licence type: Unsplash License
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people visible
+- Property release: Not needed, natural landscape
+- Cost: AUD 0, free download
+
+## About, Virtuoso row
+
+- File: `src/assets/images/features/sea-view-room-greece.jpg`
+- Source: Unsplash, [Lamp on table with ocean view at sunset](https://unsplash.com/photos/QStrN6Pr4wM)
+- Creator: Ruben Aster
+- Location: Paralia Melana, Greece
+- Original size: 5743x3821
+- Licence type: Unsplash License
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people visible
+- Property release: Hotel room interior, Paralia Melana; no name, logo or artwork shown
+- Cost: AUD 0, free download

@@ -1,0 +1,36 @@
+---
+/**
+ * The statement that opens a page under its photograph: centred, above everything that follows,
+ * so it reads as the page's thesis rather than its first paragraph (owner callouts CO8 and CO12,
+ * docs/CALLOUTS-2026-10-25.md). One component for every page that opens this way, so the pages
+ * cannot drift apart.
+ *
+ * One serif line leads, the rest follows in the body face. With a heading, the heading is that line.
+ * Without one, the first sentence of Gina's paragraph is set as the statement and the rest runs on
+ * beneath it: her words, re-set, never rewritten. Centred body text is kept to a measure where the
+ * ragged left edge still reads easily (the reference sites centre at about 60 to 70 characters).
+ */
+interface Props {
+  heading?: string;
+  paragraphs: string[];
+  /** id for the heading, when the section is labelled by it. */
+  id?: string;
+}
+const { heading, paragraphs, id } = Astro.props;
+
+let statement: string | undefined;
+let body = paragraphs;
+if (!heading && paragraphs.length) {
+  const match = paragraphs[0].match(/^(.+?[.!?])\s+([\s\S]+)$/);
+  statement = match ? match[1] : paragraphs[0];
+  body = match ? [match[2], ...paragraphs.slice(1)] : paragraphs.slice(1);
+}
+---
+
+<section class="section opening" aria-labelledby={id}>
+  <div class="shell opening-inner">
+    {heading && <h2 id={id}>{heading}</h2>}
+    {statement && <p class="opening-statement" id={id}>{statement}</p>}
+    {body.map((p) => <p class="opening-body">{p}</p>)}
+  </div>
+</section>

@@ -6,8 +6,8 @@ date: 2025-10-02
 readingTime: 5 min read
 author: Sienna Gardner
 authorRole: Travel advisor
-cover: ../../assets/images/destinations/antarctica-ice.jpg
-coverAlt: A wide Antarctic landscape of ice, sea and distant mountains
+cover: ../../assets/images/destinations/antarctica-pastel-bay.jpg
+coverAlt: A still Antarctic bay below snow-covered mountains in soft pastel evening light
 featured: true
 ---
 

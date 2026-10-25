@@ -42,8 +42,9 @@ test.describe('journal', () => {
   test('the feature is the newest article, its text beneath its photograph', async ({ page }) => {
     const feature = page.locator('.journal-lead');
     await expect(feature.locator('h2')).toBeVisible();
-    await expect(feature.locator('.byline')).toHaveText(/^By /);
-    await expect(feature.locator('.story-meta time')).toHaveText(/\d{4}$/);
+    // The date sits with the byline, not in the rubric above the headline (CO14).
+    await expect(feature.locator('.byline-author')).toHaveText(/^By /);
+    await expect(feature.locator('.byline time')).toHaveText(/\d{4}$/);
     const image = await feature.locator('.journal-lead-image').boundingBox();
     const text = await feature.locator('.journal-lead-text').boundingBox();
     expect(text.y).toBeGreaterThanOrEqual(image.y + image.height - 1);

@@ -133,6 +133,28 @@ const validateField = (field) => {
   return !message;
 };
 
+// The footer's inline sign-up is step one: it takes the email address, then opens the dialog with
+// that address filled in for the rest of Gina's fields (CO7). Without <dialog> or without script it
+// stays a mailto form, so the address still reaches the office.
+const footerSignup = document.querySelector('[data-footer-signup]');
+const newsletterDialog = document.querySelector('[data-newsletter-dialog]');
+footerSignup?.addEventListener('submit', (event) => {
+  const email = footerSignup.querySelector('input[type="email"]');
+  if (!validateField(email)) {
+    event.preventDefault();
+    email.focus();
+    return;
+  }
+  if (!newsletterDialog || typeof newsletterDialog.showModal !== 'function') return;
+  event.preventDefault();
+  const dialogEmail = newsletterDialog.querySelector('input[name="email"]');
+  if (dialogEmail) dialogEmail.value = email.value.trim();
+  newsletterDialog.showModal();
+  document.body.classList.add('dialog-open');
+  newsletterDialog.querySelector('input[name="name"]')?.focus();
+  newsletterDialog.addEventListener('close', () => email.focus(), { once: true });
+});
+
 const newsletterLines = (value) => [
   'Hello Travelling Places,',
   '',

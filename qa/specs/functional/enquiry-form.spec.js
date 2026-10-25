@@ -121,23 +121,30 @@ test.describe('enquiry form', () => {
     await expect(page.locator(`${form} button[type="submit"]`)).toBeEnabled();
   });
 
-  // The top bar used to carry the first opener. It was removed at the client's request on
-  // 25 October 2026 (docs/WORK-PLAN.md, change 1), so the footer opener is now the one to test.
-  test('the footer opens the newsletter sign-up with the fields Gina specified', async ({ page }) => {
+  // The footer's inline field is step one since 25 October 2026 (docs/CALLOUTS-2026-10-25.md, CO7):
+  // it asks only for the email address, then the dialog carries it over and asks for the rest of
+  // the fields Gina specified.
+  test('the footer field asks for an email, then opens the sign-up with it filled in', async ({ page }) => {
     await page.goto('/');
-    // The opener is a mailto link until site.js wires the dialog, so wait for the script.
     await waitForScript(page);
-    await page.locator('.footer-newsletter [data-open-newsletter]').click();
+    const field = page.locator('.footer-signup input[type="email"]');
     const dialog = page.locator('[data-newsletter-dialog]');
+
+    await page.locator('.footer-signup button[type="submit"]').click();
+    await expect(field).toHaveAttribute('aria-invalid', 'true');
+    await expect(dialog).toBeHidden();
+
+    await field.fill('traveller@example.com');
+    await page.locator('.footer-signup button[type="submit"]').click();
     await expect(dialog).toBeVisible();
     for (const label of ['Name *', 'Email *', 'Address', 'Phone', 'Opt in for our luxury travel magazine']) {
       await expect(dialog.getByLabel(label)).toBeVisible();
     }
-    await dialog.locator('button[type="submit"]').click();
-    await expect(dialog.getByLabel('Email *')).toHaveAttribute('aria-invalid', 'true');
+    await expect(dialog.getByLabel('Email *')).toHaveValue('traveller@example.com');
+    await expect(dialog.getByLabel('Name *')).toBeFocused();
     await page.keyboard.press('Escape');
     await expect(dialog).toBeHidden();
-    await expect(page.locator('.footer-newsletter [data-open-newsletter]')).toBeFocused();
+    await expect(field).toBeFocused();
   });
 
 });

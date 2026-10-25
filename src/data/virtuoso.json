@@ -1,5 +1,5 @@
 {
-  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From the Virtuoso Membership section of 'Luxury Travel with Travelling Places.docx', laid out in her order. Since 25 October 2026 it is a section of the Luxury page rather than a page of its own (docs/WORK-PLAN.md, change 2). The two benefit titles are editorial.",
+  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From the Virtuoso Membership section of 'Luxury Travel with Travelling Places.docx', laid out in her order. Since 25 October 2026 it is a section of the Luxury page rather than a page of its own (docs/WORK-PLAN.md, change 2). The two benefit titles are editorial. Her closing line (\"There are lots of benefits for our clients through the Virtuoso affiliation.\") was removed on 25 October 2026 at the owner's instruction to keep the text to about today's measure: the two benefits above it already say it (docs/CALLOUTS-2026-10-25.md, CO11).",
   "intro": {
     "heading": "Virtuoso membership",
     "paragraphs": [
@@ -16,7 +16,6 @@
       "body": "Sail on a Virtuoso affiliate cruise line and receive on board credits, an invitation to an exclusive cocktail party or a unique shore excursion."
     }
   ],
-  "closing": "There are lots of benefits for our clients through the Virtuoso affiliation.",
   "whiteLabel": {
     "label": "Some of the wonderful travel opportunities through Virtuoso",
     "url": null,

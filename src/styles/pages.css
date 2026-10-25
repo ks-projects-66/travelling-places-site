@@ -184,15 +184,16 @@
   }
 }
 
-/* --red-text, not --red. At 0.78rem this is small text, and the brand red only reaches
-   4.13:1 on mist once the ground warmed in kit 2.2.0. See brand.tokens.json color.redText. */
+/* The rubric above a headline, and a team member's role. Until 25 October 2026 this was the kit's
+   red, tracked, uppercase label with dot separators; the owner found it read as a filing tag rather
+   than an editorial rubric (docs/CALLOUTS-2026-10-25.md, CO5 and CO14). Magazines set the rubric
+   small and quiet in sentence case above the headline, and move the date down beside the byline. */
 .story-meta,
 .role {
-  color: var(--red-text);
-  font-size: var(--meta-label);
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: var(--tp-type-fine);
+  font-weight: 500;
 }
 
 .home-virtuoso {
@@ -255,36 +256,21 @@
 }
 
 .why-book-reasons {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(2rem, 4vw, 3rem);
-  padding: clamp(2rem, 4vw, 3rem);
-  background: var(--white);
+  padding-top: 0.5rem;
 }
 
-.why-book-group h3 {
-  margin: 0 0 0.5rem;
+.why-book-reasons h3 {
+  margin: 0;
   color: var(--blue-deep);
   font-size: var(--tp-type-subsection-title);
 }
 
-.why-book-group > p {
-  margin: 0 0 1.25rem;
-  color: var(--ink-muted);
+.why-book-reasons .inclusions {
+  margin-top: 1.5rem;
 }
 
-.why-book-group ul {
-  display: grid;
-  gap: 0.85rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.why-book-group li {
-  color: var(--ink);
-  line-height: 1.45;
-  text-wrap: pretty;
+.why-book-reasons .why-book-proof {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
 }
 
 @media (max-width: 1000px) {
@@ -294,12 +280,6 @@
 
   .why-book-intro > p {
     max-width: var(--measure);
-  }
-}
-
-@media (max-width: 600px) {
-  .why-book-reasons {
-    grid-template-columns: 1fr;
   }
 }
 
@@ -409,7 +389,7 @@
 }
 
 .journey-card:hover .journey-card-link {
-  text-decoration-color: var(--red);
+  text-decoration-color: currentColor;
 }
 
 .journey-card:focus-visible {
@@ -448,13 +428,17 @@
   text-decoration: none;
 }
 
-.home-story-copy h3 a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--red);
-  text-underline-offset: 0.3rem;
+/* Linked headlines answer the pointer with a hairline in their own colour, not a red rule
+   (CO14). One rule for every linked headline on the site. */
+.home-story-copy h3 a:hover,
+.journal-lead h2 a:hover {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: currentColor;
+  text-underline-offset: 0.18em;
 }
 
-.home-story-copy > p:not(.story-meta) {
+.home-story-copy > p {
   margin: 0 0 1.5rem;
   color: var(--ink-muted);
 }
@@ -489,16 +473,51 @@
   margin-top: 0;
 }
 
-/* The Tailor-made page opens on Gina's own standfirst, set large, before any heading. */
-/* Gina's standfirst uses the kit's lead role (brand.tokens.json type.lead: 18 to 19px, 1.55). It
-   was set at subsection-title size, 28px over ten lines, in a face variable (--serif) that does not
-   exist, so it fell back to Plex at heading size (POLISH-PLAN B6). */
-.lead-statement p {
-  max-width: 58ch;
+/* Page openings (OpeningStatement.astro, CO8 and CO12). Centred under the hero at a measure the
+   reference sites hold for centred text: A&K centres its statements at 60 to 70 characters. */
+.opening-inner {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+}
+
+/* The heading keeps the kit's section-title line height (1.16); only the longer statement line,
+   which runs to four lines, opens up. */
+.opening-inner h2,
+.opening-statement {
+  max-width: 22ch;
+  margin: 0 0 clamp(1.5rem, 3vw, 2rem);
+  color: var(--blue-deep);
+  font-family: var(--display);
+  font-size: var(--tp-type-section-title);
+  text-wrap: balance;
+}
+
+.opening-statement {
+  max-width: 30ch;
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.35;
+}
+
+.opening-body {
+  max-width: 40rem;
   margin: 0;
   color: var(--ink);
   font-size: var(--tp-type-lead);
-  line-height: 1.55;
+  line-height: 1.75;
+  text-wrap: pretty;
+}
+
+.opening-body + .opening-body {
+  margin-top: 1.1rem;
+}
+
+/* A centred paragraph of eight lines is hard to read on a phone, where every line is short. The
+   statement stays centred; the body aligns left beneath it. */
+@media (max-width: 600px) {
+  .opening-body {
+    text-align: left;
+  }
 }
 
 @media (max-width: 680px) {
@@ -527,10 +546,13 @@
   background: var(--mist);
 }
 
+/* The card's one-line promise reads as the first line of its text, at the lead size in ink. Bold
+   muted grey made it a stray third heading between the title and the copy (CO9). */
 .service-tagline {
-  margin: 0.5rem 0 0;
-  color: var(--ink-muted);
-  font-weight: 600;
+  margin: 0.6rem 0 0;
+  color: var(--ink);
+  font-size: var(--tp-type-lead);
+  line-height: 1.5;
 }
 
 .service-copy > p,
@@ -546,18 +568,31 @@
   font-size: var(--tp-type-body);
 }
 
-/* Lists are hairline rows with no marker (design review, change 4). Without a marker a wrapped
-   line aligns with the first word by itself. Benchmark: the list treatment on belmond.com. */
-.tick-list {
-  margin: 2rem 0 0;
+/* What a service includes: a two-column set of short phrases in navy, with no rules and no
+   markers. Replaced the hairline rows on 25 October 2026: sixteen full-width rules across the
+   service cards read like a form against the photographs (CO9). Space separates the set from the
+   text above it; the colour, not a line, says it is a list. */
+.inclusions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem clamp(1.25rem, 3vw, 2.25rem);
+  margin: 1.75rem 0 0;
   padding: 0;
   list-style: none;
-  border-top: 1px solid var(--line);
 }
 
-.tick-list li {
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--line);
+.inclusions li {
+  color: var(--blue-deep);
+  font-weight: 500;
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+@media (max-width: 520px) {
+  .inclusions {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
 }
 
 /* One text column per section, heading above body, at the reading width, so every paragraph on a
@@ -582,9 +617,99 @@
   font-size: var(--tp-type-lead);
 }
 
+/* Long copy beside its heading: every paragraph at the lead size and one measure, so the column
+   has one right edge (CO10). About 60 characters a line, inside the reference sites' range. */
+.long-copy--even p,
+.long-copy--even p:first-child {
+  max-width: 34rem;
+  font-size: var(--tp-type-lead);
+  line-height: 1.7;
+}
+
+.long-copy--even p + p {
+  margin-top: 1.1rem;
+}
+
 .team-values {
-  color: var(--white);
-  background: var(--blue-deep);
+  background: var(--mist);
+}
+
+.promise-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* White on mist, square, no shadow: the same restraint as the photographs. */
+.promise-card {
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  background: var(--white);
+}
+
+.promise-card h3,
+.proof-band h3 {
+  margin: 0 0 1rem;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-subsection-title);
+}
+
+.promise-card p {
+  margin: 0;
+  color: var(--ink);
+}
+
+/* Proof, set apart from the promises: Gina's four statements as short serif lines beside the
+   heading, two by two (CO13). The same treatment as the credentials under Why book (CO6). */
+.proof-band {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: 1.5rem clamp(2rem, 6vw, 6rem);
+  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.proof-band .placeholder-note,
+.proof-band .proof-note {
+  grid-column: 2;
+  justify-self: start;
+  margin: 0;
+}
+
+.proof-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem clamp(1.25rem, 3vw, 2.25rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.proof-list li {
+  color: var(--blue-deep);
+  font-family: var(--display);
+  font-size: var(--tp-type-lead);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+@media (max-width: 940px) {
+  .promise-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-band {
+    grid-template-columns: 1fr;
+  }
+
+  .proof-band .placeholder-note,
+  .proof-band .proof-note {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .proof-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 .value-grid {
@@ -978,8 +1103,7 @@
   padding-block: clamp(3.5rem, 6vw, 4.5rem);
 }
 
-.closing-cta,
-.team-values {
+.closing-cta {
   padding-block: clamp(6rem, 12vw, 10rem);
 }
 
@@ -1008,29 +1132,9 @@
    positioning elsewhere keeps working.
    --------------------------------------------------------------------------- */
 
-/* The 500px cap in site.css was sized for the contained layout. Left as-is it eats the bleed:
-   the image moves to the edge but does not grow, leaving a dead gap inside its own grid track. */
-.founder-visual {
-  margin-left: calc(-1 * max(var(--gutter), (100vw - var(--shell)) / 2));
-  max-width: calc(500px + max(var(--gutter), (100vw - var(--shell)) / 2));
-}
-
-.founder-visual > img {
-  max-width: none;
-}
-
-/* This block sits after the shared 940px collapse further up the file, so it has to restate
-   the single-column stack: at equal specificity the later rule wins regardless of the media
-   query. Reverting the flip here too, so the image goes back above the copy on a phone. */
-@media (max-width: 940px) {
-
-  .founder-visual {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-  }
-
-}
+/* The founder photograph left the shell to the viewport edge until 25 October 2026. Its width then
+   grew with the screen while its height stayed fixed, which is what zoomed the crop (CO2). It now
+   sits inside the shell like every other image beside text. */
 
 /* ---------------------------------------------------------------------------
    Design review, 27 September 2026: cards, image rows and the journal.
@@ -1122,38 +1226,13 @@
 
 .luxury-virtuoso-mark {
   width: auto;
-  height: 64px;
-  margin-bottom: 2rem;
+  height: 92px;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
 }
 
-.luxury-virtuoso-benefits {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 clamp(1.5rem, 3vw, 2.5rem);
-  margin-top: clamp(2rem, 4vw, 3rem);
-}
-
-.luxury-virtuoso-benefits article {
-  padding-top: 1.25rem;
-  border-top: 1px solid var(--line);
-}
-
-.luxury-virtuoso-benefits h3 {
-  margin: 0 0 0.5rem;
-  color: var(--blue-deep);
-  font-size: var(--tp-type-subsection-title);
-}
-
-.luxury-virtuoso-benefits p {
-  margin: 0;
+.luxury-virtuoso .split-lead > p:not(.luxury-virtuoso-links) {
+  max-width: 30rem;
   color: var(--ink);
-  font-size: var(--tp-type-lead);
-}
-
-/* The general closing line steps back behind the two specific benefits above it. */
-.luxury-virtuoso-closing {
-  margin: clamp(2rem, 4vw, 3rem) 0 0;
-  color: var(--ink-muted);
 }
 
 .luxury-virtuoso-links {
@@ -1161,13 +1240,39 @@
   flex-wrap: wrap;
   align-items: center;
   gap: 1rem 2rem;
-  margin: 1.5rem 0 0;
+  margin: 1.75rem 0 0;
 }
 
-@media (max-width: 680px) {
-  .luxury-virtuoso-benefits {
+/* The benefits start level with the heading, not the mark above it. */
+.luxury-virtuoso .virtuoso-benefits {
+  padding-top: calc(92px + clamp(1.75rem, 3vw, 2.5rem));
+}
+
+@media (max-width: 940px) {
+  .luxury-virtuoso .virtuoso-benefits {
+    padding-top: 0;
+  }
+}
+
+/* A lead column and a content column: the pattern for any section that pairs an introduction with
+   what it introduces (CO10, CO11). Two columns use the width the single left-hand column left
+   empty; on a phone they stack. */
+.split-section {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+  align-items: start;
+  gap: clamp(2.5rem, 7vw, 7rem);
+}
+
+.split-lead h2 {
+  text-wrap: pretty;
+  margin: 0 0 1.25rem;
+  color: var(--blue-deep);
+}
+
+@media (max-width: 940px) {
+  .split-section {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
   }
 }
 
@@ -1177,6 +1282,13 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
+}
+
+/* A portrait photograph in an alternating row: narrower than its column so the row is not twice
+   the height of its neighbours. */
+.image-row--portrait .card-image {
+  width: min(100%, 420px);
+  justify-self: center;
 }
 
 .image-row + .image-row {
@@ -1191,29 +1303,14 @@
   color: var(--blue-deep);
 }
 
-.image-row-panel {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 16 / 9;
-  background: var(--mist);
+.row-mark {
+  display: block;
+  width: auto;
+  height: 64px;
+  margin-bottom: 1.5rem;
 }
 
-.image-row-panel img {
-  width: min(280px, 60%);
-  height: auto;
-}
 
-/* How we work sits on navy, so its hairline list needs light rules. */
-.team-values .tick-list {
-  margin-top: 1rem;
-  border-color: color-mix(in oklch, var(--white) 17%, transparent);
-}
-
-.team-values .tick-list li {
-  color: color-mix(in oklch, var(--white) 70%, var(--blue));
-  border-color: color-mix(in oklch, var(--white) 17%, transparent);
-}
 
 /* Journal: header, the latest feature, then a continuous log of hairline rows. */
 .journal-header {
@@ -1262,11 +1359,6 @@
   text-decoration: none;
 }
 
-.journal-lead h2 a:hover {
-  text-decoration: underline;
-  text-decoration-color: var(--red);
-  text-underline-offset: 0.35rem;
-}
 
 .journal-lead-standfirst {
   margin: 0 0 1.25rem;
@@ -1284,7 +1376,16 @@
   font-size: var(--tp-type-fine);
 }
 
+/* Byline, date and reading time on one line, separated by space rather than dots (CO14). */
 .byline {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.1rem;
+  color: var(--ink-muted);
+}
+
+.byline-author {
+  color: var(--ink);
   font-weight: 600;
 }
 
@@ -1424,10 +1525,38 @@
 
 /* Expertise: the standfirst introduces the cards directly beneath it, so the two sections share
    one gap rather than stacking two full section paddings (about 240px of dead space). */
-.lead-statement + .service-cards {
+.opening + .service-cards {
   padding-top: 0;
 }
 
 .not-found-body {
   max-width: 30rem;
+}
+
+/* Story photographs answer the pointer with a slight scale inside their own frame, the reference
+   sites' treatment (Belmond: 1.01 over 200ms), instead of a coloured rule under the headline (CO14).
+   Only where the photograph has its own wrapper, so no focus outline is clipped. Off under reduced
+   motion. */
+.home-story-image,
+.journal-lead-image {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .home-story-image img,
+  .journal-lead-image img {
+    transition: transform var(--tp-motion-standard) var(--tp-ease);
+  }
+
+  .home-story:hover .home-story-image img,
+  .journal-lead:hover .journal-lead-image img {
+    transform: scale(1.015);
+  }
+}
+
+
+
+/* A hyphenated compound ("tailor-made") stays on one line in a heading. */
+.nowrap {
+  white-space: nowrap;
 }

@@ -93,6 +93,7 @@ function contrast(foreground, background) {
 const requiredPairs = [
   ['white', 'blue'],
   ['white', 'navy'],
+  ['white', 'night'],
   ['navy', 'white'],
   ['ink', 'white'],
   ['muted', 'white'],

@@ -16,9 +16,7 @@ const { post } = Astro.props;
 const { Content } = await render(post);
 
 const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
-const meta = [post.data.category, dateFormat.format(post.data.date), post.data.readingTime]
-  .filter(Boolean)
-  .join(' · ');
+const isoDate = post.data.date.toISOString().slice(0, 10);
 ---
 
 <BaseLayout title={`${post.data.title} | ${site.name}`} description={post.data.standfirst} page="article">
@@ -27,9 +25,14 @@ const meta = [post.data.category, dateFormat.format(post.data.date), post.data.r
       <header class="article-header">
         <div class="shell article-header-inner">
           <a class="back-link" href="/journal/">← Back to the journal</a>
-          <p class="story-meta">{meta}</p>
+          <p class="story-meta">{post.data.category}</p>
           <h1>{post.data.title}</h1>
           <p class="article-standfirst">{post.data.standfirst}</p>
+          <p class="byline">
+            <span class="byline-author">{`By ${post.data.author}`}</span>{' '}
+            <time datetime={isoDate}>{dateFormat.format(post.data.date)}</time>{' '}
+            {post.data.readingTime && <span>{post.data.readingTime}</span>}
+          </p>
         </div>
       </header>
 

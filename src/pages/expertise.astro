@@ -3,6 +3,7 @@ import { getCollection, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CardImage from '../components/CardImage.astro';
+import OpeningStatement from '../components/OpeningStatement.astro';
 
 import expertiseHero from '../assets/images/hero/expertise-mountain-lake.jpg';
 import WhyBook from '../components/WhyBook.astro';
@@ -29,11 +30,7 @@ const rendered = await Promise.all(
       position="center 38%"
     />
 
-    <section class="section lead-statement">
-      <div class="shell">
-        <p>{copy.intro}</p>
-      </div>
-    </section>
+    <OpeningStatement paragraphs={[copy.intro]} />
 
     <section class="section service-cards">
       <div class="shell">
@@ -60,7 +57,7 @@ const rendered = await Promise.all(
               <div class="service-copy">
                 <Body />
               </div>
-              <ul class="tick-list">
+              <ul class="inclusions">
                 {data.points.map((point) => <li>{point}</li>)}
               </ul>
             </article>
@@ -71,9 +68,14 @@ const rendered = await Promise.all(
 
     {copy.sections.map((section, i) => (
       <section class:list={['section', i % 2 === 0 && 'service-detail alt']}>
-        <div class="shell editorial-grid">
-          <h2>{section.heading}</h2>
-          <div class="long-copy">
+        {/* Heading in the lead column, Gina's paragraphs in the second at one size and one measure
+            (CO10). The single left-hand column left the right half of the page empty and stepped
+            from lead to body size mid-section. */}
+        <div class="shell split-section">
+          <div class="split-lead">
+            <h2>{section.heading.split(/(\S+-\S+)/).map((part) => /\S-\S/.test(part) ? <span class="nowrap">{part}</span> : part)}</h2>
+          </div>
+          <div class="long-copy long-copy--even">
             {section.paragraphs.map((p) => <p>{p}</p>)}
           </div>
         </div>

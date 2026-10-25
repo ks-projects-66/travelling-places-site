@@ -1,8 +1,8 @@
 # QA report
 
-Generated 2026-10-25T09:41:32.778Z against brand kit **v3.0.2** on linux, Node v22.22.0.
+Generated 2026-10-25T12:38:53.207Z against brand kit **v3.1.0** on linux, Node v22.22.0.
 
-All automated tests passed. 0 distinct blocking findings, 32 warnings and 23 informational items, from 89 recorded occurrences.
+All automated tests passed. 0 distinct blocking findings, 32 warnings and 23 informational items, from 81 recorded occurrences.
 
 Every failure below is a real defect in the site or a real deviation from the brand kit. Nothing has been masked, no threshold was raised, and no rule was disabled to produce this result.
 
@@ -14,7 +14,7 @@ Every failure below is a real defect in the site or a real deviation from the br
 | `brand` | 48 / 48 | pass |
 | `crossbrowser-firefox` | 15 / 15 | pass |
 | `crossbrowser-webkit` | 15 / 15 | pass |
-| `functional` | 93 / 93 | pass |
+| `functional` | 102 / 102 | pass |
 | `responsive` | 171 / 171 | pass |
 
 
@@ -32,30 +32,30 @@ Warnings, reported not enforced:
 
 | Finding | Detail | Occurrences | Where |
 |---|---|---|---|
-| `token-derived-colour-uncertified` | oklch(0.883521 0.0273314 268.509) on p (a color-mix of tokens; no certified contrast figure) | 9 | 9 routes; desktop-1440 |
-| `token-derived-colour-uncertified` | oklch(0.851756 0.0347718 268.509) on p (a color-mix of tokens; no certified contrast figure) | 9 | 9 routes; desktop-1440 |
-| `token-derived-colour-uncertified` | oklch(0.761755 0.0558531 268.509) on span (a color-mix of tokens; no certified contrast figure) | 9 | 9 routes; desktop-1440 |
-| `token-derived-colour-uncertified` | oklch(0.841168 0.037252 268.509) on p (a color-mix of tokens; no certified contrast figure) | 1 | /who-we-are/; desktop-1440 |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:169 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:172 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/blocks.css:105 Duplicate selector ".newsletter h2", first used at line 99 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:683 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:707 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:406 Disallowed value "underline" for property "text-decoration" (declaration-property-value-disallowed-list) | 1 | site-wide |
-| `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:452 Disallowed value "underline" for property "text-decoration" (declaration-property-value-disallowed-list) | 1 | site-wide |
-| `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:1266 Disallowed value "underline" for property "text-decoration" (declaration-property-value-disallowed-list) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:420 Duplicate selector ".journal-teaser", first used at line 207 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:977 Duplicate selector ".team-roster", first used at line 615 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:988 Duplicate selector ".contact-page", first used at line 732 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:997 Duplicate selector ".service-detail", first used at line 522 (no-duplicate-selectors) | 1 | site-wide |
+| `token-derived-colour-uncertified` | oklch(0.851002 0.0109388 268.882) on p (a color-mix of tokens; no certified contrast figure) | 9 | 9 routes; desktop-1440 |
+| `token-derived-colour-uncertified` | oklch(0.746707 0.0185612 268.882) on h2.footer-heading (a color-mix of tokens; no certified contrast figure) | 9 | 9 routes; desktop-1440 |
+| `token-derived-colour-uncertified` | oklch(0.883521 0.0273314 268.509) on p (a color-mix of tokens; no certified contrast figure) | 1 | /; desktop-1440 |
+| `token-derived-colour-uncertified` | oklch(0.893285 0.0128109 268.546) on p (a color-mix of tokens; no certified contrast figure) | 1 | /; desktop-1440 |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:215 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:218 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
+| `stylelint-declaration-property-value-disallowed-list` | src/styles/blocks.css:292 Disallowed value "underline" for property "text-decoration-line" (declaration-property-value-disallowed-list) | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:498 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:808 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:832 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:386 Disallowed value "underline" for property "text-decoration" (declaration-property-value-disallowed-list) | 1 | site-wide |
+| `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:435 Disallowed value "underline" for property "text-decoration-line" (declaration-property-value-disallowed-list) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:400 Duplicate selector ".journal-teaser", first used at line 208 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1102 Duplicate selector ".team-roster", first used at line 740 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1106 Duplicate selector ".closing-cta", first used at line 223 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1112 Duplicate selector ".contact-page", first used at line 857 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1121 Duplicate selector ".service-detail", first used at line 541 (no-duplicate-selectors) | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/placeholders.css:36 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-stric | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/placeholders.css:45 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-stric | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/site.css:451 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/site.css:635 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/site.css:646 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/site.css:661 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/site.css:672 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/site.css:169 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value | 1 | site-wide |
 | `css-colour-off-palette` | 11 value(s) outside the kit: oklch(18% .03 264 / .74), oklch(18% .03 264 / .54), oklch(18% .03 264 / .18), oklch(18% .03 264 / .44), oklch(18% .03 264 | 1 | site-wide |
-| `css-font-size-off-scale` | 8 value(s) outside the kit: 1.3rem, .84rem, 1.8rem, 1.2rem, 4.4em, .9em, .6875rem, .75rem | 1 | site-wide |
+| `css-font-size-off-scale` | 7 value(s) outside the kit: .84rem, 1.8rem, 1.2rem, 4.4em, .9em, .6875rem, .75rem | 1 | site-wide |
 | `css-radius-unapproved` | 1 value(s) outside the kit: 4px | 1 | site-wide |
 
 
@@ -69,8 +69,8 @@ Warnings:
 | Finding | Detail | Occurrences | Where |
 |---|---|---|---|
 | `container-width-inconsistent` | .shell renders at 1200, 980px on one page | 6 | /journal/looking-south-to-antarctica/; 6 viewports |
-| `container-width-inconsistent` | .shell renders at 1184, 980px on one page | 1 | /journal/looking-south-to-antarctica/; desktop-1280 |
 | `container-width-inconsistent` | .shell renders at 1086, 980px on one page | 1 | /journal/looking-south-to-antarctica/; ipad-air-landscape |
+| `container-width-inconsistent` | .shell renders at 1184, 980px on one page | 1 | /journal/looking-south-to-antarctica/; desktop-1280 |
 | `button-wraps` | a.button.button-outline "Send an enquiry instead" wraps to 2 lines | 1 | /contact/; mobile-320 |
 
 
@@ -113,12 +113,12 @@ These cannot be settled by measurement. A person has to look.
 
 | # | Severity | Finding | Occurrences | Fix |
 |---|---|---|---|---|
-| 1 | warn | `token-derived-colour-uncertified` | 28 | oklch(0.883521 0.0273314 268.509) on p (a color-mix of tokens; no certified contrast figure) |
-| 2 | warn | `stylelint-scale-unlimited/declaration-strict-value` | 10 | src/styles/blocks.css:169 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value) |
+| 1 | warn | `token-derived-colour-uncertified` | 20 | oklch(0.851002 0.0109388 268.882) on p (a color-mix of tokens; no certified contrast figure) |
+| 2 | warn | `stylelint-scale-unlimited/declaration-strict-value` | 10 | src/styles/blocks.css:215 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value) |
 | 3 | warn | `container-width-inconsistent` | 8 | .shell renders at 1200, 980px on one page |
-| 4 | warn | `stylelint-no-duplicate-selectors` | 5 | src/styles/blocks.css:105 Duplicate selector ".newsletter h2", first used at line 99 (no-duplicate-selectors) |
+| 4 | warn | `stylelint-no-duplicate-selectors` | 5 | src/styles/pages.css:400 Duplicate selector ".journal-teaser", first used at line 208 (no-duplicate-selectors) |
 | 5 | warn | `focus-outline-thin` | 3 | button "" focus outline is 2px |
-| 6 | warn | `stylelint-declaration-property-value-disallowed-list` | 3 | src/styles/pages.css:406 Disallowed value "underline" for property "text-decoration" (declaration-property-value-disallowed-list) |
+| 6 | warn | `stylelint-declaration-property-value-disallowed-list` | 3 | src/styles/blocks.css:292 Disallowed value "underline" for property "text-decoration-line" (declaration-property-value-disallowed-list) |
 | 7 | warn | `button-wraps` | 1 | a.button.button-outline "Send an enquiry instead" wraps to 2 lines |
 | 8 | warn | `css-colour-off-palette` | 1 | 11 value(s) outside the kit: oklch(18% .03 264 / .74), oklch(18% .03 264 / .54), oklch(18% .03 264 / .18), oklch(18% .03 264 / .44), oklch(18% .03 264 / .16), #0b111fcc, #0b111fa8, #0b111f80 … |
 | 9 | warn | `css-font-size-off-scale` | 1 | Route these through the ten type tokens rather than ad-hoc rem values. |

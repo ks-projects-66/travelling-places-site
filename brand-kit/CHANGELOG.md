@@ -4,6 +4,26 @@ The version lives in `brand.tokens.json` and in the header of `BRAND.md`. It is 
 name. Between 2.1.0 and 3.0.0 those two files disagreed, and that gap is what let the kit fork from
 itself, so any release that changes a value changes both.
 
+## 3.1.0
+
+From the owner's callout round of 25 October 2026 (`docs/CALLOUTS-2026-10-25.md`). Under the
+owner's lead-and-lag rule the website changed first and this kit records it.
+
+**New colour, night (#18213D).** The footer's surface and nothing else's, one step below navy, so
+the footer is a place of its own rather than one more navy band. White on night is 15.86 to 1 and is
+now a required pair in `brand-check.mjs`.
+
+**The meta label is a quiet rubric.** Sentence case, fine size, weight 500, muted ink, no tracking.
+The date moves to the byline, and nothing in a byline is separated by dots. The red, tracked,
+uppercase label is retired.
+
+**Linked headlines** answer the pointer with a hairline in their own colour; story photographs scale
+very slightly inside their frame.
+
+**Lists and cards.** Inclusions are short navy phrases two by two, with no rules or markers. Equal
+promises may sit on white square cards on mist. Partner marks made for light grounds take a small
+white plate on navy.
+
 ## 3.0.2
 
 **The website carousel is now the home hero, at six seconds, with previous and next buttons.** The
