@@ -1,5 +1,9 @@
 # Notes on the draft privacy policy
 
+**Update, 25 October 2026.** The site now serves its fonts from its own files instead of Google
+Fonts, so Google no longer receives visitors' requests and the Google Fonts paragraph was removed
+from the policy. The Google Fonts rows below are kept as the research record.
+
 Prepared 25 October 2026 for Travelling Places. These notes sit beside `privacy-policy.md`. This is research and drafting support, not legal advice. A person with authority must approve the policy (CLAUDE.md, WORK-PLAN Q11).
 
 ## 1. Is the business legally required to have a privacy policy?

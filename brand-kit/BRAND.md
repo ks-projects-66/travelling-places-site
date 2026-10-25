@@ -54,7 +54,7 @@ Libre Baskerville Regular is used for display, page headings, section headings, 
 
 IBM Plex Sans is used for body copy, navigation, buttons, forms, captions, and fine print. Use weights 400, 500, and 600 only.
 
-Delivery differs by surface, and both are approved. The kit self-hosts woff2 from `fonts/` through `styles/fonts.css`, so the reference page stands alone. The website loads both faces from Google Fonts. Whichever route is used, request weight 400 for Libre Baskerville only; the kit permits no other weight of the display face.
+Delivery differs by surface, and both are approved. The kit self-hosts woff2 from `fonts/` through `styles/fonts.css`, so the reference page stands alone. Since 25 October 2026 the website uses the same self-hosted files, preloaded, in place of Google Fonts. Whichever route is used, request weight 400 for Libre Baskerville only; the kit permits no other weight of the display face.
 
 | Role | Size | Line height | Maximum line width |
 |---|---|---:|---|

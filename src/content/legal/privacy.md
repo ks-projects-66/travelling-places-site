@@ -33,7 +33,7 @@ Booking a call. <span class="placeholder-note" data-placeholder>TODO: keep only 
 
 Emails to us. If you email us, we receive your email address and whatever you choose to write or attach.
 
-Technical information. When you visit the website, the services that host it and supply its fonts receive your IP address, browser type and the pages and files your browser asks for. This happens automatically.
+Technical information. When you visit the website, the service that hosts it receives your IP address, browser type and the pages and files your browser asks for. This happens automatically.
 
 ## How we use it
 
@@ -56,13 +56,12 @@ We use the following services to run the website. Each receives only what it nee
 - Genesys Marketing (newsletter). <span class="placeholder-note" data-placeholder>TODO: keep only once Genesys is connected. Confirm the company's legal name, and where it stores data.</span> Newsletter details are held in Genesys Marketing's email system. Until it is connected, sign-ups arrive by email and we add them by hand.
 - Cloudflare (website hosting). <span class="placeholder-note" data-placeholder>TODO: confirm Cloudflare Pages is the live host at launch.</span> Cloudflare delivers the website and sees visitors' IP addresses and request details in its logs. Cloudflare says it primarily stores information in the United States and the European Economic Area, and may access it from around the world.
 - Vercel (preview hosting). <span class="placeholder-note" data-placeholder>TODO: delete this line if Vercel is not serving the public website at launch.</span> Vercel sees the same technical information as a host does. Vercel says it processes information in the United States and other places where it operates.
-- Google Fonts (typefaces). Our pages load fonts from Google. Your browser sends Google your IP address, browser details and the page address. Google says the Fonts service does not set cookies.
 
 We may also disclose information if the law requires it. We do not give your information to anyone else without your consent. <span class="placeholder-note" data-placeholder>TODO: owner to confirm, including whether any enquiry details are passed on to suppliers such as cruise lines, and whether the magazine publisher receives sign-up details.</span>
 
 ## Overseas disclosure
 
-Yes, some of your information is likely to go overseas, because the services above are run by overseas companies. The likely countries are the United States and, for Cloudflare, countries in the European Economic Area. Cloudflare and Google run networks in many countries, so a request from your browser may be handled in another country, including Australia. <span class="placeholder-note" data-placeholder>TODO: add the countries for Web3Forms and Genesys Marketing once confirmed, and Microsoft 365 if its data is held outside Australia.</span>
+Yes, some of your information is likely to go overseas, because the services above are run by overseas companies. The likely countries are the United States and, for Cloudflare, countries in the European Economic Area. Cloudflare runs a network in many countries, so a request from your browser may be handled in another country, including Australia. <span class="placeholder-note" data-placeholder>TODO: add the countries for Web3Forms and Genesys Marketing once confirmed, and Microsoft 365 if its data is held outside Australia.</span>
 
 ## Keeping it secure and how long we keep it
 

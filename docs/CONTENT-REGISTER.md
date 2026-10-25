@@ -113,7 +113,7 @@ Inventory for whoever writes the policy (C2). Checked against the built site on 
 | Enquiry form | Name, email, phone, timing, party, journey notes | Web3Forms to the office inbox once a key is set; until then, the visitor's own mail app | Not connected |
 | Newsletter form | Name, email, postal address, phone, magazine opt-in | Same route as the enquiry form until Genesys is connected | Not connected. Postal address needs covering in the policy |
 | Calendly | Name, email, booking details | Calendly (third party, its own cookies) once embedded | Not connected |
-| Web fonts | Visitor IP address and browser details | Google Fonts (`fonts.googleapis.com`, `fonts.gstatic.com`) on every page | Live |
+| Web fonts | Nothing beyond the host | Self-hosted from `/brand-kit/fonts/` since 25 October 2026; Google Fonts removed | Live |
 | Hosting | Standard request logs | Vercel for review; Cloudflare Pages is the intended launch host | Live |
 | Analytics | None | No analytics script is present | Confirmed absent |
 | Outbound links | Nothing collected by the site | Instagram, Facebook, Virtuoso, ATIA, CLIA, Google Maps, tmnews.com.au | Live |

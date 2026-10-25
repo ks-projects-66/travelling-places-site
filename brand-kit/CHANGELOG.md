@@ -17,6 +17,9 @@ The primary action is renamed from "Plan a journey" to "Start planning" in `BRAN
 header and button partials, on the owner's instruction that the main action carries one label
 everywhere and goes to the Contact form.
 
+`BRAND.md` typography records that the website now uses the kit's self-hosted fonts, preloaded,
+instead of Google Fonts. No face, weight or size changed.
+
 ## 3.0.1
 
 **The dark mark's white keyline is now continuous.** It was missing on the top of the hair and the

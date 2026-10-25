@@ -92,7 +92,7 @@ owner's answers.
 
 ### Phase 1: Structure (client changes 1 to 3, plus the menu bug)
 
-**Done 25 October 2026.** All automated QA green (412 tests); visual baselines not regenerated, by plan, until the end of Phase 4.
+**Done 25 October 2026.** All automated QA green; visual baselines not regenerated, by plan, until the end of Phase 4.
 
 | Task | Files | Notes |
 |---|---|---|
@@ -105,6 +105,8 @@ owner's answers.
 
 ### Phase 2: Home page sections (client changes 4 to 7)
 
+**Done 25 October 2026** (`b24558c`).
+
 | Task | Notes |
 |---|---|
 | Two feature cards | Cruising (`features/cruise-river-lyon.jpg` or `ship-at-sunset.jpg`), Luxury travel (`features/luxury-lakeside-villa.jpg`). Text beneath, 4:5 or 3:2 per `DESIGN.md`. Cruising link per Q5; Luxury to `/luxury/` (Q3). Remove the four-row list |
@@ -114,6 +116,8 @@ owner's answers.
 | One main action | "Start planning", navigating to `/contact/`, everywhere (Q13). `EnquiryDialog.astro` is retired. Phone number is the only secondary |
 
 ### Phase 3: Secondary pages
+
+**Done 25 October 2026** (`b24558c`). The privacy policy is a draft awaiting the owner's facts and a person's approval (`docs/PRIVACY-NOTES.md`).
 
 | Page | Work |
 |---|---|

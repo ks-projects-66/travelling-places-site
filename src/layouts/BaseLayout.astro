@@ -70,12 +70,14 @@ const structuredData = {
     <meta property="og:image:height" content="630" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Libre+Baskerville:wght@400&display=swap"
-      rel="stylesheet"
-    />
+    {/* Self-hosted brand fonts, from the kit as published at /brand-kit/ (BRAND.md approves
+        either delivery route). Since 25 October 2026, in place of Google Fonts: preloading the two
+        files means the serif is usually ready at first paint, which removed a layout shift on the
+        plain-opening pages (the heading reflowed by a line when Libre Baskerville swapped in), and
+        visitors' requests no longer go to Google. */}
+    <link rel="preload" href="/brand-kit/fonts/LibreBaskerville-Regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/brand-kit/fonts/IBMPlexSans-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/brand-kit/styles/fonts.css" />
 
     <title>{title}</title>
     <script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline />
