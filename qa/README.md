@@ -68,10 +68,11 @@ clip` plus two deliberately full-bleed images would otherwise trip it on every p
 
 ## Visual baselines
 
-**The current references are not approved.** Read `visual/BASELINE-STATUS.md` before trusting them.
-A first baseline records what was there, defects included; it is not evidence the design is right.
+**The current references were approved by the owner on 25 October 2026**, after the callout round.
+Read `visual/BASELINE-STATUS.md` for how. A baseline records what was there, defects included;
+approval says a person looked and accepted it, not that nothing can be improved.
 
-47 images, 11.7MB: every component at three viewports, plus each page above the fold at 390px.
+44 images, 9.2MB: every component at three viewports, plus each page above the fold at 390px.
 Full-page captures across the matrix were measured and rejected at roughly 130MB of committed
 binaries, because this site is photography-led and a full-document PNG runs 2.4MB at 1440. Page
 geometry is covered by the responsive suite instead, which audits nine routes at all nineteen

@@ -143,9 +143,9 @@ In order: `typeset` (B6, B7: kit roles only, 68-character measure, heading level
 fails by construction until a person approves new ones. Lighthouse: 100 on every mobile route,
 layout shift 0 everywhere. What stands between this branch and launch:
 
-1. **Owner:** review the `visual-references-for-review` artifact from that run against the Vercel
-   preview; if they are right, commit them with `node qa/visual/approve.mjs --i-have-reviewed-the-diffs`
-   (`qa/README.md`). Never by an agent.
+1. **Done 25 October 2026.** The owner reviewed the callout round's before-and-after captures and
+   approved the baselines; they were generated on Ubuntu 24.04 and committed with `approve.mjs`
+   on that instruction (`qa/visual/BASELINE-STATUS.md`).
 2. **Gina:** the content register rows still open (C11 to C16, C18 to C24) and the privacy facts
    in `docs/PRIVACY-NOTES.md`; a person then approves the policy.
 3. **Accounts, when ready (Q12):** Web3Forms key, Genesys, Calendly. The site works without them.
