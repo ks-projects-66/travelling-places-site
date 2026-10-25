@@ -43,6 +43,11 @@ Use the supplied team and founder photography as the primary visual story. Keep 
 
 Use one restrained first-load sequence and tactile hover/focus feedback. Respect `prefers-reduced-motion` and never hide content behind animation.
 
+Pages cross-fade into each other at `--tp-motion-standard` (220ms) on `--tp-ease`, added 25 October
+2026. It is the browser's native cross-document view transition, declared in `site.css`, not
+Astro's client router, so every page is still an ordinary load. It is off under reduced motion and
+absent in browsers without support, where navigation is the plain cut it was before.
+
 ## Imagery direction
 
 Reference: `belmond.com`. The visual system is what is being referenced, not the photographs.

@@ -979,6 +979,25 @@ blockquote {
   }
 }
 
+/*
+ * Page-to-page cross-fade in place of the hard cut. Native cross-document view transitions, not
+ * Astro's ClientRouter: the router would swap pages client-side and change when module scripts
+ * run, and site.js and the QA suite both rely on an ordinary page load. Browsers without support
+ * navigate exactly as before. Gated on no-preference because the reduced-motion reset below
+ * matches elements, and the ::view-transition pseudo-elements are not elements it reaches.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--tp-motion-standard);
+  animation-timing-function: var(--ease);
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
