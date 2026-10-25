@@ -40,8 +40,8 @@
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(to top, oklch(18% 0.03 264 / 0.72) 0, oklch(18% 0.03 264 / 0.5) 32%, oklch(18% 0.03 264 / 0.14) 62%, transparent 82%),
-    linear-gradient(to right, oklch(18% 0.03 264 / 0.38) 0, oklch(18% 0.03 264 / 0.12) 48%, transparent 72%);
+    linear-gradient(to top, oklch(18% 0.03 264 / 0.74) 0, oklch(18% 0.03 264 / 0.54) 34%, oklch(18% 0.03 264 / 0.18) 64%, transparent 84%),
+    linear-gradient(to right, oklch(18% 0.03 264 / 0.44) 0, oklch(18% 0.03 264 / 0.16) 50%, transparent 74%);
   content: "";
   pointer-events: none;
 }
@@ -517,8 +517,12 @@
 }
 
 .service-copy > p,
+/* The kit's measure is 68 characters (BRAND.md). In IBM Plex Sans the ch unit, the width of a
+   zero, is narrower than an average character, so 68ch rendered 90 to 95 characters a line. Rem
+   widths measured against Plex hold about 68 to 72: 33rem at this 17px size. Same correction on .legal-copy,
+   .intro-detail and .article-prose. */
 .long-copy p {
-  max-width: 68ch;
+  max-width: 33rem;
   color: var(--ink-muted);
   font-size: 1.08rem;
 }
@@ -663,7 +667,7 @@
 /* Body copy is IBM Plex Sans (BRAND.md typography: Libre Baskerville is for display and headings
    only). The article body was set in the display face (POLISH-PLAN B6). */
 .article-prose {
-  max-width: 68ch;
+  max-width: 34rem;
   color: var(--ink);
   font-family: var(--sans);
   font-size: clamp(1.06rem, 1.4vw, 1.125rem);
@@ -1344,7 +1348,7 @@
    --------------------------------------------------------------------------- */
 
 .legal-copy {
-  max-width: var(--measure);
+  max-width: 31rem;
 }
 
 .legal-copy h2 {
