@@ -80,7 +80,7 @@ test.describe('404', () => {
     await expect(page.locator('h1')).toContainText('moved on');
     await expect(page.locator('.hero-actions a.button')).toHaveAttribute('href', '/expertise/');
     const links = await page.locator('.hero-actions a.text-link').evaluateAll((els) => els.map((e) => e.getAttribute('href')));
-    expect(links).toEqual(['/journal/', '/']);
+    expect(links).toEqual(['/journal/']);
   });
 
   test('an unknown path is served the 404 page', async ({ page }) => {
@@ -94,15 +94,19 @@ test.describe('404', () => {
 // everywhere, and it goes to the Contact page (docs/WORK-PLAN.md, Q13). The newsletter dialog,
 // which shares the dialog styling, is covered in enquiry-form.spec.js.
 test.describe('main action', () => {
-  test('the header call to action is Start planning, and it goes to Contact', async ({ page }) => {
+  // It lands on the form itself, not on Contact's opening photograph: the form started 1,154px
+  // down a 1440x900 screen when the action went to the top of the page (re-critique, P2).
+  test('the header call to action is Start planning, and it lands on the form', async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/');
     const cta = page.locator('[data-nav] a.button');
     await expect(cta).toHaveText('Start planning');
-    await expect(cta).toHaveAttribute('href', '/contact/');
+    await expect(cta).toHaveAttribute('href', '/contact/#enquiry');
     await cta.click();
-    await expect(page).toHaveURL(/\/contact\/$/);
-    await expect(page.locator('[data-enquiry-form]')).toHaveCount(1);
+    await expect(page).toHaveURL(/\/contact\/#enquiry$/);
+    const form = page.locator('[data-enquiry-form]');
+    await expect(form).toHaveCount(1);
+    await expect(form).toBeInViewport();
   });
 
   test('no page renders the retired enquiry dialog', async ({ page }) => {
@@ -113,12 +117,15 @@ test.describe('main action', () => {
     }
   });
 
+  // Buttons that take a visitor to Contact from another page. On Contact itself, the Calendly
+  // placeholder's "Send an enquiry instead" jumps down the same page to the form; it is an
+  // in-page alternative to booking a call, not the site's main action, so it is not held to it.
   test('every button to Contact carries the one label', async ({ page }) => {
     await page.setViewportSize(viewport);
-    for (const route of ROUTES) {
+    for (const route of ROUTES.filter((r) => r !== '/contact/')) {
       await page.goto(route);
       const labels = await page
-        .locator('a.button[href="/contact/"]')
+        .locator('a.button[href^="/contact/"]')
         .evaluateAll((els) => els.map((el) => el.textContent.trim()));
       for (const label of labels) expect(label, `on ${route}`).toBe('Start planning');
     }

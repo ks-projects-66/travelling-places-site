@@ -33,13 +33,17 @@ const socials = [
       <ul class="trust-marks">
         {memberships.map((m) => {
           const img = markFor(m.image);
+          // stripHeight evens out optical size: the Virtuoso and Alatus files carry wide white
+          // margins and light wordmarks, so at one shared height they read half the size of ATIA
+          // and CLIA. The artwork itself is untouched.
+          const style = `--mark-h: ${m.stripHeight ?? 56}px`;
           return (
-            <li>
+            <li style={style}>
               {m.url
                 ? <a href={m.url} target="_blank" rel="noreferrer" aria-label={`${m.alt} (opens in a new tab)`}>
-                    <Image src={img} alt="" height={56} densities={[1, 2]} loading="lazy" />
+                    <Image src={img} alt="" height={m.stripHeight ?? 56} densities={[1, 2]} loading="lazy" />
                   </a>
-                : <Image src={img} alt={m.alt} height={56} densities={[1, 2]} loading="lazy" />}
+                : <Image src={img} alt={m.alt} height={m.stripHeight ?? 56} densities={[1, 2]} loading="lazy" />}
             </li>
           );
         })}

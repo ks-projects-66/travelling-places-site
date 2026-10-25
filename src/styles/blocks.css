@@ -52,7 +52,7 @@
   display: block;
   width: auto;
   max-width: 100%;
-  height: 56px;
+  height: var(--mark-h, 56px);
   object-fit: contain;
 }
 
@@ -65,13 +65,20 @@
   opacity: 0.8;
 }
 
-@media (max-width: 600px) {
+/* Tablet and phone: two by two, so no mark is left alone on a second row. */
+@media (max-width: 940px) {
   .trust-marks {
-    gap: 1.25rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    justify-items: center;
+    gap: 1.5rem clamp(2rem, 8vw, 4rem);
   }
+}
 
+@media (max-width: 600px) {
   .trust-marks img {
-    height: 44px;
+    height: calc(var(--mark-h, 56px) * 0.78);
   }
 }
 
@@ -91,7 +98,7 @@
 
 .newsletter h2 {
   margin: 0.35rem 0 0;
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: var(--tp-type-subsection-title);
   color: var(--white);
 }
 

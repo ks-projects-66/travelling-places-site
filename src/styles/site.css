@@ -197,7 +197,7 @@ p {
 .site-nav > a:not(.button) {
   position: relative;
   color: var(--blue-deep);
-  font-size: 0.92rem;
+  font-size: var(--tp-type-navigation);
   font-weight: 500;
   text-decoration: none;
 }
@@ -361,7 +361,7 @@ p {
 .virtuoso-copy > p {
   max-width: 41rem;
   color: color-mix(in oklch, var(--white) 78%, var(--blue));
-  font-size: 1.12rem;
+  font-size: var(--tp-type-lead);
 }
 
 .benefit-list {
@@ -398,13 +398,22 @@ p {
   margin: 0 auto 2.5rem;
 }
 
-.virtuoso-panel p {
+.virtuoso-benefit h3 {
+  margin: 1.5rem 0 0.4rem;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-subsection-title);
+}
+
+.virtuoso-benefit + .virtuoso-benefit {
+  padding-top: 0.25rem;
+}
+
+.virtuoso-benefit p {
   margin: 0;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--line);
-  font-family: var(--display);
-  font-size: clamp(1.25rem, 2vw, 1.65rem);
-  line-height: 1.45;
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: var(--tp-type-body);
+  line-height: 1.6;
 }
 
 .about-grid {
@@ -444,7 +453,7 @@ p {
 }
 
 .founder-caption span {
-  font-size: 0.84rem;
+  font-size: var(--tp-type-fine);
 }
 
 .about-copy h2 {
@@ -455,7 +464,7 @@ p {
 .about-lead {
   max-width: 40rem;
   color: var(--ink);
-  font-size: 1.25rem;
+  font-size: var(--tp-type-lead);
 }
 
 .about-copy > p:not(.about-lead) {
@@ -470,7 +479,7 @@ blockquote {
   border-top: 1px solid var(--red);
   color: var(--blue-deep);
   font-family: var(--display);
-  font-size: clamp(1.35rem, 2.3vw, 1.9rem);
+  font-size: var(--tp-type-subsection-title);
   line-height: 1.4;
 }
 
@@ -560,7 +569,7 @@ blockquote {
   max-width: 35rem;
   margin-bottom: 2rem;
   color: var(--ink-muted);
-  font-size: 1.12rem;
+  font-size: var(--tp-type-lead);
 }
 
 .contact-details address {
@@ -668,7 +677,7 @@ blockquote {
 
 .enquiry-form label span {
   color: var(--blue-deep);
-  font-size: 0.86rem;
+  font-size: var(--tp-type-fine);
   font-weight: 600;
 }
 
@@ -725,7 +734,7 @@ blockquote {
 
   .menu-toggle-label {
     color: var(--blue-deep);
-    font-size: 0.85rem;
+    font-size: var(--tp-type-navigation);
     font-weight: 600;
   }
 
@@ -780,10 +789,6 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
-  .intro-detail {
-    grid-column: 2;
-  }
-
   .virtuoso-copy h2,
   .about-copy h2 {
     max-width: 15ch;
@@ -812,10 +817,6 @@ blockquote {
   .hero-actions {
     align-items: flex-start;
     flex-direction: column;
-  }
-
-  .intro-detail {
-    grid-column: auto;
   }
 
   .virtuoso-panel {

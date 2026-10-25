@@ -52,6 +52,7 @@ see on screen gets fixed, and a gap recorded only in a register gets shipped.
 | C21 | Luxury theme copy | `src/data/luxury.json` → `themes` | Gina's sign-off, or her edit | Three short blurbs from the Claude Design review replaced her seven Luxury sections on Karim's instruction of 28 September 2026. They are draft copy, not her words. "Peace of mind" states comprehensive insurance and "Privileged access" states in-house events: both come from her original sections, so confirm they still hold. |
 | C22 | Larger team photograph | `src/assets/images/team/team-outside.jpg` | The original file at 2000px or wider | Now the About hero (25 October 2026). The supplied file is 1037px wide, so it is upscaled and slightly soft at 1440px. Same request for `team-office.jpg` (904px). |
 | C23 | Cruising card destination | `src/data/home.json` → `journeys.cards[0].href` | The link the owner supplies | The home Cruising card links to the cruising section of Tailor-made for now (`hrefStatus: placeholder`). The owner is getting the intended link (docs/WORK-PLAN.md, Q5). |
+| C24 | What happens after an enquiry | `src/data/contact.json` | One or two sentences from Gina | The re-critique found nothing on Contact says what happens after "Prepare my enquiry" (who replies, how soon). Not written for her: it is a service promise. |
 
 ## Deployment
 

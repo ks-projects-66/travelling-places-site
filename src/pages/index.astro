@@ -7,6 +7,7 @@ import CardImage from '../components/CardImage.astro';
 import WhyBook from '../components/WhyBook.astro';
 import site from '../data/site.json';
 import home from '../data/home.json';
+import virtuoso from '../data/virtuoso.json';
 
 import ginaPortrait from '../assets/images/team/gina-storey.webp';
 import virtuosoMark from '../assets/images/memberships/virtuoso-member.png';
@@ -44,7 +45,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
   <main id="main">
     <PageHero lead={home.hero.lead} accent={home.hero.accent} lede={home.hero.lede} slides={heroSlides}>
       <div class="hero-actions">
-        <a class="button button-blue" href="/contact/" data-carousel-hold>{home.hero.primary}</a>
+        <a class="button button-blue" href="/contact/#enquiry" data-carousel-hold>{home.hero.primary}</a>
         <a class="text-link text-link--onDark" href="/expertise/" data-carousel-hold>{home.hero.secondary}</a>
       </div>
     </PageHero>
@@ -92,9 +93,17 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
           <p>{home.virtuoso.body}</p>
           <a class="button button-white" href="/luxury/#virtuoso">{home.virtuoso.button}</a>
         </div>
+        {/* Gina's two benefits, so the band says what membership does for a client rather than
+            only that it exists (docs/REFERENCES.md: keep the band only if it states a concrete
+            benefit). Same text as the Virtuoso section of Luxury. */}
         <div class="virtuoso-panel">
           <Image src={virtuosoMark} alt="Virtuoso member" width={376} densities={[1, 2]} loading="lazy" />
-          <p>{home.virtuoso.panel}</p>
+          {virtuoso.benefits.map((benefit) => (
+            <div class="virtuoso-benefit">
+              <h3>{benefit.title}</h3>
+              <p>{benefit.body}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -144,6 +153,6 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
       </section>
     )}
 
-    <WhyBook />
+    <WhyBook variant="full" />
   </main>
 </BaseLayout>

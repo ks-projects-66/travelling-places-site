@@ -356,7 +356,6 @@ collections:
               - { name: heading, label: Heading, widget: string }
               - { name: body, label: Text, widget: text }
               - { name: button, label: Button, widget: string }
-              - { name: panel, label: Panel line, widget: string }
           - name: founder
             label: Founder
             widget: object

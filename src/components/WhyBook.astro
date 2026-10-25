@@ -10,7 +10,31 @@
  */
 import copy from '../data/why-book.json';
 import site from '../data/site.json';
+
+interface Props {
+  /**
+   * `full` is Gina's whole band, on the home page. `short` ends every other page with her
+   * contact line and the one action. Since 25 October 2026: the full band closed six of nine
+   * pages, sat directly under "Why book a tailor-made holiday?" on Expertise and repeated About's
+   * financial-security claims, so a visitor met the same checklist at the end of every page
+   * (re-critique, P2; docs/POLISH-PLAN.md D1).
+   */
+  variant?: 'full' | 'short';
+}
+const { variant = 'short' } = Astro.props;
 ---
+
+{variant === 'short' ? (
+<section class="section closing-cta why-book why-book--short" aria-label="Start planning">
+  <div class="shell why-book-short">
+    <p class="why-book-contact">
+      {copy.contactLead} <a href={site.phoneLink}>{site.phone}</a> {copy.contactMiddle}{' '}
+      <a href={`mailto:${site.email}`}>{site.email}</a>
+    </p>
+    <a class="button button-blue" href="/contact/#enquiry">{copy.cta}</a>
+  </div>
+</section>
+) : (
 
 <section class="section closing-cta why-book" aria-labelledby="why-book-heading">
   <div class="shell why-book-grid">
@@ -21,7 +45,7 @@ import site from '../data/site.json';
         {copy.contactLead} <a href={site.phoneLink}>{site.phone}</a> {copy.contactMiddle}{' '}
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </p>
-      <a class="button button-blue" href="/contact/">{copy.cta}</a>
+      <a class="button button-blue" href="/contact/#enquiry">{copy.cta}</a>
     </div>
     <div class="why-book-reasons">
       {copy.lists.map((list) => (
@@ -36,3 +60,4 @@ import site from '../data/site.json';
     </div>
   </div>
 </section>
+)}

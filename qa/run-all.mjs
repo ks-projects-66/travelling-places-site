@@ -33,8 +33,11 @@ const run = (name, cmd, args, tolerate = []) => {
   return { name, code, ok };
 };
 
-// A stale findings directory would carry yesterday's defects into today's report.
-rmSync(join(RAW, 'findings'), { recursive: true, force: true });
+// A stale findings directory would carry yesterday's defects into today's report. The same goes
+// for raw result files: a Playwright run outside this script (a single spec, a rerun) writes
+// playwright-adhoc.json here, and the aggregate then counted those tests on top of this run's,
+// reporting 186 functional tests where 93 ran. Start every full run from an empty folder.
+rmSync(RAW, { recursive: true, force: true });
 mkdirSync(RAW, { recursive: true });
 
 const pw = ['playwright', 'test', '--config', 'qa/playwright.config.js'];

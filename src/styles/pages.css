@@ -62,7 +62,7 @@
   max-width: 40rem;
   margin: 0;
   color: var(--ink-muted);
-  font-size: clamp(1.12rem, 1.8vw, 1.38rem);
+  font-size: var(--tp-type-lead);
 }
 
 /* Both tones carry light text. Over a photograph the accent holds a tint of the brand red
@@ -303,6 +303,26 @@
   }
 }
 
+/* The short close on every page but home: Gina's contact line and the one action, on one row. */
+.closing-cta.why-book--short {
+  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+}
+
+.why-book-short {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem 3rem;
+}
+
+.why-book-short .why-book-contact {
+  max-width: 40rem;
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--tp-type-lead);
+}
+
 /* --- Home: section openings, journeys, journal --- */
 
 /* A section opening is the heading with one plain line beneath it, at the reading width. The
@@ -481,20 +501,17 @@
   line-height: 1.55;
 }
 
-@media (max-width: 1100px) {
-  .why-book-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .why-book-intro {
-    grid-column: 1 / -1;
-  }
-}
-
 @media (max-width: 680px) {
-  .why-book-grid,
   .value-grid.value-grid--pairs {
     grid-template-columns: 1fr;
+  }
+
+  /* Stacked, each promise is divided from the next by a top rule only. The two-column side and
+     edge rules otherwise survived on the odd cells, boxing "Honest pricing" alone. */
+  .value-grid.value-grid--pairs article {
+    border-right: 0;
+    border-left: 0;
+    padding-inline: 0;
   }
 
   .value-grid--pairs article:nth-child(n + 2) {
@@ -519,12 +536,14 @@
 .service-copy > p,
 /* The kit's measure is 68 characters (BRAND.md). In IBM Plex Sans the ch unit, the width of a
    zero, is narrower than an average character, so 68ch rendered 90 to 95 characters a line. Rem
-   widths measured against Plex hold about 68 to 72: 33rem at this 17px size. Same correction on .legal-copy,
+   widths measured against Plex hold about 68: 30rem at body size, 33rem at lead size. Sizes are
+   the kit's body and lead roles; 1.08rem and 1.3rem were invented values (re-critique, P2), and
+   long copy is ink rather than muted grey, which read light for older eyes. Same correction on .legal-copy,
    .intro-detail and .article-prose. */
 .long-copy p {
-  max-width: 33rem;
-  color: var(--ink-muted);
-  font-size: 1.08rem;
+  max-width: 30rem;
+  color: var(--ink);
+  font-size: var(--tp-type-body);
 }
 
 /* Lists are hairline rows with no marker (design review, change 4). Without a marker a wrapped
@@ -558,8 +577,9 @@
 }
 
 .long-copy p:first-child {
+  max-width: 33rem;
   color: var(--ink);
-  font-size: 1.3rem;
+  font-size: var(--tp-type-lead);
 }
 
 .team-values {
@@ -620,7 +640,7 @@
 .article-standfirst {
   max-width: 44rem;
   color: var(--ink-muted);
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: var(--tp-type-lead);
 }
 
 .article-hero-image {
@@ -653,7 +673,7 @@
 .article-body aside span {
   margin: 0;
   color: var(--ink-muted);
-  font-size: 0.85rem;
+  font-size: var(--tp-type-fine);
 }
 
 .article-body aside strong {
@@ -667,10 +687,10 @@
 /* Body copy is IBM Plex Sans (BRAND.md typography: Libre Baskerville is for display and headings
    only). The article body was set in the display face (POLISH-PLAN B6). */
 .article-prose {
-  max-width: 34rem;
+  max-width: 36rem;
   color: var(--ink);
   font-family: var(--sans);
-  font-size: clamp(1.06rem, 1.4vw, 1.125rem);
+  font-size: var(--tp-type-lead);
   line-height: 1.75;
 }
 
@@ -692,7 +712,7 @@
   margin: 3.5rem 0;
   padding: 2rem 0;
   border-block: 1px solid var(--red);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-size: var(--tp-type-subsection-title);
 }
 
 .article-source-note {
@@ -705,7 +725,7 @@
   margin: 0;
   color: var(--ink-muted);
   font-family: var(--sans);
-  font-size: 0.87rem;
+  font-size: var(--tp-type-fine);
   line-height: 1.6;
 }
 
@@ -759,7 +779,7 @@
   width: 100%;
   margin: 0;
   color: var(--ink-muted);
-  font-size: 0.82rem;
+  font-size: var(--tp-type-fine);
   font-weight: 600;
 }
 
@@ -771,6 +791,26 @@
 .contact-form-wrap {
   padding: clamp(1.75rem, 5vw, 4rem);
   background: var(--white);
+}
+
+/* On white, like the form beside it: two of the supplied files carry their own white ground,
+   which showed as boxes on the sand page colour. */
+.contact-marks {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 1.75rem;
+  margin: 2rem 0 0;
+  padding: 1.25rem 1.5rem;
+  list-style: none;
+  background: var(--white);
+}
+
+.contact-marks img {
+  display: block;
+  width: auto;
+  height: var(--mark-h, 40px);
+  object-fit: contain;
 }
 
 .contact-visit {
@@ -823,7 +863,7 @@
 .form-status {
   margin: 0;
   color: var(--blue);
-  font-size: 0.88rem;
+  font-size: var(--tp-type-fine);
 }
 
 @media (max-width: 1100px) {
@@ -832,7 +872,7 @@
   }
 
   .site-nav > a:not(.button) {
-    font-size: 0.85rem;
+    font-size: var(--tp-type-navigation);
   }
 }
 
@@ -845,7 +885,7 @@
   }
 
   .editorial-grid,
-.contact-page-grid {
+  .contact-page-grid {
     grid-template-columns: 1fr;
   }
 
@@ -859,10 +899,6 @@
 
   .service-tagline {
     max-width: 40ch;
-  }
-
-  .service-copy {
-    grid-column: 2;
   }
 
   .contact-sidebar {
@@ -902,10 +938,6 @@
 
   .value-grid h3 {
     margin-top: 2rem;
-  }
-
-  .service-copy {
-    grid-column: 1 / -1;
   }
 
   .contact-form-wrap {
@@ -1114,13 +1146,14 @@
 
 .luxury-virtuoso-benefits p {
   margin: 0;
-  color: var(--ink-muted);
-}
-
-.luxury-virtuoso-closing {
-  margin: clamp(2rem, 4vw, 3rem) 0 0;
   color: var(--ink);
   font-size: var(--tp-type-lead);
+}
+
+/* The general closing line steps back behind the two specific benefits above it. */
+.luxury-virtuoso-closing {
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  color: var(--ink-muted);
 }
 
 .luxury-virtuoso-links {
@@ -1393,4 +1426,8 @@
    one gap rather than stacking two full section paddings (about 240px of dead space). */
 .lead-statement + .service-cards {
   padding-top: 0;
+}
+
+.not-found-body {
+  max-width: 30rem;
 }

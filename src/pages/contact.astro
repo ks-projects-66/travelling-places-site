@@ -7,6 +7,13 @@ import EnquiryForm from '../components/EnquiryForm.astro';
 import CalendlyEmbed from '../components/CalendlyEmbed.astro';
 import site from '../data/site.json';
 import copy from '../data/contact.json';
+import memberships from '../data/memberships.json';
+import { Image } from 'astro:assets';
+
+const marks = import.meta.glob<{ default: ImageMetadata }>(
+  '../assets/images/memberships/*.{jpg,png,webp,svg}',
+  { eager: true },
+);
 
 const { street, locality, region, postcode, mapUrl } = site.address;
 ---
@@ -43,6 +50,16 @@ const { street, locality, region, postcode, mapUrl } = site.address;
             <p>{site.openingHours.value}</p>
           )}
           <p class="contact-visit">{copy.details.visit}</p>
+          {/* The marks beside the form, where the decision is made (docs/REFERENCES.md, trust
+              principle 7). The same artwork as the footer row, smaller. */}
+          <ul class="contact-marks" aria-label="Accreditation and memberships">
+            {memberships.map((m) => (
+              <li style={`--mark-h: ${Math.round((m.stripHeight ?? 56) * 0.7)}px`}>
+                <Image src={marks[`../assets/images/memberships/${m.image}`].default} alt={m.alt}
+                  height={Math.round((m.stripHeight ?? 56) * 0.7)} densities={[1, 2]} loading="lazy" />
+              </li>
+            ))}
+          </ul>
           <div class="contact-social">
             <p>{copy.details.follow}</p>
             <a href={site.socials.instagram.url} target="_blank" rel="noreferrer">Instagram</a>
