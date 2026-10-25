@@ -20,8 +20,11 @@ surname recorded. Guessing a colleague's job title or publishing draft copy unde
 misattributes words to a real person. (The Antarctica article is Sienna Gardner's: Karim confirmed
 it on 30 August and again on 28 September 2026. See register C10.) Leave the placeholder, which is visible and marked.
 
-**Never draft the privacy policy.** `src/pages/privacy.astro` is a scaffold listing what the
-policy must cover. It is a legal document. Leave it as a scaffold.
+**The privacy policy is a draft until a person approves it.** The owner asked for a drafted,
+website-only policy on 25 October 2026 (`docs/WORK-PLAN.md`, Q11), which replaced the earlier
+"never draft" rule. It is still a legal document: the page carries a visible unapproved marker and
+a register row until someone with authority signs it off, placeholders stand in for the privacy
+contact, retention periods and anything business-wide, and no agent removes the marker.
 
 **Placeholders must be visible.** A missing image renders as a marked block at the correct
 aspect ratio. A missing value renders as a red TODO pill. Never let a gap fail silently, and

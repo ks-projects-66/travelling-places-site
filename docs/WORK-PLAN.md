@@ -1,9 +1,9 @@
 # Work plan: to a ready-to-ship site
 
 Drafted 25 October 2026 from the client's change brief of the same date, the critique in
-`docs/POLISH-PLAN.md` and the peer set in `docs/REFERENCES.md`. Open questions are in section 9.
-Where a question is unanswered the plan proceeds on the stated default. This file is the brief for
-the executing session; it is updated in place as answers arrive.
+`docs/POLISH-PLAN.md` and the peer set in `docs/REFERENCES.md`. The owner answered every question
+in section 9 the same day; the decisions are recorded there and folded into the phases. This file
+is the brief for the executing session.
 
 ## 1. Outcome and standard
 
@@ -26,7 +26,7 @@ rhythm (`docs/REFERENCES.md`, section 3). The plan buys that discipline; it cann
 | `pnpm check:placeholders` | Only items listed in `docs/CONTENT-REGISTER.md` as awaited |
 | `pnpm check:licensing`, `pnpm brand:check` | Pass |
 | Live render | Checked at 1440, 834 (tablet) and 390 by a person |
-| Integrations | Enquiry form delivers; newsletter and Calendly either live or removed (section 9, Q12) |
+| Integrations | Owner's call (Q12): Web3Forms, Genesys and Calendly stay in place and wait for their accounts. Nothing is removed. "Ready to ship" means the site is finished and each awaited key is a named row in `docs/CONTENT-REGISTER.md` |
 
 ## 2. What the brief settles
 
@@ -83,8 +83,12 @@ Each phase ends with the gates in section 6. Nothing ships from a phase that lea
 - Fix the QA runtime: the pinned Playwright expects Chromium 1234 and the container has 1243.
   Install the matching browsers (`pnpm exec playwright install chromium firefox webkit`) or run QA
   in CI, which is canonical for visual baselines anyway.
-- Add a `/virtuoso/` to `/luxury/` redirect to `vercel.json`, and note the Cloudflare `_redirects`
-  equivalent in `docs/DEPLOY.md` for launch.
+- The `/virtuoso/` to `/luxury/` redirect (`vercel.json`, plus the Cloudflare `_redirects`
+  equivalent noted in `docs/DEPLOY.md`) lands in the same Phase 1 commit that removes the page, so
+  the preview never carries a redirect over a live route.
+
+Done in the planning session: the `CLAUDE.md` privacy rule is rewritten; this plan carries the
+owner's answers.
 
 ### Phase 1: Structure (client changes 1 to 3, plus the menu bug)
 
@@ -92,8 +96,8 @@ Each phase ends with the gates in section 6. Nothing ships from a phase that lea
 |---|---|---|
 | Remove the top bar | `TopBar.astro`, `BaseLayout.astro`, `top-bar.json`, `site.css` | Newsletter sign-up keeps one home: the row above the footer. Zoom link goes; Calendly TODO stays on Contact |
 | Nav without Virtuoso | `navigation.json` (primary and footer), `SiteHeader.astro`, `SiteFooter.astro` | Four items plus one button |
-| Merge Virtuoso into Luxury | `luxury.astro`, `luxury.json`, `virtuoso.json`, delete `virtuoso.astro` | Gina's Virtuoso copy becomes a section of Luxury. Update `qa/routes.js` REQUIRED, `docs/COPY-MAP.md`, register entries, structured data unchanged |
-| Carousel hero | New `HomeHero.astro` from `PageHero.astro` and `Carousel.astro`, `index.astro`, `pages.css` | Full-bleed `min(85vh, 860px)`; stills rotate; headline and one action fixed over them (Q1); scrim replaced by local text protection (B2). Auto-advance slowed from 3s to 7s with the four `BRAND.md` mitigations kept; record the change in `BRAND.md` |
+| Merge Virtuoso into Luxury | `luxury.astro`, `luxury.json`, `virtuoso.json`, delete `virtuoso.astro` | Gina's Virtuoso copy becomes a section of Luxury, with a visible link to the member profile `https://www.virtuoso.com/member/travelli34092` inside that section (Q4). Update `qa/routes.js` REQUIRED, `docs/COPY-MAP.md`, register entries; structured data unchanged |
+| Carousel hero | New `HomeHero.astro` from `PageHero.astro` and `Carousel.astro`, `index.astro`, `pages.css` | Full-bleed `min(85vh, 860px)`; stills rotate every 3 seconds; one fixed headline, lede and action over them (Q1); scrim replaced by local text protection (B2). **Previous and next arrow buttons on left and right**, 44px minimum, icon-only as `BRAND.md` allows for carousel navigation, visible focus, keyboard operable; the four existing mitigations stay (pause on hover and focus, stop when the tab is hidden, no auto-advance under reduced motion). `BRAND.md`'s "no visible control" line is superseded and rewritten |
 | Team photo to About | `who-we-are.astro`, `DESIGN.md` hero table | Default: `team-outside` becomes the About hero, `team-office` moves to the story section (Q2) |
 | Mobile menu | `site.css` lines around 27 and 819 to 841, `SiteHeader.astro`, new spec in `qa/specs/functional/` | Header above the panel, scroll lock that keeps sticky, real Close state, test at `scrollY > 0` |
 
@@ -102,10 +106,10 @@ Each phase ends with the gates in section 6. Nothing ships from a phase that lea
 | Task | Notes |
 |---|---|
 | Two feature cards | Cruising (`features/cruise-river-lyon.jpg` or `ship-at-sunset.jpg`), Luxury travel (`features/luxury-lakeside-villa.jpg`). Text beneath, 4:5 or 3:2 per `DESIGN.md`. Cruising link per Q5; Luxury to `/luxury/` (Q3). Remove the four-row list |
-| Journal section | Heading "Journal" or "From the journal"; one sentence of plain introduction; the latest article as one feature with text beneath (Aman pattern); one link to `/journal/`. Image inside the shell, no float. Cadence claim per Q7 |
+| Journal section | Heading "Journal"; one sentence of plain introduction that makes no promise about frequency (Q7); the latest article as one feature with text beneath (Aman pattern); one link to `/journal/`. Image inside the shell, no float. Remove "fortnightly" from `index.astro`, `journal/index.astro` and the footer |
 | Why book | Keep Gina's claims, drop the hairline category lists. Default presentation: one short statement, then three or four proof points as plain prose rows or a restrained three-up, one action. Checked at 390, 834, 1440 (Q8) |
-| Trust strip | As section 3. Delete `partners.json` usage and the heading. One newsletter row only |
-| One main action | One label, one behaviour, everywhere (Q13). Phone number is the only secondary |
+| Trust strip | As section 3, with Alatus kept (Q9): four marks, Alatus unlinked until its URL is confirmed, as `memberships.json` already provides. Delete `partners.json` usage and the heading. One newsletter row only |
+| One main action | "Start planning", navigating to `/contact/`, everywhere (Q13). `EnquiryDialog.astro` is retired. Phone number is the only secondary |
 
 ### Phase 3: Secondary pages
 
@@ -116,7 +120,7 @@ Each phase ends with the gates in section 6. Nothing ships from a phase that lea
 | Journal index | Plain introduction; feature plus hairline log stays; filter chips removed while there are five posts; dates visible; external posts marked as such |
 | Contact | Side rail with phone, hours (when supplied) and the three marks; form first on mobile |
 | 404 | Buttons match the copy |
-| Privacy | Draft policy with named placeholders (Q11). Marked unapproved on the page until a person approves |
+| Privacy | Website-only draft policy with named placeholders for the privacy contact, retention periods and anything business-wide (Q11). Names every third party the site uses, including the awaited ones. Marked unapproved on the page and in the register until a person approves |
 
 ### Phase 4: Polish passes (from `docs/POLISH-PLAN.md`)
 
@@ -129,7 +133,7 @@ In order: `typeset` (B6, B7: kit roles only, 68-character measure, heading level
 - `pnpm test:qa` green; regenerate visual references in CI and have a person approve the diffs.
 - `pnpm qa:lighthouse` meets the table in section 1.
 - `docs/CONTENT-REGISTER.md` current: every placeholder on the site has a row and an owner.
-- Integrations per Q12. The enquiry form in `mailto` mode is not a shipping state.
+- Integrations (Q12): nothing removed; the form, newsletter and Calendly each have a register row naming the key or account awaited and who supplies it. The site is otherwise complete.
 - Launch host per `docs/DEPLOY.md`; DNS per `docs/DNS-CUTOVER.md`, by a person.
 
 ## 5. Sequence and effort
@@ -187,26 +191,26 @@ Rules that hold throughout: `CLAUDE.md` (no invented content, visible placeholde
 | Integrations not configured | Shipping is gated on Q12; a `mailto` form is a draft state |
 | Privacy policy drafted by an agent | Marked unapproved on the page; a person approves; the `CLAUDE.md` rule says so |
 
-## 9. Questions for the owner
+## 9. Questions and the owner's answers
 
-Each has a default. An unanswered question runs on its default.
+Answered 25 October 2026. Where the answer differs from the default, the answer governs.
 
-| # | Question | Default |
-|---|---|---|
-| Q1 | Hero: one fixed headline ("Your world, beautifully planned.") and one button over slowly rotating photographs, or a different headline per slide as the carousel has now? Which photographs: the current three, or add `japan-temple`, `spain-village`, `ship-at-sunset`? | Fixed headline and lede, one action, four photographs, 7-second advance |
-| Q2 | Team photo on About: replace the About hero (currently the office photo), or sit in the body? | It becomes the About hero; the office photo moves into the story |
-| Q3 | "Luxury travel" card: link to our `/luxury/` page (with Virtuoso folded in) or to the external virtuoso.com member profile? | `/luxury/` |
-| Q4 | Confirm `/virtuoso/` is retired with a redirect and Gina's Virtuoso copy becomes a section of Luxury | Yes |
-| Q5 | Cruising card until the link arrives: an unlinked card with a visible TODO, or link to `/expertise/#cruising` and swap later? | Link to the existing cruising section now, register the swap |
-| Q6 | Expertise ("Tailor-made") keeps all four services, including Expeditions and Tailor-made, even though home shows two? | Yes |
-| Q7 | Journal cadence: the newest post is 2 October 2025 and four of five link off-site. Is "fortnightly" a promise Gina will keep, or should the introduction drop the cadence? | Drop the cadence; "stories and advice from Gina and the team" |
-| Q8 | Why book: may the two list headings go and the claims be re-presented, keeping Gina's words? And "Full financial security: ATIA protected" conflicts with ATIA's own charter; who confirms the replacement wording? | Re-present; hold the ATIA line for Gina |
-| Q9 | Trust strip: ATIA, CLIA, Virtuoso. Include Alatus (trade group, no client benefit, no URL)? | Omit Alatus |
-| Q10 | "Global Cruise Icon": which body awards it? Needed before it is given prominence on About | Stays in body copy until confirmed |
-| Q11 | Privacy: website-only policy or whole-business (passport and payment details handled offline)? Privacy contact email? Which services will be live at launch (Web3Forms, Calendly, Genesys, host)? And confirm the `CLAUDE.md` rule changes to "draft, marked unapproved, approved by a person" | Website-only, placeholders for the rest |
-| Q12 | Ship scope: must the enquiry form deliver by email service at launch (needs a Web3Forms key), and are newsletter and Calendly in or out? Launch host Cloudflare Pages or Vercel? | Form live, newsletter row live via Genesys or removed, Calendly out until the account exists |
-| Q13 | One label for the main action everywhere: "Start planning" (goes to the Contact form) or "Plan a journey" (opens the dialog)? | "Start planning", navigates to `/contact/`; retire the dialog |
-| Q14 | Who approves the regenerated visual baselines and the live-render check at the end? | The owner, from the CI artifact and the Vercel preview |
+| # | Question | Default | Answer |
+|---|---|---|---|
+| Q1 | Hero: one fixed headline ("Your world, beautifully planned.") and one button over slowly rotating photographs, or a different headline per slide as the carousel has now? Which photographs: the current three, or add `japan-temple`, `spain-village`, `ship-at-sunset`? | Fixed headline and lede, one action, four photographs, 7-second advance | One fixed headline. Arrow buttons left and right; 3-second auto-advance; the arrows let a visitor step through |
+| Q2 | Team photo on About: replace the About hero (currently the office photo), or sit in the body? | It becomes the About hero; the office photo moves into the story | Becomes the About hero |
+| Q3 | "Luxury travel" card: link to our `/luxury/` page (with Virtuoso folded in) or to the external virtuoso.com member profile? | `/luxury/` | The Luxury page |
+| Q4 | Confirm `/virtuoso/` is retired with a redirect and Gina's Virtuoso copy becomes a section of Luxury | Yes | Yes. The virtuoso.com member profile link sits in the Virtuoso section of Luxury |
+| Q5 | Cruising card until the link arrives: an unlinked card with a visible TODO, or link to `/expertise/#cruising` and swap later? | Link to the existing cruising section now, register the swap | Link now, register the swap |
+| Q6 | Expertise ("Tailor-made") keeps all four services, including Expeditions and Tailor-made, even though home shows two? | Yes | Yes |
+| Q7 | Journal cadence: the newest post is 2 October 2025 and four of five link off-site. Is "fortnightly" a promise Gina will keep, or should the introduction drop the cadence? | Drop the cadence; "stories and advice from Gina and the team" | Drop the cadence. It is a journal; no promise about how often it updates |
+| Q8 | Why book: may the two list headings go and the claims be re-presented, keeping Gina's words? And "Full financial security: ATIA protected" conflicts with ATIA's own charter; who confirms the replacement wording? | Re-present; hold the ATIA line for Gina | Re-present; hold the ATIA line for Gina |
+| Q9 | Trust strip: ATIA, CLIA, Virtuoso. Include Alatus (trade group, no client benefit, no URL)? | Omit Alatus | Keep Alatus |
+| Q10 | "Global Cruise Icon": which body awards it? Needed before it is given prominence on About | Stays in body copy until confirmed | Stays in body copy until confirmed |
+| Q11 | Privacy: website-only policy or whole-business (passport and payment details handled offline)? Privacy contact email? Which services will be live at launch (Web3Forms, Calendly, Genesys, host)? And confirm the `CLAUDE.md` rule changes to "draft, marked unapproved, approved by a person" | Website-only, placeholders for the rest | Website only, placeholders for the rest |
+| Q12 | Ship scope: must the enquiry form deliver by email service at launch (needs a Web3Forms key), and are newsletter and Calendly in or out? Launch host Cloudflare Pages or Vercel? | Form live, newsletter row live via Genesys or removed, Calendly out until the account exists | Wait for the external services to be set up. Remove nothing |
+| Q13 | One label for the main action everywhere: "Start planning" (goes to the Contact form) or "Plan a journey" (opens the dialog)? | "Start planning", navigates to `/contact/`; retire the dialog | "Start planning"; retire the dialog |
+| Q14 | Who approves the regenerated visual baselines and the live-render check at the end? | The owner, from the CI artifact and the Vercel preview | The owner, from the CI artifact and the Vercel preview |
 
 ## 10. Sources for section 3
 
