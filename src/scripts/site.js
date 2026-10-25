@@ -234,9 +234,13 @@ document.querySelectorAll('[data-enquiry-form], [data-newsletter-form]').forEach
  * pointer is over the title block or an arrow, holds while anything inside has keyboard focus,
  * does not run while the tab is hidden, and never auto-advances under prefers-reduced-motion.
  *
- * Hover holds only on [data-carousel-hold] (the text and the arrows), not the whole hero. The
- * hero fills most of the first screen, so a whole-hero hover pause would stop it for anyone whose
- * pointer happened to rest on the photograph, which is most desktop visitors.
+ * Hover holds only on [data-carousel-hold] (the title, the lede, the actions and the arrows), not
+ * the whole hero. The hero fills most of the first screen, so a whole-hero hover hold would stop
+ * it for anyone whose pointer happened to rest on the photograph, which is most desktop visitors.
+ * Only a mouse holds: a tap fires an emulated hover that never ends, which froze the sequence on
+ * phones. Focus holds only when it is keyboard focus (:focus-visible); a mouse click leaves the
+ * button focused, and treating that as a hold stopped the photograph the visitor had just chosen
+ * from ever timing out.
  */
 
 const SLIDE_MS = 6000;
@@ -261,7 +265,7 @@ if (carousel) {
   const stop = () => window.clearInterval(timer);
   const start = () => {
     stop();
-    const focused = carousel.matches(':focus-within');
+    const focused = carousel.matches(':has(:focus-visible)');
     if (!held && !focused && !reduceMotion.matches && !document.hidden) {
       timer = window.setInterval(() => showSlide(index + 1), SLIDE_MS);
     }
@@ -277,17 +281,21 @@ if (carousel) {
   carousel.querySelector('[data-carousel-next]')?.addEventListener('click', () => step(1));
 
   carousel.querySelectorAll('[data-carousel-hold]').forEach((el) => {
-    el.addEventListener('mouseenter', () => {
+    el.addEventListener('pointerenter', (event) => {
+      if (event.pointerType !== 'mouse') return;
       held = true;
       stop();
     });
-    el.addEventListener('mouseleave', () => {
+    el.addEventListener('pointerleave', (event) => {
+      if (event.pointerType !== 'mouse') return;
       held = false;
       start();
     });
   });
 
-  carousel.addEventListener('focusin', stop);
+  carousel.addEventListener('focusin', () => {
+    if (carousel.matches(':has(:focus-visible)')) stop();
+  });
   // focusout fires before focus lands on the next element, so wait a frame to see where it went.
   carousel.addEventListener('focusout', () => window.requestAnimationFrame(start));
   carousel.addEventListener('keydown', (event) => {

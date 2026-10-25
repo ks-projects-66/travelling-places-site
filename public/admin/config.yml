@@ -119,7 +119,7 @@ collections:
           - { name: description, label: Search description, widget: text }
           - { name: founded, label: Year founded, widget: number, value_type: int }
           - { name: phone, label: Phone (display), widget: string }
-          - { name: phoneInternational, label: Phone (international, top bar), widget: string }
+          - { name: phoneInternational, label: Phone (international format), widget: string }
           - { name: phoneLink, label: Phone (link), widget: string, hint: 'Format: tel:+61755451600' }
           - { name: email, label: Email, widget: string }
           - name: address
@@ -288,8 +288,7 @@ collections:
             label: Virtuoso member profile link
             widget: object
             fields:
-              - { name: label, label: Link text, widget: string }
-              - { name: url, label: Address, widget: string }
+              - { name: label, label: Link text, widget: string, hint: 'The address itself is set once, under Contact details and identifiers, Virtuoso profile.' }
           - name: whiteLabel
             label: Virtuoso offers link
             widget: object

@@ -15,7 +15,7 @@
  */
 
 import { test, expect } from '@playwright/test';
-import { FUNCTIONAL } from '../../viewports.js';
+import { FUNCTIONAL, ALL } from '../../viewports.js';
 import { waitForScript } from '../../lib/settle.js';
 import { record } from '../../lib/collect.js';
 
@@ -83,6 +83,24 @@ test.describe('hero carousel', () => {
     expect(next.x + next.width).toBeGreaterThan((viewport.width * 3) / 4);
   });
 
+  test('a click on an arrow restarts the timer rather than stopping it', async ({ page }) => {
+    // A mouse click leaves the button focused. That used to count as a hold, so the photograph the
+    // visitor chose never timed out until they clicked elsewhere.
+    await page.locator('[data-carousel-next]').click();
+    expect(await activeIndex(page)).toBe(1);
+    await page.mouse.move(viewport.width / 2, 200);
+    await page.waitForTimeout(SLIDE_MS + SETTLE_MS);
+    expect(await activeIndex(page)).toBe(2);
+  });
+
+  test('a pointer resting on the photograph does not hold it', async ({ page }) => {
+    // Lower right of the hero: photograph, level with the title block but clear of it.
+    const hero = await page.locator('[data-carousel]').boundingBox();
+    await page.mouse.move(hero.x + hero.width * 0.8, hero.y + hero.height * 0.75);
+    await page.waitForTimeout(SLIDE_MS + SETTLE_MS);
+    expect(await activeIndex(page)).toBe(1);
+  });
+
   test('holds while the pointer is over the title', async ({ page }) => {
     await page.locator('[data-carousel] h1').hover();
     const before = await activeIndex(page);
@@ -90,8 +108,13 @@ test.describe('hero carousel', () => {
     expect(await activeIndex(page)).toBe(before);
   });
 
-  test('holds while something inside it has focus', async ({ page }) => {
-    await page.locator('[data-carousel] .hero-actions a').first().focus();
+  test('holds while something inside it has keyboard focus', async ({ page }) => {
+    // Tab in from the page above so the focus is keyboard focus (:focus-visible), which is what
+    // holds. A programmatic or mouse focus does not.
+    await page.locator('.skip-link').focus();
+    while (!(await page.evaluate(() => !!document.activeElement?.closest('[data-carousel]')))) {
+      await page.keyboard.press('Tab');
+    }
     const before = await activeIndex(page);
     await page.waitForTimeout(SLIDE_MS + SETTLE_MS);
     expect(await activeIndex(page)).toBe(before);
@@ -154,4 +177,22 @@ test.describe('hero carousel', () => {
     expect(alts).toHaveLength(3);
     for (const alt of alts) expect((alt || '').length).toBeGreaterThan(10);
   });
+});
+
+// The arrows sit centred at either side where the page gutter clears them, and in the top corners
+// where it does not. 1024 and 1280 overlapped the title before the corner rule was widened.
+test.describe('hero carousel arrows clear the text', () => {
+  for (const vp of ALL) {
+    test(`at ${vp.label}`, async ({ page }) => {
+      await page.setViewportSize(vp);
+      await page.goto('/');
+      const hit = await page.evaluate(() => {
+        const box = (el) => el.getBoundingClientRect();
+        const arrows = [...document.querySelectorAll('[data-carousel-previous], [data-carousel-next]')].map(box);
+        const text = [...document.querySelectorAll('[data-carousel] h1, [data-carousel] .page-hero-lede, [data-carousel] .hero-actions > *')].map(box);
+        return arrows.some((a) => text.some((t) => a.left < t.right && a.right > t.left && a.top < t.bottom && a.bottom > t.top));
+      });
+      expect(hit, 'an arrow overlaps the hero title, lede or actions').toBe(false);
+    });
+  }
 });

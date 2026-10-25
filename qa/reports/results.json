@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-10-25T07:06:07.683Z",
+  "generatedAt": "2026-10-25T07:30:06.444Z",
   "brandKitVersion": "3.0.2",
   "environment": {
     "platform": "linux",
     "node": "v22.22.0"
   },
   "tests": {
-    "total": 412,
-    "passed": 411,
+    "total": 440,
+    "passed": 439,
     "failed": 0,
     "skipped": 1,
     "byProject": {
@@ -15,8 +15,12 @@
         "total": 40,
         "failed": 0
       },
+      "functional": {
+        "total": 151,
+        "failed": 0
+      },
       "brand": {
-        "total": 96,
+        "total": 48,
         "failed": 0
       },
       "crossbrowser-firefox": {
@@ -27,10 +31,6 @@
         "total": 15,
         "failed": 0
       },
-      "functional": {
-        "total": 75,
-        "failed": 0
-      },
       "responsive": {
         "total": 171,
         "failed": 0
@@ -39,15 +39,15 @@
     "failures": []
   },
   "findings": {
-    "total": 77,
+    "total": 78,
     "occurrences": 103,
     "fail": 0,
     "warn": 54,
-    "info": 23,
+    "info": 24,
     "items": [
       {
         "suite": "brand",
-        "route": "/404.html",
+        "route": "/journal/looking-south-to-antarctica/",
         "viewport": "desktop-1440",
         "browser": "chromium",
         "id": "token-derived-colour-uncertified",
@@ -58,7 +58,7 @@
         "source": null,
         "occurrences": [
           {
-            "route": "/404.html",
+            "route": "/journal/looking-south-to-antarctica/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -68,12 +68,12 @@
             "browser": "chromium"
           },
           {
-            "route": "/",
+            "route": "/contact/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
           {
-            "route": "/expertise/",
+            "route": "/luxury/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -83,12 +83,12 @@
             "browser": "chromium"
           },
           {
-            "route": "/contact/",
+            "route": "/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
           {
-            "route": "/journal/looking-south-to-antarctica/",
+            "route": "/404.html",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -98,22 +98,22 @@
             "browser": "chromium"
           },
           {
-            "route": "/luxury/",
+            "route": "/expertise/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           }
         ],
         "count": 9,
         "routes": [
-          "/404.html",
-          "/journal/",
-          "/",
-          "/expertise/",
-          "/who-we-are/",
-          "/contact/",
           "/journal/looking-south-to-antarctica/",
+          "/journal/",
+          "/contact/",
+          "/luxury/",
+          "/who-we-are/",
+          "/",
+          "/404.html",
           "/privacy/",
-          "/luxury/"
+          "/expertise/"
         ],
         "viewports": [
           "desktop-1440"
@@ -124,7 +124,7 @@
       },
       {
         "suite": "brand",
-        "route": "/404.html",
+        "route": "/journal/looking-south-to-antarctica/",
         "viewport": "desktop-1440",
         "browser": "chromium",
         "id": "token-derived-colour-uncertified",
@@ -135,7 +135,7 @@
         "source": null,
         "occurrences": [
           {
-            "route": "/404.html",
+            "route": "/journal/looking-south-to-antarctica/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -145,12 +145,12 @@
             "browser": "chromium"
           },
           {
-            "route": "/",
+            "route": "/contact/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
           {
-            "route": "/expertise/",
+            "route": "/luxury/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -160,12 +160,12 @@
             "browser": "chromium"
           },
           {
-            "route": "/contact/",
+            "route": "/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
           {
-            "route": "/journal/looking-south-to-antarctica/",
+            "route": "/404.html",
             "viewport": "desktop-1440",
             "browser": "chromium"
           },
@@ -175,22 +175,22 @@
             "browser": "chromium"
           },
           {
-            "route": "/luxury/",
+            "route": "/expertise/",
             "viewport": "desktop-1440",
             "browser": "chromium"
           }
         ],
         "count": 9,
         "routes": [
-          "/404.html",
-          "/journal/",
-          "/",
-          "/expertise/",
-          "/who-we-are/",
-          "/contact/",
           "/journal/looking-south-to-antarctica/",
+          "/journal/",
+          "/contact/",
+          "/luxury/",
+          "/who-we-are/",
+          "/",
+          "/404.html",
           "/privacy/",
-          "/luxury/"
+          "/expertise/"
         ],
         "viewports": [
           "desktop-1440"
@@ -202,7 +202,7 @@
       {
         "suite": "responsive",
         "route": "/journal/looking-south-to-antarctica/",
-        "viewport": "ipad-pro-landscape",
+        "viewport": "desktop-1440",
         "browser": "chromium",
         "id": "container-width-inconsistent",
         "severity": "warn",
@@ -213,17 +213,7 @@
         "occurrences": [
           {
             "route": "/journal/looking-south-to-antarctica/",
-            "viewport": "ipad-pro-landscape",
-            "browser": "chromium"
-          },
-          {
-            "route": "/journal/looking-south-to-antarctica/",
             "viewport": "desktop-1440",
-            "browser": "chromium"
-          },
-          {
-            "route": "/journal/looking-south-to-antarctica/",
-            "viewport": "desktop-1920",
             "browser": "chromium"
           },
           {
@@ -233,12 +223,22 @@
           },
           {
             "route": "/journal/looking-south-to-antarctica/",
+            "viewport": "desktop-1680",
+            "browser": "chromium"
+          },
+          {
+            "route": "/journal/looking-south-to-antarctica/",
+            "viewport": "ipad-pro-landscape",
+            "browser": "chromium"
+          },
+          {
+            "route": "/journal/looking-south-to-antarctica/",
             "viewport": "desktop-1366",
             "browser": "chromium"
           },
           {
             "route": "/journal/looking-south-to-antarctica/",
-            "viewport": "desktop-1680",
+            "viewport": "desktop-1920",
             "browser": "chromium"
           }
         ],
@@ -247,12 +247,12 @@
           "/journal/looking-south-to-antarctica/"
         ],
         "viewports": [
-          "ipad-pro-landscape",
           "desktop-1440",
-          "desktop-1920",
           "desktop-2560",
+          "desktop-1680",
+          "ipad-pro-landscape",
           "desktop-1366",
-          "desktop-1680"
+          "desktop-1920"
         ],
         "browsers": [
           "chromium"
@@ -318,35 +318,6 @@
       },
       {
         "suite": "brand",
-        "route": "/",
-        "viewport": "desktop-1440",
-        "browser": "chromium",
-        "id": "token-derived-colour-uncertified",
-        "severity": "warn",
-        "detail": "oklch(0.883521 0.0273314 268.509) on p (a color-mix of tokens; no certified contrast figure)",
-        "expected": "a brand.tokens.json colour",
-        "actual": "oklch(0.883521 0.0273314 268.509)",
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "desktop-1440"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "brand",
         "route": "/who-we-are/",
         "viewport": "desktop-1440",
         "browser": "chromium",
@@ -375,20 +346,49 @@
         ]
       },
       {
+        "suite": "brand",
+        "route": "/",
+        "viewport": "desktop-1440",
+        "browser": "chromium",
+        "id": "token-derived-colour-uncertified",
+        "severity": "warn",
+        "detail": "oklch(0.883521 0.0273314 268.509) on p (a color-mix of tokens; no certified contrast figure)",
+        "expected": "a brand.tokens.json colour",
+        "actual": "oklch(0.883521 0.0273314 268.509)",
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "desktop-1440",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "desktop-1440"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
         "suite": "responsive",
         "route": "/contact/",
-        "viewport": "mobile-320",
+        "viewport": "ipad-air-portrait",
         "browser": "chromium",
-        "id": "button-wraps",
+        "id": "line-length-long",
         "severity": "warn",
-        "detail": "a.button.button-outline \"Send an enquiry instead\" wraps to 2 lines",
+        "detail": "p measures about 94ch against a 68ch guide",
         "expected": null,
         "actual": null,
         "source": null,
         "occurrences": [
           {
             "route": "/contact/",
-            "viewport": "mobile-320",
+            "viewport": "ipad-air-portrait",
             "browser": "chromium"
           }
         ],
@@ -397,7 +397,7 @@
           "/contact/"
         ],
         "viewports": [
-          "mobile-320"
+          "ipad-air-portrait"
         ],
         "browsers": [
           "chromium"
@@ -435,18 +435,18 @@
       {
         "suite": "responsive",
         "route": "/contact/",
-        "viewport": "ipad-air-portrait",
+        "viewport": "mobile-320",
         "browser": "chromium",
-        "id": "line-length-long",
+        "id": "button-wraps",
         "severity": "warn",
-        "detail": "p measures about 94ch against a 68ch guide",
+        "detail": "a.button.button-outline \"Send an enquiry instead\" wraps to 2 lines",
         "expected": null,
         "actual": null,
         "source": null,
         "occurrences": [
           {
             "route": "/contact/",
-            "viewport": "ipad-air-portrait",
+            "viewport": "mobile-320",
             "browser": "chromium"
           }
         ],
@@ -455,7 +455,7 @@
           "/contact/"
         ],
         "viewports": [
-          "ipad-air-portrait"
+          "mobile-320"
         ],
         "browsers": [
           "chromium"
@@ -658,10 +658,10 @@
         "browser": null,
         "id": "stylelint-scale-unlimited/declaration-strict-value",
         "severity": "warn",
-        "detail": "src/styles/pages.css:275 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "detail": "src/styles/pages.css:276 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:275",
+        "source": "src/styles/pages.css:276",
         "occurrences": [
           {
             "route": null,
@@ -681,10 +681,10 @@
         "browser": null,
         "id": "stylelint-scale-unlimited/declaration-strict-value",
         "severity": "warn",
-        "detail": "src/styles/pages.css:411 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "detail": "src/styles/pages.css:396 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:411",
+        "source": "src/styles/pages.css:396",
         "occurrences": [
           {
             "route": null,
@@ -704,10 +704,10 @@
         "browser": null,
         "id": "stylelint-scale-unlimited/declaration-strict-value",
         "severity": "warn",
-        "detail": "src/styles/pages.css:446 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "detail": "src/styles/pages.css:431 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:446",
+        "source": "src/styles/pages.css:431",
         "occurrences": [
           {
             "route": null,
@@ -727,10 +727,79 @@
         "browser": null,
         "id": "stylelint-scale-unlimited/declaration-strict-value",
         "severity": "warn",
-        "detail": "src/styles/pages.css:559 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "detail": "src/styles/pages.css:531 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:559",
+        "source": "src/styles/pages.css:531",
+        "occurrences": [
+          {
+            "route": null,
+            "viewport": null,
+            "browser": null
+          }
+        ],
+        "count": 1,
+        "routes": [],
+        "viewports": [],
+        "browsers": []
+      },
+      {
+        "suite": "brand",
+        "route": null,
+        "viewport": null,
+        "browser": null,
+        "id": "stylelint-scale-unlimited/declaration-strict-value",
+        "severity": "warn",
+        "detail": "src/styles/pages.css:564 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "expected": null,
+        "actual": null,
+        "source": "src/styles/pages.css:564",
+        "occurrences": [
+          {
+            "route": null,
+            "viewport": null,
+            "browser": null
+          }
+        ],
+        "count": 1,
+        "routes": [],
+        "viewports": [],
+        "browsers": []
+      },
+      {
+        "suite": "brand",
+        "route": null,
+        "viewport": null,
+        "browser": null,
+        "id": "stylelint-scale-unlimited/declaration-strict-value",
+        "severity": "warn",
+        "detail": "src/styles/pages.css:571 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "expected": null,
+        "actual": null,
+        "source": "src/styles/pages.css:571",
+        "occurrences": [
+          {
+            "route": null,
+            "viewport": null,
+            "browser": null
+          }
+        ],
+        "count": 1,
+        "routes": [],
+        "viewports": [],
+        "browsers": []
+      },
+      {
+        "suite": "brand",
+        "route": null,
+        "viewport": null,
+        "browser": null,
+        "id": "stylelint-scale-unlimited/declaration-strict-value",
+        "severity": "warn",
+        "detail": "src/styles/pages.css:578 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "expected": null,
+        "actual": null,
+        "source": "src/styles/pages.css:578",
         "occurrences": [
           {
             "route": null,
@@ -773,10 +842,10 @@
         "browser": null,
         "id": "stylelint-scale-unlimited/declaration-strict-value",
         "severity": "warn",
-        "detail": "src/styles/pages.css:599 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "detail": "src/styles/pages.css:600 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:599",
+        "source": "src/styles/pages.css:600",
         "occurrences": [
           {
             "route": null,
@@ -796,10 +865,10 @@
         "browser": null,
         "id": "stylelint-scale-unlimited/declaration-strict-value",
         "severity": "warn",
-        "detail": "src/styles/pages.css:606 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "detail": "src/styles/pages.css:613 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:606",
+        "source": "src/styles/pages.css:613",
         "occurrences": [
           {
             "route": null,
@@ -819,10 +888,10 @@
         "browser": null,
         "id": "stylelint-scale-unlimited/declaration-strict-value",
         "severity": "warn",
-        "detail": "src/styles/pages.css:620 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "detail": "src/styles/pages.css:667 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:620",
+        "source": "src/styles/pages.css:667",
         "occurrences": [
           {
             "route": null,
@@ -842,10 +911,10 @@
         "browser": null,
         "id": "stylelint-scale-unlimited/declaration-strict-value",
         "severity": "warn",
-        "detail": "src/styles/pages.css:628 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "detail": "src/styles/pages.css:713 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:628",
+        "source": "src/styles/pages.css:713",
         "occurrences": [
           {
             "route": null,
@@ -865,79 +934,10 @@
         "browser": null,
         "id": "stylelint-scale-unlimited/declaration-strict-value",
         "severity": "warn",
-        "detail": "src/styles/pages.css:641 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
+        "detail": "src/styles/pages.css:732 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:641",
-        "occurrences": [
-          {
-            "route": null,
-            "viewport": null,
-            "browser": null
-          }
-        ],
-        "count": 1,
-        "routes": [],
-        "viewports": [],
-        "browsers": []
-      },
-      {
-        "suite": "brand",
-        "route": null,
-        "viewport": null,
-        "browser": null,
-        "id": "stylelint-scale-unlimited/declaration-strict-value",
-        "severity": "warn",
-        "detail": "src/styles/pages.css:695 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
-        "expected": null,
-        "actual": null,
-        "source": "src/styles/pages.css:695",
-        "occurrences": [
-          {
-            "route": null,
-            "viewport": null,
-            "browser": null
-          }
-        ],
-        "count": 1,
-        "routes": [],
-        "viewports": [],
-        "browsers": []
-      },
-      {
-        "suite": "brand",
-        "route": null,
-        "viewport": null,
-        "browser": null,
-        "id": "stylelint-scale-unlimited/declaration-strict-value",
-        "severity": "warn",
-        "detail": "src/styles/pages.css:741 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
-        "expected": null,
-        "actual": null,
-        "source": "src/styles/pages.css:741",
-        "occurrences": [
-          {
-            "route": null,
-            "viewport": null,
-            "browser": null
-          }
-        ],
-        "count": 1,
-        "routes": [],
-        "viewports": [],
-        "browsers": []
-      },
-      {
-        "suite": "brand",
-        "route": null,
-        "viewport": null,
-        "browser": null,
-        "id": "stylelint-scale-unlimited/declaration-strict-value",
-        "severity": "warn",
-        "detail": "src/styles/pages.css:760 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value)",
-        "expected": null,
-        "actual": null,
-        "source": "src/styles/pages.css:760",
+        "source": "src/styles/pages.css:732",
         "occurrences": [
           {
             "route": null,
@@ -957,10 +957,10 @@
         "browser": null,
         "id": "stylelint-no-duplicate-selectors",
         "severity": "warn",
-        "detail": "src/styles/pages.css:894 Duplicate selector \".contact-page\", first used at line 645 (no-duplicate-selectors)",
+        "detail": "src/styles/pages.css:859 Duplicate selector \".contact-page\", first used at line 617 (no-duplicate-selectors)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:894",
+        "source": "src/styles/pages.css:859",
         "occurrences": [
           {
             "route": null,
@@ -980,10 +980,10 @@
         "browser": null,
         "id": "stylelint-no-duplicate-selectors",
         "severity": "warn",
-        "detail": "src/styles/pages.css:904 Duplicate selector \".service-detail\", first used at line 393 (no-duplicate-selectors)",
+        "detail": "src/styles/pages.css:869 Duplicate selector \".service-detail\", first used at line 379 (no-duplicate-selectors)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:904",
+        "source": "src/styles/pages.css:869",
         "occurrences": [
           {
             "route": null,
@@ -1003,10 +1003,10 @@
         "browser": null,
         "id": "stylelint-no-duplicate-selectors",
         "severity": "warn",
-        "detail": "src/styles/pages.css:932 Duplicate selector \".teaser-story\", first used at line 219 (no-duplicate-selectors)",
+        "detail": "src/styles/pages.css:897 Duplicate selector \".teaser-story\", first used at line 220 (no-duplicate-selectors)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:932",
+        "source": "src/styles/pages.css:897",
         "occurrences": [
           {
             "route": null,
@@ -1026,10 +1026,10 @@
         "browser": null,
         "id": "stylelint-no-duplicate-selectors",
         "severity": "warn",
-        "detail": "src/styles/pages.css:940 Duplicate selector \".teaser-story img\", first used at line 227 (no-duplicate-selectors)",
+        "detail": "src/styles/pages.css:905 Duplicate selector \".teaser-story img\", first used at line 228 (no-duplicate-selectors)",
         "expected": null,
         "actual": null,
-        "source": "src/styles/pages.css:940",
+        "source": "src/styles/pages.css:905",
         "occurrences": [
           {
             "route": null,
@@ -1483,7 +1483,7 @@
         "suite": "crossbrowser",
         "route": "/",
         "viewport": "ipad-pro-portrait",
-        "browser": "firefox",
+        "browser": "webkit",
         "id": "element-outside-viewport",
         "severity": "info",
         "detail": "2 element(s) past a 1024px document, first: img spans -20.5 to 1044.5 (contained by overflow-x: clip, intended full-bleed)",
@@ -1494,12 +1494,12 @@
           {
             "route": "/",
             "viewport": "ipad-pro-portrait",
-            "browser": "firefox"
+            "browser": "webkit"
           },
           {
             "route": "/",
             "viewport": "ipad-pro-portrait",
-            "browser": "webkit"
+            "browser": "firefox"
           }
         ],
         "count": 2,
@@ -1510,15 +1510,15 @@
           "ipad-pro-portrait"
         ],
         "browsers": [
-          "firefox",
-          "webkit"
+          "webkit",
+          "firefox"
         ]
       },
       {
         "suite": "crossbrowser",
         "route": "/",
         "viewport": "mobile-390",
-        "browser": "firefox",
+        "browser": "webkit",
         "id": "element-outside-viewport",
         "severity": "info",
         "detail": "2 element(s) past a 390px document, first: img spans -7.8 to 397.8 (contained by overflow-x: clip, intended full-bleed)",
@@ -1529,12 +1529,12 @@
           {
             "route": "/",
             "viewport": "mobile-390",
-            "browser": "firefox"
+            "browser": "webkit"
           },
           {
             "route": "/",
             "viewport": "mobile-390",
-            "browser": "webkit"
+            "browser": "firefox"
           }
         ],
         "count": 2,
@@ -1545,78 +1545,8 @@
           "mobile-390"
         ],
         "browsers": [
-          "firefox",
-          "webkit"
-        ]
-      },
-      {
-        "suite": "crossbrowser",
-        "route": "/",
-        "viewport": "desktop-1440",
-        "browser": "webkit",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 1440px document, first: img spans -28.8 to 1468.8 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "desktop-1440",
-            "browser": "webkit"
-          },
-          {
-            "route": "/",
-            "viewport": "desktop-1440",
-            "browser": "firefox"
-          }
-        ],
-        "count": 2,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "desktop-1440"
-        ],
-        "browsers": [
           "webkit",
           "firefox"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "ipad-pro-portrait",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 1024px document, first: img spans -20.5 to 1044.5 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "ipad-pro-portrait",
-            "browser": "chromium"
-          },
-          {
-            "route": "/",
-            "viewport": "ipad-landscape",
-            "browser": "chromium"
-          }
-        ],
-        "count": 2,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "ipad-pro-portrait",
-          "ipad-landscape"
-        ],
-        "browsers": [
-          "chromium"
         ]
       },
       {
@@ -1655,6 +1585,41 @@
         ]
       },
       {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "ipad-landscape",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 1024px document, first: img spans -20.5 to 1044.5 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "ipad-landscape",
+            "browser": "chromium"
+          },
+          {
+            "route": "/",
+            "viewport": "ipad-pro-portrait",
+            "browser": "chromium"
+          }
+        ],
+        "count": 2,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "ipad-landscape",
+          "ipad-pro-portrait"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
         "suite": "a11y",
         "route": "/",
         "viewport": "desktop-1440",
@@ -1681,6 +1646,64 @@
         ],
         "browsers": [
           "chromium"
+        ]
+      },
+      {
+        "suite": "crossbrowser",
+        "route": "/",
+        "viewport": "desktop-1440",
+        "browser": "firefox",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 1440px document, first: img spans -28.8 to 1468.8 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "desktop-1440",
+            "browser": "firefox"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "desktop-1440"
+        ],
+        "browsers": [
+          "firefox"
+        ]
+      },
+      {
+        "suite": "crossbrowser",
+        "route": "/",
+        "viewport": "desktop-1440",
+        "browser": "webkit",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "3 element(s) past a 1440px document, first: img spans -12.9 to 1452.9 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "desktop-1440",
+            "browser": "webkit"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "desktop-1440"
+        ],
+        "browsers": [
+          "webkit"
         ]
       },
       {
@@ -1740,6 +1763,151 @@
       {
         "suite": "responsive",
         "route": "/",
+        "viewport": "desktop-1440",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 1440px document, first: img spans -28.8 to 1468.8 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "desktop-1440",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "desktop-1440"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "desktop-1280",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 1280px document, first: img spans -25.6 to 1305.6 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "desktop-1280",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "desktop-1280"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "ipad-air-portrait",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 820px document, first: img spans -16.4 to 836.4 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "ipad-air-portrait",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "ipad-air-portrait"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "ipad-portrait",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 768px document, first: img spans -15.4 to 783.4 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "ipad-portrait",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "ipad-portrait"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "desktop-2560",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 2560px document, first: img spans -51.2 to 2611.2 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "desktop-2560",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "desktop-2560"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
         "viewport": "mobile-360",
         "browser": "chromium",
         "id": "element-outside-viewport",
@@ -1769,18 +1937,18 @@
       {
         "suite": "responsive",
         "route": "/",
-        "viewport": "desktop-1680",
+        "viewport": "mobile-375",
         "browser": "chromium",
         "id": "element-outside-viewport",
         "severity": "info",
-        "detail": "2 element(s) past a 1680px document, first: img spans -33.6 to 1713.6 (contained by overflow-x: clip, intended full-bleed)",
+        "detail": "2 element(s) past a 375px document, first: img spans -7.5 to 382.5 (contained by overflow-x: clip, intended full-bleed)",
         "expected": null,
         "actual": null,
         "source": null,
         "occurrences": [
           {
             "route": "/",
-            "viewport": "desktop-1680",
+            "viewport": "mobile-375",
             "browser": "chromium"
           }
         ],
@@ -1789,7 +1957,36 @@
           "/"
         ],
         "viewports": [
-          "desktop-1680"
+          "mobile-375"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "mobile-414",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 414px document, first: img spans -8.3 to 422.3 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "mobile-414",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "mobile-414"
         ],
         "browsers": [
           "chromium"
@@ -1827,18 +2024,18 @@
       {
         "suite": "responsive",
         "route": "/",
-        "viewport": "mobile-375",
+        "viewport": "desktop-1680",
         "browser": "chromium",
         "id": "element-outside-viewport",
         "severity": "info",
-        "detail": "2 element(s) past a 375px document, first: img spans -7.5 to 382.5 (contained by overflow-x: clip, intended full-bleed)",
+        "detail": "2 element(s) past a 1680px document, first: img spans -33.6 to 1713.6 (contained by overflow-x: clip, intended full-bleed)",
         "expected": null,
         "actual": null,
         "source": null,
         "occurrences": [
           {
             "route": "/",
-            "viewport": "mobile-375",
+            "viewport": "desktop-1680",
             "browser": "chromium"
           }
         ],
@@ -1847,7 +2044,65 @@
           "/"
         ],
         "viewports": [
-          "mobile-375"
+          "desktop-1680"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "ipad-air-landscape",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 1180px document, first: img spans -23.6 to 1203.6 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "ipad-air-landscape",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "ipad-air-landscape"
+        ],
+        "browsers": [
+          "chromium"
+        ]
+      },
+      {
+        "suite": "responsive",
+        "route": "/",
+        "viewport": "mobile-393",
+        "browser": "chromium",
+        "id": "element-outside-viewport",
+        "severity": "info",
+        "detail": "2 element(s) past a 393px document, first: img spans -7.9 to 400.9 (contained by overflow-x: clip, intended full-bleed)",
+        "expected": null,
+        "actual": null,
+        "source": null,
+        "occurrences": [
+          {
+            "route": "/",
+            "viewport": "mobile-393",
+            "browser": "chromium"
+          }
+        ],
+        "count": 1,
+        "routes": [
+          "/"
+        ],
+        "viewports": [
+          "mobile-393"
         ],
         "browsers": [
           "chromium"
@@ -1914,209 +2169,6 @@
       {
         "suite": "responsive",
         "route": "/",
-        "viewport": "desktop-2560",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 2560px document, first: img spans -51.2 to 2611.2 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "desktop-2560",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "desktop-2560"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "mobile-414",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 414px document, first: img spans -8.3 to 422.3 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "mobile-414",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "mobile-414"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "ipad-portrait",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 768px document, first: img spans -15.4 to 783.4 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "ipad-portrait",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "ipad-portrait"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "desktop-1440",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 1440px document, first: img spans -28.8 to 1468.8 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "desktop-1440",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "desktop-1440"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "ipad-air-landscape",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 1180px document, first: img spans -23.6 to 1203.6 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "ipad-air-landscape",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "ipad-air-landscape"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "desktop-1280",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 1280px document, first: img spans -25.6 to 1305.6 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "desktop-1280",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "desktop-1280"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "mobile-393",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 393px document, first: img spans -7.9 to 400.9 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "mobile-393",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "mobile-393"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
         "viewport": "mobile-430",
         "browser": "chromium",
         "id": "element-outside-viewport",
@@ -2138,35 +2190,6 @@
         ],
         "viewports": [
           "mobile-430"
-        ],
-        "browsers": [
-          "chromium"
-        ]
-      },
-      {
-        "suite": "responsive",
-        "route": "/",
-        "viewport": "ipad-air-portrait",
-        "browser": "chromium",
-        "id": "element-outside-viewport",
-        "severity": "info",
-        "detail": "2 element(s) past a 820px document, first: img spans -16.4 to 836.4 (contained by overflow-x: clip, intended full-bleed)",
-        "expected": null,
-        "actual": null,
-        "source": null,
-        "occurrences": [
-          {
-            "route": "/",
-            "viewport": "ipad-air-portrait",
-            "browser": "chromium"
-          }
-        ],
-        "count": 1,
-        "routes": [
-          "/"
-        ],
-        "viewports": [
-          "ipad-air-portrait"
         ],
         "browsers": [
           "chromium"

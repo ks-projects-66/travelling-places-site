@@ -95,7 +95,7 @@ Baseline from the critique, 1 to 5. Re-score after each pass.
 | B13 | P3 | 5 | One-word last lines in list items on seven routes: `text-wrap: pretty` is set on `p` only | Extend to `li` | `polish` | |
 | B14 | P3 | 3 | 404 copy names the journal and expertise; its buttons go home and to contact | Match the buttons to the copy | `clarify` | |
 | B15 | P3 | 2 | Some prose is hard-coded in `index.astro`, against `CLAUDE.md` | Move to `src/content/` or `src/data/` | | |
-| B16 | P2 | 1 | Mobile CLS 0.108 on every route from a shared element; `/404.html` 0.238 | Find the shifting element with the Lighthouse trace (`qa/reports/lighthouse/mobile/`), reserve its space | `optimize` | |
+| B16 | P2 | 1 | **Mostly fixed 25 October 2026**: the shared shift was the top bar, removed in Phase 1; mobile CLS is now 0 to 0.023 on every route except `/404.html` at 0.179. Was: mobile CLS 0.108 on every route from a shared element; `/404.html` 0.238 | Find the shifting element with the Lighthouse trace (`qa/reports/lighthouse/mobile/`), reserve its space | `optimize` | |
 
 **Not actions.** The carousel's missing position indicator is a settled `BRAND.md` decision (no
 visible control, four mitigations). The underlined hero text link needs checking against the

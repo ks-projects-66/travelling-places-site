@@ -93,7 +93,7 @@ const heroWidths = maxWidth
             widths={heroWidths}
             sizes="100vw"
             loading={i === 0 ? 'eager' : 'lazy'}
-            fetchpriority={i === 0 ? 'high' : undefined}
+            fetchpriority={i === 0 ? 'high' : 'low'}
             style={`object-position: ${slide.position ?? 'center'};`}
           />
         </div>
@@ -114,10 +114,10 @@ const heroWidths = maxWidth
     </div>
   )}
 
-  <div class="page-hero-inner shell" data-carousel-hold={isCarousel ? '' : undefined}>
+  <div class="page-hero-inner shell">
     <slot name="above" />
-    <h1><span class="hero-line">{lead}</span> <span class="hero-accent">{accent}</span></h1>
-    {lede && <p class="page-hero-lede">{lede}</p>}
+    <h1 data-carousel-hold={isCarousel ? '' : undefined}><span class="hero-line">{lead}</span> <span class="hero-accent">{accent}</span></h1>
+    {lede && <p class="page-hero-lede" data-carousel-hold={isCarousel ? '' : undefined}>{lede}</p>}
     <slot />
   </div>
 

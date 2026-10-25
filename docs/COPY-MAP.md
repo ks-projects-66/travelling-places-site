@@ -52,12 +52,12 @@ Status key: **Verbatim** her words on the site; **Edited** her words with repeti
 | One every page at the top | Opt in for our luxury travel magazine   Tick box | Built | - | Magazine opt-in checkbox in the newsletter form ("Tick box" was her instruction). |
 | One every page at the top | Contact details | Verbatim | /privacy/ | - |
 | One every page at the top | Travelling Places, 24 Main Street, Tamborine Mountain QLD 4272 Australia | Verbatim | every page (strip, band or footer) | - |
-| One every page at the top | P: +61   755451600 | Built | - | Top strip shows P: +61 7 5545 1600 (same number, spaced). |
+| One every page at the top | P: +61   755451600 | Removed | - | Showed in the top strip as P: +61 7 5545 1600. Removed 25 October 2026 with the top strip, at the client's request (docs/WORK-PLAN.md, change 1). The number stays in the footer and on Contact. |
 | One every page at the top | E: travel@travellingplaces.com.au | Verbatim | every page (strip, band or footer) | - |
-| One every page at the top | Set up a zoom meeting ? | Verbatim | every page (strip, band or footer) | "Set up a Zoom meeting" link in the top strip, to the Calendly section on Contact (placeholder until Calendly exists). |
-| One every page at the top | ATIA logo | Built | - | ATIA mark in the top strip and footer. |
-| One every page at the top | CLIA logo | Built | - | CLIA mark in the top strip and footer. |
-| One every page at the top | Virtuoso logo | Built | - | Virtuoso mark in the top strip and footer. |
+| One every page at the top | Set up a zoom meeting ? | Removed | Contact only | Was a "Set up a Zoom meeting" link in the top strip. Removed 25 October 2026 with the top strip, at the client's request (docs/WORK-PLAN.md, change 1). The Calendly section on Contact remains (placeholder until Calendly exists). |
+| One every page at the top | ATIA logo | Built | - | ATIA mark in the footer. The top-strip copy went with the strip on 25 October 2026. |
+| One every page at the top | CLIA logo | Built | - | CLIA mark in the footer. The top-strip copy went with the strip on 25 October 2026. |
+| One every page at the top | Virtuoso logo | Built | - | Virtuoso mark in the footer. The top-strip copy went with the strip on 25 October 2026. |
 | Tailor | Tailor-made and luxury holidays | Verbatim | /expertise/ | - |
 | Tailor | Tell us what you’re looking for, and we'll make sure you speak to a specialist who know... | Verbatim | /expertise/ | - |
 | Tailor | What is tailor-made travel? | Verbatim | /expertise/ | - |

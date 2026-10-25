@@ -1,8 +1,8 @@
 # QA report
 
-Generated 2026-10-25T07:06:07.683Z against brand kit **v3.0.2** on linux, Node v22.22.0.
+Generated 2026-10-25T07:30:06.444Z against brand kit **v3.0.2** on linux, Node v22.22.0.
 
-All automated tests passed. 0 distinct blocking findings, 54 warnings and 23 informational items, from 103 recorded occurrences.
+All automated tests passed. 0 distinct blocking findings, 54 warnings and 24 informational items, from 103 recorded occurrences.
 
 Every failure below is a real defect in the site or a real deviation from the brand kit. Nothing has been masked, no threshold was raised, and no rule was disabled to produce this result.
 
@@ -11,10 +11,10 @@ Every failure below is a real defect in the site or a real deviation from the br
 | Suite | Passed | Result |
 |---|---|---|
 | `a11y` | 40 / 40 | pass |
-| `brand` | 96 / 96 | pass |
+| `functional` | 151 / 151 | pass |
+| `brand` | 48 / 48 | pass |
 | `crossbrowser-firefox` | 15 / 15 | pass |
 | `crossbrowser-webkit` | 15 / 15 | pass |
-| `functional` | 75 / 75 | pass |
 | `responsive` | 171 / 171 | pass |
 
 
@@ -35,8 +35,8 @@ Warnings, reported not enforced:
 | `token-derived-colour-uncertified` | oklch(0.851756 0.0347718 268.509) on p (a color-mix of tokens; no certified contrast figure) | 9 | 9 routes; desktop-1440 |
 | `token-derived-colour-uncertified` | oklch(0.761755 0.0558531 268.509) on span (a color-mix of tokens; no certified contrast figure) | 9 | 9 routes; desktop-1440 |
 | `token-derived-colour-uncertified` | oklch(0.89411 0.0248513 268.509) on p.dateline (a color-mix of tokens; no certified contrast figure) | 1 | /journal/; desktop-1440 |
-| `token-derived-colour-uncertified` | oklch(0.883521 0.0273314 268.509) on p (a color-mix of tokens; no certified contrast figure) | 1 | /; desktop-1440 |
 | `token-derived-colour-uncertified` | oklch(0.841168 0.037252 268.509) on p (a color-mix of tokens; no certified contrast figure) | 1 | /who-we-are/; desktop-1440 |
+| `token-derived-colour-uncertified` | oklch(0.883521 0.0273314 268.509) on p (a color-mix of tokens; no certified contrast figure) | 1 | /; desktop-1440 |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:126 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:189 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:73 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
@@ -44,19 +44,19 @@ Warnings, reported not enforced:
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:192 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
 | `stylelint-no-duplicate-selectors` | src/styles/blocks.css:130 Duplicate selector ".newsletter h2", first used at line 124 (no-duplicate-selectors) | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:65 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:275 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:411 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:446 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:559 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:276 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:396 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:431 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:531 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:564 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:571 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:578 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:592 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:599 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:606 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:620 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:628 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:641 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:695 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:741 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:760 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:600 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:613 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:667 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:713 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:732 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
 
 
 ## Responsive layout failures
@@ -69,9 +69,9 @@ Warnings:
 | Finding | Detail | Occurrences | Where |
 |---|---|---|---|
 | `container-width-inconsistent` | .shell renders at 1200, 980px on one page | 6 | /journal/looking-south-to-antarctica/; 6 viewports |
-| `button-wraps` | a.button.button-outline "Send an enquiry instead" wraps to 2 lines | 1 | /contact/; mobile-320 |
-| `container-width-inconsistent` | .shell renders at 1184, 980px on one page | 1 | /journal/looking-south-to-antarctica/; desktop-1280 |
 | `line-length-long` | p measures about 94ch against a 68ch guide | 1 | /contact/; ipad-air-portrait |
+| `container-width-inconsistent` | .shell renders at 1184, 980px on one page | 1 | /journal/looking-south-to-antarctica/; desktop-1280 |
+| `button-wraps` | a.button.button-outline "Send an enquiry instead" wraps to 2 lines | 1 | /contact/; mobile-320 |
 | `container-width-inconsistent` | .shell renders at 1086, 980px on one page | 1 | /journal/looking-south-to-antarctica/; ipad-air-landscape |
 
 
@@ -117,8 +117,8 @@ These cannot be settled by measurement. A person has to look.
 | 3 | warn | `container-width-inconsistent` | 8 | .shell renders at 1200, 980px on one page |
 | 4 | warn | `stylelint-no-duplicate-selectors` | 5 | src/styles/blocks.css:130 Duplicate selector ".newsletter h2", first used at line 124 (no-duplicate-selectors) |
 | 5 | warn | `focus-outline-thin` | 1 | button "" focus outline is 2px |
-| 6 | warn | `button-wraps` | 1 | a.button.button-outline "Send an enquiry instead" wraps to 2 lines |
-| 7 | warn | `line-length-long` | 1 | p measures about 94ch against a 68ch guide |
+| 6 | warn | `line-length-long` | 1 | p measures about 94ch against a 68ch guide |
+| 7 | warn | `button-wraps` | 1 | a.button.button-outline "Send an enquiry instead" wraps to 2 lines |
 | 8 | warn | `css-colour-off-palette` | 1 | 11 value(s) outside the kit: oklch(18% .03 264 / .72), oklch(18% .03 264 / .5), oklch(18% .03 264 / .14), oklch(18% .03 264 / .38), oklch(18% .03 264 / .12), #0b111fcc, #0b111fa8, #0b111f80 … |
 | 9 | warn | `css-font-size-off-scale` | 1 | Route these through the ten type tokens rather than ad-hoc rem values. |
 | 10 | warn | `css-radius-unapproved` | 1 | 2 value(s) outside the kit: 6px, 4px |

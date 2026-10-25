@@ -163,9 +163,10 @@
   right: clamp(0.75rem, 2vw, 2rem);
 }
 
-/* On a phone the title block fills the middle of the photograph, so the arrows move to the top
-   corners, still left and right, clear of the text. */
-@media (max-width: 680px) {
+/* Centred arrows only clear the title where the page gutter is wider than the arrow, which is
+   from about 1366px. Below that the title's left edge sits under the left arrow (measured: 1024
+   and 1280 overlapped), so the arrows move to the top corners, still left and right. */
+@media (max-width: 1365px) {
   .page-hero .page-hero-arrow {
     top: 1rem;
     transform: none;
@@ -344,21 +345,6 @@
   margin-top: 0;
 }
 
-.value-band-closing {
-  max-width: 44rem;
-  margin: clamp(2.5rem, 5vw, 4rem) auto 0;
-  text-align: center;
-}
-
-.value-band-closing p {
-  color: color-mix(in oklch, var(--white) 80%, var(--blue));
-  font-size: var(--tp-type-lead);
-}
-
-.value-band-closing .placeholder-note {
-  font-size: var(--meta-label);
-}
-
 /* The Tailor-made page opens on Gina's own standfirst, set large, before any heading. */
 .lead-statement p {
   max-width: var(--measure);
@@ -405,8 +391,7 @@
 }
 
 .service-copy > p,
-.long-copy p,
-.image-editorial-grid > div > p {
+.long-copy p {
   color: var(--ink-muted);
   font-size: 1.08rem;
 }
@@ -446,7 +431,6 @@
   font-size: 1.3rem;
 }
 
-.value-band,
 .team-values {
   color: var(--white);
   background: var(--blue-deep);
@@ -477,7 +461,6 @@
   color: color-mix(in oklch, var(--white) 70%, var(--blue));
 }
 
-.image-editorial-grid,
 .contact-photo-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
@@ -485,19 +468,8 @@
   gap: clamp(3rem, 9vw, 9rem);
 }
 
-.image-editorial-grid > img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-.image-editorial-grid h2,
 .contact-photo-grid h2 {
   color: var(--blue-deep);
-}
-
-.secondary-link {
-  margin-left: 1.25rem;
 }
 
 .team-roster {
@@ -772,7 +744,6 @@
   .teaser-story,
   .closing-grid,
   .editorial-grid,
-  .image-editorial-grid,
   .contact-page-grid,
   .contact-photo-grid {
     grid-template-columns: 1fr;
@@ -838,11 +809,6 @@
     grid-column: 1 / -1;
   }
 
-  .secondary-link {
-    display: flex;
-    width: fit-content;
-    margin: 1.25rem 0 0;
-  }
 
   .contact-form-wrap {
     padding-inline: 1.25rem;
@@ -884,7 +850,6 @@
 }
 
 .closing-cta,
-.value-band,
 .team-values {
   padding-block: clamp(6rem, 12vw, 10rem);
 }
@@ -1033,7 +998,6 @@
    columns: the same rule DESIGN.md sets for lists, without markers. */
 .luxury-virtuoso {
   background: var(--mist);
-  scroll-margin-top: var(--header-h);
 }
 
 .luxury-virtuoso-mark {
