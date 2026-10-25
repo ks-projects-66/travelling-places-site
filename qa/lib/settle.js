@@ -16,14 +16,39 @@ export async function settlePage(page) {
   // scrolling straight through in animation frames moves faster than the lazy-load trigger and
   // leaves footer images permanently unstarted, which reads as a broken image rather than as the
   // timing artefact it is.
+  //
+  // behavior: 'instant' matters. The site sets html { scroll-behavior: smooth }, so a plain
+  // scrollTo(0, y) animates rather than jumps, and a 60ms dwell ended each stop mid-animation. In
+  // WebKit the walk could finish without the lowest images ever entering the viewport; they stayed
+  // unstarted, the wait below timed out silently, and the audit reported whichever footer image was
+  // last as image-failed-to-load, a different one each run.
+  //
+  // Each stop also waits for the images it has brought into view, up to 1.5s, rather than a fixed
+  // 60ms. WebKit starts a lazy image on its next rendering update after it intersects, which a
+  // 60ms dwell did not always reach: a mid-page image (Gina's portrait, the Virtuoso mark) was
+  // passed over, left the viewport unstarted, never loaded, and the audit reported it broken, a
+  // different image on different runs.
   await page.evaluate(async () => {
+    const inView = () =>
+      [...document.images].filter((img) => {
+        const r = img.getBoundingClientRect();
+        return r.bottom > 0 && r.top < window.innerHeight && r.width > 0;
+      });
+    const settleStop = async () => {
+      const started = Date.now();
+      await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+      while (Date.now() - started < 1500 && !inView().every((img) => img.complete)) {
+        await new Promise((r) => setTimeout(r, 50));
+      }
+    };
     const step = Math.round(window.innerHeight * 0.8);
     const total = document.body.scrollHeight;
     for (let y = 0; y < total; y += step) {
-      window.scrollTo(0, y);
-      await new Promise((r) => setTimeout(r, 60));
+      window.scrollTo({ top: y, behavior: 'instant' });
+      await settleStop();
     }
-    window.scrollTo(0, total);
+    window.scrollTo({ top: total, behavior: 'instant' });
+    await settleStop();
   });
 
   // Resolve every image while still at the bottom, before scrolling back. An image that is still
@@ -34,7 +59,7 @@ export async function settlePage(page) {
     })
     .catch(() => {});
 
-  await page.evaluate(() => window.scrollTo(0, 0));
+  await page.evaluate(() => window.scrollTo({ top: 0, behavior: 'instant' }));
   await page.evaluate(() => document.fonts.ready);
 
   // Bounded deliberately. waitForLoadState('networkidle') inherits the 30s navigation timeout, and

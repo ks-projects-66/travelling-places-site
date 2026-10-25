@@ -22,8 +22,8 @@ const rendered = await Promise.all(
 >
   <main id="main">
     <PageHero
-      lead="Tailor-made and"
-      accent="luxury holidays."
+      lead={copy.heroLead}
+      accent={copy.heroAccent}
       image={expertiseHero}
       alt="Snow-capped mountains and forested slopes reflected in a still alpine lake at golden hour"
       position="center 38%"
@@ -37,8 +37,12 @@ const rendered = await Promise.all(
 
     <section class="section service-cards">
       <div class="shell">
-        {/* Gina's Tailor copy has no heading for the cards; render one only if the CMS sets it. */}
-        {'servicesHeading' in copy && copy.servicesHeading && <h2>{copy.servicesHeading}</h2>}
+        {/* Gina's Tailor copy has no visible heading for the cards. One is still needed so the card
+            titles (h3) do not sit directly under the page h1 (POLISH-PLAN B7). It is visible if
+            the CMS sets servicesHeading, and otherwise read by assistive technology only. */}
+        {'servicesHeading' in copy && copy.servicesHeading
+          ? <h2>{copy.servicesHeading}</h2>
+          : <h2 class="visually-hidden">Our services</h2>}
         <div class="card-grid card-grid--two">
           {rendered.map(({ data, Body }) => (
             <article class="service-card" id={data.anchor}>

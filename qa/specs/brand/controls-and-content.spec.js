@@ -139,7 +139,9 @@ test.describe('copy', () => {
           const hasText = [...el.childNodes].some((n) => n.nodeType === 3 && n.textContent.trim());
           if (!hasText) continue;
           const cls = typeof el.className === 'string' ? el.className : '';
-          const isApproved = approved.some((a) => cls.includes(a));
+          // Descendants count: a <time> inside a story-meta label inherits the label's uppercase and
+          // is part of that one label, not a second uppercase treatment.
+          const isApproved = approved.some((a) => el.closest('.' + a));
           const isHeading = /^H[1-6]$/.test(el.tagName);
           if (isHeading) {
             out.push({ id: 'all-caps-heading', severity: 'fail', detail: el.tagName + ' "' + el.textContent.trim().slice(0, 40) + '" is uppercase', source: 'BRAND.md: no all-caps headings' });

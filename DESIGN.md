@@ -175,6 +175,15 @@ top of the frame and an 85vh crop decapitates them at the default `center`. Who 
 larger original is on the content list. Any replacement photograph needs its own value checked at
 1440px **and** 390px, since the crop ratio runs from about 0.54:1 to 2.98:1.
 
+## Home page, from 25 October 2026
+
+The client's brief (`docs/WORK-PLAN.md`, changes 4 to 7) set the home page as: the photograph
+sequence; Gina's line as the introduction's heading, in one column; two journeys (Cruising and
+Luxury travel) as image cards with text beneath, 3:2 because both photographs are landscape
+originals; the Virtuoso band; the founder; the journal as one story beside its photograph; Gina's
+reasons to book on a white panel with no rules or markers; and in the footer one row of the four
+marks on white, then a single newsletter row. Copy for all of it lives in `src/data/home.json`.
+
 ## Section rhythm
 
 Every section shared one padding value until 30 August 2026, which is what made the page read as a
@@ -182,13 +191,14 @@ metronome. Three bands now:
 
 | Band | Value at 1440px | Used by |
 |---|---|---|
-| Tight | 72px | `expertise-preview`, `team-roster`, `featured-article` |
+| Tight | 72px | `team-roster`, `featured-article` |
 | Standard | 120px | prose sections, and the default for anything unlisted |
 | Open | 160px | `closing-cta`, `value-band`, `team-values` |
 
-Two images leave the 1200px shell and run to the viewport edge, alternating side: the founder
-portrait breaks left, the journal teaser breaks right. `html { overflow-x: clip }` guarantees the
-negative margins cannot produce a horizontal scrollbar.
+One image leaves the 1200px shell and runs to the viewport edge: the founder portrait breaks left.
+The journal teaser used to break right; since 25 October 2026 it sits inside the shell beside its
+text, because the client found the floating arrangement loose (`docs/WORK-PLAN.md`, change 5).
+`html { overflow-x: clip }` guarantees the negative margin cannot produce a horizontal scrollbar.
 
 
 ## Header and heading colour

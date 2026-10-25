@@ -52,4 +52,16 @@ const services = defineCollection({
   }),
 });
 
-export const collections = { journal, team, services };
+// Legal pages. The privacy policy is a draft until a person approves it (CLAUDE.md); `approved`
+// drives the notice on the page and is only ever set by a person.
+const legal = defineCollection({
+  loader: glob({ pattern: '**/*.md', base: './src/content/legal' }),
+  schema: z.object({
+    title: z.string(),
+    approved: z.boolean().default(false),
+    drafted: z.coerce.date(),
+    approvedOn: z.coerce.date().optional(),
+  }),
+});
+
+export const collections = { journal, team, services, legal };

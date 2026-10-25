@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import { FUNCTIONAL } from '../../viewports.js';
-import { ARTICLE_ROUTE } from '../../routes.js';
+import { ARTICLE_ROUTE, ROUTES } from '../../routes.js';
 import { settlePage } from '../../lib/settle.js';
 import { record } from '../../lib/collect.js';
 
@@ -12,72 +12,48 @@ test.describe('journal', () => {
     await page.goto('/journal/');
   });
 
-  test('the category filter shows All plus a button per category', async ({ page }) => {
-    const filters = page.locator('[data-filter]');
-    expect(await filters.count()).toBeGreaterThanOrEqual(2);
-    await expect(page.locator('[data-filter="all"]')).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('[role="group"][aria-label="Filter articles by category"]')).toBeVisible();
+  // The category filter was removed on 25 October 2026 (docs/WORK-PLAN.md, change 5): five chips
+  // for five articles. If one returns, it needs tests of its own again.
+  test('there is no category filter', async ({ page }) => {
+    await expect(page.locator('[data-filter]')).toHaveCount(0);
   });
 
-  test('filtering by category hides the other categories', async ({ page }) => {
-    const categories = await page.locator('[data-category-item]').evaluateAll((els) => [
-      ...new Set(els.map((e) => e.dataset.categoryItem)),
-    ]);
-    expect(categories.length).toBeGreaterThan(1);
-
-    const target = categories[0];
-    await page.locator(`[data-filter="${target}"]`).click();
-    await expect(page.locator(`[data-filter="${target}"]`)).toHaveAttribute('aria-pressed', 'true');
-    await expect(page.locator('[data-filter="all"]')).toHaveAttribute('aria-pressed', 'false');
-
-    for (const el of await page.locator('[data-category-item]').all()) {
-      const category = await el.getAttribute('data-category-item');
-      if (category === target) await expect(el).toBeVisible();
-      else await expect(el).toBeHidden();
-    }
+  test('makes no promise about how often it is updated', async ({ page }) => {
+    // The owner's decision (docs/WORK-PLAN.md, Q7). The footer is included: it said "every
+    // fortnight" until the same day.
+    await expect(page.locator('body')).not.toContainText(/fortnight|weekly|monthly/i);
   });
 
-  test('All restores every row on the first page', async ({ page }) => {
-    const categories = await page.locator('[data-category-item]').evaluateAll((els) => [
-      ...new Set(els.map((e) => e.dataset.categoryItem)),
-    ]);
-    await page.locator(`[data-filter="${categories[0]}"]`).click();
-    await page.locator('[data-filter="all"]').click();
-    for (const el of await page.locator('[data-category-item]:not([data-beyond-page])').all()) {
-      await expect(el).toBeVisible();
-    }
-  });
-
-  test('the empty state stays hidden while every category has articles', async ({ page }) => {
-    await expect(page.locator('[data-empty-state]')).toBeHidden();
-  });
-
-  test('external entries open in a new tab, internal ones do not', async ({ page }) => {
-    const links = await page.locator('.journal-feature, .journal-row').all();
+  test('external entries open in a new tab and say so, internal ones do not', async ({ page }) => {
+    const links = await page.locator('.journal-lead h2 a, .journal-row').all();
     expect(links.length).toBeGreaterThan(1);
     for (const link of links) {
       const href = await link.getAttribute('href');
       if (href.startsWith('http')) {
         await expect(link).toHaveAttribute('target', '_blank');
         await expect(link).toHaveAttribute('rel', /noreferrer/);
+        await expect(link).toContainText('new tab');
       } else {
         expect(await link.getAttribute('target')).toBeNull();
       }
     }
   });
 
-  test('the feature is the newest article, with its title, byline and date', async ({ page }) => {
-    const feature = page.locator('.journal-feature');
+  test('the feature is the newest article, its text beneath its photograph', async ({ page }) => {
+    const feature = page.locator('.journal-lead');
     await expect(feature.locator('h2')).toBeVisible();
     await expect(feature.locator('.byline')).toHaveText(/^By /);
-    await expect(feature.locator('.dateline')).toHaveText(/\d{4}$/);
+    await expect(feature.locator('.story-meta time')).toHaveText(/\d{4}$/);
+    const image = await feature.locator('.journal-lead-image').boundingBox();
+    const text = await feature.locator('.journal-lead-text').boundingBox();
+    expect(text.y).toBeGreaterThanOrEqual(image.y + image.height - 1);
   });
 
   test('an internal feature links to a real article page', async ({ page }) => {
-    const feature = page.locator('.journal-feature');
-    const href = await feature.getAttribute('href');
+    const link = page.locator('.journal-lead h2 a');
+    const href = await link.getAttribute('href');
     test.skip(href.startsWith('http'), 'The newest article is an external archive entry.');
-    await feature.click();
+    await link.click();
     await expect(page.locator('article.article-page')).toBeVisible();
   });
 });
@@ -97,12 +73,14 @@ test.describe('article page', () => {
 });
 
 test.describe('404', () => {
-  test('renders its own hero and two escape routes', async ({ page }) => {
+  // The actions match the sentence above them: it names the expertise and the journal (B14).
+  test('renders its own hero and the routes its copy names', async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/404.html');
     await expect(page.locator('h1')).toContainText('moved on');
-    await expect(page.locator('.hero-actions a.button')).toHaveAttribute('href', '/');
-    await expect(page.locator('.hero-actions a.text-link')).toHaveAttribute('href', '/contact/');
+    await expect(page.locator('.hero-actions a.button')).toHaveAttribute('href', '/expertise/');
+    const links = await page.locator('.hero-actions a.text-link').evaluateAll((els) => els.map((e) => e.getAttribute('href')));
+    expect(links).toEqual(['/journal/', '/']);
   });
 
   test('an unknown path is served the 404 page', async ({ page }) => {
@@ -112,64 +90,37 @@ test.describe('404', () => {
   });
 });
 
-test.describe('enquiry dialog', () => {
-  test('opens from the header call to action', async ({ page }) => {
+// The enquiry dialog was retired on 25 October 2026: the main action is "Start planning",
+// everywhere, and it goes to the Contact page (docs/WORK-PLAN.md, Q13). The newsletter dialog,
+// which shares the dialog styling, is covered in enquiry-form.spec.js.
+test.describe('main action', () => {
+  test('the header call to action is Start planning, and it goes to Contact', async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/');
-
-    await expect(page.locator('[data-enquiry-dialog]')).toHaveCount(1);
-    const opener = page.locator('[data-open-enquiry]');
-    await expect(opener).toHaveCount(1);
-
-    // Progressive enhancement: the opener stays an ordinary link to /contact/, so it still works
-    // without JS and on the contact page, where no dialog is rendered.
-    await expect(opener).toHaveAttribute('href', '/contact/');
-
-    await opener.click();
-    await expect(page.locator('[data-enquiry-dialog]')).toBeVisible();
-    await expect(page).toHaveURL('/');
-    await expect(page.locator('body')).toHaveClass(/dialog-open/);
-  });
-
-  test('returns focus to the opener when dismissed', async ({ page }) => {
-    await page.setViewportSize(viewport);
-    await page.goto('/');
-    await page.locator('[data-open-enquiry]').click();
-    await expect(page.locator('[data-enquiry-dialog]')).toBeVisible();
-
-    await page.keyboard.press('Escape');
-    await expect(page.locator('[data-enquiry-dialog]')).toBeHidden();
-    await expect(page.locator('[data-open-enquiry]')).toBeFocused();
-  });
-
-  test('is not rendered on the contact page, where the form is inline', async ({ page }) => {
-    await page.setViewportSize(viewport);
-    await page.goto('/contact/');
-    await expect(page.locator('[data-enquiry-dialog]')).toHaveCount(0);
+    const cta = page.locator('[data-nav] a.button');
+    await expect(cta).toHaveText('Start planning');
+    await expect(cta).toHaveAttribute('href', '/contact/');
+    await cta.click();
+    await expect(page).toHaveURL(/\/contact\/$/);
     await expect(page.locator('[data-enquiry-form]')).toHaveCount(1);
   });
 
-  test('closes correctly once opened programmatically', async ({ page }) => {
+  test('no page renders the retired enquiry dialog', async ({ page }) => {
     await page.setViewportSize(viewport);
-    await page.goto('/');
+    for (const route of ROUTES) {
+      await page.goto(route);
+      await expect(page.locator('[data-enquiry-dialog], [data-open-enquiry]')).toHaveCount(0);
+    }
+  });
 
-    const open = async () => {
-      await page.evaluate(() => {
-        document.querySelector('[data-enquiry-dialog]').showModal();
-        document.body.classList.add('dialog-open');
-      });
-      await expect(page.locator('[data-enquiry-dialog]')).toBeVisible();
-    };
-
-    await open();
-    await page.locator('[data-close-enquiry]').click();
-    await expect(page.locator('[data-enquiry-dialog]')).toBeHidden();
-    await expect(page.locator('body')).not.toHaveClass(/dialog-open/);
-
-    // Native <dialog> gives Escape for free, and the close listener clears the body class.
-    await open();
-    await page.keyboard.press('Escape');
-    await expect(page.locator('[data-enquiry-dialog]')).toBeHidden();
-    await expect(page.locator('body')).not.toHaveClass(/dialog-open/);
+  test('every button to Contact carries the one label', async ({ page }) => {
+    await page.setViewportSize(viewport);
+    for (const route of ROUTES) {
+      await page.goto(route);
+      const labels = await page
+        .locator('a.button[href="/contact/"]')
+        .evaluateAll((els) => els.map((el) => el.textContent.trim()));
+      for (const label of labels) expect(label, `on ${route}`).toBe('Start planning');
+    }
   });
 });

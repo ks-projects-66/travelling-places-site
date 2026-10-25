@@ -100,7 +100,7 @@ Interactive targets meet WCAG 2.5.8 (Minimum, AA): at least 24 by 24 CSS pixels,
 
 ## Navigation and footer
 
-Primary navigation contains no more than five destinations plus the Plan a journey action. Use familiar labels. The mobile menu uses a standard menu icon, visible text alternatives, Escape-to-close behaviour, and preserved keyboard focus.
+Primary navigation contains no more than five destinations plus the Start planning action, which links to the enquiry form on Contact. Every call to the enquiry form carries that one label. Use familiar labels. The mobile menu uses a standard menu icon, visible text alternatives, Escape-to-close behaviour, and preserved keyboard focus.
 
 The footer uses the dark lockup, a short navigation list, contact details, and the official Instagram and Facebook icons. Do not use external-link arrow glyphs.
 

@@ -21,7 +21,7 @@ see on screen gets fixed, and a gap recorded only in a register gets shipped.
 | ID | Placeholder | Where | Replaced by | Notes |
 |---|---|---|---|---|
 | C1 | Photographs | `src/assets/images/` | Resolved | The unlicensed set was replaced; `check:licensing` reports 31 images in the manifest and 0 unlicensed (28 September 2026). |
-| C2 | Privacy policy | `src/pages/privacy.astro` | Approved policy text | Page is a scaffold listing what the policy must cover. No policy has been drafted. |
+| C2 | Privacy policy | `src/content/legal/privacy.md` | Approval by a person, after the TODOs are resolved | Drafted 25 October 2026 at the owner's request (website only). The page says it is an unapproved draft until `approved` is set by a person. 26 red TODOs name what the business must supply; `docs/PRIVACY-NOTES.md` lists each, who supplies it, and whether the policy is legally required (it turns on annual turnover). |
 | C3 | ABN | `src/data/site.json` → `identifiers.abn` | The registered ABN | Renders as a TODO pill in the footer. |
 | C4 | ATIA accreditation number | `src/data/site.json` | The accreditation number | ATIA also sets logo display rules that need checking. |
 | C5 | CLIA membership number | `src/data/site.json` | The membership number | |
@@ -33,7 +33,7 @@ see on screen gets fixed, and a gap recorded only in a register gets shipped.
 |---|---|---|---|---|
 | C7 | Genesys subscribe embed | `src/components/NewsletterDialog.astro` | The real embed snippet | Karim holds a Client ID and Form ID. The snippet itself is unconfirmed. See `INTEGRATIONS.md`. |
 | C8 | Calendly URL | `.env` → `PUBLIC_CALENDLY_URL` | Free Calendly discovery-call link | Contact page shows a marked block pointing at the enquiry form instead. |
-| C9 | Four partner logos | `src/data/partners.json` | Cruise line artwork plus written permission | Renders as four marked blocks in the footer. |
+| C9 | Four partner logos | Removed | Not needed | The client removed the travel partners row and its four placeholders on 25 October 2026 (docs/WORK-PLAN.md, change 7). `partners.json` is deleted. |
 
 ## Content accuracy
 
@@ -51,6 +51,7 @@ see on screen gets fixed, and a gap recorded only in a register gets shipped.
 | C20 | Claims in Gina's copy | `src/data/*.json` | Her confirmation | Published as supplied on Karim's instruction of 26 September 2026: Global Cruise Icon (under 300 worldwide), Virtuoso top 1%, IATA TIDS affiliate, client trust account, "ATIA protected", in-house events, brochures, travel insurance. Several passages match wexas.com word for word. |
 | C21 | Luxury theme copy | `src/data/luxury.json` → `themes` | Gina's sign-off, or her edit | Three short blurbs from the Claude Design review replaced her seven Luxury sections on Karim's instruction of 28 September 2026. They are draft copy, not her words. "Peace of mind" states comprehensive insurance and "Privileged access" states in-house events: both come from her original sections, so confirm they still hold. |
 | C22 | Larger team photograph | `src/assets/images/team/team-outside.jpg` | The original file at 2000px or wider | Now the About hero (25 October 2026). The supplied file is 1037px wide, so it is upscaled and slightly soft at 1440px. Same request for `team-office.jpg` (904px). |
+| C23 | Cruising card destination | `src/data/home.json` → `journeys.cards[0].href` | The link the owner supplies | The home Cruising card links to the cruising section of Tailor-made for now (`hrefStatus: placeholder`). The owner is getting the intended link (docs/WORK-PLAN.md, Q5). |
 
 ## Deployment
 
@@ -99,7 +100,7 @@ band stays on every page it is on; repetition may be removed from her copy, with
 | R16 | Luxury | Three theme blurbs signed off | Awaiting Gina | C21 | Draft copy | Blocks launch |
 | R17 | Factual claims | Cruise Icon figure, Virtuoso top 1%, "ATIA protected", trust account | Awaiting Gina | C20; copy map, claims table | Published as supplied | Blocks launch |
 | R18 | Privacy | Policy text | Blocked | Gina or her adviser; not drafted by agents (`CLAUDE.md`) | Data-flow inventory below | Blocks launch (C2) |
-| R19 | Partners | Cruise partner logos and permission | Awaiting Gina | C9 | Four placeholders | Review |
+| R19 | Partners | Cruise partner logos and permission | Closed | C9 | Row removed at the client's request, 25 October 2026 | - |
 | R20 | Deployment | Review link | See `docs/REVIEW-QA.md` | - | Branch preview; production alias untouched | Review |
 | R21 | Domain | Cutover | Not started, by design | Karim, after Gina's approval | `DNS-CUTOVER.md`; no DNS change under this handoff | Launch |
 

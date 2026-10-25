@@ -34,6 +34,11 @@ body {
   overflow: hidden;
 }
 
+/* No one-word last lines in list items either (POLISH-PLAN B13). It was set on p only. */
+li {
+  text-wrap: pretty;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -319,106 +324,26 @@ p {
   padding-top: clamp(4rem, 7vw, 7rem);
 }
 
-.intro-grid {
-  display: grid;
-  grid-template-columns: 150px minmax(0, 1.45fr) minmax(260px, 0.65fr);
-  align-items: end;
-  gap: clamp(2rem, 5vw, 5rem);
-}
-
-.intro-mark img {
-  width: 130px;
-  mix-blend-mode: multiply;
-}
-
-.intro-copy > p,
-.partners-title {
+/* Home introduction: one column at the reading width (DESIGN.md: body and intro text in one
+   left-aligned column). Gina's line is the heading; the statement under it is a lead, and the
+   detail is body copy. It replaced a three-column arrangement (mark, kicker and heading, detail)
+   whose parts shared no edge, and a 13px kicker that set her best line as fine print. */
+.intro h2 {
+  max-width: 22ch;
   margin-bottom: 1.25rem;
-  color: var(--blue);
-  font-size: var(--tp-type-fine);
-  font-weight: 600;
+  color: var(--blue-deep);
 }
 
-.intro-copy h2 {
-  max-width: 15ch;
-  margin-bottom: 0;
-  color: var(--blue-deep);
-  font-size: var(--tp-type-section-title);
+.intro-lead {
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--tp-type-lead);
+  line-height: 1.55;
 }
 
 .intro-detail {
-  padding-bottom: 0.45rem;
-}
-
-.intro-detail p {
-  margin-bottom: 1.5rem;
+  margin: 1rem 0 1.75rem;
   color: var(--ink-muted);
-}
-
-.split-heading {
-  display: grid;
-  grid-template-columns: 1fr minmax(280px, 0.55fr);
-  align-items: end;
-  gap: 3rem;
-  margin-bottom: clamp(3.5rem, 7vw, 6rem);
-}
-
-.split-heading h2 {
-  margin-bottom: 0;
-  color: var(--blue-deep);
-}
-
-.split-heading p {
-  max-width: 33rem;
-  margin: 0;
-  color: var(--ink-muted);
-  font-size: 1.1rem;
-}
-
-.expertise-list {
-  border-top: 1px solid var(--line);
-}
-
-.expertise-row {
-  display: grid;
-  grid-template-columns: minmax(220px, 0.8fr) minmax(280px, 1.2fr) 40px;
-  align-items: center;
-  gap: 1.5rem;
-  min-height: 142px;
-  padding-block: 1.5rem;
-  border-bottom: 1px solid var(--line);
-  transition: color 200ms ease, padding 260ms var(--ease);
-}
-
-.expertise-row:hover {
-  padding-inline: 1rem;
-  color: var(--blue);
-}
-
-.expertise-row h3,
-.expertise-row p {
-  margin: 0;
-}
-
-/* Row labels are body sans at label size, not display serif. A list item must not
-   carry the same weight as the section heading above it. See brand.tokens.json type.label. */
-.expertise-row h3 {
-  font-family: var(--sans);
-  font-size: var(--tp-type-label);
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1.4;
-}
-
-.expertise-row p {
-  max-width: 42rem;
-  color: var(--ink-muted);
-}
-
-.row-arrow {
-  width: 22px;
-  height: 22px;
-  color: var(--red);
 }
 
 .virtuoso-grid {
@@ -603,10 +528,6 @@ blockquote {
   color: var(--ink-muted);
 }
 
-.partners-title {
-  text-align: center;
-}
-
 .partner-logos {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -658,7 +579,7 @@ blockquote {
 }
 
 .site-footer {
-  padding: 4rem 0 1.5rem;
+  padding: 0 0 1.5rem;
   color: var(--white);
   background: var(--blue-deep);
 }
@@ -858,36 +779,8 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
-  .intro-grid {
-    grid-template-columns: 110px 1fr;
-  }
-
   .intro-detail {
     grid-column: 2;
-  }
-
-  /* Label over summary, arrow held at the right. The old four-column track was written for a
-     leading number that DESIGN.md removed, so the label landed in a 44px column and broke one
-     word per line. */
-  .expertise-row {
-    grid-template-columns: minmax(0, 1fr) 28px;
-    gap: 0.4rem 1rem;
-    align-items: start;
-    min-height: 0;
-    padding-block: 1.5rem;
-  }
-
-  .expertise-row h3 {
-    grid-column: 1;
-  }
-
-  .expertise-row p {
-    grid-column: 1;
-  }
-
-  .row-arrow {
-    grid-column: 2;
-    grid-row: 1;
   }
 
   .virtuoso-copy h2,
@@ -920,37 +813,8 @@ blockquote {
     flex-direction: column;
   }
 
-  .intro-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .intro-mark img {
-    width: 88px;
-  }
-
   .intro-detail {
     grid-column: auto;
-  }
-
-  .split-heading {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .expertise-row {
-    grid-template-columns: minmax(0, 1fr) 22px;
-    padding-block: 1.4rem;
-  }
-
-  .expertise-row p {
-    grid-column: 1;
-  }
-
-  /* Column 2, not 3. The row is two tracks now; asking for a third created an implicit
-     column that took 22px off the summary text on every row. */
-  .row-arrow {
-    grid-column: 2;
-    grid-row: 1;
   }
 
   .virtuoso-panel {

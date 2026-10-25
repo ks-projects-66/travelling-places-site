@@ -1,64 +1,69 @@
 ---
+/**
+ * The journal. Rebuilt 25 October 2026 at the client's request (docs/WORK-PLAN.md, change 5): a
+ * plain introduction, the newest story as one feature with its text beneath the photograph
+ * (DESIGN.md: text beneath images), then the rest as a dated log. The category filter went with
+ * it: five chips for five articles asked the visitor to do work the list did not need. Articles
+ * published elsewhere say where, and say that they open in a new tab.
+ */
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import WhyBook from '../../components/WhyBook.astro';
 import site from '../../data/site.json';
-import topBar from '../../data/top-bar.json';
+import copy from '../../data/journal-page.json';
 
 // Newest first. On a shared date the entry flagged featured leads, so the feature is stable.
 const posts = (await getCollection('journal', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.date.valueOf() - a.data.date.valueOf() || Number(b.data.featured) - Number(a.data.featured),
 );
 const [feature, ...log] = posts;
-const categories = [...new Set(log.map((post) => post.data.category))];
 
 // The log shows this many rows, then "Load more articles" reveals the rest. With fewer articles
 // than this the button is not rendered at all.
 const PAGE_SIZE = 10;
 
+type Post = (typeof posts)[number];
 const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
-const href = (post: (typeof posts)[number]) => post.data.externalUrl ?? `/journal/${post.id}/`;
-const publishedOn = (post: (typeof posts)[number]) =>
+const isoDate = (post: Post) => post.data.date.toISOString().slice(0, 10);
+const href = (post: Post) => post.data.externalUrl ?? `/journal/${post.id}/`;
+const publishedOn = (post: Post) =>
   post.data.externalUrl ? new URL(post.data.externalUrl).hostname.replace(/^www\./, '') : null;
-const external = (post: (typeof posts)[number]) =>
+const external = (post: Post) =>
   post.data.externalUrl ? { target: '_blank', rel: 'noreferrer' } : {};
 ---
 
 <BaseLayout
-  title={`The journal | ${site.name}`}
-  description="Practical advice, new discoveries and first-hand travel stories from the Travelling Places team."
+  title={`${copy.heading} | ${site.name}`}
+  description="Stories, practical advice and first-hand discoveries from Gina and the Travelling Places team."
   page="journal"
 >
   <main id="main">
     <section class="journal-header">
-      <div class="shell journal-header-grid">
-        <div>
-          <h1>Notes from the road</h1>
-          <p class="journal-standfirst">
-            Gina's fortnightly notes, plus first-hand discoveries and practical guidance from the team,
-            for the journey ahead.
-          </p>
-        </div>
-        <a class="button button-blue" href={`mailto:${site.email}?subject=Newsletter%20sign-up`} data-open-newsletter>
-          {topBar.newsletter.button}
-        </a>
+      <div class="shell">
+        <h1>{copy.heading}</h1>
+        <p class="journal-standfirst">{copy.standfirst}</p>
       </div>
     </section>
 
     {feature && (
       <section class="journal-feature-wrap">
         <div class="shell">
-          <a class="journal-feature" href={href(feature)} {...external(feature)}>
-            <Image src={feature.data.cover} alt={feature.data.coverAlt}
-              widths={[768, 1280, 1920]} sizes="(max-width: 1248px) 100vw, 1200px" loading="eager" />
-            <div class="journal-feature-text">
-              <h2>{feature.data.title}</h2>
-              <p class="byline">By {feature.data.author}</p>
-              <p class="dateline">{dateFormat.format(feature.data.date)}</p>
-              {publishedOn(feature) && <p class="dateline">Published on {publishedOn(feature)}</p>}
+          <article class="journal-lead">
+            <a class="journal-lead-image" href={href(feature)} {...external(feature)} tabindex="-1" aria-hidden="true">
+              <Image src={feature.data.cover} alt=""
+                widths={[768, 1280, 1920]} sizes="(max-width: 1248px) 100vw, 1200px" loading="eager" />
+            </a>
+            <div class="journal-lead-text">
+              <p class="story-meta">{feature.data.category} · <time datetime={isoDate(feature)}>{dateFormat.format(feature.data.date)}</time></p>
+              <h2><a href={href(feature)} {...external(feature)}>{feature.data.title}{publishedOn(feature) && <span class="visually-hidden"> ({copy.externalNote})</span>}</a></h2>
+              <p class="journal-lead-standfirst">{feature.data.standfirst}</p>
+              <p class="byline">{copy.byPrefix} {feature.data.author}</p>
+              {publishedOn(feature)
+                ? <p class="dateline">{copy.externalPrefix} {publishedOn(feature)}</p>
+                : <a class="text-link" href={href(feature)}>{copy.readLink}</a>}
             </div>
-          </a>
+          </article>
         </div>
       </section>
     )}
@@ -66,37 +71,27 @@ const external = (post: (typeof posts)[number]) =>
     {log.length > 0 && (
       <section class="section journal-log">
         <div class="shell">
-          <div class="journal-log-heading">
-            <h2>All articles</h2>
-            <div class="archive-filters" role="group" aria-label="Filter articles by category">
-              <button type="button" class="is-active" data-filter="all" aria-pressed="true">All</button>
-              {categories.map((category) => (
-                <button type="button" data-filter={category} aria-pressed="false">{category}</button>
-              ))}
-            </div>
-          </div>
-
+          <h2 class="journal-log-title">{copy.logHeading}</h2>
           <ol class="journal-rows">
             {log.map((post, i) => (
-              <li data-category-item={post.data.category} data-beyond-page={i >= PAGE_SIZE ? '' : undefined}
-                hidden={i >= PAGE_SIZE ? true : undefined}>
+              <li data-beyond-page={i >= PAGE_SIZE ? '' : undefined} hidden={i >= PAGE_SIZE ? true : undefined}>
                 <a class="journal-row" href={href(post)} {...external(post)}>
                   <Image src={post.data.cover} alt={post.data.coverAlt}
                     widths={[220, 440]} sizes="(max-width: 700px) 92vw, 220px" loading="lazy" />
                   <div>
-                    <p class="story-meta">{post.data.category}</p>
+                    <p class="story-meta">{post.data.category} · <time datetime={isoDate(post)}>{dateFormat.format(post.data.date)}</time></p>
                     <h3>{post.data.title}</h3>
-                    <p class="byline">By {post.data.author}</p>
-                    <p class="dateline">{dateFormat.format(post.data.date)}</p>
-                    {publishedOn(post) && <p class="dateline">Published on {publishedOn(post)}</p>}
+                    <p class="byline">{copy.byPrefix} {post.data.author}</p>
+                    {publishedOn(post) && (
+                      <p class="dateline">{copy.externalPrefix} {publishedOn(post)} <span class="visually-hidden">({copy.externalNote})</span></p>
+                    )}
                   </div>
                 </a>
               </li>
             ))}
           </ol>
-          <p class="empty-state" data-empty-state hidden>No articles in that category yet.</p>
           {log.length > PAGE_SIZE && (
-            <button class="button button-outline journal-more" type="button" data-load-more>Load more articles</button>
+            <button class="button button-outline journal-more" type="button" data-load-more>{copy.loadMore}</button>
           )}
         </div>
       </section>

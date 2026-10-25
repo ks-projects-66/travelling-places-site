@@ -5,7 +5,6 @@
 const menuToggle = document.querySelector('[data-menu-toggle]');
 const nav = document.querySelector('[data-nav]');
 const siteHeader = document.querySelector('[data-header]');
-const dialog = document.querySelector('[data-enquiry-dialog]');
 
 const menuIsOpen = () => menuToggle?.getAttribute('aria-expanded') === 'true';
 
@@ -89,9 +88,10 @@ window.addEventListener('scroll', () => siteHeader?.classList.toggle('is-sticky'
   passive: true,
 });
 
-// Progressive enhancement. Every opener is an ordinary link (to /contact/, or a mailto for the
-// newsletter), so it works with no JS, on the contact page where no enquiry dialog is rendered,
-// and where <dialog> is unsupported. Where the dialog exists, the click opens it instead.
+// Progressive enhancement. The newsletter opener is an ordinary mailto link, so it works with no
+// JS and where <dialog> is unsupported. Where the dialog exists, the click opens it instead. (An
+// enquiry dialog used the same wiring until 25 October 2026, when the main action became a plain
+// link to Contact.)
 const wireDialog = (target, openerSelector) => {
   if (!target) return;
   let opener = null;
@@ -105,7 +105,7 @@ const wireDialog = (target, openerSelector) => {
       document.body.classList.add('dialog-open');
     }),
   );
-  target.querySelectorAll('[data-close-enquiry], [data-close-dialog]').forEach((button) =>
+  target.querySelectorAll('[data-close-dialog]').forEach((button) =>
     button.addEventListener('click', () => target.close()),
   );
   target.addEventListener('click', (event) => {
@@ -118,7 +118,6 @@ const wireDialog = (target, openerSelector) => {
     opener = null;
   });
 };
-wireDialog(dialog, '[data-open-enquiry]');
 wireDialog(document.querySelector('[data-newsletter-dialog]'), '[data-open-newsletter]');
 
 // --- enquiry form ---
@@ -309,40 +308,16 @@ if (carousel) {
   start();
 }
 
-// --- journal category filter and "Load more" ---
+// --- journal "Load more" ---
 //
-// Rows past the first page are server-rendered with `hidden` and marked data-beyond-page. A
-// category filter shows every matching row, paged or not, because a filtered list is short;
-// "All" returns to the paged view until "Load more" has been used.
+// Rows past the first page are server-rendered with `hidden` and marked data-beyond-page. The
+// button reveals them all. (A category filter lived here until 25 October 2026; with five
+// articles it was removed at the client's request.)
 
-let journalExpanded = false;
 const moreButton = document.querySelector('[data-load-more]');
-
-const applyJournalFilter = (filter) => {
-  let visible = 0;
-  document.querySelectorAll('[data-category-item]').forEach((row) => {
-    const matches = filter === 'all' || row.dataset.categoryItem === filter;
-    const paged = filter === 'all' && !journalExpanded && row.hasAttribute('data-beyond-page');
-    row.hidden = !matches || paged;
-    if (!row.hidden) visible += 1;
-  });
-  const empty = document.querySelector('[data-empty-state]');
-  if (empty) empty.hidden = visible !== 0;
-  if (moreButton) moreButton.hidden = filter !== 'all' || journalExpanded;
-};
-
-document.querySelectorAll('[data-filter]').forEach((button) =>
-  button.addEventListener('click', () => {
-    document.querySelectorAll('[data-filter]').forEach((item) => {
-      const active = item === button;
-      item.classList.toggle('is-active', active);
-      item.setAttribute('aria-pressed', String(active));
-    });
-    applyJournalFilter(button.dataset.filter);
-  }),
-);
-
 moreButton?.addEventListener('click', () => {
-  journalExpanded = true;
-  applyJournalFilter('all');
+  document.querySelectorAll('[data-beyond-page]').forEach((row) => {
+    row.hidden = false;
+  });
+  moreButton.hidden = true;
 });

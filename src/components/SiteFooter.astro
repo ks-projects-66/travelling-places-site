@@ -3,8 +3,6 @@ import { Image } from 'astro:assets';
 import nav from '../data/navigation.json';
 import site from '../data/site.json';
 import memberships from '../data/memberships.json';
-import partners from '../data/partners.json';
-import PlaceholderImage from './PlaceholderImage.astro';
 import topBar from '../data/top-bar.json';
 
 const marks = import.meta.glob<{ default: ImageMetadata }>(
@@ -24,38 +22,39 @@ const socials = [
 ---
 
 <footer class="site-footer">
-  <div class="shell footer-memberships">
-    <h2 class="footer-heading">Accredited and connected</h2>
-    <ul class="logo-row" aria-label="Industry memberships and accreditations">
-      {memberships.map((m) => {
-        const img = markFor(m.image);
-        return (
-          <li>
-            {m.url
-              ? <a href={m.url} target="_blank" rel="noreferrer" aria-label={`${m.name} (opens in a new tab)`}>
-                  <Image src={img} alt={m.alt} height={80} densities={[1, 2]} loading="lazy" />
-               </a>
-              : <Image src={img} alt={m.alt} height={80} densities={[1, 2]} loading="lazy" />}
-          </li>
-        );
-      })}
-    </ul>
-
-    <h2 class="footer-heading">Travel partners</h2>
-    <ul class="logo-row logo-row--partners" aria-label="Travel partners">
-      {partners.map((p) => (
-        <li><PlaceholderImage label={p.name} ratio="2/1" class="logo-placeholder" /></li>
-      ))}
-    </ul>
+  {/* Accreditation and memberships: one quiet row of marks on white, above the navy footer
+      (client brief, change 7; docs/WORK-PLAN.md section 3). Ordered by what each means to a
+      client: ATIA's accreditation first, then CLIA, Virtuoso and Alatus. No visible heading, as
+      on the peer sites; the marks carry their own names. On white the supplied artwork needs no
+      plate. The partner placeholders were removed at the client's request. */}
+  <div class="footer-trust">
+    <div class="shell">
+      <h2 class="visually-hidden">Accreditation and memberships</h2>
+      <ul class="trust-marks">
+        {memberships.map((m) => {
+          const img = markFor(m.image);
+          return (
+            <li>
+              {m.url
+                ? <a href={m.url} target="_blank" rel="noreferrer" aria-label={`${m.alt} (opens in a new tab)`}>
+                    <Image src={img} alt="" height={56} densities={[1, 2]} loading="lazy" />
+                  </a>
+                : <Image src={img} alt={m.alt} height={56} densities={[1, 2]} loading="lazy" />}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   </div>
 
   <div class="shell footer-newsletter">
     <div class="newsletter">
       <div class="newsletter-copy">
-        <h2>Notes from the road, every fortnight.</h2>
+        <h2>{topBar.newsletter.heading}</h2>
+        <p>{topBar.newsletter.footerLine}</p>
       </div>
-      <a class="button button-blue" href={`mailto:${site.email}?subject=Newsletter%20sign-up`} data-open-newsletter>
-        {topBar.newsletter.button}
+      <a class="button button-white" href={`mailto:${site.email}?subject=Newsletter%20sign-up`} data-open-newsletter>
+        {topBar.newsletter.footerButton}
       </a>
     </div>
   </div>

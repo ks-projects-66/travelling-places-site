@@ -86,12 +86,12 @@ const rows = [
     <section class="section team-roster">
       <div class="shell">
         <h2>Meet your advisors</h2>
-        <div class="card-grid card-grid--three">
+        <div class="card-grid card-grid--four">
           {team.map(({ id, data, Body }) => (
             <article class="team-card" id={`team-${id}`}>
               {data.portrait
                 ? <Image src={data.portrait} alt={data.portraitAlt ?? data.name}
-                    widths={[360, 720]} sizes="(max-width: 700px) 92vw, 30vw" loading="lazy" />
+                    widths={[360, 720]} sizes="(max-width: 560px) 92vw, (max-width: 1100px) 46vw, 23vw" loading="lazy" />
                 : <PlaceholderImage label={`TODO: portrait of ${data.name}`} ratio="4/5" />}
               <h3>{data.name}</h3>
               <p class="role">{data.role}</p>

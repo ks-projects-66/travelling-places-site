@@ -13,6 +13,10 @@ set the interval to six seconds, which matches the kit component. The "no visibl
 full-screen hover hold would stop the sequence for most desktop visitors. There is still no pause
 button and the WCAG 2.2.2 accepted risk stays recorded. No colour, size or token value changed.
 
+The primary action is renamed from "Plan a journey" to "Start planning" in `BRAND.md` and the
+header and button partials, on the owner's instruction that the main action carries one label
+everywhere and goes to the Contact form.
+
 ## 3.0.1
 
 **The dark mark's white keyline is now continuous.** It was missing on the top of the hair and the

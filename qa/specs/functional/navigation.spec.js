@@ -19,9 +19,9 @@ test.describe('navigation', () => {
     await expect(links).toHaveText(['Tailor-made', 'Luxury', 'About us', 'Journal']);
 
     // BRAND.md: "Primary navigation contains no more than five destinations plus the
-    // Plan a journey action."
+    // Start planning action."
     expect(await links.count()).toBeLessThanOrEqual(5);
-    await expect(nav.locator('a.button')).toHaveText('Plan a journey');
+    await expect(nav.locator('a.button')).toHaveText('Start planning');
   });
 
   test('the menu toggle is hidden above the 940px breakpoint', async ({ page }) => {

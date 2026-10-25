@@ -111,17 +111,19 @@ them as an artifact for review rather than committing them.
 ## Adding a test
 
 Selectors come from the site's own behavioural attributes: `body[data-page]`, `[data-header]`,
-`[data-menu-toggle]`, `[data-nav]`, `[data-carousel]`, `[data-slide]`, `[data-enquiry-form]`,
-`[data-filter]`, `[data-year-item]`, `[data-placeholder]`. No `data-testid` was added anywhere, and
+`[data-menu-toggle]`, `[data-nav]`, `[data-carousel]`, `[data-slide]`, `[data-carousel-next]`,
+`[data-carousel-previous]`, `[data-enquiry-form]`, `[data-placeholder]`. No `data-testid` was added anywhere, and
 none is needed. Prefer role and accessible-name locators over both.
 
 Two site-specific traps:
 
 - `site.js` is a module script and so runs after paint. Use `waitForScript()` from `lib/settle.js`;
   slide 0 gaining an explicit `aria-hidden="false"` is the only signal it has booted.
-- Footer images are `loading="lazy"`. Scrolling past them quickly is not enough: the lazy trigger
-  never fires and they read as broken. `settlePage()` dwells at each scroll stop and resolves every
-  image while still at the bottom.
+- Images are `loading="lazy"`. Scrolling past them quickly is not enough: the lazy trigger never
+  fires and they read as broken. `settlePage()` scrolls with `behavior: 'instant'` (the site sets
+  smooth scrolling, which turned each stop into an animation), waits at each stop for the images in
+  view, and resolves every image while still at the bottom. WebKit failed intermittently on a
+  different image each run until both were in place.
 
 ## What is deliberately not tested
 

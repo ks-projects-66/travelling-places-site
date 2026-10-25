@@ -1,0 +1,56 @@
+{
+  "source": "Home page copy. Written for the site during the design build, not Gina's words, unless a field says otherwise; the founder lines restate her About copy. Moved out of index.astro on 25 October 2026 so it can be edited in the CMS (docs/POLISH-PLAN.md, B15). The journeys cards and the journal introduction follow the client's brief of 25 October 2026 (docs/WORK-PLAN.md, changes 4 and 5); the journal introduction makes no promise about how often it is updated (Q7).",
+  "hero": {
+    "lead": "Your world,",
+    "accent": "beautifully planned.",
+    "lede": "Thoughtful journeys, rare experiences and every detail looked after by people who know travel, and take the time to know you.",
+    "primary": "Start planning",
+    "secondary": "Explore our expertise"
+  },
+  "intro": {
+    "heading": "Travel has changed. Good service shouldn't.",
+    "lead": "Personal, professional advice is still the best way to see the world.",
+    "detail": "From a quick escape to a three-month journey, Travelling Places brings together more than 100 years of collective industry experience to get the details right.",
+    "link": "Meet Gina and the team"
+  },
+  "journeys": {
+    "heading": "Journeys shaped around you.",
+    "intro": "Every traveller is different. We bring first-hand knowledge and careful judgement to the way you want to explore.",
+    "cards": [
+      {
+        "service": "cruising",
+        "label": "Cruising",
+        "link": "Explore cruising",
+        "href": "/expertise/#cruising",
+        "hrefStatus": "placeholder",
+        "hrefNote": "Interim link to the cruising section of Tailor-made. The owner is supplying the destination (register C23)."
+      },
+      {
+        "service": "luxury",
+        "label": "Luxury travel",
+        "link": "Explore luxury travel",
+        "href": "/luxury/",
+        "hrefStatus": "confirmed"
+      }
+    ]
+  },
+  "virtuoso": {
+    "heading": "More doors open with the right connections.",
+    "body": "Our Virtuoso membership connects you with leading hotels, cruise lines, destination specialists and tour partners around the world.",
+    "button": "Why Virtuoso matters",
+    "panel": "A global perspective, delivered with the attention of your local travel advisor."
+  },
+  "founder": {
+    "heading": "A travel company built on curiosity and care.",
+    "lead": "Gina brought her industry experience from New Zealand and London to Tamborine Mountain and founded Travelling Places in 1993.",
+    "body": "More than three decades later, the company still works the way she intended: listen carefully, share honest advice and look after every detail.",
+    "quote": "Our focus is on you, ensuring we offer the very best arrangements to fulfil your travel dreams.",
+    "link": "Meet the whole team"
+  },
+  "journal": {
+    "heading": "Journal",
+    "intro": "Stories, practical advice and first-hand discoveries from Gina and the team.",
+    "allLink": "Read the journal",
+    "storyLink": "Read the story"
+  }
+}

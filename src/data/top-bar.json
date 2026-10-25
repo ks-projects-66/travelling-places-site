@@ -1,8 +1,10 @@
 {
-  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'One every page at the top.docx'. The strip itself was removed at the client's request on 25 October 2026 (docs/WORK-PLAN.md, change 1), along with its Zoom link; the newsletter wording is still used by the footer, the Journal and the sign-up dialog.",
+  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'One every page at the top.docx'. The strip itself was removed at the client's request on 25 October 2026 (docs/WORK-PLAN.md, change 1), along with its Zoom link; the newsletter wording is still used by the footer, the Journal and the sign-up dialog. The footer line and the short \"Sign up\" button label were written for the site on 25 October 2026, when the newsletter became one row per page.",
   "newsletter": {
     "button": "Sign up for our newsletter",
     "heading": "Sign up for our newsletter",
-    "magazineLabel": "Opt in for our luxury travel magazine"
+    "magazineLabel": "Opt in for our luxury travel magazine",
+    "footerLine": "News and travel ideas from Gina and the team.",
+    "footerButton": "Sign up"
   }
 }

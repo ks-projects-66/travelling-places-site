@@ -1,66 +1,44 @@
 ---
+/**
+ * The privacy policy. The text lives in src/content/legal/privacy.md so it can be edited in the
+ * CMS. It was drafted on 25 October 2026 at the owner's request (docs/WORK-PLAN.md, Q11), for this
+ * website only, and stays a draft until a person with authority approves it (CLAUDE.md): until
+ * `approved` is true the page carries a visible notice saying so. Every fact only the business can
+ * supply is a red TODO in the text. Research, sources and what the owner must provide are in
+ * docs/PRIVACY-NOTES.md.
+ */
+import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import site from '../data/site.json';
 
-/**
- * PLACEHOLDER PAGE. This is a scaffold, not a privacy policy.
- *
- * A privacy policy is a legal document and is not drafted here. What follows is the list
- * of matters the real policy has to cover, so whoever writes it can see the scope. The
- * page is deliberately marked so it cannot be mistaken for a published policy.
- *
- * Australian Privacy Principles apply to the enquiry data collected through this site.
- * Third parties currently in scope: Web3Forms (form delivery), Calendly (booking),
- * Genesys Marketing (newsletter), Cloudflare (hosting and analytics).
- */
-
-const mustCover = [
-  'What personal information is collected through the enquiry form, the Calendly booking and the newsletter subscription.',
-  'Why each category is collected and what it is used for.',
-  'Which third parties receive it, named individually, and where they store it.',
-  'Whether any information is disclosed overseas, and to which countries.',
-  'How long information is retained, and how it is destroyed.',
-  'How someone requests access to, or correction of, their information.',
-  'How a privacy complaint is made and who handles it.',
-  'Contact details for privacy enquiries.',
-];
+const policy = await getEntry('legal', 'privacy');
+if (!policy) throw new Error('src/content/legal/privacy.md is missing.');
+const { Content } = await render(policy);
+const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
 <BaseLayout
-  title={`Privacy policy | ${site.name}`}
-  description="Privacy policy for Travelling Places."
+  title={`${policy.data.title} | ${site.name}`}
+  description="How Travelling Places handles personal information collected through this website."
   page="privacy"
 >
   <main id="main">
     <section class="page-hero page-hero--plain">
       <div class="shell">
-        <h1>Privacy policy</h1>
-        <p class="placeholder-note" data-placeholder>
-          TODO: this page is a scaffold. No policy has been written or approved.
-        </p>
+        <h1>{policy.data.title}</h1>
+        {policy.data.approved && policy.data.approvedOn
+          ? <p class="legal-dateline">Last updated {dateFormat.format(policy.data.approvedOn)}</p>
+          : <p class="placeholder-note" data-placeholder>
+              TODO: draft of {dateFormat.format(policy.data.drafted)}, not yet approved. Do not rely on it until it is.
+            </p>}
       </div>
     </section>
 
     <section class="section">
-      <div class="shell editorial-grid">
-        <div>
-          <h2>What the policy has to cover.</h2>
-        </div>
-        <div class="long-copy">
-          <p>
-            {site.name} collects personal information through this website, so the Australian Privacy
-            Principles apply. A policy has not been drafted. This page lists what it needs to address
-            so the scope is visible, and it must be replaced with approved text before launch.
-          </p>
-          <ul class="tick-list">
-            {mustCover.map((item) => <li>{item}</li>)}
-          </ul>
-          <p>
-            Third parties currently in scope: Web3Forms for enquiry delivery, Calendly for bookings,
-            Genesys Marketing for the newsletter, and Cloudflare for hosting and analytics. Each has
-            to be named in the policy.
-          </p>
-        </div>
+      <div class="shell">
+        <article class="legal-copy">
+          <Content />
+        </article>
       </div>
     </section>
   </main>

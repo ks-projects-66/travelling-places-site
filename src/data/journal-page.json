@@ -1,0 +1,11 @@
+{
+  "source": "Journal page copy, written for the site. Rewritten 25 October 2026 at the client's request: the heading is plainly \"Journal\" and the introduction makes no promise about how often it is updated (docs/WORK-PLAN.md, change 5 and Q7).",
+  "heading": "Journal",
+  "standfirst": "Stories, practical advice and first-hand discoveries from Gina and the team, for the journey ahead.",
+  "logHeading": "More from the journal",
+  "byPrefix": "By",
+  "externalPrefix": "Published on",
+  "externalNote": "opens in a new tab",
+  "readLink": "Read the story",
+  "loadMore": "Load more articles"
+}

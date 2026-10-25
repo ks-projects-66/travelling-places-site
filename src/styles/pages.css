@@ -195,15 +195,6 @@
   text-transform: uppercase;
 }
 
-.expertise-preview {
-  background: var(--mist);
-}
-
-.expertise-row {
-  color: inherit;
-  text-decoration: none;
-}
-
 .home-virtuoso {
   color: var(--white);
   background: var(--blue-deep);
@@ -215,32 +206,6 @@
 
 .journal-teaser {
   border-top: 1px solid var(--line);
-}
-
-.teaser-story {
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
-  align-items: center;
-  gap: clamp(2.5rem, 7vw, 7rem);
-  margin-bottom: 2.5rem;
-}
-
-.teaser-story img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-/* A card title sits a clear step below the section heading above it. At section-title
-   size the two competed, which is what flattened the homepage. */
-.teaser-story h3 {
-  margin-bottom: 1.25rem;
-  color: var(--blue-deep);
-  font-size: var(--tp-type-subsection-title);
-}
-
-.teaser-story p:not(.story-meta) {
-  color: var(--ink-muted);
 }
 
 .button-outline {
@@ -258,68 +223,227 @@
   border-top: 1px solid var(--line);
 }
 
-.closing-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.55fr);
-  align-items: end;
-  gap: clamp(3rem, 9vw, 9rem);
-}
-
-.closing-grid h2 {
-  max-width: 13ch;
-  margin: 0;
-  color: var(--blue-deep);
-}
-
-.closing-grid > div:last-child p {
-  color: var(--ink-muted);
-  font-size: 1.1rem;
-}
-
-/* Gina's "Why book" band: her reasons on the right, the way to call on the left. */
+/* Gina's "Why book" band (rebalanced 25 October 2026, docs/WORK-PLAN.md change 6). The
+   invitation and the way to call on the left; her two groups of reasons together on a white panel
+   on the right, as plain statements. No hairlines and no markers: the client read the old ruled
+   lists as categories that led nowhere. */
 .why-book-grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr) minmax(0, 0.9fr);
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   align-items: start;
-  gap: clamp(2.5rem, 5vw, 5rem);
+  gap: clamp(2.5rem, 6vw, 6rem);
 }
 
 .why-book-intro h2 {
-  max-width: 12ch;
+  max-width: 14ch;
   margin: 0 0 1.25rem;
   color: var(--blue-deep);
 }
 
-.why-book-intro > p,
-.why-book-list > p {
+.why-book-intro > p {
+  max-width: 40ch;
   color: var(--ink-muted);
 }
 
-.why-book-intro > p {
-  max-width: 38ch;
-}
-
-.why-book-intro > p a {
+.why-book-contact a {
   color: var(--blue-deep);
   font-weight: 600;
 }
 
-.why-book-actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem 1.75rem;
-  margin-top: 2rem;
+.why-book-intro .button {
+  margin-top: 1rem;
 }
 
-.why-book-list h3 {
+.why-book-reasons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 3rem);
+  padding: clamp(2rem, 4vw, 3rem);
+  background: var(--white);
+}
+
+.why-book-group h3 {
   margin: 0 0 0.5rem;
   color: var(--blue-deep);
   font-size: var(--tp-type-subsection-title);
 }
 
-.why-book-list .tick-list {
-  margin-top: 1rem;
+.why-book-group > p {
+  margin: 0 0 1.25rem;
+  color: var(--ink-muted);
+}
+
+.why-book-group ul {
+  display: grid;
+  gap: 0.85rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.why-book-group li {
+  color: var(--ink);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+@media (max-width: 1000px) {
+  .why-book-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .why-book-intro > p {
+    max-width: var(--measure);
+  }
+}
+
+@media (max-width: 600px) {
+  .why-book-reasons {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Home: section openings, journeys, journal --- */
+
+/* A section opening is the heading with one plain line beneath it, at the reading width. The
+   split heading it replaced put the two up to 400px apart. */
+.section-intro {
+  max-width: var(--measure);
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.section-intro h2 {
+  margin: 0 0 0.75rem;
+  color: var(--blue-deep);
+}
+
+.section-intro p {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: var(--tp-type-lead);
+}
+
+/* With a link to the whole collection, the opening runs the full width and the link sits on the
+   right, level with the line beneath the heading. */
+.section-intro--with-link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 3rem;
+  max-width: none;
+}
+
+.section-intro--with-link > div {
+  max-width: var(--measure);
+}
+
+.journeys {
+  background: var(--mist);
+}
+
+/* Two journeys, photograph first and text beneath it (DESIGN.md: cards place text beneath the
+   image). Restrained per the 27 September card ruling: square photography, no shadow, no panel,
+   both cards built the same way. The whole card is the link. 3:2 rather than DESIGN.md's 4:5:
+   both photographs are landscape originals (1536px and 2000px wide), and a portrait crop enlarged
+   them past their resolution at two across. */
+.journey-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.journey-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.journey-card .card-image {
+  transition: opacity var(--tp-motion-standard) var(--ease);
+}
+
+.journey-card:hover .card-image {
+  opacity: 0.92;
+}
+
+.journey-card h3 {
+  margin: 1.5rem 0 0.4rem;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-subsection-title);
+}
+
+.journey-card p {
+  max-width: 44ch;
+  margin: 0 0 1rem;
+  color: var(--ink-muted);
+  font-size: var(--tp-type-lead);
+}
+
+.journey-card-link {
+  color: var(--blue-deep);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 0.3rem;
+}
+
+.journey-card:hover .journey-card-link {
+  text-decoration-color: var(--red);
+}
+
+.journey-card:focus-visible {
+  outline: 2px solid var(--blue);
+  outline-offset: 6px;
+}
+
+.journal-teaser {
+  background: var(--mist);
+}
+
+/* One story, inside the shell: photograph on the left, its title and standfirst beside it, text
+   vertically centred on the photograph. It used to run off the right edge with the copy floating
+   apart from it; the client found the spacing loose. */
+.home-story {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.home-story-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.home-story-copy h3 {
+  margin: 0.75rem 0 1rem;
+  font-size: var(--tp-type-subsection-title);
+}
+
+.home-story-copy h3 a {
+  color: var(--blue-deep);
+  text-decoration: none;
+}
+
+.home-story-copy h3 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 0.3rem;
+}
+
+.home-story-copy > p:not(.story-meta) {
+  margin: 0 0 1.5rem;
+  color: var(--ink-muted);
+}
+
+@media (max-width: 900px) {
+  .journey-cards,
+  .home-story {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Two columns of Gina's longer paragraphs. Four across left each promise about 30 words a line
@@ -346,13 +470,15 @@
 }
 
 /* The Tailor-made page opens on Gina's own standfirst, set large, before any heading. */
+/* Gina's standfirst uses the kit's lead role (brand.tokens.json type.lead: 18 to 19px, 1.55). It
+   was set at subsection-title size, 28px over ten lines, in a face variable (--serif) that does not
+   exist, so it fell back to Plex at heading size (POLISH-PLAN B6). */
 .lead-statement p {
-  max-width: var(--measure);
+  max-width: 58ch;
   margin: 0;
-  color: var(--blue-deep);
-  font-family: var(--serif);
-  font-size: var(--tp-type-subsection-title);
-  line-height: 1.5;
+  color: var(--ink);
+  font-size: var(--tp-type-lead);
+  line-height: 1.55;
 }
 
 @media (max-width: 1100px) {
@@ -392,6 +518,7 @@
 
 .service-copy > p,
 .long-copy p {
+  max-width: 68ch;
   color: var(--ink-muted);
   font-size: 1.08rem;
 }
@@ -461,47 +588,8 @@
   color: color-mix(in oklch, var(--white) 70%, var(--blue));
 }
 
-.contact-photo-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.75fr);
-  align-items: center;
-  gap: clamp(3rem, 9vw, 9rem);
-}
-
-.contact-photo-grid h2 {
-  color: var(--blue-deep);
-}
-
 .team-roster {
   background: var(--mist);
-}
-
-.archive-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.archive-filters button {
-  min-width: 54px;
-  min-height: 44px;
-  padding: 0.6rem 1rem;
-  border: 1px solid var(--line);
-  border-radius: var(--tp-radius-button);
-  color: var(--blue-deep);
-  background: var(--white);
-  cursor: pointer;
-}
-
-.archive-filters button.is-active {
-  border-color: var(--blue);
-  color: var(--white);
-  background: var(--blue);
-}
-
-.empty-state {
-  padding: 3rem 0;
-  color: var(--ink-muted);
 }
 
 .article-header {
@@ -572,11 +660,14 @@
   font-weight: 400;
 }
 
+/* Body copy is IBM Plex Sans (BRAND.md typography: Libre Baskerville is for display and headings
+   only). The article body was set in the display face (POLISH-PLAN B6). */
 .article-prose {
+  max-width: 68ch;
   color: var(--ink);
-  font-family: var(--display);
-  font-size: clamp(1.08rem, 1.7vw, 1.25rem);
-  line-height: 1.8;
+  font-family: var(--sans);
+  font-size: clamp(1.06rem, 1.4vw, 1.125rem);
+  line-height: 1.75;
 }
 
 .article-prose h2 {
@@ -678,6 +769,24 @@
   background: var(--white);
 }
 
+.contact-visit {
+  max-width: 34ch;
+  margin-top: 1.5rem;
+  color: var(--ink-muted);
+}
+
+/* On narrow screens the form comes first: it is the page's purpose, and below the details column
+   it started about 1,470px down a phone (critique, 25 October 2026). The details follow it. */
+@media (max-width: 940px) {
+  .contact-form-wrap {
+    order: -1;
+  }
+
+  .contact-sidebar {
+    position: static;
+  }
+}
+
 .contact-form-wrap > p {
   color: var(--ink-muted);
 }
@@ -713,16 +822,6 @@
   font-size: 0.88rem;
 }
 
-.contact-photo {
-  background: var(--mist);
-}
-
-.contact-photo-grid > img {
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
 @media (max-width: 1100px) {
   .site-nav {
     gap: 1.2rem;
@@ -741,11 +840,8 @@
     font-size: var(--tp-type-menu-title);
   }
 
-  .teaser-story,
-  .closing-grid,
   .editorial-grid,
-  .contact-page-grid,
-  .contact-photo-grid {
+.contact-page-grid {
     grid-template-columns: 1fr;
   }
 
@@ -785,7 +881,6 @@
     padding-top: 3rem;
   }
 
-  .teaser-story,
   .article-body {
     grid-template-columns: 1fr;
   }
@@ -808,7 +903,6 @@
   .service-copy {
     grid-column: 1 / -1;
   }
-
 
   .contact-form-wrap {
     padding-inline: 1.25rem;
@@ -844,7 +938,6 @@
    far more than from any individual value.
    --------------------------------------------------------------------------- */
 
-.expertise-preview,
 .team-roster {
   padding-block: clamp(3.5rem, 6vw, 4.5rem);
 }
@@ -860,8 +953,7 @@
   padding-block: clamp(6rem, 12vw, 10rem);
 }
 
-.contact-calendly,
-.contact-photo {
+.contact-calendly {
   padding-block: clamp(3.5rem, 6vw, 4.5rem);
 }
 
@@ -891,42 +983,17 @@
   max-width: none;
 }
 
-/* The journal teaser flips: copy on the left, image running off the right edge. The founder
-   block above it breaks left, so alternating the side is what stops two consecutive
-   full-bleed images reading as the same move twice. */
-.teaser-story {
-  grid-template-columns: minmax(300px, 0.85fr) minmax(0, 1.15fr);
-}
-
-.teaser-story > *:not(img) {
-  order: 1;
-}
-
-.teaser-story img {
-  order: 2;
-  width: calc(100% + max(var(--gutter), (100vw - var(--shell)) / 2));
-  max-width: none;
-}
-
 /* This block sits after the shared 940px collapse further up the file, so it has to restate
    the single-column stack: at equal specificity the later rule wins regardless of the media
    query. Reverting the flip here too, so the image goes back above the copy on a phone. */
 @media (max-width: 940px) {
-  .teaser-story {
-    grid-template-columns: 1fr;
-  }
 
-  .founder-visual,
-  .teaser-story img {
+  .founder-visual {
     margin-left: 0;
     margin-right: 0;
     width: 100%;
   }
 
-  .teaser-story img,
-  .teaser-story > *:not(img) {
-    order: initial;
-  }
 }
 
 /* ---------------------------------------------------------------------------
@@ -949,6 +1016,23 @@
 .card-grid--three,
 .theme-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* About: four advisors, four across, so no one is left alone on a second row (B9). */
+.card-grid--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 1100px) {
+  .card-grid--four {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .card-grid--four {
+    grid-template-columns: 1fr;
+  }
 }
 
 .service-cards h2,
@@ -1099,14 +1183,6 @@
   padding-block: clamp(3rem, 6vw, 5rem) clamp(2rem, 4vw, 3rem);
 }
 
-.journal-header-grid {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.5rem 3rem;
-}
-
 .journal-header h1 {
   margin: 0;
   color: var(--blue-deep);
@@ -1114,56 +1190,55 @@
 }
 
 .journal-standfirst {
-  max-width: 48ch;
+  max-width: var(--measure);
   margin: 1rem 0 0;
   color: var(--ink-muted);
-  font-family: var(--display);
   font-size: var(--tp-type-lead);
 }
 
-.journal-feature {
-  position: relative;
+/* The newest story: photograph full width of the shell, its text beneath (DESIGN.md: text over
+   images in heroes only). It used to sit over the photograph under a navy gradient. */
+.journal-lead-image {
   display: block;
-  height: clamp(360px, 42vw, 540px);
-  overflow: hidden;
-  color: var(--white);
+}
+
+.journal-lead-image img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 21 / 9;
+  object-fit: cover;
+}
+
+.journal-lead-text {
+  max-width: var(--measure);
+  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.journal-lead h2 {
+  max-width: 24ch;
+  margin: 0.75rem 0 1rem;
+  font-size: var(--tp-type-page-title);
+}
+
+.journal-lead h2 a {
+  color: var(--blue-deep);
   text-decoration: none;
 }
 
-.journal-feature img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 600ms var(--ease);
+.journal-lead h2 a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--red);
+  text-underline-offset: 0.35rem;
 }
 
-.journal-feature::after {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, color-mix(in oklch, var(--blue-deep) 88%, transparent) 0%, color-mix(in oklch, var(--blue-deep) 40%, transparent) 45%, transparent 75%);
-  content: "";
+.journal-lead-standfirst {
+  margin: 0 0 1.25rem;
+  color: var(--ink-muted);
+  font-size: var(--tp-type-lead);
 }
 
-.journal-feature:hover img {
-  transform: scale(1.02);
-}
-
-.journal-feature-text {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1;
-  padding: clamp(1.5rem, 4vw, 3rem);
-}
-
-.journal-feature h2 {
-  max-width: 24ch;
-  margin: 0 0 1rem;
-  color: var(--white);
-  font-size: var(--tp-type-page-title);
+.journal-lead .text-link {
+  margin-top: 1.25rem;
 }
 
 .byline,
@@ -1181,22 +1256,10 @@
   color: var(--ink-muted);
 }
 
-.journal-feature .dateline {
-  color: color-mix(in oklch, var(--white) 80%, var(--blue));
-}
-
-.journal-log-heading {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem 2rem;
+.journal-log-title {
+  margin: 0;
   padding-top: 1.25rem;
   border-top: 2px solid var(--blue-deep);
-}
-
-.journal-log-heading h2 {
-  margin: 0;
   color: var(--blue-deep);
   font-family: var(--sans);
   font-size: var(--tp-type-label);
@@ -1273,4 +1336,57 @@
   .journal-row {
     grid-template-columns: 1fr;
   }
+}
+
+/* ---------------------------------------------------------------------------
+   Legal pages (privacy). One column at the reading width, plain and quiet: a policy is read to
+   be understood, not to be sold. Lists follow DESIGN.md: hairline rows, no markers.
+   --------------------------------------------------------------------------- */
+
+.legal-copy {
+  max-width: var(--measure);
+}
+
+.legal-copy h2 {
+  margin: clamp(2.5rem, 5vw, 3.5rem) 0 1rem;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-subsection-title);
+}
+
+.legal-copy h2:first-child {
+  margin-top: 0;
+}
+
+.legal-copy p,
+.legal-copy li {
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.legal-copy ul {
+  margin: 1.25rem 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.legal-copy li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-copy .placeholder-note {
+  display: inline;
+  font-size: var(--meta-label);
+}
+
+.legal-dateline {
+  margin: 0;
+  color: var(--ink-muted);
+}
+
+/* Expertise: the standfirst introduces the cards directly beneath it, so the two sections share
+   one gap rather than stacking two full section paddings (about 240px of dead space). */
+.lead-statement + .service-cards {
+  padding-top: 0;
 }

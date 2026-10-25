@@ -1,13 +1,5 @@
 [
   {
-    "name": "Virtuoso",
-    "image": "virtuoso-member.png",
-    "alt": "Virtuoso member",
-    "url": "https://www.virtuoso.com/member/travelli34092",
-    "status": "supplied",
-    "note": "Vector master available as PDF in FW_ Logos. Convert to SVG before launch."
-  },
-  {
     "name": "ATIA",
     "image": "atia.jpg",
     "alt": "ATIA accredited",
@@ -20,6 +12,14 @@
     "image": "clia.png",
     "alt": "CLIA member",
     "url": "https://www.cruising.org.au/",
+    "status": "supplied",
+    "note": "Vector master available as PDF in FW_ Logos. Convert to SVG before launch."
+  },
+  {
+    "name": "Virtuoso",
+    "image": "virtuoso-member.png",
+    "alt": "Virtuoso member",
+    "url": "https://www.virtuoso.com/member/travelli34092",
     "status": "supplied",
     "note": "Vector master available as PDF in FW_ Logos. Convert to SVG before launch."
   },

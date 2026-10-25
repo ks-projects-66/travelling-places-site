@@ -32,6 +32,19 @@ site_url: https://travellingplaces.com.au
 logo_url: /images/brand/logo-mark.svg
 
 collections:
+  - name: legal
+    label: Legal
+    files:
+      - name: privacy
+        label: Privacy policy
+        file: src/content/legal/privacy.md
+        fields:
+          - { name: title, label: Title, widget: string }
+          - { name: approved, label: Approved by a person with authority, widget: boolean, default: false, hint: 'Leave off until every TODO is resolved and the policy is signed off. While off, the page says it is an unapproved draft.' }
+          - { name: drafted, label: Drafted, widget: datetime, date_format: 'DD MMMM YYYY', time_format: false, picker_utc: false }
+          - { name: approvedOn, label: Approved on, widget: datetime, date_format: 'DD MMMM YYYY', time_format: false, picker_utc: false, required: false }
+          - { name: body, label: Policy, widget: markdown, hint: 'Each red TODO is a fact only the business can supply. See docs/PRIVACY-NOTES.md.' }
+
   - name: journal
     label: Journal
     label_singular: Article
@@ -240,9 +253,11 @@ collections:
         fields:
           - { name: source, label: Source note, widget: text }
           - { name: heading, label: Page title, widget: string }
+          - { name: heroLead, label: Opening title, first line, widget: string }
+          - { name: heroAccent, label: Opening title, second line, widget: string }
           - { name: intro, label: Opening paragraph, widget: text }
           - { name: sections, label: Sections, widget: list, fields: *section }
-          - { name: servicesHeading, label: Heading above the services, widget: string }
+          - { name: servicesHeading, label: Heading above the services, widget: string, required: false }
       - name: luxury
         label: Luxury travel
         file: src/data/luxury.json
@@ -296,6 +311,69 @@ collections:
               - { name: label, label: Link text, widget: string }
               - { name: url, label: Address, widget: string, required: false }
               - { name: status, label: Status, widget: select, options: [confirmed, placeholder] }
+      - name: home
+        label: Home page
+        file: src/data/home.json
+        fields:
+          - { name: source, label: Source note, widget: text }
+          - name: hero
+            label: Opening
+            widget: object
+            fields:
+              - { name: lead, label: Title, first line, widget: string }
+              - { name: accent, label: Title, second line, widget: string }
+              - { name: lede, label: Introduction, widget: text }
+              - { name: primary, label: Button, widget: string }
+              - { name: secondary, label: Link, widget: string }
+          - name: intro
+            label: Introduction
+            widget: object
+            fields:
+              - { name: heading, label: Heading, widget: string }
+              - { name: lead, label: Lead, widget: text }
+              - { name: detail, label: Detail, widget: text }
+              - { name: link, label: Link text, widget: string }
+          - name: journeys
+            label: Journeys
+            widget: object
+            fields:
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Introduction, widget: text }
+              - name: cards
+                label: Cards
+                widget: list
+                fields:
+                  - { name: service, label: Service entry, widget: select, options: [cruising, expeditions, luxury, tailor-made], hint: The photograph and summary come from this service. }
+                  - { name: label, label: Title, widget: string }
+                  - { name: link, label: Link text, widget: string }
+                  - { name: href, label: Link address, widget: string }
+                  - { name: hrefStatus, label: Link status, widget: select, options: [confirmed, placeholder] }
+                  - { name: hrefNote, label: Link note, widget: string, required: false }
+          - name: virtuoso
+            label: Virtuoso band
+            widget: object
+            fields:
+              - { name: heading, label: Heading, widget: string }
+              - { name: body, label: Text, widget: text }
+              - { name: button, label: Button, widget: string }
+              - { name: panel, label: Panel line, widget: string }
+          - name: founder
+            label: Founder
+            widget: object
+            fields:
+              - { name: heading, label: Heading, widget: string }
+              - { name: lead, label: Lead, widget: text }
+              - { name: body, label: Text, widget: text }
+              - { name: quote, label: Quotation, widget: text }
+              - { name: link, label: Link text, widget: string }
+          - name: journal
+            label: Journal
+            widget: object
+            fields:
+              - { name: heading, label: Heading, widget: string }
+              - { name: intro, label: Introduction, widget: string }
+              - { name: allLink, label: Link to the journal, widget: string }
+              - { name: storyLink, label: Link to the story, widget: string }
       - name: why_book
         label: Why book with Travelling Places
         file: src/data/why-book.json
@@ -313,7 +391,6 @@ collections:
               - { name: lead, label: Lead-in, widget: string }
               - { name: points, label: Points, widget: list, field: { name: point, label: Point, widget: string } }
           - { name: cta, label: Button, widget: string }
-          - { name: secondaryCta, label: Link, widget: string }
       - name: top_bar
         label: Newsletter sign-up
         file: src/data/top-bar.json
@@ -326,3 +403,5 @@ collections:
               - { name: button, label: Button text, widget: string }
               - { name: heading, label: Form heading, widget: string }
               - { name: magazineLabel, label: Magazine opt-in text, widget: string }
+              - { name: footerLine, label: Footer line, widget: string }
+              - { name: footerButton, label: Footer button text, widget: string }

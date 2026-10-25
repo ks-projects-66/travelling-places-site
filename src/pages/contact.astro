@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 
@@ -7,8 +6,7 @@ import contactHero from '../assets/images/hero/contact-lookout.jpg';
 import EnquiryForm from '../components/EnquiryForm.astro';
 import CalendlyEmbed from '../components/CalendlyEmbed.astro';
 import site from '../data/site.json';
-
-import teamOutside from '../assets/images/team/team-outside.jpg';
+import copy from '../data/contact.json';
 
 const { street, locality, region, postcode, mapUrl } = site.address;
 ---
@@ -20,9 +18,9 @@ const { street, locality, region, postcode, mapUrl } = site.address;
 >
   <main id="main">
     <PageHero
-      lead="Where is your"
-      accent="imagination going?"
-      lede="You don't need to have every detail. A place, a date, or a feeling is enough to begin."
+      lead={copy.hero.lead}
+      accent={copy.hero.accent}
+      lede={copy.hero.lede}
       image={contactHero}
       alt="A wide view over forested hills and farmland to distant peaks"
       position="center 55%"
@@ -31,7 +29,7 @@ const { street, locality, region, postcode, mapUrl } = site.address;
     <section class="section contact-page" id="enquiry">
       <div class="shell contact-page-grid">
         <div class="contact-sidebar">
-          <h2>We're here on the Mountain.</h2>
+          <h2>{copy.details.heading}</h2>
           <address>
             <a href={mapUrl} target="_blank" rel="noreferrer">
               <strong>{site.name}</strong><br />{street}<br />{locality} {region} {postcode}
@@ -44,8 +42,9 @@ const { street, locality, region, postcode, mapUrl } = site.address;
           ) : (
             <p>{site.openingHours.value}</p>
           )}
+          <p class="contact-visit">{copy.details.visit}</p>
           <div class="contact-social">
-            <p>Follow the journey</p>
+            <p>{copy.details.follow}</p>
             <a href={site.socials.instagram.url} target="_blank" rel="noreferrer">Instagram</a>
             <a href={site.socials.facebook.url} target="_blank" rel="noreferrer">Facebook</a>
             {(site.socials.instagram.status !== 'confirmed' || site.socials.facebook.status !== 'confirmed') && (
@@ -54,8 +53,8 @@ const { street, locality, region, postcode, mapUrl } = site.address;
           </div>
         </div>
         <div class="contact-form-wrap">
-          <h2>Start with the essentials.</h2>
-          <p>Required fields are marked with an asterisk.</p>
+          <h2>{copy.form.heading}</h2>
+          <p>{copy.form.note}</p>
           <EnquiryForm context="contact" />
         </div>
       </div>
@@ -67,19 +66,5 @@ const { street, locality, region, postcode, mapUrl } = site.address;
       </div>
     </section>
 
-    <section class="section contact-photo">
-      <div class="shell contact-photo-grid">
-        <Image src={teamOutside} alt="The Travelling Places team on Tamborine Mountain"
-          widths={[480, 960, 1440]} sizes="(max-width: 900px) 92vw, 50vw" loading="lazy" />
-        <div>
-          <h2>Come and see us.</h2>
-          <p>
-            We welcome appointments at our {street} office. Call ahead and we'll make time to sit down
-            with your ideas.
-          </p>
-          <a class="button button-blue" href={site.phoneLink}>Call {site.phone}</a>
-        </div>
-      </div>
-    </section>
   </main>
 </BaseLayout>

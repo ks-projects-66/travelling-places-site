@@ -1,5 +1,5 @@
 {
-  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'Why book with Travelling Places.docx'.",
+  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'Why book with Travelling Places.docx'. The button reads \"Start planning\" (was \"Start planning your holiday\") and the \"Contact Travelling Places\" link is gone, on the owner's instruction of 25 October 2026 that the main action has one label everywhere and the phone number is the only secondary (docs/WORK-PLAN.md, Q13). The \"ATIA protected\" line is held for Gina's confirmation (register C20).",
   "heading": "Why book with Travelling Places?",
   "intro": "At Travelling Places, we specialise in bespoke travel experiences. Our itineraries are just samples of what we can arrange, and can be changed depending on your precise needs, finances and ideas by our experienced destination advisors.",
   "contactLead": "Contact one of our consultants on",
@@ -25,6 +25,5 @@
       ]
     }
   ],
-  "cta": "Start planning your holiday",
-  "secondaryCta": "Contact Travelling Places"
+  "cta": "Start planning"
 }
