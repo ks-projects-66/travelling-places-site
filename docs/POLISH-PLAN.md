@@ -51,6 +51,12 @@ pnpm brand:check
 
 The browser engine (`detect --viewport`, needs Chromium) is the trustworthy one.
 
+**Lighthouse baseline, 25 October 2026** (`qa/reports/LIGHTHOUSE.md`). Desktop: 100 across the
+board, except accessibility 98 on `/expertise/` (the h1 to h3 skip, B7). Mobile: performance 97,
+but **CLS 0.108 on every route**, just over the 0.1 "good" line, and the same value everywhere, so
+the shift comes from a shared element (header, top bar or font swap), not page content. `/404.html`
+is the outlier at CLS 0.238 and performance 88. Added as B16 below.
+
 ## 4. Scorecard
 
 Baseline from the critique, 1 to 5. Re-score after each pass.
@@ -89,6 +95,7 @@ Baseline from the critique, 1 to 5. Re-score after each pass.
 | B13 | P3 | 5 | One-word last lines in list items on seven routes: `text-wrap: pretty` is set on `p` only | Extend to `li` | `polish` | |
 | B14 | P3 | 3 | 404 copy names the journal and expertise; its buttons go home and to contact | Match the buttons to the copy | `clarify` | |
 | B15 | P3 | 2 | Some prose is hard-coded in `index.astro`, against `CLAUDE.md` | Move to `src/content/` or `src/data/` | | |
+| B16 | P2 | 1 | Mobile CLS 0.108 on every route from a shared element; `/404.html` 0.238 | Find the shifting element with the Lighthouse trace (`qa/reports/lighthouse/mobile/`), reserve its space | `optimize` | |
 
 **Not actions.** The carousel's missing position indicator is a settled `BRAND.md` decision (no
 visible control, four mitigations). The underlined hero text link needs checking against the
