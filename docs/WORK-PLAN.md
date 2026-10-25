@@ -138,6 +138,20 @@ In order: `typeset` (B6, B7: kit roles only, 68-character measure, heading level
 
 ### Phase 5: Ship
 
+**Status 25 October 2026.** Every automated gate is green here and on Ubuntu CI (run
+40181748807) except visual regression, which compares against references of the old design and
+fails by construction until a person approves new ones. Lighthouse: 100 on every mobile route,
+layout shift 0 everywhere. What stands between this branch and launch:
+
+1. **Owner:** review the `visual-references-for-review` artifact from that run against the Vercel
+   preview; if they are right, commit them with `node qa/visual/approve.mjs --i-have-reviewed-the-diffs`
+   (`qa/README.md`). Never by an agent.
+2. **Gina:** the content register rows still open (C11 to C16, C18 to C24) and the privacy facts
+   in `docs/PRIVACY-NOTES.md`; a person then approves the policy.
+3. **Accounts, when ready (Q12):** Web3Forms key, Genesys, Calendly. The site works without them.
+4. **Launch:** host per `docs/DEPLOY.md`, DNS per `docs/DNS-CUTOVER.md`, by a person.
+
+
 - `pnpm test:qa` green; regenerate visual references in CI and have a person approve the diffs.
 - `pnpm qa:lighthouse` meets the table in section 1.
 - `docs/CONTENT-REGISTER.md` current: every placeholder on the site has a row and an owner.
