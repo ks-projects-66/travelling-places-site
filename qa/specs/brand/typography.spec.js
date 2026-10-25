@@ -112,17 +112,29 @@ test.describe('typography', () => {
               { expected: 'Libre Baskerville or IBM Plex Sans', actual: fam, source: 'BRAND.md typography' });
           }
 
-          // Heading line heights against the v3 scale.
-          const expected = { h2: 1.16, h3: 1.25 };
-          for (const [tag, want] of Object.entries(expected)) {
-            const el = document.querySelector(tag);
-            if (!el || !visible(el)) continue;
-            const cs = getComputedStyle(el);
-            const ratio = parseFloat(cs.lineHeight) / parseFloat(cs.fontSize);
-            if (Math.abs(ratio - want) > 0.03) {
-              add('line-height-off-scale', 'fail',
-                tag + ' line-height is ' + ratio.toFixed(3) + ' against a specified ' + want,
-                { expected: String(want), actual: ratio.toFixed(3), source: 'brand.tokens.json type' });
+          // Heading line heights against the v3 scale, by role. The kit sets serif h2 and h3 as
+          // section and subsection titles (1.16, 1.25) and sets row and card labels in body sans
+          // at 1.4, some of which are h3 elements (brand.tokens.json type.label). This used to
+          // take the first h3 on the page and expect 1.25, which only held while the home carousel
+          // caption happened to come first; once the carousel became the hero on 25 October 2026
+          // the first h3 was a sans row label and the check failed a correct page. The role is
+          // read from the face, which is how the kit itself distinguishes the two.
+          const expected = { h2: { serif: 1.16 }, h3: { serif: 1.25, sans: 1.4 } };
+          for (const [tag, wants] of Object.entries(expected)) {
+            for (const [face, want] of Object.entries(wants)) {
+              const el = [...document.querySelectorAll(tag)].find((h) => {
+                if (!visible(h)) return false;
+                const serif = getComputedStyle(h).fontFamily.toLowerCase().includes('libre baskerville');
+                return face === 'serif' ? serif : !serif;
+              });
+              if (!el) continue;
+              const cs = getComputedStyle(el);
+              const ratio = parseFloat(cs.lineHeight) / parseFloat(cs.fontSize);
+              if (Math.abs(ratio - want) > 0.03) {
+                add('line-height-off-scale', 'fail',
+                  tag + ' (' + face + ') line-height is ' + ratio.toFixed(3) + ' against a specified ' + want,
+                  { expected: String(want), actual: ratio.toFixed(3), source: 'brand.tokens.json type' });
+              }
             }
           }
 

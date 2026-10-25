@@ -24,8 +24,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-body.menu-open,
-body.dialog-open {
+/* Scroll lock for the open menu and dialogs, on the root rather than on body. The root carries
+   overflow-x: clip, which stops body's overflow from propagating to the viewport, so a lock on
+   body made body a scroll container of its own. Sticky then resolved against body instead of the
+   viewport, and on a scrolled page the header, with the menu's close control, jumped off screen
+   behind the open panel (POLISH-PLAN B1). On the root the lock applies to the viewport itself. */
+:root:has(> body.menu-open),
+:root:has(> body.dialog-open) {
   overflow: hidden;
 }
 
@@ -780,8 +785,15 @@ blockquote {
     min-height: 78px;
   }
 
+  /* The brand and the toggle sit above the open panel, so the header reads the same open or
+     closed and the close control is always where the visitor found it. */
+  .brand,
   .menu-toggle {
+    position: relative;
     z-index: 2;
+  }
+
+  .menu-toggle {
     display: flex;
     align-items: center;
     gap: 0.7rem;
@@ -795,25 +807,16 @@ blockquote {
     font-weight: 600;
   }
 
-  .menu-toggle-lines {
-    display: grid;
-    gap: 5px;
-    width: 24px;
+  /* Open shows Close and the close icon; closed shows Menu and the menu icon. Both are in the
+     markup, and the hidden pair is display: none, so the accessible name follows the visible
+     label (WCAG 2.5.3). */
+  .menu-toggle [data-when="open"],
+  .menu-toggle[aria-expanded="true"] [data-when="closed"] {
+    display: none;
   }
 
-  .menu-toggle-lines i {
-    display: block;
-    height: 2px;
-    background: var(--blue-deep);
-    transition: transform 220ms ease;
-  }
-
-  .menu-toggle[aria-expanded="true"] .menu-toggle-lines i:first-child {
-    transform: translateY(3.5px) rotate(45deg);
-  }
-
-  .menu-toggle[aria-expanded="true"] .menu-toggle-lines i:last-child {
-    transform: translateY(-3.5px) rotate(-45deg);
+  .menu-toggle[aria-expanded="true"] [data-when="open"] {
+    display: revert;
   }
 
   .site-nav {

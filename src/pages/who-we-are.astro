@@ -9,7 +9,10 @@ import WhyBook from '../components/WhyBook.astro';
 import site from '../data/site.json';
 import about from '../data/about.json';
 
-import teamOffice from '../assets/images/team/team-office.jpg';
+// The outdoor team photograph opened the home page until 25 October 2026, when the home hero became
+// a sequence of destinations (docs/WORK-PLAN.md, change 3). It opens this page now, and the office
+// photograph that did moves into the story of the business below.
+import teamOutside from '../assets/images/team/team-outside.jpg';
 import virtuosoMark from '../assets/images/memberships/virtuoso-member.png';
 
 const team = await Promise.all(
@@ -21,7 +24,8 @@ const team = await Promise.all(
 const atia = site.identifiers.atiaAccreditation;
 
 // Story, cruise and Virtuoso alternate image and text, switching sides each row (design review,
-// change 11). Two photographs are still to come and render as marked placeholders.
+// change 11). The story row carries the office photograph; the cruise row's photograph is still to
+// come and renders as a marked placeholder.
 const rows = [
   { section: about.story, photo: 'TODO: photo of Gina, or the original Main Street office' },
   { section: about.cruise, photo: 'TODO: photo of a team member aboard ship' },
@@ -39,10 +43,10 @@ const rows = [
       lead="People who know travel,"
       accent="and you."
       lede="Advisors with a shared curiosity about the world, and a remarkably long memory for the details our clients care about."
-      image={teamOffice}
-      alt="The Travelling Places team in their Tamborine Mountain office"
-      position="center 20%"
-      maxWidth={904}
+      image={teamOutside}
+      alt="The Travelling Places team together on Tamborine Mountain"
+      position="center 22%"
+      maxWidth={1037}
     />
 
     <section class="section">

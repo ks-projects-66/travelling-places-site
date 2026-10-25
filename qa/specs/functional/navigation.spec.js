@@ -7,16 +7,16 @@ import { record } from '../../lib/collect.js';
 const desktop = FUNCTIONAL.find((v) => !usesMobileNav(v.width));
 
 test.describe('navigation', () => {
-  test('desktop nav exposes five destinations plus the CTA', async ({ page }) => {
+  test('desktop nav exposes four destinations plus the CTA', async ({ page }) => {
     await page.setViewportSize(desktop);
     await page.goto('/');
     const nav = page.locator('[data-nav]');
     await expect(nav).toBeVisible();
 
     const links = nav.locator('> a:not(.button)');
-    // Home is the logo. Gina's copy added Luxury, and the five-destination limit held by moving
-    // Home to the lockup rather than by dropping one of her pages.
-    await expect(links).toHaveText(['Tailor-made', 'Luxury', 'Virtuoso', 'About us', 'Journal']);
+    // Home is the logo. Virtuoso left the nav on 25 October 2026 at the client's request and is now
+    // a section of Luxury (docs/WORK-PLAN.md, change 2).
+    await expect(links).toHaveText(['Tailor-made', 'Luxury', 'About us', 'Journal']);
 
     // BRAND.md: "Primary navigation contains no more than five destinations plus the
     // Plan a journey action."

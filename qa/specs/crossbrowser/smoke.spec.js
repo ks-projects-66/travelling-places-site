@@ -73,8 +73,8 @@ for (const viewport of CROSS_BROWSER) {
 
       expect(await index()).toBe(0);
 
-      // Poll rather than assert after a fixed wait. The interval is 3s, but engines differ in how
-      // quickly the deferred module script boots, so a single 3.9s sleep raced in Firefox and
+      // Poll rather than assert after a fixed wait. The interval is 6s, but engines differ in how
+      // quickly the deferred module script boots, so a single fixed sleep raced in Firefox and
       // asserted an exact index against a timer that had not started when the clock did. What
       // matters is that it advances at all, and within a sensible bound.
       await expect

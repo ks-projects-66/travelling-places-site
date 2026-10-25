@@ -30,8 +30,8 @@ Logos live in `public/images/brand/`, not here, because SVGs need no processing.
 |---|---|---|---|---|---|
 | `team/gina-storey.jpg` | Gina Storey portrait | `FW_ Logos/Gina Headshot 2025.jpg` | owned | Gina Storey | Not currently referenced |
 | `team/gina-storey.webp` | Gina Storey portrait, web derivative | Same original | owned | Gina Storey | Home, Who we are |
-| `team/team-office.jpg` | Team inside the Main Street office | `FW_ Logos/Edited Inside Staff Photo Office 2025 [4}.jpg` | owned | Gina Storey | Who we are |
-| `team/team-outside.jpg` | Team outdoors on Tamborine Mountain | `FW_ Logos/Edited Staff Photo Outside 2025 [4].jpg` | owned | Gina Storey | Home hero, Contact |
+| `team/team-office.jpg` | Team inside the Main Street office | `FW_ Logos/Edited Inside Staff Photo Office 2025 [4}.jpg` | owned | Gina Storey | Who we are, story row (the page hero until 25 October 2026) |
+| `team/team-outside.jpg` | Team outdoors on Tamborine Mountain | `FW_ Logos/Edited Staff Photo Outside 2025 [4].jpg` | owned | Gina Storey | Who we are hero, Contact (the home hero until 25 October 2026) |
 | `public/og-default.jpg` | Team outdoors, cropped to 1200x630 for social sharing | Derived from `team/team-outside.jpg` | owned | Gina Storey | Every page, `og:image` |
 
 ## Memberships and accreditation
@@ -59,7 +59,7 @@ licence at all.
 |---|---|---|---|---|---|
 | `destinations/mediterranean-coast.jpg` | Sunset over a calm sea and silhouetted coastline | Unsplash, Ruben Aster | owned | Unsplash License | Home carousel |
 | `destinations/antarctica-ice.jpg` | Ice formation across a polar landscape | Unsplash, Torsten Dederichs | owned | Unsplash License | Home carousel, Journal |
-| `destinations/cruise-dining.jpg` | Dining table with a wide ocean view | Unsplash, Jiayu Chan | owned | Unsplash License | Home carousel, Luxury hero |
+| `destinations/cruise-dining.jpg` | Dining table with a wide ocean view | Unsplash, Jiayu Chan | owned | Unsplash License | Home hero |
 | `destinations/japan-temple.jpg` | Japanese temple architecture among bare trees | Unsplash, Rudityas W Anggoro | owned | Unsplash License | Journal archive |
 | `destinations/spain-village.jpg` | Whitewashed Spanish hill village | Unsplash, inma santiago | owned | Unsplash License | Journal archive |
 
@@ -68,7 +68,7 @@ licence at all.
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
 | `hero/expertise-mountain-lake.jpg` | Mountains reflected in a still lake at golden hour | Unsplash, Oskar Kadaksoo | owned | Unsplash License | Expertise hero |
-| `hero/virtuoso-island.jpg` | Aerial view of a small island ringed by reef | Unsplash, Nathan Feyssat | owned | Unsplash License | Virtuoso hero |
+| `hero/virtuoso-island.jpg` | Aerial view of a small island ringed by reef | Unsplash, Nathan Feyssat | owned | Unsplash License | Luxury hero (Virtuoso hero until 25 October 2026) |
 | `hero/contact-lookout.jpg` | Wide view over forested hills and farmland to distant peaks | Unsplash, Hayden | owned | Unsplash License | Contact hero |
 
 **Location claim not verified.** `hero/contact-lookout.jpg` was delivered named for Tamborine

@@ -46,10 +46,11 @@ see on screen gets fixed, and a gap recorded only in a register gets shipped.
 | C14 | Facebook URL | `src/data/site.json` | Confirmed profile | Same. |
 | C15 | Trading hours | `src/data/site.json` | Confirmed hours | Renders as a TODO pill on the contact page. |
 | C16 | Alatus destination URL | `src/data/memberships.json` | The correct URL | Logo renders unlinked until supplied. |
-| C18 | Virtuoso white-label link | `src/data/virtuoso.json` → `whiteLabel.url` | The white-label site address from Gina | Her Luxury copy links to it. Renders as a TODO pill on Luxury and Virtuoso. |
+| C18 | Virtuoso white-label link | `src/data/virtuoso.json` → `whiteLabel.url` | The white-label site address from Gina | Her Luxury copy links to it. Renders as a TODO pill in the Virtuoso section of Luxury (the Virtuoso page folded into Luxury on 25 October 2026). |
 | C19 | Newsletter delivery | `src/components/NewsletterDialog.astro` | Genesys embed (C7) | Gina's fields are built. Until Genesys is connected, sign-ups reach the office inbox through the enquiry route and are added by hand. Collecting postal addresses must be covered by the privacy policy (C2). |
 | C20 | Claims in Gina's copy | `src/data/*.json` | Her confirmation | Published as supplied on Karim's instruction of 26 September 2026: Global Cruise Icon (under 300 worldwide), Virtuoso top 1%, IATA TIDS affiliate, client trust account, "ATIA protected", in-house events, brochures, travel insurance. Several passages match wexas.com word for word. |
 | C21 | Luxury theme copy | `src/data/luxury.json` → `themes` | Gina's sign-off, or her edit | Three short blurbs from the Claude Design review replaced her seven Luxury sections on Karim's instruction of 28 September 2026. They are draft copy, not her words. "Peace of mind" states comprehensive insurance and "Privileged access" states in-house events: both come from her original sections, so confirm they still hold. |
+| C22 | Larger team photograph | `src/assets/images/team/team-outside.jpg` | The original file at 2000px or wider | Now the About hero (25 October 2026). The supplied file is 1037px wide, so it is upscaled and slightly soft at 1440px. Same request for `team-office.jpg` (904px). |
 
 ## Deployment
 
@@ -90,7 +91,7 @@ band stays on every page it is on; repetition may be removed from her copy, with
 | R9 | Virtuoso | Member profile link verified | Done | - | `virtuoso.com/member/travelli34092` returns 200, 28 Sep 2026 | Required |
 | R10 | Enquiry form | Delivery | Decided | Karim, 5 October 2026: launch with the mail-draft route | The form prepares an email draft in the visitor's own program and says so; it never claims delivery. The "Web3Forms key not set" TODO pill still shows and needs replacing with final wording | Does not block launch (C6) |
 | R11 | Newsletter | Delivery | Blocked | Genesys snippet (C7); Karim has access and will locate the embed (5 October 2026) | Same route as the enquiry form until then | Blocks the feature (C19) |
-| R12 | Calendly, Zoom link | Booking | Blocked | Gina's availability; Gina creates the account, or Karim creates it and transfers ownership (C8) | Top-strip Zoom link goes to the Calendly placeholder | Blocks the feature |
+| R12 | Calendly, Zoom link | Booking | Blocked | Gina's availability; Gina creates the account, or Karim creates it and transfers ownership (C8) | The top strip and its Zoom link were removed at the client's request on 25 October 2026; the Calendly placeholder remains on Contact | Blocks the feature |
 | R13 | Team | Titles, surnames, bios, three portraits | Awaiting Gina | Gina and team (C11, C12) | Visible placeholders | Blocks launch |
 | R14 | Footer | ABN, ATIA, CLIA numbers; trading hours | Awaiting Gina | C3, C4, C5, C15 | Visible placeholders | Blocks launch |
 | R15 | Luxury, Tailor-made, About | Photographs for themes, service cards and two About rows | Awaiting supply | Karim or Gina | Visible placeholders | Review; blocks launch if kept in the layout |

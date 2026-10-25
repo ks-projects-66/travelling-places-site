@@ -3,11 +3,9 @@ import { Image } from 'astro:assets';
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
-import Carousel from '../components/Carousel.astro';
 import WhyBook from '../components/WhyBook.astro';
 import site from '../data/site.json';
 
-import teamOutside from '../assets/images/team/team-outside.jpg';
 import womanOnPlane from '../assets/images/hero/woman-on-plane.jpg';
 import ginaPortrait from '../assets/images/team/gina-storey.webp';
 import virtuosoMark from '../assets/images/memberships/virtuoso-member.png';
@@ -20,10 +18,12 @@ const services = (await getCollection('services')).sort((a, b) => a.data.order -
 const gina = await getEntry('team', 'gina-storey');
 const featured = (await getCollection('journal', ({ data }) => data.featured && !data.draft))[0];
 
-const slides = [
-  { src: mediterranean, alt: 'An elegant Mediterranean journey at golden hour', place: 'The Mediterranean', headline: 'Grand journeys, taken at your own pace.', href: '/expertise/#tailor-made' },
-  { src: antarctica, alt: 'A wide Antarctic landscape of ice, sea and distant mountains', place: 'Antarctica', headline: 'The far south, closer than you imagine.', href: '/journal/looking-south-to-antarctica/' },
-  { src: cruise, alt: 'A dining table set beside a wide ocean view aboard ship', place: 'Life at sea', headline: 'Every day considered, down to dinner.', href: '/expertise/#cruising' },
+// The hero is a sequence of destination photographs under one fixed title (docs/WORK-PLAN.md,
+// change 3). The team photograph that opened this page now opens About.
+const heroSlides = [
+  { src: mediterranean, alt: 'The sun setting over the Mediterranean beyond a dark headland', position: 'center 55%' },
+  { src: antarctica, alt: 'A wide Antarctic landscape of ice, sea and distant mountains', position: 'center 45%' },
+  { src: cruise, alt: 'A dining table set beside a wide ocean view aboard ship', position: 'center 55%' },
 ];
 
 const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -35,10 +35,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
       lead="Your world,"
       accent="beautifully planned."
       lede="Thoughtful journeys, rare experiences and every detail looked after by people who know travel, and take the time to know you."
-      image={teamOutside}
-      alt="The Travelling Places team together on Tamborine Mountain"
-      position="center 22%"
-      maxWidth={1037}
+      slides={heroSlides}
     >
       <div class="hero-actions">
         <a class="button button-blue" href="/contact/">Start planning</a>
@@ -64,8 +61,6 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
         </div>
       </div>
     </section>
-
-    <Carousel slides={slides} />
 
     <section class="section expertise-preview">
       <div class="shell">
@@ -98,7 +93,7 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
             Our Virtuoso membership connects you with leading hotels, cruise lines, destination
             specialists and tour partners around the world.
           </p>
-          <a class="button button-white" href="/virtuoso/">Why Virtuoso matters</a>
+          <a class="button button-white" href="/luxury/#virtuoso">Why Virtuoso matters</a>
         </div>
         <div class="virtuoso-panel">
           <Image src={virtuosoMark} alt="Virtuoso member" width={376} densities={[1, 2]} loading="lazy" />

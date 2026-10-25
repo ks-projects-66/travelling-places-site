@@ -55,9 +55,13 @@ for (const viewport of overlayViewports) {
       expect(box.x + box.width).toBeLessThanOrEqual(viewport.width + 1);
     });
 
+    // The lock lives on the root, not on body. The root's overflow-x: clip stops body's overflow
+    // reaching the viewport, so a body lock made body a scroll container and broke the sticky
+    // header (POLISH-PLAN B1). Asserting the root asserts the mechanism that actually works.
     test('scroll is locked while the menu is open', async ({ page }) => {
       await page.locator('[data-menu-toggle]').click();
-      await expect(page.locator('body')).toHaveCSS('overflow', 'hidden');
+      await expect(page.locator('html')).toHaveCSS('overflow-y', 'hidden');
+      await expect(page.locator('body')).not.toHaveCSS('overflow-y', 'hidden');
     });
 
     // --- Behaviours the brief requires that the site does not implement ---
@@ -88,11 +92,14 @@ for (const viewport of overlayViewports) {
     test('traps focus inside the open panel', async ({ page }) => {
       await page.locator('[data-menu-toggle]').click();
       // Tab past every link in the panel. Focus should cycle back inside rather than escaping to
-      // the page behind, which is still in the tab order under a fixed overlay.
+      // the page behind, which is still in the tab order under a fixed overlay. The toggle counts as
+      // inside: it stays visible above the panel as the Close control.
       const linkCount = await page.locator('[data-nav] a').count();
       for (let i = 0; i < linkCount + 3; i += 1) {
         await page.keyboard.press('Tab');
-        const inside = await page.evaluate(() => !!document.activeElement?.closest('[data-nav]'));
+        const inside = await page.evaluate(
+          () => !!document.activeElement?.closest('[data-nav], [data-menu-toggle]'),
+        );
         expect(inside, `focus escaped the panel after ${i + 1} tab(s)`).toBe(true);
       }
     });
@@ -100,7 +107,9 @@ for (const viewport of overlayViewports) {
     test('cycles backwards without escaping', async ({ page }) => {
       await page.locator('[data-menu-toggle]').click();
       for (let i = 0; i < 3; i += 1) await page.keyboard.press('Shift+Tab');
-      const inside = await page.evaluate(() => !!document.activeElement?.closest('[data-nav]'));
+      const inside = await page.evaluate(
+        () => !!document.activeElement?.closest('[data-nav], [data-menu-toggle]'),
+      );
       expect(inside).toBe(true);
     });
 
@@ -121,7 +130,31 @@ for (const viewport of overlayViewports) {
 
       await page.setViewportSize({ width: 1200, height: viewport.height });
       await expect(page.locator('body')).not.toHaveClass(/menu-open/);
-      await expect(page.locator('body')).toHaveCSS('overflow', 'visible');
+      await expect(page.locator('html')).not.toHaveCSS('overflow-y', 'hidden');
+    });
+
+    // Regression for POLISH-PLAN B1. Opened after scrolling, the close control used to sit at
+    // y = -1279 behind the panel, so a touch visitor had no way out but to pick a link.
+    test('the close control stays on screen when opened after scrolling', async ({ page }) => {
+      await page.evaluate(() => window.scrollTo(0, 1500));
+      const toggle = page.locator('[data-menu-toggle]');
+      await toggle.click();
+      await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+      await expect(toggle).toHaveAccessibleName('Close');
+
+      const box = await toggle.boundingBox();
+      expect(box.y).toBeGreaterThanOrEqual(0);
+      expect(box.y + box.height).toBeLessThanOrEqual(viewport.height);
+      const hit = await page.evaluate(
+        ([x, y]) => !!document.elementFromPoint(x, y)?.closest('[data-menu-toggle]'),
+        [box.x + box.width / 2, box.y + box.height / 2],
+      );
+      expect(hit, 'the toggle is covered by the open panel').toBe(true);
+
+      await toggle.click();
+      await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+      await expect(toggle).toHaveAccessibleName('Menu');
+      expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(1000);
     });
   });
 }

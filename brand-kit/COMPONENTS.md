@@ -28,7 +28,7 @@ Use explicit labels and field-level errors. Never rely on placeholder text as th
 
 ## Carousel
 
-Use the supplied control arrangement and state attributes. Carousel images should be full width with a balanced height. Captions are white, sit over the supplied gradient, and remain within two lines. Do not place decorative numbers or labels over the image. The kit component autoplays at six seconds and is pausable. The website ships a reduced variant: three seconds, no visible control, relying on pointer, focus, hidden-tab and reduced-motion mitigations. That divergence is deliberate and its residual WCAG 2.2.2 gap is recorded in BRAND.md.
+Use the supplied control arrangement and state attributes. Carousel images should be full width with a balanced height. Captions are white, sit over the supplied gradient, and remain within two lines. Do not place decorative numbers or labels over the image. The kit component autoplays at six seconds and is pausable. The website's home hero uses the same six seconds with previous and next only, no pause or dots, relying on hover, focus, hidden-tab and reduced-motion mitigations. That divergence is deliberate and its residual WCAG 2.2.2 gap is recorded in BRAND.md.
 
 ## Icons
 

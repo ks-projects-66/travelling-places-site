@@ -4,6 +4,15 @@ The version lives in `brand.tokens.json` and in the header of `BRAND.md`. It is 
 name. Between 2.1.0 and 3.0.0 those two files disagreed, and that gap is what let the kit fork from
 itself, so any release that changes a value changes both.
 
+## 3.0.2
+
+**The website carousel is now the home hero, at six seconds, with previous and next buttons.** The
+owner moved the carousel from mid-page to the hero and asked for arrows on 25 October 2026, then
+set the interval to six seconds, which matches the kit component. The "no visible control" rule in
+`BRAND.md` is rewritten accordingly. Hover now holds only on the title and arrows, since a
+full-screen hover hold would stop the sequence for most desktop visitors. There is still no pause
+button and the WCAG 2.2.2 accepted risk stays recorded. No colour, size or token value changed.
+
 ## 3.0.1
 
 **The dark mark's white keyline is now continuous.** It was missing on the top of the hair and the

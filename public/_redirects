@@ -2,7 +2,7 @@
 # insurance rather than a real URL migration. Cloudflare Pages reads this file.
 /index.html              /                                     301
 /expertise.html          /expertise/                           301
-/virtuoso.html           /virtuoso/                            301
+/virtuoso.html           /luxury/#virtuoso                     301
 /who-we-are.html         /who-we-are/                          301
 /journal.html            /journal/                             301
 /contact.html            /contact/                             301
@@ -12,3 +12,9 @@
 # redirects rather than disappearing. Cloudflare Pages reads this file; Vercel does not, so the
 # same rule is duplicated in vercel.json for the review deployment.
 /brand-kit-v2/*          /brand-kit/:splat                     301
+
+# Virtuoso was folded into the Luxury page on 25 October 2026 (docs/WORK-PLAN.md, change 2). The
+# page was on the review deployment, so its path redirects to the section that replaced it.
+# Duplicated in vercel.json for the review deployment.
+/virtuoso                /luxury/#virtuoso                     301
+/virtuoso/               /luxury/#virtuoso                     301

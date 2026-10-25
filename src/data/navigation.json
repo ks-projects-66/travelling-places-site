@@ -11,11 +11,6 @@
       "href": "/luxury/"
     },
     {
-      "key": "virtuoso",
-      "label": "Virtuoso",
-      "href": "/virtuoso/"
-    },
-    {
       "key": "team",
       "label": "About us",
       "href": "/who-we-are/"
@@ -34,10 +29,6 @@
     {
       "label": "Luxury",
       "href": "/luxury/"
-    },
-    {
-      "label": "Virtuoso",
-      "href": "/virtuoso/"
     },
     {
       "label": "About us",

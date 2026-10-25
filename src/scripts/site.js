@@ -42,8 +42,10 @@ document.addEventListener('keydown', (event) => {
 
   if (event.key !== 'Tab' || !nav) return;
 
-  const focusable = [...nav.querySelectorAll('a, button')].filter(
-    (el) => !el.hasAttribute('disabled') && el.offsetParent !== null,
+  // The toggle stays visible above the open panel as its Close control, so it is part of the
+  // cycle: toggle, then each link in the panel, then back to the toggle.
+  const focusable = [menuToggle, ...nav.querySelectorAll('a, button')].filter(
+    (el) => el && !el.hasAttribute('disabled') && el.offsetParent !== null,
   );
   if (focusable.length === 0) return;
 
@@ -51,16 +53,16 @@ document.addEventListener('keydown', (event) => {
   const last = focusable[focusable.length - 1];
   const active = document.activeElement;
 
-  if (event.shiftKey && (active === first || active === menuToggle)) {
+  if (event.shiftKey && active === first) {
     event.preventDefault();
     last.focus();
   } else if (!event.shiftKey && active === last) {
     event.preventDefault();
     first.focus();
-  } else if (!nav.contains(active) && active !== menuToggle) {
+  } else if (!focusable.includes(active)) {
     // Focus escaped some other way, so bring it back rather than leaving it behind the overlay.
     event.preventDefault();
-    first.focus();
+    focusable[1]?.focus();
   }
 });
 
@@ -220,21 +222,24 @@ document.querySelectorAll('[data-enquiry-form], [data-newsletter-form]').forEach
   });
 });
 
-// --- destination carousel ---
+// --- home hero carousel ---
 
 /**
- * Advances on its own every 3 seconds. There is no visible control bar: the dots, the
- * pause button and the arrows were removed by request.
+ * The home hero's photographs advance every 6 seconds beneath a fixed title, with previous and
+ * next buttons at either side (owner's decision, 25 October 2026: docs/WORK-PLAN.md, Q1). This
+ * matches the brand kit's own carousel timing.
  *
- * WCAG 2.2.2 asks for a way to pause content that moves for more than five seconds. With the
- * visible control gone, the mitigations are: it stops while the pointer is over it, it stops
- * while anything inside it has keyboard focus, arrow keys still step through slides, it does
- * not run while the tab is hidden, and it never auto-advances at all under
- * prefers-reduced-motion. That is weaker than a real pause button; if the missing control
- * becomes a problem, add one back rather than lengthening the interval.
+ * WCAG 2.2.2 asks for a way to pause content that moves for more than five seconds. The arrows
+ * give control but are not a pause, so the mitigations stand alongside them: it holds while the
+ * pointer is over the title block or an arrow, holds while anything inside has keyboard focus,
+ * does not run while the tab is hidden, and never auto-advances under prefers-reduced-motion.
+ *
+ * Hover holds only on [data-carousel-hold] (the text and the arrows), not the whole hero. The
+ * hero fills most of the first screen, so a whole-hero hover pause would stop it for anyone whose
+ * pointer happened to rest on the photograph, which is most desktop visitors.
  */
 
-const SLIDE_MS = 3000;
+const SLIDE_MS = 6000;
 
 const carousel = document.querySelector('[data-carousel]');
 if (carousel) {
@@ -242,6 +247,7 @@ if (carousel) {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let index = 0;
   let timer;
+  let held = false;
 
   const showSlide = (next) => {
     index = (next + slides.length) % slides.length;
@@ -249,25 +255,44 @@ if (carousel) {
       const active = i === index;
       slide.classList.toggle('is-active', active);
       slide.setAttribute('aria-hidden', String(!active));
-      slide.inert = !active;
     });
   };
 
   const stop = () => window.clearInterval(timer);
   const start = () => {
     stop();
-    if (!reduceMotion.matches && !document.hidden) {
+    const focused = carousel.matches(':focus-within');
+    if (!held && !focused && !reduceMotion.matches && !document.hidden) {
       timer = window.setInterval(() => showSlide(index + 1), SLIDE_MS);
     }
   };
 
-  carousel.addEventListener('mouseenter', stop);
-  carousel.addEventListener('mouseleave', start);
+  // A step by the visitor restarts the interval, so the photograph they chose gets its full time.
+  const step = (by) => {
+    showSlide(index + by);
+    start();
+  };
+
+  carousel.querySelector('[data-carousel-previous]')?.addEventListener('click', () => step(-1));
+  carousel.querySelector('[data-carousel-next]')?.addEventListener('click', () => step(1));
+
+  carousel.querySelectorAll('[data-carousel-hold]').forEach((el) => {
+    el.addEventListener('mouseenter', () => {
+      held = true;
+      stop();
+    });
+    el.addEventListener('mouseleave', () => {
+      held = false;
+      start();
+    });
+  });
+
   carousel.addEventListener('focusin', stop);
-  carousel.addEventListener('focusout', start);
+  // focusout fires before focus lands on the next element, so wait a frame to see where it went.
+  carousel.addEventListener('focusout', () => window.requestAnimationFrame(start));
   carousel.addEventListener('keydown', (event) => {
-    if (event.key === 'ArrowLeft') showSlide(index - 1);
-    if (event.key === 'ArrowRight') showSlide(index + 1);
+    if (event.key === 'ArrowLeft') step(-1);
+    if (event.key === 'ArrowRight') step(1);
   });
   document.addEventListener('visibilitychange', start);
   reduceMotion.addEventListener('change', start);

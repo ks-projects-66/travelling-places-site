@@ -92,12 +92,14 @@ owner's answers.
 
 ### Phase 1: Structure (client changes 1 to 3, plus the menu bug)
 
+**Done 25 October 2026.** All automated QA green (412 tests); visual baselines not regenerated, by plan, until the end of Phase 4.
+
 | Task | Files | Notes |
 |---|---|---|
 | Remove the top bar | `TopBar.astro`, `BaseLayout.astro`, `top-bar.json`, `site.css` | Newsletter sign-up keeps one home: the row above the footer. Zoom link goes; Calendly TODO stays on Contact |
 | Nav without Virtuoso | `navigation.json` (primary and footer), `SiteHeader.astro`, `SiteFooter.astro` | Four items plus one button |
 | Merge Virtuoso into Luxury | `luxury.astro`, `luxury.json`, `virtuoso.json`, delete `virtuoso.astro` | Gina's Virtuoso copy becomes a section of Luxury, with a visible link to the member profile `https://www.virtuoso.com/member/travelli34092` inside that section (Q4). Update `qa/routes.js` REQUIRED, `docs/COPY-MAP.md`, register entries; structured data unchanged |
-| Carousel hero | New `HomeHero.astro` from `PageHero.astro` and `Carousel.astro`, `index.astro`, `pages.css` | Full-bleed `min(85vh, 860px)`; stills rotate every 3 seconds; one fixed headline, lede and action over them (Q1); scrim replaced by local text protection (B2). **Previous and next arrow buttons on left and right**, 44px minimum, icon-only as `BRAND.md` allows for carousel navigation, visible focus, keyboard operable; the four existing mitigations stay (pause on hover and focus, stop when the tab is hidden, no auto-advance under reduced motion). `BRAND.md`'s "no visible control" line is superseded and rewritten |
+| Carousel hero | New `HomeHero.astro` from `PageHero.astro` and `Carousel.astro`, `index.astro`, `pages.css` | Full-bleed `min(85vh, 860px)`; stills rotate every 6 seconds; one fixed headline, lede and action over them (Q1); scrim replaced by local text protection (B2). **Previous and next arrow buttons on left and right**, 44px minimum, icon-only as `BRAND.md` allows for carousel navigation, visible focus, keyboard operable; the four existing mitigations stay (pause on hover and focus, stop when the tab is hidden, no auto-advance under reduced motion). `BRAND.md`'s "no visible control" line is superseded and rewritten |
 | Team photo to About | `who-we-are.astro`, `DESIGN.md` hero table | Default: `team-outside` becomes the About hero, `team-office` moves to the story section (Q2) |
 | Mobile menu | `site.css` lines around 27 and 819 to 841, `SiteHeader.astro`, new spec in `qa/specs/functional/` | Header above the panel, scroll lock that keeps sticky, real Close state, test at `scrollY > 0` |
 
@@ -197,7 +199,7 @@ Answered 25 October 2026. Where the answer differs from the default, the answer 
 
 | # | Question | Default | Answer |
 |---|---|---|---|
-| Q1 | Hero: one fixed headline ("Your world, beautifully planned.") and one button over slowly rotating photographs, or a different headline per slide as the carousel has now? Which photographs: the current three, or add `japan-temple`, `spain-village`, `ship-at-sunset`? | Fixed headline and lede, one action, four photographs, 7-second advance | One fixed headline. Arrow buttons left and right; 3-second auto-advance; the arrows let a visitor step through |
+| Q1 | Hero: one fixed headline ("Your world, beautifully planned.") and one button over slowly rotating photographs, or a different headline per slide as the carousel has now? Which photographs: the current three, or add `japan-temple`, `spain-village`, `ship-at-sunset`? | Fixed headline and lede, one action, four photographs, 7-second advance | One fixed headline. Arrow buttons left and right; 6-second auto-advance (owner revised from 3 seconds on 25 October 2026); the arrows let a visitor step through |
 | Q2 | Team photo on About: replace the About hero (currently the office photo), or sit in the body? | It becomes the About hero; the office photo moves into the story | Becomes the About hero |
 | Q3 | "Luxury travel" card: link to our `/luxury/` page (with Virtuoso folded in) or to the external virtuoso.com member profile? | `/luxury/` | The Luxury page |
 | Q4 | Confirm `/virtuoso/` is retired with a redirect and Gina's Virtuoso copy becomes a section of Luxury | Yes | Yes. The virtuoso.com member profile link sits in the Virtuoso section of Luxury |

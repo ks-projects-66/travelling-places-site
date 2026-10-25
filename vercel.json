@@ -2,6 +2,16 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/virtuoso",
+      "destination": "/luxury/#virtuoso",
+      "permanent": true
+    },
+    {
+      "source": "/virtuoso/",
+      "destination": "/luxury/#virtuoso",
+      "permanent": true
+    },
+    {
       "source": "/brand-kit-v2",
       "destination": "/brand-kit/",
       "permanent": true

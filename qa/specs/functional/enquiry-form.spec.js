@@ -121,11 +121,13 @@ test.describe('enquiry form', () => {
     await expect(page.locator(`${form} button[type="submit"]`)).toBeEnabled();
   });
 
-  test('the top bar opens the newsletter sign-up with the fields Gina specified', async ({ page }) => {
+  // The top bar used to carry the first opener. It was removed at the client's request on
+  // 25 October 2026 (docs/WORK-PLAN.md, change 1), so the footer opener is now the one to test.
+  test('the footer opens the newsletter sign-up with the fields Gina specified', async ({ page }) => {
     await page.goto('/');
     // The opener is a mailto link until site.js wires the dialog, so wait for the script.
     await waitForScript(page);
-    await page.locator('.top-bar [data-open-newsletter]').click();
+    await page.locator('.footer-newsletter [data-open-newsletter]').click();
     const dialog = page.locator('[data-newsletter-dialog]');
     await expect(dialog).toBeVisible();
     for (const label of ['Name *', 'Email *', 'Address', 'Phone', 'Opt in for our luxury travel magazine']) {
@@ -135,13 +137,7 @@ test.describe('enquiry form', () => {
     await expect(dialog.getByLabel('Email *')).toHaveAttribute('aria-invalid', 'true');
     await page.keyboard.press('Escape');
     await expect(dialog).toBeHidden();
-    await expect(page.locator('.top-bar [data-open-newsletter]')).toBeFocused();
+    await expect(page.locator('.footer-newsletter [data-open-newsletter]')).toBeFocused();
   });
 
-  test('the footer opens the same newsletter sign-up', async ({ page }) => {
-    await page.goto('/');
-    await waitForScript(page);
-    await page.locator('.footer-newsletter [data-open-newsletter]').click();
-    await expect(page.locator('[data-newsletter-dialog]')).toBeVisible();
-  });
 });

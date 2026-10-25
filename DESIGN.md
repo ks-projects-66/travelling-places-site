@@ -63,7 +63,7 @@ Reference: `belmond.com`. The visual system is what is being referenced, not the
 | Captions | Never burned into the image. Descriptive text sits below as a separate element |
 | Grading | Warm and saturated, jewel tones, natural light |
 | Crop | Subject placed prominently rather than dead-centre |
-| Panoramic | 2.46:1 for the home carousel. Verified against the built page on 29 August 2026 |
+| Panoramic | Retired 25 October 2026 with the mid-page carousel band. The home sequence uses the hero height |
 | Motion | The reference site's hero is a **video loop**, not a still. Corrected 30 August 2026: the previous claim that it holds no video was wrong. This site remains stills-only by choice, not because the reference is |
 
 Every image needs a row in `src/assets/images/MANIFEST.md` before it is used.
@@ -155,21 +155,24 @@ over it under a two-stop scrim. `navy` is the same opening on `--tp-navy` with n
 The navy tone is not a placeholder. It is a finished design that a photograph replaces by passing
 one prop, which is exactly what happened on three pages when the licensed set arrived.
 
-Updated 30 August 2026, when the licensed imagery landed.
+Updated 30 August 2026, when the licensed imagery landed, and 25 October 2026, when the client
+moved the carousel into the home hero, the team photograph to About and Virtuoso into Luxury
+(`docs/WORK-PLAN.md`, changes 2 and 3).
 
 | Page | Tone | Photograph | `object-position` |
 |---|---|---|---|
-| Home | photo | `team/team-outside.jpg`, owned | `center 22%` |
-| Who we are | photo | `team/team-office.jpg`, owned | `center 20%` |
+| Home | photo, sequence | `destinations/mediterranean-coast.jpg`, `antarctica-ice.jpg`, `cruise-dining.jpg`, cross-fading every 6s under one fixed title, previous and next at either side | `center 55%`, `center 45%`, `center 55%` |
+| Who we are | photo | `team/team-outside.jpg`, owned. The office photograph moved into the story row | `center 22%` |
 | Expertise | photo | `hero/expertise-mountain-lake.jpg` | `center 38%` |
-| Virtuoso | photo | `hero/virtuoso-island.jpg` | `center 42%` |
+| Luxury | photo | `hero/virtuoso-island.jpg`, freed when the Virtuoso page folded into Luxury | `center 42%` |
 | Contact | photo | `hero/contact-lookout.jpg` | `center 55%` |
 | Journal | none | No hero since 27 September 2026: the newest article's photograph opens the page as a 540px feature | n/a |
 | Privacy, 404 | plain | none wanted. A cinematic opening on a policy or error page is noise | n/a |
 
 Crops are set per page with `object-position`, because both team photographs place faces near the
-top of the frame and an 85vh crop decapitates them at the default `center`. Home sits at
-`center 22%`, Who we are at `center 20%`. Any replacement photograph needs its own value checked at
+top of the frame and an 85vh crop decapitates them at the default `center`. Who we are sits at
+`center 22%`. The team photograph is 1037px wide, so at 1440px it is upscaled and slightly soft; a
+larger original is on the content list. Any replacement photograph needs its own value checked at
 1440px **and** 390px, since the crop ratio runs from about 0.54:1 to 2.98:1.
 
 ## Section rhythm

@@ -10,11 +10,24 @@
  * navy instead of an image. It reads as a finished design rather than a gap, and swapping in a
  * licensed photograph later is a one-line prop change. See src/assets/images/MANIFEST.md for
  * which pages are waiting on photography.
+ *
+ * Pass `slides` instead of `image` and the photograph becomes a sequence: the title, lede and
+ * actions stay fixed while the photographs cross-fade beneath them, with previous and next
+ * buttons at either side. The home page uses this since 25 October 2026 (docs/WORK-PLAN.md,
+ * change 3). Behaviour lives in site.js under [data-carousel].
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 
+export interface HeroSlide {
+  src: ImageMetadata;
+  alt: string;
+  position?: string;
+}
+
 interface Props {
+  /** Photographs for a rotating hero. Mutually exclusive with `image`. */
+  slides?: HeroSlide[];
   /** Cap the generated srcset when the source is smaller than the hero. See `widths` below. */
   maxWidth?: number;
   lead: string;
@@ -28,20 +41,25 @@ interface Props {
 }
 
 const {
+  slides,
   maxWidth,
   lead,
   accent,
   lede,
   image,
   alt = '',
-  tone = image ? 'photo' : 'navy',
+  tone = image || slides?.length ? 'photo' : 'navy',
   position = 'center',
   class: className = '',
 } = Astro.props;
 
-if (tone === 'photo' && !image) {
-  throw new Error('PageHero tone="photo" needs an image.');
+if (tone === 'photo' && !image && !slides?.length) {
+  throw new Error('PageHero tone="photo" needs an image or slides.');
 }
+if (image && slides?.length) {
+  throw new Error('PageHero takes an image or slides, not both.');
+}
+const isCarousel = Boolean(slides && slides.length > 1);
 
 /* Astro will not upscale past the source, so a photograph narrower than the hero silently loses
    its larger candidates. `maxWidth` keeps every step below the source and then adds the source
@@ -52,7 +70,37 @@ const heroWidths = maxWidth
   : HERO_WIDTHS;
 ---
 
-<section class:list={['page-hero', `page-hero--${tone}`, className]}>
+<section
+  class:list={['page-hero', `page-hero--${tone}`, isCarousel && 'page-hero--carousel', className]}
+  data-carousel={isCarousel ? '' : undefined}
+  aria-roledescription={isCarousel ? 'carousel' : undefined}
+  aria-label={isCarousel ? 'Featured journeys' : undefined}
+>
+  {slides && (
+    <div class="page-hero-media">
+      {slides.map((slide, i) => (
+        <div
+          class:list={['page-hero-slide', i === 0 && 'is-active']}
+          data-slide
+          role="group"
+          aria-roledescription="slide"
+          aria-label={`${i + 1} of ${slides.length}`}
+          aria-hidden={i === 0 ? undefined : 'true'}
+        >
+          <Image
+            src={slide.src}
+            alt={slide.alt}
+            widths={heroWidths}
+            sizes="100vw"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            fetchpriority={i === 0 ? 'high' : undefined}
+            style={`object-position: ${slide.position ?? 'center'};`}
+          />
+        </div>
+      ))}
+    </div>
+  )}
+
   {image && (
     <div class="page-hero-media">
       <Image
@@ -66,10 +114,23 @@ const heroWidths = maxWidth
     </div>
   )}
 
-  <div class="page-hero-inner shell">
+  <div class="page-hero-inner shell" data-carousel-hold={isCarousel ? '' : undefined}>
     <slot name="above" />
     <h1><span class="hero-line">{lead}</span> <span class="hero-accent">{accent}</span></h1>
     {lede && <p class="page-hero-lede">{lede}</p>}
     <slot />
   </div>
+
+  {isCarousel && (
+    <>
+      <button class="carousel-icon-button page-hero-arrow page-hero-arrow--prev" type="button"
+        aria-label="Previous photograph" data-carousel-previous data-carousel-hold>
+        <svg aria-hidden="true" focusable="false"><use href="/brand-kit/assets/icons/ui-icons.svg#icon-chevron-left"></use></svg>
+      </button>
+      <button class="carousel-icon-button page-hero-arrow page-hero-arrow--next" type="button"
+        aria-label="Next photograph" data-carousel-next data-carousel-hold>
+        <svg aria-hidden="true" focusable="false"><use href="/brand-kit/assets/icons/ui-icons.svg#icon-chevron-right"></use></svg>
+      </button>
+    </>
+  )}
 </section>

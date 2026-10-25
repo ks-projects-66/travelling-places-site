@@ -1,6 +1,6 @@
 # Travelling Places brand system
 
-Version 3.0.1 is the canonical source for website and marketing production.
+Version 3.0.2 is the canonical source for website and marketing production.
 
 Travelling Places should feel established, personal, and quietly confident. Belmond is a reference for restraint, image priority, and typographic balance. Do not reproduce Belmond layouts, wording, assets, or proprietary typefaces.
 
@@ -114,11 +114,13 @@ Input text is 16px minimum. Fields are 48px high minimum. Use a single-column fo
 
 The kit component supports previous, next, pause, dots, arrow keys, and swipe when integrated with a touch handler.
 
-The website carousel advances every three seconds and carries no visible control, which was a deliberate design decision. Four mitigations stand in place of a pause button: it stops while the pointer is over it, it stops while anything inside it has keyboard focus, it does not run while the tab is hidden, and it never auto-advances under reduced motion. Arrow keys still step through slides.
+The website carousel is the home page hero: photographs cross-fade every six seconds beneath one fixed title, with previous and next buttons at the left and right edges (owner's decision, 25 October 2026). This matches the kit component's timing. The buttons are icon-only, at least 44px, keyboard operable and visibly focused. On phones they sit in the top corners, clear of the title.
 
-This leaves a known residual gap against WCAG 2.2.2, which asks for a way to pause content moving for more than five seconds. It is recorded here as an accepted risk rather than an oversight. If it becomes a problem the fix is to restore a visible control, not to lengthen the interval.
+There is no pause button. Four mitigations stand in its place: the sequence holds while the pointer is over the title block or an arrow, holds while anything inside it has keyboard focus, does not run while the tab is hidden, and never auto-advances under reduced motion, where the arrows still work. Arrow keys step through slides. Hover holds only on the title and arrows because the hero fills most of the first screen, and a whole-hero hold would stop it for most desktop visitors.
 
-Captions use white direct headings over a controlled dark gradient. Keep captions to two lines and use no eyebrow, numbering, decorative line markers, or opaque text boxes.
+The arrows give control but are not a pause, so a residual gap against WCAG 2.2.2 remains. It is recorded here as an accepted risk rather than an oversight. If it becomes a problem the fix is to add the kit's pause button, not to lengthen the interval.
+
+The hero title follows the page-hero rules. Where a carousel carries captions elsewhere, they use white direct headings over a controlled dark gradient. Keep captions to two lines and use no eyebrow, numbering, decorative line markers, or opaque text boxes.
 
 ## Imagery
 
