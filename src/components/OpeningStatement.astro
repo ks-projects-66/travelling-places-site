@@ -7,8 +7,12 @@
  *
  * One serif line leads, the rest follows in the body face. With a heading, the heading is that line.
  * Without one, the first sentence of Gina's paragraph is set as the statement and the rest runs on
- * beneath it: her words, re-set, never rewritten. Centred body text is kept to a measure where the
- * ragged left edge still reads easily (the reference sites centre at about 60 to 70 characters).
+ * beneath it: her words, re-set, never rewritten.
+ *
+ * Since 26 October 2026 the statement stays centred and the paragraphs beneath it are a centred
+ * block of left-aligned text. Six centred lines made every line start somewhere new (design review,
+ * Tailor-made finding 2). Home's introduction uses the same component, with its link in the slot,
+ * so the site's first statement is set like every other page's (home finding 2).
  */
 interface Props {
   heading?: string;
@@ -31,6 +35,9 @@ if (!heading && paragraphs.length) {
   <div class="shell opening-inner">
     {heading && <h2 id={id}>{heading}</h2>}
     {statement && <p class="opening-statement" id={id}>{statement}</p>}
-    {body.map((p) => <p class="opening-body">{p}</p>)}
+    <div class="opening-copy">
+      {body.map((p) => <p class="opening-body">{p}</p>)}
+      <slot />
+    </div>
   </div>
 </section>

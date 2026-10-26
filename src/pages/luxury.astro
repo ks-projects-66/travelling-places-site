@@ -4,17 +4,16 @@ import PageHero from '../components/PageHero.astro';
 import CardImage from '../components/CardImage.astro';
 import OpeningStatement from '../components/OpeningStatement.astro';
 import WhyBook from '../components/WhyBook.astro';
-import { Image } from 'astro:assets';
 import site from '../data/site.json';
 import copy from '../data/luxury.json';
 import virtuoso from '../data/virtuoso.json';
 
-// The island photograph opened the Virtuoso page. That page folded into this one on 25 October
-// 2026, and the ocean-dining photograph this hero used now rotates in the home hero, so the
-// island moves here and neither photograph appears twice.
-import luxuryHero from '../assets/images/hero/virtuoso-island.jpg';
-import virtuosoMark from '../assets/images/memberships/virtuoso-member-transparent.png';
+// A quiet infinity pool at dusk since 26 October 2026. The aerial reef island it replaced was
+// striking, but its texture ran straight under the title (design review, Luxury finding 8); this
+// frame keeps a plain, low-detail plane lower left, where the title sits.
+import luxuryHero from '../assets/images/hero/luxury-infinity-pool-dusk.jpg';
 import VirtuosoBenefits from '../components/VirtuosoBenefits.astro';
+import VirtuosoMark from '../components/VirtuosoMark.astro';
 ---
 
 <BaseLayout
@@ -28,8 +27,8 @@ import VirtuosoBenefits from '../components/VirtuosoBenefits.astro';
       accent={copy.heroAccent}
       lede={copy.heroLede}
       image={luxuryHero}
-      alt="An aerial view of a small green island ringed by turquoise reef"
-      position="center 42%"
+      alt="A long infinity pool on a stone terrace, level with the sea under a pastel dusk sky"
+      position="center 62%"
     />
 
     <OpeningStatement heading={copy.intro.heading} paragraphs={copy.intro.paragraphs} id="luxury-intro-heading" />
@@ -61,11 +60,11 @@ import VirtuosoBenefits from '../components/VirtuosoBenefits.astro';
     <section class="section luxury-virtuoso" id="virtuoso" aria-labelledby="virtuoso-heading">
       {/* Split since 25 October 2026 (CO11): the mark, heading and Gina's introduction on the left,
           her two benefits as the section's main content on the right, where the page was empty.
-          The mark is the transparent derivative at a size where "MEMBER" can be read; the opaque
-          file showed as a small white box on the mist. */}
+          Since 26 October 2026 the introduction is set at the lead size like the benefits, so the
+          supporting column no longer outweighs the main one, and the mark is Virtuoso's vector. */}
       <div class="shell split-section">
         <div class="split-lead">
-          <Image class="luxury-virtuoso-mark" src={virtuosoMark} alt="Virtuoso member" height={92} densities={[1, 2]} loading="lazy" />
+          <VirtuosoMark />
           <h2 id="virtuoso-heading">{virtuoso.intro.heading}</h2>
           {virtuoso.intro.paragraphs.map((p) => <p>{p}</p>)}
           <p class="luxury-virtuoso-links">

@@ -2,7 +2,9 @@
  * The home hero carousel.
  *
  * Since 25 October 2026 the photographs advance every 6 seconds beneath one fixed title, with
- * previous and next buttons at either side (docs/WORK-PLAN.md, Q1, the owner's decision). There
+ * previous and next buttons (docs/WORK-PLAN.md, Q1, the owner's decision). Since 26 October 2026
+ * the two buttons sit together in the bottom-right corner with a progress mark per photograph, on
+ * the owner's approval of the design review (home finding 1, mobile 2). There
  * is still no pause button, so these tests assert the arrows and the mitigations that stand in for
  * one, and report the residual WCAG 2.2.2 gap as an accepted risk rather than asserting a control
  * that is not meant to exist.
@@ -72,15 +74,25 @@ test.describe('hero carousel', () => {
     expect(await activeIndex(page)).toBe(2);
   });
 
-  test('the arrows are at least 44px and sit at either side', async ({ page }) => {
+  // The arrows used to sit at either edge, mid-height, and this test asserted that. The design
+  // moved them on 26 October 2026: at the edges they met the eye before the title, and below
+  // 1366px they jumped to the top corners. The test now asserts the agreed position: together,
+  // previous before next, in the right half, in the bottom quarter of the hero, level with the
+  // actions. The 44px minimum is unchanged.
+  test('the arrows are at least 44px and sit together, bottom right', async ({ page }) => {
+    const hero = await page.locator('[data-carousel]').boundingBox();
     const prev = await page.locator('[data-carousel-previous]').boundingBox();
     const next = await page.locator('[data-carousel-next]').boundingBox();
+    const actions = await page.locator('.hero-actions').boundingBox();
     for (const box of [prev, next]) {
       expect(box.width).toBeGreaterThanOrEqual(44);
       expect(box.height).toBeGreaterThanOrEqual(44);
+      expect(box.x).toBeGreaterThan(viewport.width / 2);
+      expect(box.y).toBeGreaterThan(hero.y + hero.height * 0.75);
     }
-    expect(prev.x).toBeLessThan(viewport.width / 4);
-    expect(next.x + next.width).toBeGreaterThan((viewport.width * 3) / 4);
+    expect(next.x).toBeGreaterThan(prev.x);
+    expect(next.x - (prev.x + prev.width)).toBeLessThan(160);
+    expect(Math.abs(prev.y + prev.height / 2 - (actions.y + actions.height / 2))).toBeLessThan(24);
   });
 
   test('a click on an arrow restarts the timer rather than stopping it', async ({ page }) => {

@@ -5,13 +5,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CardImage from '../components/CardImage.astro';
 import WhyBook from '../components/WhyBook.astro';
+import OpeningStatement from '../components/OpeningStatement.astro';
+import journalPage from '../data/journal-page.json';
 import site from '../data/site.json';
 import home from '../data/home.json';
 import virtuoso from '../data/virtuoso.json';
 
 import teamOffice from '../assets/images/team/team-office.jpg';
-import virtuosoMark from '../assets/images/memberships/virtuoso-member-transparent.png';
 import VirtuosoBenefits from '../components/VirtuosoBenefits.astro';
+import VirtuosoMark from '../components/VirtuosoMark.astro';
 
 import positano from '../assets/images/destinations/positano-golden-hour.jpg';
 import varenna from '../assets/images/destinations/varenna-loggia-lake-como.jpg';
@@ -20,6 +22,13 @@ import lakeComo from '../assets/images/destinations/lake-como-sunset.jpg';
 const services = await getCollection('services');
 const gina = await getEntry('team', 'gina-storey');
 const featured = (await getCollection('journal', ({ data }) => data.featured && !data.draft))[0];
+// Beside the lead story, the two newest of the rest, so the teaser shows a journal rather than one
+// entry (design review, home finding 7). All are real, attributed and already on the Journal page.
+const alsoInJournal = (await getCollection('journal', ({ data }) => !data.draft))
+  .filter((post) => post.id !== featured?.id)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 2);
+const publishedOn = (url?: string) => (url ? new URL(url).hostname.replace(/^www\./, '') : null);
 
 // The hero is a sequence of photographs under one fixed title (docs/WORK-PLAN.md, change 3).
 // Replaced 25 October 2026 (docs/CALLOUTS-2026-10-25.md, CO1): the sunset, the Spanish village and
@@ -27,14 +36,16 @@ const featured = (await getCollection('journal', ({ data }) => data.featured && 
 // and water at dusk, all warm and in natural light, each with calm ground lower left for the title.
 // None is used anywhere else on the site.
 const heroSlides = [
-  { src: positano, alt: 'Positano climbing the cliffs above a calm sea at golden hour', position: '28% 78%' },
+  { src: positano, alt: 'Positano climbing the cliffs above a calm sea at golden hour', position: '28% 78%', mobilePosition: '74% 70%' },
   { src: varenna, alt: 'Stone arches of a lakeside villa loggia framing Lake Como and the mountains', position: 'center 58%' },
   { src: lakeComo, alt: 'A villa and cypresses beside Lake Como, the still water glowing at sunset', position: '35% 50%' },
 ];
 
-// Two journeys on the home page, each with its photograph from the Tailor-made page (client brief,
-// change 4). The label and destination come from home.json; the photograph and summary come from
-// the service entry, so the two pages describe a service the same way.
+// Two journeys on the home page (client brief, change 4). The label, destination and, since 26 October
+// 2026, the photograph come from home.json: the Tailor-made photographs repeated here meant a visitor
+// who clicked "Explore cruising" landed on the picture they had just clicked, and the two did not
+// share a light (design review, home finding 3). The summary still comes from the service entry, so
+// the two pages describe a service the same way.
 const journeyCards = home.journeys.cards.map((card) => {
   const service = services.find((s) => s.id === card.service);
   if (!service) throw new Error(`home.json names a service that does not exist: ${card.service}`);
@@ -52,14 +63,11 @@ const journeyCards = home.journeys.cards.map((card) => {
       </div>
     </PageHero>
 
-    <section class="section intro">
-      <div class="shell editorial-grid">
-        <h2>{home.intro.heading}</h2>
-        <p class="intro-lead">{home.intro.lead}</p>
-        <p class="intro-detail">{home.intro.detail}</p>
-        <a class="text-link" href="/who-we-are/">{home.intro.link}</a>
-      </div>
-    </section>
+    {/* The site's thesis, set as an opening statement like every other page's (design review, home
+        finding 2). In the left column it left 520px empty beside it and stepped through three sizes. */}
+    <OpeningStatement heading={home.intro.heading} paragraphs={[home.intro.lead, home.intro.detail]} id="intro-heading">
+      <a class="text-link" href="/who-we-are/">{home.intro.link}</a>
+    </OpeningStatement>
 
     <section class="section journeys" aria-labelledby="journeys-heading">
       <div class="shell">
@@ -71,11 +79,11 @@ const journeyCards = home.journeys.cards.map((card) => {
           {journeyCards.map((card) => (
             <a class="journey-card" href={card.href}>
               <CardImage
-                image={card.service.image}
-                alt={card.service.imageAlt}
+                image={card.image ?? card.service.image}
+                alt={card.imageAlt ?? card.service.imageAlt}
                 label={`TODO: photo for ${card.label}`}
                 ratio="3/2"
-                position={card.service.imagePosition}
+                position={card.image ? 'center' : card.service.imagePosition}
                 widths={[480, 720, 1080, 1440]}
                 sizes="(min-width: 900px) 46vw, 100vw"
               />
@@ -91,20 +99,16 @@ const journeyCards = home.journeys.cards.map((card) => {
     <section class="section home-virtuoso">
       <div class="shell virtuoso-grid">
         <div class="virtuoso-copy">
+          <VirtuosoMark tone="dark" />
           <h2>{home.virtuoso.heading}</h2>
           <p>{home.virtuoso.body}</p>
           <a class="button button-white" href="/luxury/#virtuoso">{home.virtuoso.button}</a>
         </div>
         {/* Gina's two benefits, so the band says what membership does for a client rather than
-            only that it exists (docs/REFERENCES.md). The white card that held them is gone (CO4):
-            the benefits sit on the navy, and the supplied mark keeps a small white plate of its own,
-            sized to its clear space, because the artwork is not supplied for dark grounds. */}
-        <div class="virtuoso-side">
-          <span class="virtuoso-plate">
-            <Image src={virtuosoMark} alt="Virtuoso member" height={64} densities={[1, 2]} loading="lazy" />
-          </span>
-          <VirtuosoBenefits tone="dark" />
-        </div>
+            only that it exists (docs/REFERENCES.md). Since 26 October 2026 the mark is Virtuoso's own
+            colour reverse artwork above the heading, as on Luxury and About; the white plate it sat on
+            broke Virtuoso's rule against boxing the mark and was the brightest object in the band. */}
+        <VirtuosoBenefits tone="dark" />
       </div>
     </section>
 
@@ -140,18 +144,36 @@ const journeyCards = home.journeys.cards.map((card) => {
             </div>
             <a class="text-link" href="/journal/">{home.journal.allLink}</a>
           </div>
-          <article class="home-story">
-            <a class="home-story-image" href={`/journal/${featured.id}/`} tabindex="-1" aria-hidden="true">
-              <Image src={featured.data.cover} alt=""
-                widths={[480, 960, 1440]} sizes="(max-width: 900px) 92vw, 58vw" loading="lazy" />
-            </a>
-            <div class="home-story-copy">
-              <h3><a href={`/journal/${featured.id}/`}>{featured.data.title}</a></h3>
-              {/* No rubric, date or "Read the story" on the home page (CO5): a teaser sells the story,
-                  and the headline and photograph are already its link. */}
-              <p>{featured.data.standfirst}</p>
-            </div>
-          </article>
+          <div class="home-journal">
+            <article class="home-story">
+              <a class="home-story-image" href={`/journal/${featured.id}/`} tabindex="-1" aria-hidden="true">
+                <Image src={featured.data.cover} alt=""
+                  widths={[480, 960, 1440]} sizes="(max-width: 900px) 92vw, 58vw" loading="lazy" />
+              </a>
+              <div class="home-story-copy">
+                <h3><a href={`/journal/${featured.id}/`}>{featured.data.title}</a></h3>
+                {/* No rubric, date or "Read the story" on the home page (CO5): a teaser sells the story,
+                    and the headline and photograph are already its link. */}
+                <p>{featured.data.standfirst}</p>
+              </div>
+            </article>
+            {alsoInJournal.length > 0 && (
+              <ul class="home-journal-more" aria-label="More from the journal">
+                {alsoInJournal.map((post) => (
+                  <li>
+                    <a href={post.data.externalUrl ?? `/journal/${post.id}/`}
+                      {...(post.data.externalUrl ? { target: '_blank', rel: 'noreferrer' } : {})}>
+                      <span class="story-meta">{post.data.category}</span>
+                      <span class="home-journal-title">{post.data.title}</span>
+                      {publishedOn(post.data.externalUrl) && (
+                        <span class="dateline">{journalPage.externalPrefix} {publishedOn(post.data.externalUrl)}<span class="visually-hidden"> ({journalPage.externalNote})</span></span>
+                      )}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </section>
     )}

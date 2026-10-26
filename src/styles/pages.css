@@ -27,6 +27,15 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: var(--crop, center);
+}
+
+/* A phone frame is portrait, so a crop chosen for a wide screen can miss the subject entirely:
+   Positano's town sat outside the frame and the phone saw only cliff (design review, mobile 2). */
+@media (max-width: 680px) {
+  .page-hero-media img {
+    object-position: var(--crop-phone, var(--crop, center));
+  }
 }
 
 /* Text protection, not a scrim. The text sits bottom-left, so the darkening is weighted to that
@@ -129,20 +138,26 @@
   transform: scale(1);
 }
 
-/* Previous and next sit at either side, vertically centred on the photograph. White outline on a
-   light navy wash, so they hold on bright ice as well as on a dark sea. Scoped under .page-hero
-   because blocks.css loads after this file and its generic .carousel-icon-button (colour inherit,
-   no background) otherwise wins at equal specificity and the arrows render dark. */
-.page-hero .page-hero-arrow {
+/* Previous, progress and next, together in the bottom-right corner of the content column, level
+   with the actions (design review, home finding 1). White outline on a light navy wash, so they
+   hold on bright ice as well as a dark sea. Scoped under .page-hero because blocks.css loads after
+   this file and its generic .carousel-icon-button (colour inherit, no background) otherwise wins at
+   equal specificity and the arrows render dark. */
+.page-hero-controls {
   position: absolute;
-  top: 50%;
-  z-index: 2;
-  width: var(--tp-button-height);
-  height: var(--tp-button-height);
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.page-hero .page-hero-arrow {
+  width: 2.75rem;
+  height: 2.75rem;
   color: var(--white);
   border-color: color-mix(in oklch, var(--white) 72%, transparent);
   background: color-mix(in oklch, var(--blue-deep) 34%, transparent);
-  transform: translateY(-50%);
 }
 
 .page-hero .page-hero-arrow:hover {
@@ -155,21 +170,108 @@
   outline-offset: 3px;
 }
 
-.page-hero-arrow--prev {
-  left: clamp(0.75rem, 2vw, 2rem);
+.page-hero-progress {
+  display: flex;
+  gap: 0.4rem;
 }
 
-.page-hero-arrow--next {
-  right: clamp(0.75rem, 2vw, 2rem);
+.page-hero-progress > span {
+  width: 1.75rem;
+  height: 2px;
+  background: color-mix(in oklch, var(--white) 38%, transparent);
+  transition: background-color var(--tp-motion-standard) ease;
 }
 
-/* Centred arrows only clear the title where the page gutter is wider than the arrow, which is
-   from about 1366px. Below that the title's left edge sits under the left arrow (measured: 1024
-   and 1280 overlapped), so the arrows move to the top corners, still left and right. */
-@media (max-width: 1365px) {
-  .page-hero .page-hero-arrow {
-    top: 1rem;
-    transform: none;
+/* The active photograph's mark stands solid. A mark that filled over the six seconds was tried and
+   dropped the same day: the continuous animation kept the page repainting, and a countdown is more
+   urgency than this opening wants. */
+.page-hero-progress > span.is-active {
+  background: var(--white);
+}
+
+/* On a phone the actions stack down the left edge, so the controls follow them in the flow rather
+   than sharing their row. */
+@media (max-width: 680px) {
+  .page-hero-controls {
+    position: static;
+    margin-top: 2rem;
+  }
+}
+
+/* Short opening (Tailor-made): the photograph sets the scene and the page's statement follows
+   inside the first screen, instead of a second full-screen photograph after Home's. */
+.page-hero--short {
+  min-height: min(calc(60vh - var(--header-h)), 520px);
+}
+
+/* Split opening (About): the title on the page ground beside the photograph, which runs to the
+   right edge of the screen. A photograph of people loses heads and faces under a full-bleed crop
+   and a text overlay; here it is shown whole, and the title reads in navy on ground. The text
+   column keeps the shell's left edge. */
+.page-hero--split {
+  /* The text column is the shell's left margin plus half the shell, so on a wide screen it grows
+     with the shell rather than being eaten by the margin (at 2560px a 5fr column left the title
+     315px). Half, not less, so the title holds the site's two-line rule from 1024px up. */
+  --split-edge: max(var(--gutter), calc((100% - var(--shell)) / 2));
+  display: grid;
+  grid-template-columns: calc(var(--split-edge) + (100% - 2 * var(--split-edge)) * 0.5) minmax(0, 1fr);
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+}
+
+.page-hero--split .page-hero-media {
+  position: relative;
+  inset: auto;
+  z-index: 0;
+  grid-column: 2;
+  grid-row: 1;
+  min-height: clamp(26rem, 44vw, 40rem);
+}
+
+.page-hero--split .page-hero-media img {
+  position: absolute;
+  inset: 0;
+}
+
+.page-hero--split .page-hero-inner {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  width: auto;
+  margin: 0;
+  padding: clamp(3.5rem, 7vw, 6rem) clamp(2rem, 5vw, 4.5rem) clamp(3.5rem, 7vw, 6rem) var(--split-edge);
+}
+
+.page-hero--split h1 {
+  color: var(--blue-deep);
+}
+
+/* In a half-width column the overlay heroes' forced line break ("People who know travel," then
+   "and you.") needs three lines; balanced wrapping makes two even ones. */
+.page-hero--split .hero-line {
+  display: inline;
+}
+
+.page-hero--split .page-hero-lede {
+  color: var(--ink);
+}
+
+@media (max-width: 940px) {
+  .page-hero--split {
+    grid-template-columns: 1fr;
+  }
+
+  .page-hero--split .page-hero-media {
+    grid-column: 1;
+    grid-row: 1;
+    min-height: 0;
+    aspect-ratio: 3 / 2;
+  }
+
+  .page-hero--split .page-hero-inner {
+    grid-row: 2;
+    padding: clamp(2.5rem, 7vw, 3.5rem) var(--gutter) 0;
   }
 }
 
@@ -266,7 +368,9 @@
 }
 
 .why-book-reasons .inclusions {
+  gap: 0.85rem;
   margin-top: 1.5rem;
+  font-size: var(--tp-type-lead);
 }
 
 .why-book-reasons .why-book-proof {
@@ -283,24 +387,49 @@
   }
 }
 
-/* The short close on every page but home: Gina's contact line and the one action, on one row. */
+/* The close on every page but home. Gina's contact line is the invitation, set in the display face
+   and centred, with the one action beneath it. On one row, with the button 600px from the sentence,
+   it read as small print rather than a close (design review, Luxury finding 10). Her words are
+   unchanged; only the setting is new. */
 .closing-cta.why-book--short {
-  padding-block: clamp(3.5rem, 7vw, 5.5rem);
+  padding-block: clamp(4.5rem, 9vw, 7rem);
 }
 
 .why-book-short {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem 3rem;
+  display: grid;
+  justify-items: center;
+  gap: clamp(1.75rem, 3vw, 2.25rem);
+  text-align: center;
 }
 
 .why-book-short .why-book-contact {
-  max-width: 40rem;
+  max-width: 30ch;
   margin: 0;
-  color: var(--ink);
-  font-size: var(--tp-type-lead);
+  color: var(--blue-deep);
+  font-family: var(--display);
+  font-size: var(--tp-type-subsection-title);
+  line-height: 1.5;
+  text-wrap: balance;
+}
+
+.why-book-short .why-book-contact a {
+  font-weight: 400;
+  text-decoration-color: color-mix(in oklch, var(--blue-deep) 35%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.25em;
+}
+
+/* The number never breaks; the address may, or at 22px on a phone it runs past a 350px column. */
+.why-book-short .why-book-contact a[href^="tel:"] {
+  white-space: nowrap;
+}
+
+.why-book-short .why-book-contact a[href^="mailto:"] {
+  overflow-wrap: anywhere;
+}
+
+.why-book-short .why-book-contact a:hover {
+  text-decoration-color: currentColor;
 }
 
 /* --- Home: section openings, journeys, journal --- */
@@ -443,9 +572,72 @@
   color: var(--ink-muted);
 }
 
+/* With two more stories beside it, the lead story stacks: photograph, then headline and
+   standfirst. The two run as hairline rows in the narrower column, the Journal page's own pattern,
+   so the teaser previews the journal's shape rather than a single entry (design review, home 7). */
+.home-journal {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  align-items: start;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.home-journal .home-story {
+  display: block;
+}
+
+.home-journal .home-story-copy h3 {
+  margin-top: 1.5rem;
+}
+
+.home-journal .home-story-copy > p {
+  max-width: 40rem;
+  margin-bottom: 0;
+}
+
+.home-journal-more {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.home-journal-more li {
+  border-bottom: 1px solid var(--line);
+}
+
+.home-journal-more a {
+  display: grid;
+  gap: 0.45rem;
+  padding-block: 1.6rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.home-journal-more .story-meta,
+.home-journal-more .dateline {
+  display: block;
+}
+
+.home-journal-title {
+  color: var(--blue-deep);
+  font-family: var(--display);
+  font-size: clamp(1.25rem, 1.7vw, 1.5rem);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+.home-journal-more a:hover .home-journal-title {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
 @media (max-width: 900px) {
   .journey-cards,
-  .home-story {
+  .home-story,
+  .home-journal {
     grid-template-columns: 1fr;
   }
 }
@@ -499,8 +691,12 @@
   line-height: 1.35;
 }
 
+.opening-copy {
+  width: min(100%, 38rem);
+  text-align: left;
+}
+
 .opening-body {
-  max-width: 40rem;
   margin: 0;
   color: var(--ink);
   font-size: var(--tp-type-lead);
@@ -512,12 +708,8 @@
   margin-top: 1.1rem;
 }
 
-/* A centred paragraph of eight lines is hard to read on a phone, where every line is short. The
-   statement stays centred; the body aligns left beneath it. */
-@media (max-width: 600px) {
-  .opening-body {
-    text-align: left;
-  }
+.opening-copy .text-link {
+  margin-top: 1.75rem;
 }
 
 @media (max-width: 680px) {
@@ -549,7 +741,7 @@
 /* The card's one-line promise reads as the first line of its text, at the lead size in ink. Bold
    muted grey made it a stray third heading between the title and the copy (CO9). */
 .service-tagline {
-  margin: 0.6rem 0 0;
+  margin: 0.6rem 0 0.5rem;
   color: var(--ink);
   font-size: var(--tp-type-lead);
   line-height: 1.5;
@@ -568,31 +760,43 @@
   font-size: var(--tp-type-body);
 }
 
-/* What a service includes: a two-column set of short phrases in navy, with no rules and no
-   markers. Replaced the hairline rows on 25 October 2026: sixteen full-width rules across the
-   service cards read like a form against the photographs (CO9). Space separates the set from the
-   text above it; the colour, not a line, says it is a list. */
+/* What a service includes, and Gina's reasons to book: one benefits list everywhere. Each phrase is
+   regular-weight ink after a small tick in the brand blue. History: hairline rows read as a form
+   (CO9); navy phrases at weight 500 then read as links, the same colour and weight as every link
+   on the site, and on a phone, with no hover to test, people tapped them (design review, home 5,
+   Tailor-made 3, mobile 3). A tick says "included" and nothing else. One column, so a phrase
+   never breaks mid-way. */
 .inclusions {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem clamp(1.25rem, 3vw, 2.25rem);
+  gap: 0.7rem;
   margin: 1.75rem 0 0;
   padding: 0;
   list-style: none;
 }
 
 .inclusions li {
-  color: var(--blue-deep);
-  font-weight: 500;
-  line-height: 1.45;
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.5;
   text-wrap: pretty;
 }
 
-@media (max-width: 520px) {
-  .inclusions {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-  }
+.inclusions li::before {
+  position: absolute;
+  top: 0.32em;
+  left: 0;
+  width: 1rem;
+  height: 1rem;
+  background: var(--blue);
+  content: "";
+  -webkit-mask: var(--tick) center / contain no-repeat;
+  mask: var(--tick) center / contain no-repeat;
+}
+
+:root {
+  --tick: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3 8.5l3.2 3.2L13 4.8' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 /* One text column per section, heading above body, at the reading width, so every paragraph on a
@@ -646,29 +850,47 @@
   background: var(--white);
 }
 
-.promise-card h3,
-.proof-band h3 {
+.promise-card h3 {
   margin: 0 0 1rem;
   color: var(--blue-deep);
   font-size: var(--tp-type-subsection-title);
 }
 
-.promise-card p {
+.promise-card p:not(.placeholder-note) {
   margin: 0;
   color: var(--ink);
 }
 
-/* Proof, set apart from the promises: Gina's four statements as short serif lines beside the
-   heading, two by two (CO13). The same treatment as the credentials under Why book (CO6). */
-.proof-band {
+/* Financial security: the fourth card of the set, across the full width, its heading in the
+   lead column and Gina's four statements as body text, two by two. */
+.promise-card--wide {
   display: grid;
+  grid-column: 1 / -1;
   grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  gap: 1.5rem clamp(2rem, 6vw, 6rem);
-  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+  gap: 1.25rem clamp(2rem, 5vw, 5rem);
+  scroll-margin-top: calc(var(--header-h) + 2rem);
 }
 
-.proof-band .placeholder-note,
-.proof-band .proof-note {
+.promise-card--wide h3 {
+  margin: 0;
+}
+
+.security-facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem clamp(1.5rem, 3vw, 2.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.security-facts li {
+  color: var(--ink);
+  line-height: 1.6;
+}
+
+.promise-card--wide .placeholder-note,
+.promise-card--wide .security-note {
   grid-column: 2;
   justify-self: start;
   margin: 0;
@@ -696,18 +918,19 @@
     grid-template-columns: 1fr;
   }
 
-  .proof-band {
+  .promise-card--wide {
     grid-template-columns: 1fr;
   }
 
-  .proof-band .placeholder-note,
-  .proof-band .proof-note {
+  .promise-card--wide .placeholder-note,
+  .promise-card--wide .security-note {
     grid-column: 1;
   }
 }
 
 @media (max-width: 600px) {
-  .proof-list {
+  .proof-list,
+  .security-facts {
     grid-template-columns: 1fr;
   }
 }
@@ -858,6 +1081,26 @@
   background: var(--mist);
 }
 
+/* The page's title, above the form and the details. Display size, left on the shell like the
+   Journal's header, so the page still opens with a statement before it asks for anything. */
+.contact-header {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.contact-header h1 {
+  max-width: 20ch;
+  margin-bottom: 1.25rem;
+  color: var(--blue-deep);
+  font-size: var(--tp-type-display);
+}
+
+.contact-lede {
+  max-width: 38rem;
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--tp-type-lead);
+}
+
 .contact-page-grid {
   display: grid;
   grid-template-columns: minmax(270px, 0.55fr) minmax(0, 1fr);
@@ -918,26 +1161,6 @@
   background: var(--white);
 }
 
-/* On white, like the form beside it: two of the supplied files carry their own white ground,
-   which showed as boxes on the sand page colour. */
-.contact-marks {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem 1.75rem;
-  margin: 2rem 0 0;
-  padding: 1.25rem 1.5rem;
-  list-style: none;
-  background: var(--white);
-}
-
-.contact-marks img {
-  display: block;
-  width: auto;
-  height: var(--mark-h, 40px);
-  object-fit: contain;
-}
-
 .contact-visit {
   max-width: 34ch;
   margin-top: 1.5rem;
@@ -966,6 +1189,14 @@
 
 .enquiry-form label {
   align-content: start;
+}
+
+/* Every field keeps the error line's height, required or not, so the form has one vertical beat.
+   Only required fields carry the message element, which left 56px after Name and Email and 30px
+   after the rest (design review, Contact finding 8). */
+.enquiry-form label:not(:has(.field-error))::after {
+  min-height: 1.15rem;
+  content: "";
 }
 
 .field-error {
@@ -1037,9 +1268,13 @@
 }
 
 @media (max-width: 680px) {
-  .page-hero:not(.page-hero--plain) {
+  .page-hero:not(.page-hero--plain, .page-hero--split) {
     min-height: 520px;
     padding-top: 4rem;
+  }
+
+  .page-hero--short:not(.page-hero--plain) {
+    min-height: 420px;
   }
 
   .page-hero--plain {
@@ -1108,9 +1343,10 @@
 }
 
 /* Contact ran three consecutive mist sections at one value and read as a single slab; the
-   enquiry block is the page's purpose, so it takes the open band and the two below it tighten. */
+   enquiry block is the page's purpose, so it takes the open band and the two below it tighten.
+   It opens the page now, so the top is the page's opening rather than a gap under a hero. */
 .contact-page {
-  padding-block: clamp(6rem, 12vw, 10rem);
+  padding-block: clamp(3.5rem, 6vw, 5rem) clamp(6rem, 12vw, 10rem);
 }
 
 .contact-calendly {
@@ -1203,6 +1439,44 @@
   object-fit: cover;
 }
 
+/* On a phone each advisor is a row: the portrait small on the left, name, title and bio beside it.
+   Stacked at full width, every portrait (or its marked placeholder) was a 440px block, four in a
+   row down the page (design review, mobile 5). The row also suits real portraits better than a
+   phone-width face. */
+@media (max-width: 560px) {
+  .card-grid--four {
+    gap: 2.25rem;
+  }
+
+  .team-card {
+    display: grid;
+    grid-template-columns: 6.5rem minmax(0, 1fr);
+    column-gap: 1.25rem;
+    align-items: start;
+  }
+
+  .team-card > :first-child {
+    grid-row: 1 / span 12;
+  }
+
+  .team-card > :not(:first-child) {
+    grid-column: 2;
+  }
+
+  .team-card h3 {
+    margin-top: 0;
+  }
+
+  .team-card > .placeholder-note {
+    justify-self: start;
+  }
+
+  .team-card .placeholder-image span {
+    padding: 0.5rem;
+    font-size: 0.75rem;
+  }
+}
+
 /* Card photographs on Luxury, Tailor-made and About. The ratio and crop position are set inline
    by CardImage, so the photograph holds the same shape as the placeholder it replaces. */
 .card-image {
@@ -1224,15 +1498,13 @@
   background: var(--mist);
 }
 
-.luxury-virtuoso-mark {
-  width: auto;
-  height: 92px;
-  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
-}
-
+/* Gina's introduction at the lead size, the same as the benefits beside it. At body size under a
+   40px heading it was outweighed by its own supporting column (design review, Luxury finding 9). */
 .luxury-virtuoso .split-lead > p:not(.luxury-virtuoso-links) {
-  max-width: 30rem;
+  max-width: 33rem;
   color: var(--ink);
+  font-size: var(--tp-type-lead);
+  line-height: 1.65;
 }
 
 .luxury-virtuoso-links {
@@ -1245,7 +1517,7 @@
 
 /* The benefits start level with the heading, not the mark above it. */
 .luxury-virtuoso .virtuoso-benefits {
-  padding-top: calc(92px + clamp(1.75rem, 3vw, 2.5rem));
+  padding-top: var(--virtuoso-mark-block);
 }
 
 @media (max-width: 940px) {
@@ -1270,9 +1542,47 @@
   color: var(--blue-deep);
 }
 
+/* Mirrored: the lead column on the right, for the second of two text sections in a row. */
+.split-section--reverse {
+  grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+}
+
+.split-section--reverse > .split-lead {
+  order: 2;
+}
+
+/* The heading and its pull line hold beside a long column of text as it scrolls. */
+.split-lead--sticky {
+  position: sticky;
+  top: calc(var(--header-h) + 2.5rem);
+}
+
+/* A line from the section's own text, set as a pull quote: the same red hairline and serif as the
+   founder quote, so it reads as the site's one quotation style. */
+.split-pull {
+  max-width: 22ch;
+  margin: clamp(2rem, 4vw, 3rem) 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--red);
+  color: var(--blue-deep);
+  font-family: var(--display);
+  font-size: var(--tp-type-subsection-title);
+  line-height: 1.4;
+  text-wrap: balance;
+}
+
 @media (max-width: 940px) {
-  .split-section {
+  .split-section,
+  .split-section--reverse {
     grid-template-columns: 1fr;
+  }
+
+  .split-section--reverse > .split-lead {
+    order: 0;
+  }
+
+  .split-lead--sticky {
+    position: static;
   }
 }
 
@@ -1282,13 +1592,6 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
-}
-
-/* A portrait photograph in an alternating row: narrower than its column so the row is not twice
-   the height of its neighbours. */
-.image-row--portrait .card-image {
-  width: min(100%, 420px);
-  justify-self: center;
 }
 
 .image-row + .image-row {
@@ -1303,12 +1606,6 @@
   color: var(--blue-deep);
 }
 
-.row-mark {
-  display: block;
-  width: auto;
-  height: 64px;
-  margin-bottom: 1.5rem;
-}
 
 
 

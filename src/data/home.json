@@ -1,5 +1,5 @@
 {
-  "source": "Home page copy. Written for the site during the design build, not Gina's words, unless a field says otherwise; the founder lines restate her About copy (rewritten 25 October 2026 around the team photograph, from facts in about.json only: docs/CALLOUTS-2026-10-25.md, CO2). The founder quote dates from the first draft and its source is not recorded, so it stands as a company line, not attributed to Gina. Moved out of index.astro on 25 October 2026 so it can be edited in the CMS (docs/POLISH-PLAN.md, B15). The journeys cards and the journal introduction follow the client's brief of 25 October 2026 (docs/WORK-PLAN.md, changes 4 and 5); the journal introduction makes no promise about how often it is updated (Q7).",
+  "source": "Home page copy. Written for the site during the design build, not Gina's words, unless a field says otherwise; the founder lines restate her About copy (rewritten 25 October 2026 around the team photograph, from facts in about.json only: docs/CALLOUTS-2026-10-25.md, CO2). The founder quote dates from the first draft and its source is not recorded, so it stands as a company line, not attributed to Gina. Moved out of index.astro on 25 October 2026 so it can be edited in the CMS (docs/POLISH-PLAN.md, B15). The journeys cards and the journal introduction follow the client's brief of 25 October 2026 (docs/WORK-PLAN.md, changes 4 and 5); the journal introduction makes no promise about how often it is updated (Q7). Since 26 October 2026 the two journey cards carry their own photographs, a pair shot in the same low golden light, so the home page previews something the Tailor-made page does not repeat (design review, home finding 3).",
   "hero": {
     "lead": "Your world,",
     "accent": "beautifully planned.",
@@ -23,14 +23,18 @@
         "link": "Explore cruising",
         "href": "/expertise/#cruising",
         "hrefStatus": "placeholder",
-        "hrefNote": "Interim link to the cruising section of Tailor-made. The owner is supplying the destination (register C23)."
+        "hrefNote": "Interim link to the cruising section of Tailor-made. The owner is supplying the destination (register C23).",
+        "image": "features/cruise-santorini-caldera-golden.jpg",
+        "imageAlt": "A small cruise ship crossing the Santorini caldera beneath a golden evening sky"
       },
       {
         "service": "luxury",
         "label": "Luxury travel",
         "link": "Explore luxury travel",
         "href": "/luxury/",
-        "hrefStatus": "confirmed"
+        "hrefStatus": "confirmed",
+        "image": "features/luxury-infinity-edge-golden.jpg",
+        "imageAlt": "The curved edge of an infinity pool above a still fjord in low golden sun"
       }
     ]
   },

@@ -1,19 +1,18 @@
 ---
+/**
+ * Contact opens on the enquiry, not a photograph. Someone who presses "Start planning" has already
+ * decided; a 700px photograph of sky put the first field about 1,000px down on desktop and two
+ * screens down a phone (design review, Contact finding 7). The title and its line now head the
+ * page, and the form begins in the first screen at every width.
+ *
+ * The membership marks beside the form went the same day (finding 9, owner's instruction): the
+ * footer row carries them on every page, so here they were the same four logos twice.
+ */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHero from '../components/PageHero.astro';
-
-import contactHero from '../assets/images/hero/contact-lookout.jpg';
 import EnquiryForm from '../components/EnquiryForm.astro';
 import CalendlyEmbed from '../components/CalendlyEmbed.astro';
 import site from '../data/site.json';
 import copy from '../data/contact.json';
-import memberships from '../data/memberships.json';
-import { Image } from 'astro:assets';
-
-const marks = import.meta.glob<{ default: ImageMetadata }>(
-  '../assets/images/memberships/*.{jpg,png,webp,svg}',
-  { eager: true },
-);
 
 const { street, locality, region, postcode, mapUrl } = site.address;
 ---
@@ -24,16 +23,11 @@ const { street, locality, region, postcode, mapUrl } = site.address;
   page="contact"
 >
   <main id="main">
-    <PageHero
-      lead={copy.hero.lead}
-      accent={copy.hero.accent}
-      lede={copy.hero.lede}
-      image={contactHero}
-      alt="A wide view over forested hills and farmland to distant peaks"
-      position="center 55%"
-    />
-
     <section class="section contact-page" id="enquiry">
+      <header class="shell contact-header">
+        <h1><span class="hero-line">{copy.hero.lead}</span> <span class="hero-accent">{copy.hero.accent}</span></h1>
+        <p class="contact-lede">{copy.hero.lede}</p>
+      </header>
       <div class="shell contact-page-grid">
         <div class="contact-sidebar">
           <h2>{copy.details.heading}</h2>
@@ -50,16 +44,6 @@ const { street, locality, region, postcode, mapUrl } = site.address;
             <p>{site.openingHours.value}</p>
           )}
           <p class="contact-visit">{copy.details.visit}</p>
-          {/* The marks beside the form, where the decision is made (docs/REFERENCES.md, trust
-              principle 7). The same artwork as the footer row, smaller. */}
-          <ul class="contact-marks" aria-label="Accreditation and memberships">
-            {memberships.map((m) => (
-              <li style={`--mark-h: ${Math.round((m.stripHeight ?? 56) * 0.7)}px`}>
-                <Image src={marks[`../assets/images/memberships/${m.image}`].default} alt={m.alt}
-                  height={Math.round((m.stripHeight ?? 56) * 0.7)} densities={[1, 2]} loading="lazy" />
-              </li>
-            ))}
-          </ul>
           <div class="contact-social">
             <p>{copy.details.follow}</p>
             <a href={site.socials.instagram.url} target="_blank" rel="noreferrer">Instagram</a>

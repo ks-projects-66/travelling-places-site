@@ -1,5 +1,5 @@
 {
-  "source": "Title, hero lines and intro: Gina Storey, supplied 25 September 2026 (website.zip), her words with only typos and long dashes corrected. The three theme blurbs are Claude Design draft copy (design handoff of 27 September 2026, change 1), adopted by Karim on 28 September 2026 in place of her seven sections. They need Gina's sign-off (register C21).",
+  "source": "Title, hero lines and intro: Gina Storey, supplied 25 September 2026 (website.zip), her words with only typos and long dashes corrected. The three theme blurbs are Claude Design draft copy (design handoff of 27 September 2026, change 1), adopted by Karim on 28 September 2026 in place of her seven sections. They need Gina's sign-off (register C21). 26 October 2026 (design review, Luxury findings 2 and 7): the intro's closing colon became a full stop, since on screen it pointed at nothing; and every theme now links, so the row ends evenly. The two new link labels are Gina's own headings, \"Virtuoso membership\" and \"Financial security\".",
   "title": "Luxury Travel with Travelling Places",
   "heroLead": "Luxury travel with",
   "heroAccent": "Travelling Places.",
@@ -7,7 +7,7 @@
   "intro": {
     "heading": "More than just a holiday",
     "paragraphs": [
-      "Travelling Places offers extraordinary tailor-made journeys to the world's finest destinations. But real luxury travel is about far more than just five-star hotels; here are some of the ways that we provide a truly luxurious experience on every step of your journey:"
+      "Travelling Places offers extraordinary tailor-made journeys to the world's finest destinations. But real luxury travel is about far more than just five-star hotels; here are some of the ways that we provide a truly luxurious experience on every step of your journey."
     ]
   },
   "themes": [
@@ -27,14 +27,23 @@
       "photo": "TODO: photo for Privileged access",
       "body": "Virtuoso benefits at hotels and on cruises, plus in-house events and invitations for our clients.",
       "image": "features/luxury-terrace-camogli.jpg",
-      "imageAlt": "A shaded terrace table above a calm blue sea at Camogli, on the Italian Riviera"
+      "imageAlt": "A shaded terrace table above a calm blue sea at Camogli, on the Italian Riviera",
+      "link": {
+        "label": "Virtuoso membership",
+        "href": "#virtuoso"
+      }
     },
     {
       "title": "Peace of mind",
       "photo": "TODO: photo for Peace of mind",
       "body": "An independent, ATIA-accredited company with long-standing partners, and comprehensive travel insurance on offer.",
-      "image": "features/luxury-stone-portico-sea.jpg",
-      "imageAlt": "A pale stone table beneath an open portico, looking out to a calm sea"
+      "image": "features/luxury-traveller-balcony-santorini.jpg",
+      "imageAlt": "A traveller in white linen resting on a terrace wall above the Santorini caldera, seen from behind",
+      "link": {
+        "label": "Financial security",
+        "href": "/who-we-are/#financial-security"
+      },
+      "imagePosition": "44% center"
     }
   ]
 }

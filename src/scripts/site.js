@@ -247,8 +247,9 @@ document.querySelectorAll('[data-enquiry-form], [data-newsletter-form]').forEach
 
 /**
  * The home hero's photographs advance every 6 seconds beneath a fixed title, with previous and
- * next buttons at either side (owner's decision, 25 October 2026: docs/WORK-PLAN.md, Q1). This
- * matches the brand kit's own carousel timing.
+ * next buttons (owner's decision, 25 October 2026: docs/WORK-PLAN.md, Q1). This matches the brand
+ * kit's own carousel timing. Since 26 October 2026 the buttons sit together bottom right with a mark
+ * per photograph; the active one stands solid, so the visitor can see where they are in the sequence.
  *
  * WCAG 2.2.2 asks for a way to pause content that moves for more than five seconds. The arrows
  * give control but are not a pause, so the mitigations stand alongside them: it holds while the
@@ -269,6 +270,7 @@ const SLIDE_MS = 6000;
 const carousel = document.querySelector('[data-carousel]');
 if (carousel) {
   const slides = [...carousel.querySelectorAll('[data-slide]')];
+  const marks = [...carousel.querySelectorAll('[data-progress]')];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let index = 0;
   let timer;
@@ -281,6 +283,7 @@ if (carousel) {
       slide.classList.toggle('is-active', active);
       slide.setAttribute('aria-hidden', String(!active));
     });
+    marks.forEach((mark, i) => mark.classList.toggle('is-active', i === index));
   };
 
   const stop = () => window.clearInterval(timer);

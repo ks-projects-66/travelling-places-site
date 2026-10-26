@@ -1,0 +1,24 @@
+---
+/**
+ * The Virtuoso member mark, one treatment everywhere it appears in a page's content: above the
+ * section heading, left-aligned, at one width. Until 26 October 2026 there were three (on a white
+ * plate on Home, stacked at 92px on Luxury, inline at 64px on About), and the plate broke Virtuoso's
+ * own rule against putting a box around the mark.
+ *
+ * The artwork is the official vector from Virtuoso's member logo guidelines (June 2021), supplied
+ * by the owner: the full-colour version on light grounds and the colour reverse on navy, as the
+ * guidelines prescribe. Never recolour or box it. 150px clears the 126px digital minimum; the
+ * space below it is at least the height of the V, the guidelines' clear space.
+ */
+import { Image } from 'astro:assets';
+import colour from '../assets/images/memberships/virtuoso-member-colour.svg';
+import reverse from '../assets/images/memberships/virtuoso-member-reverse.svg';
+
+interface Props {
+  /** `dark` on navy, `light` on ground, mist or white. */
+  tone?: 'light' | 'dark';
+}
+const { tone = 'light' } = Astro.props;
+---
+
+<Image class="virtuoso-mark" src={tone === 'dark' ? reverse : colour} alt="Virtuoso member" width={150} loading="lazy" />

@@ -320,33 +320,6 @@ p {
   margin-top: 2.25rem;
 }
 
-.intro {
-  padding-top: clamp(4rem, 7vw, 7rem);
-}
-
-/* Home introduction: one column at the reading width (DESIGN.md: body and intro text in one
-   left-aligned column). Gina's line is the heading; the statement under it is a lead, and the
-   detail is body copy. It replaced a three-column arrangement (mark, kicker and heading, detail)
-   whose parts shared no edge, and a 13px kicker that set her best line as fine print. */
-.intro h2 {
-  max-width: 22ch;
-  margin-bottom: 1.25rem;
-  color: var(--blue-deep);
-}
-
-.intro-lead {
-  margin: 0;
-  color: var(--ink);
-  font-size: var(--tp-type-lead);
-  line-height: 1.55;
-}
-
-.intro .intro-detail {
-  max-width: 30rem;
-  margin: 1rem 0 1.75rem;
-  color: var(--ink-muted);
-}
-
 .virtuoso-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
@@ -354,8 +327,10 @@ p {
   gap: clamp(3rem, 8vw, 8rem);
 }
 
+/* Two lines, not three: at 12ch the heading broke into a 340px column with the left side ending
+   well above the benefits (design review, 26 October 2026, home finding 4). */
 .virtuoso-copy h2 {
-  max-width: 12ch;
+  max-width: 17ch;
 }
 
 .virtuoso-copy > p {
@@ -387,22 +362,24 @@ p {
   content: "";
 }
 
-/* The supplied Virtuoso mark is artwork for light grounds. On navy it sits on a plate sized to its
-   own clear space, never inside a large panel (CO4, CO11). */
-.virtuoso-plate {
-  display: inline-block;
-  padding: 0.9rem 1.1rem;
-  background: var(--white);
-  line-height: 0;
+/* The Virtuoso mark (VirtuosoMark.astro): one width and one place, above the section heading.
+   150px clears Virtuoso's 126px digital minimum, and 2rem below it exceeds the clear space the
+   guidelines set (the height of the V, about 12px here). --virtuoso-mark-block is the height the
+   mark and its margin take, so a column beside it can start level with the heading. The ratio is
+   the artwork's own, 79.42 by 175.89. */
+:root {
+  --virtuoso-mark-block: calc(150px * 79.42 / 175.89 + 2rem);
 }
 
-.virtuoso-plate img {
-  width: auto;
-  height: 64px;
+.virtuoso-mark {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin-bottom: 2rem;
 }
 
-.virtuoso-side .virtuoso-plate {
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+.home-virtuoso .virtuoso-benefits {
+  padding-top: var(--virtuoso-mark-block);
 }
 
 .virtuoso-benefits {
@@ -815,6 +792,10 @@ blockquote {
     grid-template-columns: 1fr;
   }
 
+  .home-virtuoso .virtuoso-benefits {
+    padding-top: 0;
+  }
+
   .virtuoso-copy h2,
   .about-copy h2 {
     max-width: 15ch;
@@ -836,8 +817,10 @@ blockquote {
     --section: 4rem;
   }
 
+  /* The kit's minimum for the lockup is 172px (BRAND.md). 137px put the wordmark at about 11px on
+     a phone (design review, mobile 1). 172px still leaves the menu control clear at 320px. */
   .brand {
-    width: 137px;
+    width: 172px;
   }
 
   .hero-actions {

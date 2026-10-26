@@ -29,8 +29,8 @@ Logos live in `public/images/brand/`, not here, because SVGs need no processing.
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
 | `team/gina-storey.jpg` | Gina Storey portrait | `FW_ Logos/Gina Headshot 2025.jpg` | owned | Gina Storey | Not currently referenced |
-| `team/gina-storey.webp` | Gina Storey portrait, web derivative | Same original | owned | Gina Storey | Who we are, story row (the home founder section until 25 October 2026) |
-| `team/team-office.jpg` | Team inside the Main Street office | `FW_ Logos/Edited Inside Staff Photo Office 2025 [4}.jpg` | owned | Gina Storey | Home, founder section (Who we are story row until 25 October 2026) |
+| `team/gina-storey.webp` | Gina Storey portrait, web derivative | Same original | owned | Gina Storey | Who we are, advisor grid (once per page since 26 October 2026; the story row and the home founder section used it before) |
+| `team/team-office.jpg` | Team inside the Main Street office | `FW_ Logos/Edited Inside Staff Photo Office 2025 [4}.jpg` | owned | Gina Storey | Home, founder section; Who we are, story row (again since 26 October 2026, replacing Gina's headshot there) |
 | `team/team-outside.jpg` | Team outdoors on Tamborine Mountain | `FW_ Logos/Edited Staff Photo Outside 2025 [4].jpg` | owned | Gina Storey | Who we are hero, Contact (the home hero until 25 October 2026) |
 | `public/og-default.jpg` | Team outdoors, cropped to 1200x630 for social sharing | Derived from `team/team-outside.jpg` | owned | Gina Storey | Every page, `og:image` |
 
@@ -42,7 +42,9 @@ particular need checking before launch.
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
 | `memberships/virtuoso-member.png` | Virtuoso member mark, as supplied (opaque white ground) | Virtuoso | supplied | Virtuoso member terms | Not currently referenced; the master for the derivative below |
-| `memberships/virtuoso-member-transparent.png` | Virtuoso member mark, trimmed to the artwork with the white ground made transparent. Colours and proportions unchanged | Derived from `virtuoso-member.png`, 25 October 2026 | supplied | Virtuoso member terms. TODO: confirm with Virtuoso's member logo rules, or replace with the official vector from `FW_ Logos` | Footer trust row, Home (on a white plate), Luxury, Who we are |
+| `memberships/virtuoso-member-colour.svg` | Virtuoso member mark, full-colour version, vector | Extracted unaltered from Virtuoso's *Member Logo Usage Guidelines* (June 2021, page 2, "Color"), supplied by the owner on 26 October 2026. Paths and colours exactly as in the PDF; cropped to the artwork only | supplied | Virtuoso member terms: the guidelines permit use by member agencies and prefer the full-colour version. Minimum digital width 126px; clear space the height of the V; no box, outline, recolour or alteration | Footer trust row, Luxury, Who we are |
+| `memberships/virtuoso-member-reverse.svg` | Virtuoso member mark, colour reverse version for dark grounds, vector | Same source, page 2, "Reverse, Color" | supplied | As above | Home (navy Virtuoso band) |
+| `memberships/virtuoso-member-transparent.png` | Virtuoso member mark, trimmed to the artwork with the white ground made transparent. Colours and proportions unchanged | Derived from `virtuoso-member.png`, 25 October 2026 | supplied | Virtuoso member terms. TODO: confirm with Virtuoso's member logo rules, or replace with the official vector from `FW_ Logos` | Not referenced since 26 October 2026: replaced by the official vectors above |
 | `memberships/atia.jpg` | ATIA accredited mark | ATIA | supplied | TODO: confirm ATIA logo usage rules | Footer |
 | `memberships/clia.png` | CLIA member mark | CLIA | supplied | TODO: confirm CLIA logo usage rules | Footer |
 | `memberships/alatus.jpg` | Alatus mark | Alatus | supplied | TODO: confirm | Footer |
@@ -73,8 +75,9 @@ licence at all.
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
 | `hero/expertise-mountain-lake.jpg` | Mountains reflected in a still lake at golden hour | Unsplash, Oskar Kadaksoo | owned | Unsplash License | Expertise hero |
-| `hero/virtuoso-island.jpg` | Aerial view of a small island ringed by reef | Unsplash, Nathan Feyssat | owned | Unsplash License | Luxury hero (Virtuoso hero until 25 October 2026) |
-| `hero/contact-lookout.jpg` | Wide view over forested hills and farmland to distant peaks | Unsplash, Hayden | owned | Unsplash License | Contact hero |
+| `hero/virtuoso-island.jpg` | Aerial view of a small island ringed by reef | Unsplash, Nathan Feyssat | owned | Unsplash License | Not currently referenced (Luxury hero until 26 October 2026) |
+| `hero/luxury-infinity-pool-dusk.jpg` | Long infinity pool on a stone terrace, level with the sea at dusk (Psari Forada, Greece) | Unsplash, DD GR, "Infinity pool meets ocean under a colorful sunset sky" (verified 26 October 2026) | owned | Unsplash License | Luxury hero |
+| `hero/contact-lookout.jpg` | Wide view over forested hills and farmland to distant peaks | Unsplash, Hayden | owned | Unsplash License | Not currently referenced (Contact hero until 26 October 2026, when Contact dropped its photograph hero) |
 
 **Location claim not verified.** `hero/contact-lookout.jpg` was delivered named for Tamborine
 Mountain, but its Unsplash title is generic ("a view of a valley and mountains from the top of a
@@ -101,7 +104,10 @@ page shows a marked placeholder naming the missing file.
 |---|---|---|---|---|---|
 | `features/luxury-ravello-garden-arch.jpg` | Stone archway onto a garden with a glimpse of sea, Ravello | Unsplash, Lo Sarno | owned | Unsplash License | Luxury, Your specialist |
 | `features/luxury-terrace-camogli.jpg` | Shaded terrace table above the sea at Camogli | Unsplash, Ekaterina Bogdan | owned | Unsplash License | Luxury, Privileged access |
-| `features/luxury-stone-portico-sea.jpg` | Stone table under a portico with a sea view | Unsplash, Paréj Richárd | owned | Unsplash License | Luxury, Peace of mind |
+| `features/cruise-santorini-caldera-golden.jpg` | Small cruise ship crossing the Santorini caldera at golden hour; no line name legible at display size | Unsplash, Felix Bacher, "A cruise ship in the ocean at sunset" (verified 26 October 2026) | owned | Unsplash License | Home, Cruising card |
+| `features/luxury-infinity-edge-golden.jpg` | Curved infinity-pool edge above a fjord in low sun (Húsavík, Iceland), cropped to 3:2 | Unsplash, Henry Becker, "a boat floating on top of a large body of water" (verified 26 October 2026) | owned | Unsplash License | Home, Luxury travel card |
+| `features/luxury-traveller-balcony-santorini.jpg` | A traveller seen from behind, resting on a terrace wall above the Santorini caldera; no face visible | Unsplash, Anastase Maragos, "Woman looking at the sea from a balcony" (verified 26 October 2026) | owned | Unsplash License. No face is identifiable; the page names the hotel, but nothing in the frame is branded | Luxury, Peace of mind |
+| `features/luxury-stone-portico-sea.jpg` | Stone table under a portico with a sea view | Unsplash, Paréj Richárd | owned | Unsplash License | Not currently referenced (Luxury, Peace of mind until 26 October 2026) |
 | `features/cruise-river-lyon.jpg` | River cruise ship passing the Lyon riverfront, ship name and emblem removed | Unsplash, Thomas K (retouched derivative) | owned | Unsplash License | Tailor-made, cruising card |
 | `features/expedition-penguins.jpg` | Penguins on a dark pebble beach | Unsplash, Rod Long | owned | Unsplash License | Tailor-made, expeditions card |
 | `features/luxury-lakeside-villa.jpg` | Lakeside villa at dusk, Lake Como | Unsplash, Emanuel Ekström | owned | Unsplash License | Tailor-made, luxury card |
@@ -127,6 +133,14 @@ The five photographs marked "verified 25 October 2026" were chosen in the owner'
 that day and showed "Free to use under the Unsplash License", not Unsplash+. Downloaded at 3200px
 from the public CDN by `imagery-delivery/install_callouts_2026_10_25.py`. Full records are in
 `imagery-delivery/LICENSING.md`.
+
+## Design review round, 26 October 2026
+
+The four photographs marked "verified 26 October 2026" were chosen after the owner approved the
+design review (home finding 3, Luxury findings 7 and 8). Each source page was read that day and
+showed "Free to use under the Unsplash License", not Unsplash+; candidates with a legible cruise
+line name or hotel branding were rejected. Downloaded from the public CDN (images.unsplash.com).
+Full records are in `imagery-delivery/LICENSING.md`.
 
 ## Releases still open
 

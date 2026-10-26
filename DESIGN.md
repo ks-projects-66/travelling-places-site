@@ -34,15 +34,20 @@ the site's variable names, so a kit release propagates without edits here.
 - **Page openings** (since 25 October 2026, owner callouts CO8 and CO12): a page that opens with a
   statement under its hero centres it, `OpeningStatement.astro`. One serif line leads (the heading,
   or the first sentence of Gina's paragraph when there is no heading) and the rest follows at the lead
-  size, centred at about 40rem, left-aligned on phones. Tailor-made, Luxury and About open this way.
+  size as a centred block of left-aligned text about 38rem wide (since 26 October 2026: six centred
+  lines made every line start somewhere new). Home, Tailor-made, Luxury and About open this way.
 - **Long copy beside its heading** (CO10): `split-section`, heading in a lead column of five parts,
   paragraphs in a second column of six, every paragraph at the lead size and one measure (about 60
   characters). Measured against Belmond and A&K, who both pin copy to one side and leave the rest
-  open. Replaced the single left-hand column that left the right half of the page empty.
-- **Lists of inclusions** are short phrases in navy, two by two, separated by space: no rules, no
-  marker (CO9). The hairline-row list it replaced read like a form against the photographs.
-  Credentials ("proof") are separate from services and set as short serif lines, two by two (CO6,
-  CO13).
+  open. Since 26 October 2026 the lead column holds as the text scrolls and carries a pull line
+  lifted verbatim from the section (`pull` in the data, hidden from assistive technology as a
+  repeat), and a second text section in a row mirrors the first (`split-section--reverse`).
+- **Benefit lists** (inclusions on service cards, Gina's reasons to book): one column of phrases in
+  regular-weight ink, each after a small tick in the brand blue (since 26 October 2026). History:
+  hairline rows read as a form (CO9); navy phrases at weight 500 then read as links, the same colour
+  and weight as every link on the site, and phones invited taps that went nowhere. Credentials
+  ("proof") stay separate from services, as short serif lines (CO6). About's financial security is
+  the fourth card of the promise set, running full width, its statements as body text.
 - Images beside text sit inside the shell at their own aspect ratio, so they scale as one piece and
   their crop never changes with the screen width (CO2). Nothing bleeds to the viewport edge except
   heroes.
@@ -175,11 +180,11 @@ moved the carousel into the home hero, the team photograph to About and Virtuoso
 
 | Page | Tone | Photograph | `object-position` |
 |---|---|---|---|
-| Home | photo, sequence | `destinations/positano-golden-hour.jpg`, `varenna-loggia-lake-como.jpg`, `lake-como-sunset.jpg` since 25 October 2026 (CO1: coast, a place to stay, water at dusk), cross-fading every 6s under one fixed title, previous and next at either side. Phone crops lean left onto calm water. Lowest title contrast: 3.63:1 on slide 1 at 390px (large text, AA 3:1) | `28% 78%`, `center 58%`, `35% 50%` |
-| Who we are | photo | `team/team-outside.jpg`, owned. Gina's portrait is the story row; the office photograph is the home founder section | `center 14%` |
-| Expertise | photo | `hero/expertise-mountain-lake.jpg` | `center 38%` |
-| Luxury | photo | `hero/virtuoso-island.jpg`, freed when the Virtuoso page folded into Luxury | `center 42%` |
-| Contact | photo | `hero/contact-lookout.jpg` | `center 55%` |
+| Home | photo, sequence, full | `destinations/positano-golden-hour.jpg`, `varenna-loggia-lake-como.jpg`, `lake-como-sunset.jpg` since 25 October 2026 (CO1: coast, a place to stay, water at dusk), cross-fading every 6s under one fixed title. Since 26 October 2026 previous, a mark per photograph and next sit together bottom right, level with the actions; on phones they follow the actions in the flow. Positano has its own phone crop (`mobilePosition`) so the town, not the cliff, fills the frame. Lowest title contrast: 3.63:1 on slide 1 at 390px (large text, AA 3:1) | `28% 78%` (phone `74% 70%`), `center 58%`, `35% 50%` |
+| Who we are | split | `team/team-outside.jpg`, owned, beside the title on the page ground since 26 October 2026, running to the right edge. The office photograph is the story row (and the home founder section); Gina's headshot appears once, in the advisor grid | `center 22%` |
+| Tailor-made (`/expertise/`) | photo, short | `hero/expertise-mountain-lake.jpg`, about 60% of the screen so the opening statement arrives in the first screen | `center 38%` |
+| Luxury | photo, full | `hero/luxury-infinity-pool-dusk.jpg` since 26 October 2026: a quiet terrace plane lower left for the title. The reef island's texture ran under the title | `center 62%` |
+| Contact | none | No photograph since 26 October 2026: the title and its line head the page and the form starts in the first screen at every width | n/a |
 | Journal | none | No hero since 27 September 2026: the newest article's photograph opens the page as a 540px feature | n/a |
 | Privacy, 404 | plain | none wanted. A cinematic opening on a policy or error page is noise | n/a |
 
@@ -202,10 +207,10 @@ Gina's full "Why book" band ends the home page only. Every other page closes on 
 contact line and Start planning (`WhyBook variant="short"`). The full band at the end of six pages
 read as the same checklist everywhere and repeated whole sections on Expertise and About.
 
-Start planning goes to `/contact/#enquiry`, the form, not the top of Contact. The four marks also
-sit beside the form on Contact, on white, because two of the supplied files carry their own white
-ground. Their heights are evened per mark (`stripHeight` in `memberships.json`); the artwork is
-never altered.
+Start planning goes to `/contact/#enquiry`, the form, not the top of Contact. The four marks appear
+once per page, in the footer row (the copy beside the Contact form was removed on 26 October 2026,
+owner's instruction). Their heights are evened per mark (`stripHeight` in `memberships.json`); the
+artwork is never altered.
 
 ## Section rhythm
 
@@ -267,3 +272,27 @@ rules rewritten above:
   photograph are the link.
 - **Hover:** linked headlines take a hairline in their own colour; story photographs scale by 1.5
   per cent inside their frame.
+
+## Design review round, 26 October 2026
+
+A design review of the draft (`docs/REVIEW-2026-10-26.md`) was approved by the owner finding by
+finding. What changed, beyond the rules rewritten above:
+
+- **Openings vary by purpose** (`PageHero.astro`): `size="full"` (Home, Luxury), `size="short"`
+  (Tailor-made), `layout="split"` (About), none (Contact). Five pages had opened on one template.
+- **Virtuoso:** the official vectors from Virtuoso's member logo guidelines (supplied by the owner),
+  `VirtuosoMark.astro`: full colour on light grounds, colour reverse on navy, 150px wide (above the
+  126px minimum), always above the section heading. No white plate: the guidelines forbid a box
+  around the mark.
+- **Closing band** (every page but Home): Gina's contact sentence set in the display face, centred,
+  with Start planning beneath. On one row with the button 600px away it read as small print.
+- **Home:** the introduction is an opening statement; the journey cards carry their own pair of
+  photographs in one golden light (the Tailor-made photographs no longer repeat); the journal
+  teaser shows the lead story with the two newest others as hairline rows beside it.
+- **About:** the advisor cards become rows on phones (portrait 6.5rem beside name and bio), so
+  missing portraits no longer stack as 440px boxes; Gina's founder paragraph breaks at "Relocating
+  to Australia", words unchanged.
+- **Contact:** every form field keeps the error line's height, so the form has one vertical beat.
+- **Header:** the lockup is 172px on phones, the kit minimum (it was 137px).
+- **Tailor-made:** the title is "Tailor-made holidays." (Gina's words, "and luxury" dropped at the
+  owner's instruction) so it no longer claims the Luxury page's subject.

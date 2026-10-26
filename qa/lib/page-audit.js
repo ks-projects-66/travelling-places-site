@@ -176,7 +176,13 @@ export async function auditPage(page) {
     //       Inline  - the target sits within a sentence or block of text.
     //       Spacing - a 24px circle centred on the target does not intersect another target's.
     const TARGET_MIN = 24;
-    const targets = [...document.querySelectorAll('a, button, input:not([type=hidden]), select, textarea, [role=button]')].filter(visible);
+    // A control that is aria-hidden and out of the tab order is not a target: nobody can reach it by
+    // keyboard or assistive technology, and the enquiry form's honeypot, the one such control, is
+    // also clipped to nothing so it cannot be tapped. It was counted as a 1x48 target beside the
+    // form fields once the form moved into the first screen of Contact (26 October 2026).
+    const targets = [...document.querySelectorAll('a, button, input:not([type=hidden]), select, textarea, [role=button]')]
+      .filter((el) => !(el.getAttribute('aria-hidden') === 'true' && el.getAttribute('tabindex') === '-1'))
+      .filter(visible);
     const boxes = targets.map((el) => el.getBoundingClientRect());
 
     const seen = new Set();

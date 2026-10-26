@@ -327,3 +327,59 @@ Licence review date: 25 October 2026. Each source page was read with a web fetch
 - Model release: Not needed, no people visible
 - Property release: Hotel room interior, Paralia Melana; no name, logo or artwork shown
 - Cost: AUD 0, free download
+
+## Design review round, 26 October 2026
+
+Chosen after the owner approved the design review. Each source page was read on 26 October 2026
+and showed "Free to use under the Unsplash License"; none is Unsplash+. Files were downloaded from
+images.unsplash.com and processed to sRGB JPEG in the site's asset folders. Rejected on the way:
+cruise photographs with a legible line name or livery (Princess, Norwegian, P&O, Mein Schiff,
+Carnival, Disney, MSC), a pool with a lit sign, and a pool with a hotel-branded robe.
+
+### Home, Cruising card
+
+- File: `src/assets/images/features/cruise-santorini-caldera-golden.jpg` (2400 x 1600)
+- Source: Unsplash, [A cruise ship in the ocean at sunset](https://unsplash.com/photos/a-cruise-ship-in-the-ocean-at-sunset-pzRxq0KGjQA)
+- Creator: Felix Bacher
+- Licence type: Unsplash License
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people are visible
+- Property and trademark: a small script name on the hull is legible only at full resolution, not at display size
+- Cost: AUD 0, free download
+
+### Home, Luxury travel card
+
+- File: `src/assets/images/features/luxury-infinity-edge-golden.jpg` (3200 x 2133, cropped from 3200 x 2400)
+- Source: Unsplash, [a boat floating on top of a large body of water](https://unsplash.com/photos/a-boat-floating-on-top-of-a-large-body-of-water-5jutXEjF138)
+- Creator: Henry Becker
+- Licence type: Unsplash License
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people are visible
+- Property release: Not needed, no branding in frame
+- Cost: AUD 0, free download
+
+### Luxury, Peace of mind
+
+- File: `src/assets/images/features/luxury-traveller-balcony-santorini.jpg` (2400 x 1601)
+- Source: Unsplash, [Woman looking at the sea from a balcony](https://unsplash.com/photos/woman-looking-at-the-sea-from-a-balcony-kK3WpxshS28)
+- Creator: Anastase Maragos
+- Licence type: Unsplash License
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: The person is seen from behind and is not identifiable
+- Property release: The page names the hotel; nothing in the frame is branded
+- Cost: AUD 0, free download
+
+### Luxury hero
+
+- File: `src/assets/images/hero/luxury-infinity-pool-dusk.jpg` (3200 x 2133)
+- Source: Unsplash, [Infinity pool meets ocean under a colorful sunset sky](https://unsplash.com/photos/infinity-pool-meets-ocean-under-a-colorful-sunset-sky-q398gpsqxeY)
+- Creator: DD GR
+- Licence type: Unsplash License
+- Licence permits commercial web use: Yes
+- Attribution required: No
+- Model release: Not needed, no people are visible
+- Property release: Not needed, no branding in frame
+- Cost: AUD 0, free download
