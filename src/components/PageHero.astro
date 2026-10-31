@@ -13,8 +13,9 @@
  *
  * Pass `slides` instead of `image` and the photograph becomes a sequence: the title, lede and
  * actions stay fixed while the photographs cross-fade beneath them, with previous and next
- * buttons at either side. The home page uses this since 25 October 2026 (docs/WORK-PLAN.md,
- * change 3). Behaviour lives in site.js under [data-carousel].
+ * arrowheads paired at the bottom right of the text block (since 31 October 2026; they were
+ * circled buttons at either side). The home page uses this since 25 October 2026
+ * (docs/WORK-PLAN.md, change 3). Behaviour lives in site.js under [data-carousel].
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
@@ -119,18 +120,17 @@ const heroWidths = maxWidth
     <h1 data-carousel-hold={isCarousel ? '' : undefined}><span class="hero-line">{lead}</span> <span class="hero-accent">{accent}</span></h1>
     {lede && <p class="page-hero-lede" data-carousel-hold={isCarousel ? '' : undefined}>{lede}</p>}
     <slot />
+    {isCarousel && (
+      <div class="page-hero-controls">
+        <button class="carousel-icon-button page-hero-arrow page-hero-arrow--prev" type="button"
+          aria-label="Previous photograph" data-carousel-previous data-carousel-hold>
+          <svg aria-hidden="true" focusable="false"><use href="/brand-kit/assets/icons/ui-icons.svg#icon-chevron-left"></use></svg>
+        </button>
+        <button class="carousel-icon-button page-hero-arrow page-hero-arrow--next" type="button"
+          aria-label="Next photograph" data-carousel-next data-carousel-hold>
+          <svg aria-hidden="true" focusable="false"><use href="/brand-kit/assets/icons/ui-icons.svg#icon-chevron-right"></use></svg>
+        </button>
+      </div>
+    )}
   </div>
-
-  {isCarousel && (
-    <>
-      <button class="carousel-icon-button page-hero-arrow page-hero-arrow--prev" type="button"
-        aria-label="Previous photograph" data-carousel-previous data-carousel-hold>
-        <svg aria-hidden="true" focusable="false"><use href="/brand-kit/assets/icons/ui-icons.svg#icon-chevron-left"></use></svg>
-      </button>
-      <button class="carousel-icon-button page-hero-arrow page-hero-arrow--next" type="button"
-        aria-label="Next photograph" data-carousel-next data-carousel-hold>
-        <svg aria-hidden="true" focusable="false"><use href="/brand-kit/assets/icons/ui-icons.svg#icon-chevron-right"></use></svg>
-      </button>
-    </>
-  )}
 </section>

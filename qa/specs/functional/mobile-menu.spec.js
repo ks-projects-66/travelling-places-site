@@ -118,10 +118,21 @@ for (const viewport of overlayViewports) {
     // real focus-restore concern only arises when closing by Escape or by an outside click, and
     // both of those are covered above as the failures they currently are.
 
-    test('moves focus into the panel when opened', async ({ page }) => {
-      await page.locator('[data-menu-toggle]').click();
+    test('moves focus into the panel when opened from the keyboard', async ({ page }) => {
+      const toggle = page.locator('[data-menu-toggle]');
+      await toggle.focus();
+      await page.keyboard.press('Enter');
       const landed = await page.evaluate(() => !!document.activeElement?.closest('[data-nav]'));
       expect(landed).toBe(true);
+    });
+
+    // A tap must not move focus. iOS Safari never focuses a tapped button, so a scripted focus
+    // into the panel counted as keyboard focus and painted the focus ring on the first link
+    // beside the current-page rule (owner, 31 October 2026).
+    test('leaves focus alone when opened by a pointer', async ({ page }) => {
+      await page.locator('[data-menu-toggle]').click();
+      const landed = await page.evaluate(() => !!document.activeElement?.closest('[data-nav]'));
+      expect(landed).toBe(false);
     });
 
     test('releases the scroll lock when widened past the breakpoint', async ({ page }) => {

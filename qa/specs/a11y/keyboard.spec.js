@@ -1,6 +1,7 @@
 /**
  * Keyboard access and focus visibility, which axe cannot measure because both depend on rendered
- * state rather than markup. The kit specifies a 3px brand red outline at a 3px offset.
+ * state rather than markup. Since kit 3.3.0 focus is never red: a 2px rule under text links and
+ * icon controls (a box shadow), a 2px ring on pill buttons, a 2px border on fields.
  */
 
 import { test, expect } from '@playwright/test';
@@ -50,15 +51,15 @@ test.describe('keyboard access', () => {
             id: 'focus-not-visible',
             severity: 'fail',
             detail: `${style.tag} "${style.text}" shows no outline or shadow when focused`,
-            expected: '3px solid outline at 3px offset, per the kit',
+            expected: 'a 2px rule (box shadow) or a 2px ring, per kit 3.3.0',
             actual: `outline ${style.outlineStyle} ${style.outlineWidth}, box-shadow ${style.boxShadow}`,
           });
-        } else if (hasOutline && parseFloat(style.outlineWidth) < 3) {
+        } else if (hasOutline && parseFloat(style.outlineWidth) < 2) {
           findings.push({
             id: 'focus-outline-thin',
             severity: 'warn',
             detail: `${style.tag} "${style.text}" focus outline is ${style.outlineWidth}`,
-            expected: '3px',
+            expected: '2px',
             actual: style.outlineWidth,
           });
         }
