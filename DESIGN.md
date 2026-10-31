@@ -204,6 +204,15 @@ Gina's full "Why book" band ends the home page only. Every other page closes on 
 contact line and Start planning (`WhyBook variant="short"`). The full band at the end of six pages
 read as the same checklist everywhere and repeated whole sections on Expertise and About.
 
+Since 1 November 2026 the full band is her invitation alone: heading in the lead column, her two
+paragraphs and the way to call beside it at the lead size, Start planning closing the column, the
+same `split-section` as Expertise and Luxury (CO10). The right-hand column it carried from 25
+October, "Every step of the way" with five services as a two-by-two list and the two credentials
+beneath, is gone on the owner's instruction: it sat oddly beside the invitation, and the services
+and financial security are already on Expertise and About. The seven lines stay in `why-book.json`
+unused. Two alternatives were built and shown first, each behind a full-height column rule: the two
+credentials alone, and the five services as one stacked column. The owner chose neither.
+
 Start planning goes to `/contact/#enquiry`, the form, not the top of Contact. The four marks also
 sit beside the form on Contact, on white, because two of the supplied files carry their own white
 ground. Their heights are evened per mark (`stripHeight` in `memberships.json`); the artwork is

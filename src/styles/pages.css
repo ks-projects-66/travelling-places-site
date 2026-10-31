@@ -224,63 +224,18 @@
   border-top: 1px solid var(--line);
 }
 
-/* Gina's "Why book" band (rebalanced 25 October 2026, docs/WORK-PLAN.md change 6). The
-   invitation and the way to call on the left; her two groups of reasons together on a white panel
-   on the right, as plain statements. No hairlines and no markers: the client read the old ruled
-   lists as categories that led nowhere. */
-.why-book-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
-  align-items: start;
-  gap: clamp(2.5rem, 6vw, 6rem);
-}
-
-.why-book-intro h2 {
-  max-width: 14ch;
-  margin: 0 0 1.25rem;
-  color: var(--blue-deep);
-}
-
-.why-book-intro > p {
-  max-width: 40ch;
-  color: var(--ink-muted);
-}
-
+/* Gina's "Why book" band. Since 1 November 2026 it is her invitation alone, set as the split
+   section Expertise and Luxury use for copy beside a heading (.split-section, .long-copy--even).
+   The right-hand column of services and credentials it carried from 25 October 2026 is gone: the
+   owner found it placed oddly and saying nothing the rest of the site does not. */
 .why-book-contact a {
   color: var(--blue-deep);
   font-weight: 600;
 }
 
-.why-book-intro .button {
-  margin-top: 1rem;
-}
-
-.why-book-reasons {
-  padding-top: 0.5rem;
-}
-
-.why-book-reasons h3 {
-  margin: 0;
-  color: var(--blue-deep);
-  font-size: var(--tp-type-subsection-title);
-}
-
-.why-book-reasons .inclusions {
-  margin-top: 1.5rem;
-}
-
-.why-book-reasons .why-book-proof {
-  margin-top: clamp(2.5rem, 5vw, 3.5rem);
-}
-
-@media (max-width: 1000px) {
-  .why-book-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .why-book-intro > p {
-    max-width: var(--measure);
-  }
+/* The action closes the copy column, a step below the last line. */
+.why-book-solo .button {
+  margin-top: 2rem;
 }
 
 /* The short close on every page but home: Gina's contact line and the one action, on one row. */
@@ -724,29 +679,6 @@
   .ruled-columns > * {
     padding-inline: 0;
     border-left: 0;
-  }
-}
-
-.proof-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem clamp(1.25rem, 3vw, 2.25rem);
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.proof-list li {
-  color: var(--blue-deep);
-  font-family: var(--display);
-  font-size: var(--tp-type-lead);
-  line-height: 1.5;
-  text-wrap: pretty;
-}
-
-@media (max-width: 600px) {
-  .proof-list {
-    grid-template-columns: 1fr;
   }
 }
 
