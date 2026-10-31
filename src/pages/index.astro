@@ -68,8 +68,10 @@ const journeyCards = home.journeys.cards.map((card) => {
           <p>{home.journeys.intro}</p>
         </div>
         <div class="journey-cards">
-          {journeyCards.map((card) => (
-            <a class="journey-card" href={card.href}>
+          {journeyCards.map((card) => {
+            const external = /^https?:\/\//.test(card.href);
+            return (
+            <a class="journey-card" href={card.href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined}>
               <CardImage
                 image={card.service.image}
                 alt={card.service.imageAlt}
@@ -81,9 +83,10 @@ const journeyCards = home.journeys.cards.map((card) => {
               />
               <h3>{card.label}</h3>
               <p>{card.service.summary}</p>
-              <span class="journey-card-link">{card.link}</span>
+              <span class="journey-card-link">{card.link}{external && <span class="visually-hidden"> (opens in a new tab)</span>}</span>
             </a>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

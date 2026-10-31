@@ -1,6 +1,6 @@
 # Travelling Places brand system
 
-Version 3.2.0 is the canonical source for website and marketing production.
+Version 3.3.0 is the canonical source for website and marketing production.
 
 Travelling Places should feel established, personal, and quietly confident. Belmond is a reference for restraint, image priority, and typographic balance. Do not reproduce Belmond layouts, wording, assets, or proprietary typefaces.
 
@@ -87,7 +87,7 @@ Use the spacing tokens. Do not invent nearby values.
 
 The content shell is 1200px maximum with responsive gutters from 20px to 48px. Reading copy is limited to 720px or 68 characters. Section spacing ranges from 72px to 120px, with a documented 64px floor below 680px, where the standard band would otherwise squeeze the mobile rhythm to a 40px spread. Use 24px between a heading and lead copy, 16px between a heading and ordinary body copy, and 16px between paragraphs.
 
-Images and fields are normally square-cornered. Text buttons use the full pill radius. Avoid floating cards and repeated boxed content where an open layout will work. Where content is a set of equal promises, white square cards on mist, with no shadow, are allowed. Lists of inclusions are short phrases in navy, two by two, separated by space rather than rules or markers. Supplied partner marks made for light grounds sit on a small white plate sized to their clear space when they appear on navy, never inside a large panel.
+Images and fields are normally square-cornered. Text buttons use the full pill radius. Avoid floating cards and repeated boxed content where an open layout will work. Where content is a set of equal items with no photograph, set them as equal columns divided by a 1px vertical rule in the line colour (the column rule), not as white cards; the rule collapses to space when the columns stack. Inside a column, short points are a ruled list: rows between 1px rules in the line colour, body size, regular weight, in ink. Inside a photograph card, inclusions are short phrases in ink at regular weight, two by two, separated by space rather than rules or markers. A list point is never bold or navy, so it never reads as a link. A card carries one text link at most. Supplied partner marks made for light grounds sit on a small white plate sized to their clear space when they appear on navy, never inside a large panel.
 
 ## Buttons and links
 
@@ -97,7 +97,7 @@ Button labels are direct and sentence case. Text buttons are 50px high with 28px
 
 Disabled buttons retain a white background and a clear ink border. Their label uses muted ink, and their cursor communicates that the control is unavailable. Do not fade the entire control with opacity.
 
-Interactive targets meet WCAG 2.5.8 (Minimum, AA): at least 24 by 24 CSS pixels, with the inline and spacing exceptions the standard allows. 44px stays the preferred size for a standalone control and is what `--tp-control-min` carries, but it is the AAA figure from 2.5.5 and is held as a target rather than a conformance floor. Focus is visible on every control and never red (3.2.0, owner's instruction of 31 October 2026: no red boxes anywhere). Text links and icon controls take a 2px rule beneath them; pill buttons take a 2px ring that follows the pill at a 3px offset; fields take a 2px border. The colour is navy on light surfaces and white on dark ones. Red stays the current-page rule, so the two can never be confused. Focus is drawn on `:focus-visible` only, and a menu opened by a tap does not move focus, because iOS Safari paints scripted focus as keyboard focus.
+Interactive targets meet WCAG 2.5.8 (Minimum, AA): at least 24 by 24 CSS pixels, with the inline and spacing exceptions the standard allows. 44px stays the preferred size for a standalone control and is what `--tp-control-min` carries, but it is the AAA figure from 2.5.5 and is held as a target rather than a conformance floor. Focus is visible on every control and never red (3.3.0, owner's instruction of 31 October 2026: no red boxes anywhere). Text links and icon controls take a 2px rule beneath them; pill buttons take a 2px ring that follows the pill at a 3px offset; fields take a 2px border. The colour is navy on light surfaces and white on dark ones. Red stays the current-page rule, so the two can never be confused. Focus is drawn on `:focus-visible` only, and a menu opened by a tap does not move focus, because iOS Safari paints scripted focus as keyboard focus.
 
 ## Navigation and footer
 
@@ -115,7 +115,7 @@ Input text is 16px minimum. Fields are 48px high minimum. Use a single-column fo
 
 The kit component supports previous, next, pause, dots, arrow keys, and swipe when integrated with a touch handler.
 
-The website carousel is the home page hero: photographs cross-fade every six seconds beneath one fixed title, with previous and next controls (owner's decision, 25 October 2026). This matches the kit component's timing. Since 3.2.0 the controls are two plain arrowheads with no circle, paired at the bottom right of the hero's text block on the line of its last action, at every width (owner, 31 October 2026). Each keeps a 44px target, is keyboard operable and visibly focused.
+The website carousel is the home page hero: photographs cross-fade every six seconds beneath one fixed title, with previous and next controls (owner's decision, 25 October 2026). This matches the kit component's timing. Since 3.3.0 the controls are two plain arrowheads with no circle, paired at the bottom right of the hero's text block on the line of its last action, at every width (owner, 31 October 2026). Each keeps a 44px target, is keyboard operable and visibly focused.
 
 There is no pause button. Four mitigations stand in its place: the sequence holds while the pointer is over the title block or an arrow, holds while anything inside it has keyboard focus, does not run while the tab is hidden, and never auto-advances under reduced motion, where the arrows still work. Arrow keys step through slides. Hover holds only on the title and arrows because the hero fills most of the first screen, and a whole-hero hold would stop it for most desktop visitors.
 

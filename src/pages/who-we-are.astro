@@ -34,8 +34,6 @@ const rows = [
   { section: about.cruise, photo: 'TODO: photo of a team member aboard ship' },
   { section: about.virtuoso, mark: true },
 ];
-const promises = about.promises.filter((p) => !('atiaNumber' in p && p.atiaNumber));
-const security = about.promises.find((p) => 'atiaNumber' in p && p.atiaNumber);
 ---
 
 <BaseLayout
@@ -104,31 +102,29 @@ const security = about.promises.find((p) => 'atiaNumber' in p && p.atiaNumber);
       </div>
     </section>
 
-    {/* Gina's four promises. Until 25 October 2026 they were an open navy grid of hairlines, the
-        only one of its kind on the site, with financial security forced into the same cell format
-        as the three promises (CO13). Now the promises are three equal cards, and financial
-        security, which is proof rather than a promise, is its own band beneath them. */}
-    <section class="section team-values">
+    {/* Gina's four promises as four equal ruled columns (fitted About design, 31 October 2026).
+        Between 25 and 31 October they were three white cards with financial security in its own
+        band (CO13); the owner chose to set all four as equals, separated by the column rule rather
+        than by four white cards. Each column: label, title, summary, ruled list. */}
+    <section class="section team-values" aria-labelledby="promises-heading">
       <div class="shell">
-        <div class="promise-cards">
-          {promises.map((promise) => (
-            <article class="promise-card">
+        <p class="story-meta">{about.promisesSection.label}</p>
+        <h2 id="promises-heading" class="promises-heading">{about.promisesSection.heading}</h2>
+        <div class="ruled-columns">
+          {about.promises.map((promise) => (
+            <article>
+              <p class="story-meta">{promise.label}</p>
               <h3>{promise.title}</h3>
-              {promise.paragraphs.map((p) => <p>{p}</p>)}
+              <p class="ruled-columns-summary">{promise.summary}</p>
+              <ul class="ruled-list">
+                {promise.points.map((point) => <li>{point}</li>)}
+              </ul>
+              {'atiaNumber' in promise && promise.atiaNumber && (atia.status === 'placeholder'
+                ? <p class="placeholder-note" data-placeholder>TODO: ATIA number (Gina's copy reads "??????")</p>
+                : <p class="proof-note">Our ATIA number is {atia.value}.</p>)}
             </article>
           ))}
         </div>
-        {security && (
-          <div class="proof-band">
-            <h3>{security.title}</h3>
-            <ul class="proof-list">
-              {security.paragraphs.map((p) => <li>{p}</li>)}
-            </ul>
-            {atia.status === 'placeholder'
-              ? <p class="placeholder-note" data-placeholder>TODO: ATIA number (Gina's copy reads "??????")</p>
-              : <p class="proof-note">Our ATIA number is {atia.value}.</p>}
-          </div>
-        )}
       </div>
     </section>
 

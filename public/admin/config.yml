@@ -118,6 +118,14 @@ collections:
       - { name: image, label: Photo file, widget: string, required: false, hint: 'Path under src/assets/images, e.g. features/expedition-penguins.jpg. Needs a MANIFEST.md row first.' }
       - { name: imageAlt, label: Photo description, widget: string, required: false, hint: Describe the photograph for someone who cannot see it. }
       - { name: imagePosition, label: Photo crop position, widget: string, required: false, hint: 'CSS position, e.g. center 60%. Leave blank for centre.' }
+      - name: link
+        label: Link
+        widget: object
+        required: false
+        hint: Shown under the card on Tailor-made. A full web address opens in a new tab.
+        fields:
+          - { name: label, label: Link text, widget: string }
+          - { name: href, label: Link address, widget: string }
       - { name: body, label: Description, widget: markdown }
 
   - name: settings
@@ -240,13 +248,22 @@ collections:
               - { name: imageAlt, label: Photo description, widget: string, required: false, hint: Describe the photograph for someone who cannot see it. }
               - { name: imagePosition, label: Photo crop position, widget: string, required: false, hint: 'CSS position, e.g. center 60%. Leave blank for centre.' }
           - { name: virtuoso, label: Virtuoso, widget: object, fields: *sectionWithLink }
+          - name: promisesSection
+            label: Promises heading
+            widget: object
+            fields:
+              - { name: label, label: Small label above the heading, widget: string, hint: Sentence case. }
+              - { name: heading, label: Heading, widget: string }
           - name: promises
             label: Experts, service, pricing and security
             widget: list
             fields:
+              - { name: label, label: Small label, widget: string, hint: 'One word, sentence case, e.g. Expertise.' }
               - { name: title, label: Title, widget: string }
-              - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
-              - { name: atiaNumber, label: Show the ATIA number after the first paragraph, widget: boolean, required: false }
+              - { name: summary, label: Summary, widget: text, hint: One or two sentences. }
+              - { name: points, label: Points, widget: list, field: { name: point, label: Point, widget: string } }
+              - { name: paragraphs, label: Original paragraphs, widget: list, hint: "Gina's full text, kept for reference. Not shown on the page.", field: { name: paragraph, label: Paragraph, widget: text } }
+              - { name: atiaNumber, label: Show the ATIA number under the points, widget: boolean, required: false }
       - name: tailor_made
         label: Tailor-made and luxury holidays
         file: src/data/tailor-made.json

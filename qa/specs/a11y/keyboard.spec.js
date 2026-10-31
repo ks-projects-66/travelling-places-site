@@ -1,6 +1,6 @@
 /**
  * Keyboard access and focus visibility, which axe cannot measure because both depend on rendered
- * state rather than markup. Since kit 3.2.0 focus is never red: a 2px rule under text links and
+ * state rather than markup. Since kit 3.3.0 focus is never red: a 2px rule under text links and
  * icon controls (a box shadow), a 2px ring on pill buttons, a 2px border on fields.
  */
 
@@ -51,7 +51,7 @@ test.describe('keyboard access', () => {
             id: 'focus-not-visible',
             severity: 'fail',
             detail: `${style.tag} "${style.text}" shows no outline or shadow when focused`,
-            expected: 'a 2px rule (box shadow) or a 2px ring, per kit 3.2.0',
+            expected: 'a 2px rule (box shadow) or a 2px ring, per kit 3.3.0',
             actual: `outline ${style.outlineStyle} ${style.outlineWidth}, box-shadow ${style.boxShadow}`,
           });
         } else if (hasOutline && parseFloat(style.outlineWidth) < 2) {

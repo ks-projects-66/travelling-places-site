@@ -28,8 +28,8 @@ the site's variable names, so a kit release propagates without edits here.
   Text buttons use the full pill radius, per v2.1.0.
 - Card grids are allowed where they are restrained: square photography, no shadows, every card in
   a group built the same way. Approved by Karim on 27 September 2026; the earlier refusal and its
-  reasoning are kept below. Equal promises with no photograph sit on white square cards on mist
-  (About, since 25 October 2026). A large white panel holding a logo or a list on a coloured ground
+  reasoning are kept below. Equal promises with no photograph are equal columns divided by a
+  column rule (About, since 31 October 2026; white cards on mist from 25 to 31 October). A large white panel holding a logo or a list on a coloured ground
   is not a card and is not used.
 - **Page openings** (since 25 October 2026, owner callouts CO8 and CO12): a page that opens with a
   statement under its hero centres it, `OpeningStatement.astro`. One serif line leads (the heading,
@@ -39,8 +39,10 @@ the site's variable names, so a kit release propagates without edits here.
   paragraphs in a second column of six, every paragraph at the lead size and one measure (about 60
   characters). Measured against Belmond and A&K, who both pin copy to one side and leave the rest
   open. Replaced the single left-hand column that left the right half of the page empty.
-- **Lists of inclusions** are short phrases in navy, two by two, separated by space: no rules, no
-  marker (CO9). The hairline-row list it replaced read like a form against the photographs.
+- **Lists of inclusions** inside a photograph card are short phrases in ink at regular weight, two
+  by two, separated by space: no rules, no marker (CO9). The hairline-row list it replaced read like
+  a form against the photographs; navy bold read as links (fitted pattern sheet, 31 October 2026).
+  In a column without a photograph, points are a ruled list (About promises).
   Credentials ("proof") are separate from services and set as short serif lines, two by two (CO6,
   CO13).
 - Images beside text sit inside the shell at their own aspect ratio, so they scale as one piece and
@@ -270,7 +272,7 @@ rules rewritten above:
 
 ## Phone review, 31 October 2026
 
-The owner checked the preview on a phone and raised three things. Kit 3.2.0 records the values;
+The owner checked the preview on a phone and raised three things. Kit 3.3.0 records the values;
 this records the layout and the reasoning. Reference for both menu and arrows: aman.com, measured
 at 375px and 1440px in a browser on 31 October 2026.
 

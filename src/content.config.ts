@@ -49,6 +49,8 @@ const services = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     imagePosition: z.string().optional(),
+    // Optional link under the card on Tailor-made. An external address opens in a new tab.
+    link: z.object({ label: z.string(), href: z.string() }).optional(),
   }),
 });
 

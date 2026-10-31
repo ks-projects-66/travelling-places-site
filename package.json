@@ -21,8 +21,8 @@
     "test:responsive": "playwright test --config qa/playwright.config.js --project=responsive",
     "test:a11y": "playwright test --config qa/playwright.config.js --project=a11y",
     "test:brand": "node qa/brand/run-brand.mjs",
-    "test:visual": "backstop test --config=qa/visual/backstop.config.cjs",
-    "test:visual:ref": "backstop reference --config=qa/visual/backstop.config.cjs && node qa/visual/make-baseline-status.cjs",
+    "test:visual": "node qa/visual/run.mjs test",
+    "test:visual:ref": "node qa/visual/run.mjs reference && node qa/visual/make-baseline-status.cjs",
     "test:visual:approve": "node qa/visual/approve.mjs",
     "test:qa": "node qa/run-all.mjs",
     "qa:lighthouse": "node qa/lighthouse/run.mjs"
