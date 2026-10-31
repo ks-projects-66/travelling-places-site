@@ -11,6 +11,9 @@ points:
   - Selected partner benefits
 image: features/cruise-river-lyon.jpg
 imageAlt: A river cruise ship passing pastel riverfront buildings in Lyon
+link:
+  label: Search cruises and current offers
+  href: https://travellingplaces.cruiseco.com.au/
 ---
 
 Whether you're drawn to a small luxury vessel, a river journey through Europe or a grand voyage across oceans, we help you compare the details that matter: atmosphere, cabin, dining, shore time and pace.
