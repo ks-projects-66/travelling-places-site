@@ -568,10 +568,10 @@
   font-size: var(--tp-type-body);
 }
 
-/* What a service includes: a two-column set of short phrases in navy, with no rules and no
-   markers. Replaced the hairline rows on 25 October 2026: sixteen full-width rules across the
-   service cards read like a form against the photographs (CO9). Space separates the set from the
-   text above it; the colour, not a line, says it is a list. */
+/* What a service includes: a two-column set of short phrases, with no rules and no markers.
+   Replaced the hairline rows on 25 October 2026: sixteen full-width rules across the service cards
+   read like a form against the photographs (CO9). Space separates the set from the text above it.
+   Regular weight in ink since 31 October 2026: bold navy read as a set of links (pattern sheet, 02). */
 .inclusions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -582,8 +582,7 @@
 }
 
 .inclusions li {
-  color: var(--blue-deep);
-  font-weight: 500;
+  color: var(--ink);
   line-height: 1.45;
   text-wrap: pretty;
 }
@@ -638,44 +637,94 @@
   background: var(--mist);
 }
 
-.promise-cards {
+.promises-heading {
+  margin: 0.5rem 0 clamp(2.5rem, 5vw, 3.5rem);
+  color: var(--blue-deep);
+  font-size: var(--tp-type-section-title);
+}
+
+/* Column rule (pattern sheet, 03): equal items side by side, divided by a 1px vertical rule in the
+   site's divider colour instead of each sitting on its own white card. Only for sets of equal
+   items. Four columns on desktop, two on tablets, one on phones, where the vertical rule turns
+   into the space between stacked items. */
+.ruled-columns {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-/* White on mist, square, no shadow: the same restraint as the photographs. */
-.promise-card {
-  padding: clamp(1.75rem, 3vw, 2.75rem);
-  background: var(--white);
+.ruled-columns > * {
+  padding-inline: clamp(1rem, 2vw, 2rem);
+  border-left: 1px solid var(--line);
 }
 
-.promise-card h3,
-.proof-band h3 {
-  margin: 0 0 1rem;
+.ruled-columns > :first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.ruled-columns > :last-child {
+  padding-right: 0;
+}
+
+.ruled-columns h3 {
+  margin: 0.5rem 0 0.85rem;
   color: var(--blue-deep);
   font-size: var(--tp-type-subsection-title);
 }
 
-.promise-card p {
+.ruled-columns-summary {
   margin: 0;
+  color: var(--ink-muted);
+}
+
+.ruled-columns .placeholder-note,
+.ruled-columns .proof-note {
+  margin: 1rem 0 0;
+}
+
+/* Ruled list (pattern sheet, 02): short points as rows between 1px rules, regular weight in ink so
+   a point never reads as a link. Body size rather than the sheet's 14px, which is below the kit's
+   reading sizes. Used where points sit in a column on their own, not inside a photograph card. */
+.ruled-list {
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+
+.ruled-list li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--line);
   color: var(--ink);
+  line-height: 1.45;
+  text-wrap: pretty;
 }
 
-/* Proof, set apart from the promises: Gina's four statements as short serif lines beside the
-   heading, two by two (CO13). The same treatment as the credentials under Why book (CO6). */
-.proof-band {
-  display: grid;
-  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
-  gap: 1.5rem clamp(2rem, 6vw, 6rem);
-  margin-top: clamp(3.5rem, 7vw, 5.5rem);
+@media (max-width: 1100px) {
+  .ruled-columns {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: clamp(2.5rem, 5vw, 3.5rem);
+  }
+
+  .ruled-columns > :nth-child(odd) {
+    padding-left: 0;
+    border-left: 0;
+  }
+
+  .ruled-columns > :nth-child(even) {
+    padding-right: 0;
+  }
 }
 
-.proof-band .placeholder-note,
-.proof-band .proof-note {
-  grid-column: 2;
-  justify-self: start;
-  margin: 0;
+@media (max-width: 640px) {
+  .ruled-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .ruled-columns > * {
+    padding-inline: 0;
+    border-left: 0;
+  }
 }
 
 .proof-list {
@@ -693,21 +742,6 @@
   font-size: var(--tp-type-lead);
   line-height: 1.5;
   text-wrap: pretty;
-}
-
-@media (max-width: 940px) {
-  .promise-cards {
-    grid-template-columns: 1fr;
-  }
-
-  .proof-band {
-    grid-template-columns: 1fr;
-  }
-
-  .proof-band .placeholder-note,
-  .proof-band .proof-note {
-    grid-column: 1;
-  }
 }
 
 @media (max-width: 600px) {

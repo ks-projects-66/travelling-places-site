@@ -1,5 +1,5 @@
 {
-  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'About Travelling Places.docx'. Section headings other than 'About Travelling Places' and the four promise titles are editorial. Repetition removed on Karim's instruction of 28 September 2026; see docs/COPY-MAP.md. On 25 October 2026 the story row took Gina's portrait and the office photograph moved to the home page, so each photograph appears once (docs/CALLOUTS-2026-10-25.md, CO2).",
+  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'About Travelling Places.docx'. Section headings other than 'About Travelling Places' and the four promise titles are editorial. Repetition removed on Karim's instruction of 28 September 2026; see docs/COPY-MAP.md. On 25 October 2026 the story row took Gina's portrait and the office photograph moved to the home page, so each photograph appears once (docs/CALLOUTS-2026-10-25.md, CO2). On 31 October 2026 the four promises were re-set as four ruled columns from Karim's fitted About design (Fitted About, every step of the way.pdf). The column labels, the section heading, and the summary and points of the first three promises are Karim's condensation of Gina's paragraphs, kept beside her originals in paragraphs, and need her sign-off (register C27). Financial security uses her four sentences unchanged; the design's \"Your money is protected, backed by industry accreditation and independent scrutiny\" was not used, because it claims more than her copy and ATIA accreditation is not a compensation scheme (docs/WORK-PLAN.md, Q8).",
   "intro": {
     "heading": "About Travelling Places",
     "paragraphs": [
@@ -43,25 +43,53 @@
   "promises": [
     {
       "title": "Talk to the experts",
+      "label": "Expertise",
+      "summary": "Every advisor has travelled extensively and brings first-hand, unbiased knowledge to planning your holiday.",
+      "points": [
+        "Advisors who travel and train regularly",
+        "Collective knowledge pooled across the team",
+        "Itineraries designed around your needs and budget"
+      ],
       "paragraphs": [
         "It's hard to overstate the benefit of talking to an expert when it comes to planning your holiday. All of our advisors have travelled extensively and are delighted to share that first-hand knowledge with you. They take an unbiased, informed approach to planning holidays. We pool our resources so that each client benefits from our collective knowledge. Every itinerary is designed around your individual needs and budget. We undertake constant training and travel regularly so that you can be assured of up-to-date knowledge of your travel destination."
       ]
     },
     {
       "title": "Personal service",
+      "label": "Service",
+      "summary": "We treat clients as we like to be treated, and take the time to get to know you as a traveller.",
+      "points": [
+        "Planning that goes beyond logistics",
+        "Suggestions shaped by how you like to travel",
+        "Care before, during and after your holiday"
+      ],
       "paragraphs": [
         "We like to treat our clients as we like to be treated ourselves. Our advisors pride themselves on their level of personal service and will do more than just organise your holiday logistics. Instead they'll take time to get to know you as a traveller. That way they can make informed suggestions as you work together to plan a holiday you'll love."
       ]
     },
     {
       "title": "Honest pricing",
+      "label": "Pricing",
+      "summary": "We price your itinerary for the dates you want to travel, so your quote is accurate from the start.",
+      "points": [
+        "No low-season 'from' prices",
+        "Quotes based on your real travel dates",
+        "Personalised quotes and documentation"
+      ],
       "paragraphs": [
         "We believe that it's unfair to just show you 'from' prices that relate to the low season, when you may not want to travel. That's why we take the time to assess your personal itinerary for the dates you want to travel so that we can give you an accurate price for your holiday."
       ]
     },
     {
       "title": "Financial security",
+      "label": "Security",
       "atiaNumber": true,
+      "summary": "To be a member of ATIA our financial records are scrutinised.",
+      "points": [
+        "Travelling Places holds an Australian Travel Industry Association Licence (ATIA), issued by the industry body.",
+        "We are an affiliate TIDS member of the International Air Transport Association (IATA).",
+        "We operate a separate client trust account to ensure security of your funds."
+      ],
       "paragraphs": [
         "Travelling Places holds an Australian Travel Industry Association Licence (ATIA), issued by the industry body.",
         "We are an affiliate TIDS member of the International Air Transport Association (IATA).",
@@ -69,5 +97,9 @@
         "We operate a separate client trust account to ensure security of your funds."
       ]
     }
-  ]
+  ],
+  "promisesSection": {
+    "label": "Why Travelling Places",
+    "heading": "Every step of the way."
+  }
 }

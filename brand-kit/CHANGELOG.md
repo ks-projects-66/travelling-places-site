@@ -4,6 +4,26 @@ The version lives in `brand.tokens.json` and in the header of `BRAND.md`. It is 
 name. Between 2.1.0 and 3.0.0 those two files disagreed, and that gap is what let the kit fork from
 itself, so any release that changes a value changes both.
 
+## 3.2.0
+
+From the owner's fitted pattern sheet of 31 October 2026. The website changed first and this kit
+records it.
+
+**Column rule.** Equal items with no photograph sit in equal columns divided by a 1px vertical rule
+in the line colour, not on white cards. The rule collapses to space when the columns stack.
+
+**Ruled list.** Short points in a column are rows between 1px rules, body size, regular weight, in
+ink. Inclusions inside a photograph card stay two by two with no rules, now in ink at regular weight:
+bold navy read as links.
+
+**Meta label tokens corrected.** `brand.tokens.json` still described the retired uppercase label
+after 3.1.0. It now matches BRAND.md: 13px, weight 500, sentence case, no tracking.
+`--tp-type-meta-label` in `styles/tokens.css` is still 0.78rem and is used by two rules in the
+website; aligning it is left for a separate change because it moves those two rules.
+
+**Not adopted from the sheet:** the uppercase, tracked eyebrow at 11px. It would reverse 3.1.0 and
+sits below the reading sizes; the sentence-case meta label does the same job.
+
 ## 3.1.0
 
 From the owner's callout round of 25 October 2026 (`docs/CALLOUTS-2026-10-25.md`). Under the
