@@ -45,6 +45,7 @@ qa/
     run-brand.mjs     the three-layer brand runner
     css-analyzer.mjs  Project Wallace over dist/_astro/*.css
   visual/
+    run.mjs           starts the preview server on 4322, runs Backstop, stops the server
     backstop.config.cjs
     engine_scripts/playwright/{onBefore,onReady}.js
     reference/        committed baselines
