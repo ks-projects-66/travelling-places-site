@@ -122,9 +122,54 @@ p {
   }
 }
 
+/* Focus. Owner, 31 October 2026: no red boxes anywhere, and the current page shows only its
+   underline. Keyboard focus therefore follows the type: anything that reads as text is underlined
+   in its own colour, pill buttons take a ring that follows the pill, fields thicken their own
+   border, and the hero arrows take a short bar under the arrowhead. The colour is navy on light
+   surfaces and white on dark ones (--focus-ring), never red, so it cannot be read as the red
+   current-page rule. All of it is :focus-visible, so a tap or a click paints nothing. */
+:root {
+  --focus-ring: var(--blue-deep);
+}
+
+.page-hero--photo,
+.page-hero--navy,
+.home-virtuoso,
+.site-footer,
+.dialog-topline {
+  --focus-ring: var(--white);
+}
+
 :focus-visible {
-  outline: 3px solid var(--red);
-  outline-offset: 3px;
+  outline: var(--tp-focus-width) solid var(--focus-ring);
+  outline-offset: var(--tp-focus-offset);
+}
+
+/* The underline is a 2px shadow under the link's box rather than a text decoration: stylelint
+   bans underline declarations to keep calls to action plain, and a shadow also draws under a
+   link that holds only a picture, such as the logo. On a link that wraps, it draws under each
+   line. */
+a:not(.button, .skip-link):focus-visible,
+.menu-toggle:focus-visible {
+  outline: none;
+  box-shadow: 0 var(--tp-focus-width) 0 var(--focus-ring);
+}
+
+/* The outline is drawn inward over the field's own 1px border, so the field reads as one heavier
+   border rather than a second box around it. */
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline-color: var(--focus-ring);
+  outline-offset: calc(-1 * var(--tp-focus-width));
+}
+
+/* Forced colours drops box shadows and backgrounds, so an outline comes back there. */
+@media (forced-colors: active) {
+  :focus-visible {
+    outline: var(--tp-focus-width) solid CanvasText;
+    outline-offset: var(--tp-focus-offset);
+  }
 }
 
 .skip-link {
@@ -728,11 +773,6 @@ blockquote {
   color: var(--ink-muted);
 }
 
-.enquiry-form input:focus,
-.enquiry-form textarea:focus {
-  border-color: var(--blue);
-}
-
 .form-full {
   grid-column: 1 / -1;
 }
@@ -776,15 +816,19 @@ blockquote {
     display: revert;
   }
 
+  /* The open menu starts directly under the header's hairline and reads down the page, the way
+     Aman's does (owner, 31 October 2026). It used to centre its links vertically, which on a
+     phone left a third of the screen empty between the header and the first link. */
   .site-nav {
     position: fixed;
     inset: 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    gap: 1.25rem;
-    padding: 6rem var(--gutter) 3rem;
+    justify-content: flex-start;
+    gap: 0;
+    padding: calc(78px + var(--tp-space-xl)) var(--gutter) var(--tp-space-3xl);
+    overflow-y: auto;
     background: var(--white);
     opacity: 0;
     pointer-events: none;
@@ -798,16 +842,41 @@ blockquote {
     transform: translateY(0);
   }
 
+  /* The panel covers the header's own border, so it draws the same hairline at the same height
+     and the header reads the same open or closed. */
+  .site-nav::before {
+    position: absolute;
+    top: 78px;
+    right: 0;
+    left: 0;
+    border-top: 1px solid var(--line);
+    content: "";
+  }
+
   /* :not(.button) or this also restyles the call to action, which is an <a> and a direct
-     child. It outranks .button, so the CTA rendered at 30px display serif. */
+     child. It outranks .button, so the CTA rendered at 30px display serif. The row is 46px: the
+     22px menu heading plus padding, so each link keeps a full 44px target without a gap rule. */
   .site-nav > a:not(.button) {
+    padding-block: 0.625rem;
     font-family: var(--display);
     font-size: var(--tp-type-menu-title);
     font-weight: 400;
+    line-height: 1.2;
   }
 
+  /* The current-page rule sits just under the word, inside the padded row, rather than under
+     the row's padding. */
+  .site-nav > a:not(.button)::after {
+    bottom: 0.4rem;
+  }
+
+  /* Full button size, not the header's small one, so the action holds its own beside 22px
+     serif links instead of reading as an afterthought under them. */
   .site-nav .button {
-    margin-top: 1rem;
+    min-height: var(--tp-button-height);
+    margin-top: var(--tp-space-2xl);
+    padding-inline: 1.75rem;
+    font-size: var(--tp-type-body);
   }
 
   .virtuoso-grid,

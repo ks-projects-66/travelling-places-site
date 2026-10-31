@@ -2,7 +2,7 @@
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "brand": {
     "name": "Travelling Places",
-    "version": "3.1.0",
+    "version": "3.2.0",
     "reference": "Belmond for restraint, image priority, and typographic balance. Never copy layouts or proprietary assets."
   },
   "color": {
@@ -32,7 +32,7 @@
     },
     "red": {
       "value": "#D7333F",
-      "role": "Small accent and focus colour only. Not for text below 24px on a light surface"
+      "role": "Small accent and the current-page rule only. Not for text below 24px on a light surface, and never a focus indicator (3.2.0)"
     },
     "redText": {
       "value": "#C92B37",
@@ -100,8 +100,8 @@
       "maxWidth": "30ch"
     },
     "menuTitle": {
-      "min": "26px",
-      "max": "30px",
+      "min": "22px",
+      "max": "22px",
       "lineHeight": 1.2
     },
     "lead": {
@@ -179,8 +179,9 @@
     "minimumTarget": "24px",
     "preferredButtonHeight": "50px",
     "buttonInlinePadding": "28px",
-    "focusWidth": "3px",
+    "focusWidth": "2px",
     "focusOffset": "3px",
+    "focusStyle": "A 2px rule under text and icon controls, a 2px ring that follows a pill button, a 2px border on a field. Navy on light surfaces, white on dark ones, never red (3.2.0)",
     "minimumTargetStandard": "WCAG 2.5.8 AA, with the inline and spacing exceptions",
     "preferredTarget": "44px"
   },

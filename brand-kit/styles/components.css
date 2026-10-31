@@ -98,13 +98,33 @@
   cursor: not-allowed;
 }
 
-.tp-button:focus-visible,
+/* Focus is never red (3.2.0): a 2px rule under text and icon controls, a ring that follows the
+   pill on buttons, a heavier border on fields. currentColor keeps it white on dark surfaces. */
 .tp-icon-button:focus-visible,
 .tp-nav-link:focus-visible,
-.tp-field:focus-visible,
 .tp-social-link:focus-visible {
-  outline: 3px solid var(--tp-red);
-  outline-offset: 3px;
+  outline: none;
+  box-shadow: 0 var(--tp-focus-width) 0 currentColor;
+}
+
+.tp-button:focus-visible {
+  outline: var(--tp-focus-width) solid var(--tp-navy);
+  outline-offset: var(--tp-focus-offset);
+}
+
+.tp-field:focus-visible {
+  outline: var(--tp-focus-width) solid var(--tp-navy);
+  outline-offset: calc(-1 * var(--tp-focus-width));
+}
+
+@media (forced-colors: active) {
+  .tp-icon-button:focus-visible,
+  .tp-nav-link:focus-visible,
+  .tp-social-link:focus-visible,
+  .tp-field:focus-visible {
+    outline: var(--tp-focus-width) solid CanvasText;
+    outline-offset: var(--tp-focus-offset);
+  }
 }
 
 .tp-icon-button {

@@ -175,7 +175,7 @@ moved the carousel into the home hero, the team photograph to About and Virtuoso
 
 | Page | Tone | Photograph | `object-position` |
 |---|---|---|---|
-| Home | photo, sequence | `destinations/positano-golden-hour.jpg`, `varenna-loggia-lake-como.jpg`, `lake-como-sunset.jpg` since 25 October 2026 (CO1: coast, a place to stay, water at dusk), cross-fading every 6s under one fixed title, previous and next at either side. Phone crops lean left onto calm water. Lowest title contrast: 3.63:1 on slide 1 at 390px (large text, AA 3:1) | `28% 78%`, `center 58%`, `35% 50%` |
+| Home | photo, sequence | `destinations/positano-golden-hour.jpg`, `varenna-loggia-lake-como.jpg`, `lake-como-sunset.jpg` since 25 October 2026 (CO1: coast, a place to stay, water at dusk), cross-fading every 6s under one fixed title, previous and next as plain arrowheads paired at the bottom right of the text block (since 31 October 2026). Phone crops lean left onto calm water. Lowest title contrast: 3.63:1 on slide 1 at 390px (large text, AA 3:1) | `28% 78%`, `center 58%`, `35% 50%` |
 | Who we are | photo | `team/team-outside.jpg`, owned. Gina's portrait is the story row; the office photograph is the home founder section | `center 14%` |
 | Expertise | photo | `hero/expertise-mountain-lake.jpg` | `center 38%` |
 | Luxury | photo | `hero/virtuoso-island.jpg`, freed when the Virtuoso page folded into Luxury | `center 42%` |
@@ -267,3 +267,40 @@ rules rewritten above:
   photograph are the link.
 - **Hover:** linked headlines take a hairline in their own colour; story photographs scale by 1.5
   per cent inside their frame.
+
+## Phone review, 31 October 2026
+
+The owner checked the preview on a phone and raised three things. Kit 3.2.0 records the values;
+this records the layout and the reasoning. Reference for both menu and arrows: aman.com, measured
+at 375px and 1440px in a browser on 31 October 2026.
+
+**Phone menu.** Aman's open menu sets its links in a regular sans at 19px on 41px rows, starting
+directly under a hairline below the header, top-aligned, with no decoration. Ours centred 26 to
+30px serif links vertically, which left about a third of the screen empty under the header, and
+the small 14px Start planning pill looked like an afterthought beneath them. The links now start
+24px under the header hairline (the panel redraws the header's border at the same height, so the
+header reads the same open or closed), at 22px in the display serif on a 46px row, and Start
+planning is the full 50px button. The serif stays: it is the brand's menu heading face, and at
+22px beside a 16px button the two balance. If the owner wants Aman's sans instead, it is one
+declaration (`font-family` on `.site-nav > a` below 941px). A desktop-bar rule in `pages.css`
+(`gap: 1.2rem` up to 1100px) was also reaching the phone menu and is now scoped to 941px and up.
+
+**Carousel arrows.** Aman's carousel controls are bare 1px-stroke arrowheads, no circle, with
+previous and next set together beside the content they belong to. Ours were 50px outlined circles
+on a navy wash, at either side on wide screens and in the top corners below 1366px. They are now
+the kit's chevrons with no circle or wash, paired at the bottom right of the hero's text block,
+on the line of the last action, at every width. Bottom right was chosen over the top corners
+(away from what they control, and over the brightest part of the sky), over centred sides (they
+collided with the title below 1366px), and over beside the title (it crowds the one primary
+action). At the bottom they sit in the darkest part of the protective gradient and where a thumb
+already is on a phone. Each keeps a 44px target; hover nudges the arrowhead 3px.
+
+**Focus and the red box.** On the owner's phone, opening the menu on About us showed a red box on
+Tailor-made beside the red current-page rule on About us. The menu script moved focus to the first
+link on every open; iOS Safari does not focus a tapped button, so it treated that scripted focus
+as keyboard focus and drew the red ring. Focus now moves into the panel only when the menu is
+opened from the keyboard. Site-wide, focus is never red and never a box around text: a 2px rule
+under links and the menu toggle, a 2px ring that follows a pill button, a heavier border on
+fields, and a short bar under a hero arrowhead. Navy on light surfaces, white on dark ones
+(`--focus-ring`). Red is left to mean the current page only, so the two cannot be confused.
+

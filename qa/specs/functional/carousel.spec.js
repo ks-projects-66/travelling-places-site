@@ -72,14 +72,18 @@ test.describe('hero carousel', () => {
     expect(await activeIndex(page)).toBe(2);
   });
 
-  test('the arrows are at least 44px and sit at either side', async ({ page }) => {
+  // Since 31 October 2026 the arrows are plain arrowheads paired at the bottom right of the
+  // hero's text block (owner: no circles). They were circled buttons at either side.
+  test('the arrows are at least 44px, paired, at the bottom right of the hero', async ({ page }) => {
     const prev = await page.locator('[data-carousel-previous]').boundingBox();
     const next = await page.locator('[data-carousel-next]').boundingBox();
+    const hero = await page.locator('[data-carousel]').boundingBox();
     for (const box of [prev, next]) {
       expect(box.width).toBeGreaterThanOrEqual(44);
       expect(box.height).toBeGreaterThanOrEqual(44);
+      expect(box.y, 'arrow sits in the lower half of the hero').toBeGreaterThan(hero.y + hero.height / 2);
     }
-    expect(prev.x).toBeLessThan(viewport.width / 4);
+    expect(next.x - (prev.x + prev.width), 'previous and next sit together').toBeLessThan(8);
     expect(next.x + next.width).toBeGreaterThan((viewport.width * 3) / 4);
   });
 
@@ -179,8 +183,8 @@ test.describe('hero carousel', () => {
   });
 });
 
-// The arrows sit centred at either side where the page gutter clears them, and in the top corners
-// where it does not. 1024 and 1280 overlapped the title before the corner rule was widened.
+// The arrows sit at the bottom right of the text block, on the line of the last action. This
+// guards that they never land on the title, lede or actions at any width.
 test.describe('hero carousel arrows clear the text', () => {
   for (const vp of ALL) {
     test(`at ${vp.label}`, async ({ page }) => {

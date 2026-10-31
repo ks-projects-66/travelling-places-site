@@ -4,6 +4,25 @@ The version lives in `brand.tokens.json` and in the header of `BRAND.md`. It is 
 name. Between 2.1.0 and 3.0.0 those two files disagreed, and that gap is what let the kit fork from
 itself, so any release that changes a value changes both.
 
+## 3.2.0
+
+From the owner's review on a phone, 31 October 2026. Under the lead-and-lag rule the website
+changed first and this kit records it.
+
+**Focus is never red.** The 3px red outline drew a red box, and after a tap on the menu iOS Safari
+painted it on the first link beside the red current-page rule, which read as two current pages.
+Focus is now a 2px rule under text links and icon controls, a 2px ring that follows a pill
+button, and a 2px border on a field, in navy on light surfaces and white on dark ones. Red keeps
+the current-page rule only. `focusWidth` is 2px and `focusStyle` records the treatment.
+
+**Menu heading is 22px.** The open phone menu set its links at 26px to 30px and centred them, which
+left a third of the screen empty under the header and dwarfed the Start planning button. Links
+now start under the header hairline at 22px on a 44px row, and the button is full size. Measured
+against Aman's phone menu (19px, regular, top-aligned under a hairline).
+
+**Carousel arrows are plain arrowheads.** No circle and no wash. The two sit together at the
+bottom right of the hero's text block, on the line of its last action, at every width.
+
 ## 3.1.0
 
 From the owner's callout round of 25 October 2026 (`docs/CALLOUTS-2026-10-25.md`). Under the
