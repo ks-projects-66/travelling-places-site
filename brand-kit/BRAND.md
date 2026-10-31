@@ -1,6 +1,6 @@
 # Travelling Places brand system
 
-Version 3.1.0 is the canonical source for website and marketing production.
+Version 3.2.0 is the canonical source for website and marketing production.
 
 Travelling Places should feel established, personal, and quietly confident. Belmond is a reference for restraint, image priority, and typographic balance. Do not reproduce Belmond layouts, wording, assets, or proprietary typefaces.
 
@@ -87,7 +87,7 @@ Use the spacing tokens. Do not invent nearby values.
 
 The content shell is 1200px maximum with responsive gutters from 20px to 48px. Reading copy is limited to 720px or 68 characters. Section spacing ranges from 72px to 120px, with a documented 64px floor below 680px, where the standard band would otherwise squeeze the mobile rhythm to a 40px spread. Use 24px between a heading and lead copy, 16px between a heading and ordinary body copy, and 16px between paragraphs.
 
-Images and fields are normally square-cornered. Text buttons use the full pill radius. Avoid floating cards and repeated boxed content where an open layout will work. Where content is a set of equal promises, white square cards on mist, with no shadow, are allowed. Lists of inclusions are short phrases in navy, two by two, separated by space rather than rules or markers. Supplied partner marks made for light grounds sit on a small white plate sized to their clear space when they appear on navy, never inside a large panel.
+Images and fields are normally square-cornered. Text buttons use the full pill radius. Avoid floating cards and repeated boxed content where an open layout will work. Where content is a set of equal items with no photograph, set them as equal columns divided by a 1px vertical rule in the line colour (the column rule), not as white cards; the rule collapses to space when the columns stack. Inside a column, short points are a ruled list: rows between 1px rules in the line colour, body size, regular weight, in ink. Inside a photograph card, inclusions are short phrases in ink at regular weight, two by two, separated by space rather than rules or markers. A list point is never bold or navy, so it never reads as a link. A card carries one text link at most. Supplied partner marks made for light grounds sit on a small white plate sized to their clear space when they appear on navy, never inside a large panel.
 
 ## Buttons and links
 
