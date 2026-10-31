@@ -18,15 +18,22 @@ const closeMenu = ({ restoreFocus = false } = {}) => {
   if (wasOpen && restoreFocus) menuToggle?.focus();
 };
 
-const openMenu = () => {
+const openMenu = ({ fromKeyboard }) => {
   menuToggle?.setAttribute('aria-expanded', 'true');
   nav?.classList.add('is-open');
   document.body.classList.add('menu-open');
-  // Move focus into the panel so a keyboard or screen-reader user is not left behind the overlay.
-  nav?.querySelector('a')?.focus();
+  // A keyboard user is moved into the panel so they are not left behind the overlay. A tap is
+  // not: iOS Safari never focuses a tapped button, so it read the scripted focus as keyboard
+  // focus and painted the focus ring on the first link (owner, 31 October 2026: a red box on
+  // Tailor-made). After a tap, Tab still lands on the first link through the trap below, and a
+  // screen reader's next item is the first link because the panel follows the toggle.
+  if (fromKeyboard) nav?.querySelector('a')?.focus();
 };
 
-menuToggle?.addEventListener('click', () => (menuIsOpen() ? closeMenu() : openMenu()));
+// A click with detail 0 came from Enter or Space on the focused toggle, not from a pointer.
+menuToggle?.addEventListener('click', (event) =>
+  menuIsOpen() ? closeMenu() : openMenu({ fromKeyboard: event.detail === 0 }),
+);
 nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => closeMenu()));
 
 // The panel covers the page, so it needs the three things any overlay owes a keyboard user:
