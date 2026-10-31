@@ -73,9 +73,11 @@ jobs:
         if: always()
         run: pnpm test:brand
 
-      # Reference images are generated on ubuntu-latest and committed from the refresh job below.
-      # Comparing them here is therefore like-for-like. A run started from a machine whose
-      # references were made on Windows will diff on text rendering alone.
+      # Reference images are generated on ubuntu-latest by the refresh job below, which uploads them
+      # for a person to review and commit. Comparing them here is therefore like-for-like. A run
+      # started from a machine whose references were made on Windows will diff on text rendering
+      # alone. pnpm test:visual starts its own preview server (qa/visual/run.mjs); this step ran
+      # without one until 31 October 2026 and failed every scenario on a refused connection.
       - name: Visual regression
         if: always()
         run: pnpm test:visual
@@ -129,11 +131,9 @@ jobs:
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm build
 
+      # test:visual:ref starts its own preview server (qa/visual/run.mjs).
       - name: Generate references
-        run: |
-          pnpm preview --port 4322 &
-          npx wait-on http://127.0.0.1:4322/ --timeout 60000 || sleep 10
-          pnpm test:visual:ref
+        run: pnpm test:visual:ref
 
       # Deliberately an artifact, not a commit. New baselines are a statement that the current
       # appearance is correct, and only a person can make that statement.

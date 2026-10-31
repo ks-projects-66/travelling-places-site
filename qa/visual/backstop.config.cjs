@@ -73,7 +73,10 @@ const components = [
   { label: 'footer', url: '/', selectors: ['.site-footer'], viewports: VISUAL_COMPONENTS },
   { label: 'hero-photo', url: '/', selectors: ['.page-hero'], viewports: VISUAL_COMPONENTS },
   { label: 'carousel', url: '/', selectors: ['[data-carousel]'], viewports: VISUAL_COMPONENTS },
-  { label: 'journal-feature', url: '/journal/', selectors: ['.journal-feature'], viewports: VISUAL_COMPONENTS },
+  // '.journal-lead', not '.journal-feature'. The lead story's markup was renamed in b24558c and this
+  // selector was not, so for a round of baselines it matched nothing and Backstop stored its
+  // "Element not found" image as the reference. Placeholder matched placeholder and it passed.
+  { label: 'journal-feature', url: '/journal/', selectors: ['.journal-lead'], viewports: VISUAL_COMPONENTS },
   { label: 'journal-rows', url: '/journal/', selectors: ['.journal-rows'], viewports: VISUAL_COMPONENTS },
   { label: 'team-cards', url: '/who-we-are/', selectors: ['.team-roster .card-grid'], viewports: VISUAL_COMPONENTS },
   { label: 'contact-form', url: '/contact/', selectors: ['.enquiry-form'], viewports: VISUAL_COMPONENTS },
