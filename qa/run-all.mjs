@@ -50,36 +50,10 @@ const results = [
   run('brand', 'node', ['qa/brand/run-brand.mjs']),
 ];
 
-// BackstopJS does not manage a server the way Playwright's webServer does, so one is started here
-// and torn down afterwards. Playwright has already released 4322 by this point.
+// qa/visual/run.mjs starts and stops its own preview server. Playwright has already released 4322
+// by this point.
 if (process.env.SKIP_VISUAL !== '1') {
-  const { spawn } = await import('node:child_process');
-  const server = spawn('node', ['node_modules/astro/astro.js', 'preview', '--host', '127.0.0.1', '--port', '4322'], {
-    cwd: ROOT,
-    stdio: 'ignore',
-    detached: false,
-  });
-
-  const ready = async () => {
-    for (let i = 0; i < 40; i += 1) {
-      try {
-        const res = await fetch('http://127.0.0.1:4322/');
-        if (res.ok) return true;
-      } catch {
-        /* not up yet */
-      }
-      await new Promise((r) => setTimeout(r, 500));
-    }
-    return false;
-  };
-
-  if (await ready()) {
-    results.push(run('visual regression', 'npx', ['backstop', 'test', '--config=qa/visual/backstop.config.cjs']));
-  } else {
-    console.error('visual regression skipped: preview server did not come up on 4322');
-    results.push({ name: 'visual regression', code: 1, ok: false });
-  }
-  server.kill();
+  results.push(run('visual regression', 'node', ['qa/visual/run.mjs', 'test']));
 }
 
 run('aggregate', 'node', ['qa/report/aggregate.mjs']);
