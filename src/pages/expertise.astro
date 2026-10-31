@@ -60,6 +60,9 @@ const rendered = await Promise.all(
               <ul class="inclusions">
                 {data.points.map((point) => <li>{point}</li>)}
               </ul>
+              {data.link && (/^https?:\/\//.test(data.link.href)
+                ? <a class="text-link service-link" href={data.link.href} target="_blank" rel="noreferrer">{data.link.label}<span class="visually-hidden"> (opens in a new tab)</span></a>
+                : <a class="text-link service-link" href={data.link.href}>{data.link.label}</a>)}
             </article>
           ))}
         </div>

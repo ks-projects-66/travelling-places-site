@@ -588,6 +588,10 @@
   text-wrap: pretty;
 }
 
+.service-card .service-link {
+  margin-top: 1.75rem;
+}
+
 @media (max-width: 520px) {
   .inclusions {
     grid-template-columns: 1fr;
