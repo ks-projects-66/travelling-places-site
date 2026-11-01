@@ -1,35 +1,40 @@
-# Copy deck, round 3, with the final fixes applied by Claude
+# Copy deck, round 4: Wexas-matched lines rewritten, judge's fixes applied
 
 A proposal for Karim's approval, 1 November 2026. Nothing here is applied to the site until he
 approves it. It follows `docs/copy-review/BRIEF.md`: structure unchanged, Gina's words first, new
 copy pared back, "relationships" never "connections", one main action ("Start planning"), and the
 ATIA protection wording flagged rather than changed.
 
-Sources are named per entry. "Gina verbatim" and "Gina, trimmed" name the file in
-`docs/source/gina-2026-09/`. "Gina verbatim" allows the corrections the site's source notes
-already record: obvious typos ("complementary" to "complimentary", "you holiday" to "your
-holiday"), capitals lowered to sentence case, and dashes turned into colons or full stops.
-"Gina, trimmed" means words were deleted from her sentence and none added, apart from punctuation.
-"Gina, lightly edited" means one or two of her words were changed, and the entry names them.
+**Round 4 (Karim, 1 November 2026: "Yes, rewrite them").** Every line of Gina's that appears word
+for word on wexas.com is replaced with new wording that keeps her facts. Her lines with no match
+stay exactly as she wrote them. The phrase-by-phrase check is at the end. Where a matched sentence
+carried a claim that was Wexas's before it was hers (the family business, the in-house events,
+the unbiased approach, experts who have been where you are going), the claim is left out and
+asked of Gina rather than restated in new words.
+
+Sources are named per entry, always with the file in `docs/source/gina-2026-09/` where Gina is
+the source. Four tags:
+- "Gina verbatim (file)": her words, with only the corrections the site's source notes already
+  record: obvious typos ("complementary" to "complimentary"), capitals lowered to sentence case,
+  and dashes turned into colons or full stops.
+- "Gina, trimmed (file)": words deleted from her sentence and none added, apart from punctuation.
+- "New": written for this deck. Every fact in it is named beside it, with its file.
+- "Unchanged": today's text is not Gina's and stays as it is. Never used for her words.
 
 **Gaps.** `[NEEDS GINA: ...]` is a note to Gina and never renders. Where a field must show the
 gap on the page, the entry says "Renders as TODO pill:" and gives the pill's text, which uses the
 site's existing red placeholder.
 
 **Action labels.** Every main action reads Start planning. Secondary and form controls ("Explore
-tailor-made travel", "More about Virtuoso", "Prepare my enquiry", "Send an enquiry instead") are
-not main actions and stay as they are. "New" means written for this deck; every fact in a new line is
-named beside it. "Unchanged" means today's text is not Gina's and stays as it is.
+tailor-made travel", "Why Virtuoso matters", "Prepare my enquiry", "Send an enquiry instead") are
+not main actions and stay as they are.
 
 Fields that exist in the data but render nowhere today are listed at the end of each page, kept
 as they are. Word counts are counted by hand, against today's text.
 
-Rule for choosing among Gina's lines (from round 2, kept): each of her sentences appears once on
-the site, so a field that would repeat another page gets a different line or new copy. Where a new
-choice had to be made, a line of hers that does not match wexas.com was preferred wherever one fits
-the field and is not already used elsewhere. Two fields have no such line and use a matched one:
-services.luxury body (first sentence) and luxury.themes[0].body. Both are named in their entries
-and in the Wexas check at the end. Fields that already carry her words keep them, as the brief says.
+Rule for choosing among Gina's lines: each of her sentences appears once on the site, so a field
+that would repeat another page gets a different line or new copy. Only her lines with no match on
+wexas.com are used.
 
 ## Home
 
@@ -65,8 +70,8 @@ Source: Unchanged
 
 ### home.intro.lead  (src/data/home.json)
 Current: Personal, professional advice is still the best way to see the world.
-Proposed: Plan with people who have travelled widely and will give you an honest opinion.
-Source: New. "All of our advisors have travelled extensively" and "give you honest opinions" are Gina's (about-travelling-places.md, "Talk to the experts" and the CLIA paragraph). 14 words against today's 12. Her nearest line, "It's hard to overstate the benefit of talking to an expert when it comes to planning your holiday.", runs to 18 words in a short display slot and matches wexas.com word for word; Karim may prefer it regardless.
+Proposed: Talk it through with an advisor who has travelled widely.
+Source: New. Advisors who have travelled extensively: about-travelling-places.md ("Talk to the experts"). Claims nothing more; round 3's "honest opinion" went beyond its source, which is about ships only. 10 words against today's 12. Her nearest line, "It's hard to overstate the benefit of talking to an expert...", matches wexas.com.
 
 ### home.intro.detail  (src/data/home.json)
 Current: From a quick escape to a three-month journey, Travelling Places brings together more than 100 years of collective industry experience to get the details right.
@@ -85,8 +90,8 @@ Source: Unchanged
 
 ### home.journeys.intro  (src/data/home.json)
 Current: Every traveller is different. We bring first-hand knowledge and careful judgement to the way you want to explore.
-Proposed: Whether you would rather be on the water or ashore, we start with how you like to travel.
-Source: New. Names what the two cards below offer (a cruise, or a luxury stay ashore) and faces the reader under a heading about the reader. Claims nothing. Replaces Gina's "We pool our resources..." from round 2, which read as agency language in this slot. 18 words, the same as today.
+Proposed: Whether it is a cruise or a stay ashore, we start with how you like to travel.
+Source: New. "A cruise or a stay ashore" names the two cards below: Cruising (src/content/services/cruising.md) and Luxury travel (src/content/services/luxury.md). Starting from how the client travels follows Gina's "take time to get to know you as a traveller" (about-travelling-places.md), as a fact, not her wording. Claims nothing else. 17 words against today's 18.
 
 ### home.journeys.cards[0].label  (src/data/home.json)
 Current: Cruising
@@ -100,8 +105,8 @@ Source: Unchanged
 
 ### services.cruising.summary, shown on the home Cruising card  (src/content/services/cruising.md)
 Current: From intimate luxury vessels to the world's great river routes.
-Proposed: Honest opinions on the ships we sail on and inspect.
-Source: New, from Gina's "We sail on and inspect ships regularly to ensure we can give you honest opinions" (about-travelling-places.md), which stays whole on About. It claims opinions on the ships the team has sailed or inspected, not on every ship. 10 words, the same as today.
+Proposed: Advice on the ships we sail on and inspect.
+Source: New, from Gina's "We sail on and inspect ships regularly" (about-travelling-places.md), which stays whole on About. It claims advice on the ships the team has sailed or inspected, not on every ship. "Honest" is left to her About paragraph, so the word appears once on the site. 9 words against today's 10.
 
 ### home.journeys.cards[1].label  (src/data/home.json)
 Current: Luxury travel
@@ -115,8 +120,8 @@ Source: Unchanged
 
 ### services.luxury.summary, shown on the home Luxury travel card  (src/content/services/luxury.md)
 Current: Exceptional stays and thoughtful privileges through Virtuoso.
-Proposed: Hotels and private guides, hand-selected by your specialist.
-Source: New, from Gina's "a specialist who knows your destination... They'll then hand-select accommodations, sights, cruises, excursions and private guides" (tailor.md). Leaves Virtuoso to the band below, so the home page names Virtuoso extras once. Removes "thoughtful privileges". 8 words against today's 7.
+Proposed: Hotels and private guides, chosen by your advisor.
+Source: New. The facts (an advisor who chooses the accommodation and private guides) are from tailor.md; its wording ("hand-select") matches wexas.com and is not used. Leaves Virtuoso to the band below, so the home page names Virtuoso extras once. Removes "thoughtful privileges". 8 words against today's 7.
 
 ### home.virtuoso.heading  (src/data/home.json)
 Current: More doors open with the right connections.
@@ -125,18 +130,18 @@ Source: New. Removes "connections" and the boast about access (decision 5). "Can
 
 ### home.virtuoso.body  (src/data/home.json)
 Current: Our Virtuoso membership connects you with leading hotels, cruise lines, destination specialists and tour partners around the world.
-Proposed: Travelling Places is a Virtuoso member. At participating hotels and cruise lines, our clients may receive extras like these.
-Source: New. Virtuoso membership: luxury-travel-with-travelling-places.md and about-travelling-places.md. One hedge, at the point of the benefit ("participating... may"); "these" points to her two benefits, which sit beside it in this band. Her closing Virtuoso line stays out, as the owner decided on 25 October (CO11). 19 words against today's 18.
+Proposed: Travelling Places is a Virtuoso member, so at participating hotels and cruise lines you receive extras like these.
+Source: New. Virtuoso membership: luxury-travel-with-travelling-places.md and about-travelling-places.md. One limit, "participating", and no modal on top of it; one person, "you", as in her two benefits, which sit beside it in this band and carry her own "perhaps". Her closing Virtuoso line stays out, as the owner decided on 25 October (CO11). 18 words, the same as today.
 
 ### home.virtuoso.button  (src/data/home.json)
 Current: Why Virtuoso matters
-Proposed: More about Virtuoso
-Source: New. Plainer, and it says where the button goes.
+Proposed: Keep
+Source: Unchanged. One label fewer to change; it is a secondary link, not the main action.
 
 ### virtuoso.benefits, shown in the home band  (src/data/virtuoso.json)
 Current: The two benefits, "At your hotel" and "On your cruise". See the Luxury page entries.
 Proposed: Keep
-Source: Gina verbatim; titles unchanged
+Source: Gina verbatim (luxury-travel-with-travelling-places.md); titles unchanged
 
 ### home.founder.heading  (src/data/home.json)
 Current: A travel company built on curiosity and care.
@@ -151,7 +156,7 @@ Source: Unchanged (restates about-travelling-places.md; register C26)
 ### home.founder.body  (src/data/home.json)
 Current: More than thirty years on, it is still a privately owned, family business, and the team still works the way she intended: listen carefully, give honest advice and look after every detail.
 Proposed: More than 30 years on, Gina still works with clients as a travel advisor, on the Mountain where she started.
-Source: New, from facts she supplied. Over 30 years: about-travelling-places.md and why-book-with-travelling-places.md. Travel advisor: her approved role (src/content/team/gina-storey.md). Tamborine Mountain: about-travelling-places.md. Drops "privately owned, family business", which the Wexas check found on wexas.com; it remains in her About paragraph (about.story[1]) and in the About meta description (src/pages/who-we-are.astro), both pending Karim's Wexas decision. Replaces "the way she intended", which no source records. 20 words against today's 32.
+Source: New, from facts she supplied. Over 30 years: about-travelling-places.md and why-book-with-travelling-places.md. Travel advisor: her approved role (src/content/team/gina-storey.md). Tamborine Mountain: about-travelling-places.md. Drops "privately owned, family business", which matches wexas.com; round 4 takes it out of About too and asks Gina whether it holds. Replaces "the way she intended", which no source records. 20 words against today's 32.
 
 ### home.founder.quote  (src/data/home.json)
 Current: Our focus is on you, ensuring we offer the very best arrangements to fulfil your travel dreams.
@@ -175,8 +180,8 @@ Source: Unchanged
 
 ### home.journal.intro  (src/data/home.json)
 Current: Stories, practical advice and first-hand discoveries from Gina and the team.
-Proposed: Travel notes and practical advice from the team.
-Source: New. Drops the list of three, and "Gina", since no article carries her byline (four are bylined Travelling Places, one is Sienna's).
+Proposed: Notes from the office for the trip you are planning.
+Source: New. Drops the list of three, and "Gina", since no article carries her byline (four are bylined Travelling Places, one is Sienna's). Worded apart from the journal page and newsletter lines, which round 3 had made near-identical. 10 words against today's 12.
 
 ### home.journal.allLink  (src/data/home.json)
 Current: Read the journal
@@ -185,18 +190,18 @@ Source: Unchanged
 
 ### why-book.heading, home band  (src/data/why-book.json)
 Current: Why book with Travelling Places?
-Proposed: Keep
-Source: Gina verbatim (why-book-with-travelling-places.md)
+Proposed: What you can expect from us.
+Source: New. Gina's heading follows wexas.com's "Why book with Wexas?" word for word but for the name. The new heading introduces the four promises beside it and claims nothing.
 
 ### why-book.intro  (src/data/why-book.json)
 Current: At Travelling Places, we specialise in bespoke travel experiences. Our itineraries are just samples of what we can arrange, and can be changed depending on your precise needs, finances and ideas by our experienced destination advisors.
-Proposed: Keep
-Source: Gina verbatim (why-book-with-travelling-places.md)
+Proposed: Every trip starts from your own ideas, and your advisor shapes it around your needs and your budget.
+Source: New. The facts are Gina's (why-book-with-travelling-places.md): advisors shape each trip to the client's needs, finances and ideas. Her sentences match wexas.com, and the site has no sample itineraries for her "just samples" to point to. 18 words against today's 37.
 
 ### why-book.contactLead and contactMiddle  (src/data/why-book.json)
 Current: Contact one of our consultants on [phone] to discuss how we can tailor your holiday. Or email [email]
-Proposed: Keep
-Source: Gina verbatim (why-book-with-travelling-places.md)
+Proposed: contactLead "Call us on", contactMiddle "or email". Renders: Call us on 07 5545 1600 or email travel@travellingplaces.com.au
+Source: New. Phone and email: site.json. Gina's sentence matches wexas.com. The same two fields drive the closing band on every other page, so this one change covers them all.
 
 ### why-book.cta  (src/data/why-book.json)
 Current: Start planning
@@ -205,37 +210,37 @@ Source: Unchanged (WORK-PLAN Q13)
 
 ### why-book.promises[0].title  (src/data/why-book.json)
 Current: Talk to the experts
-Proposed: Keep
-Source: Gina verbatim (about-travelling-places.md)
+Proposed: Advisors who travel
+Source: New, from the body below. Gina's title matches wexas.com.
 
 ### why-book.promises[0].body  (src/data/why-book.json)
 Current: Our advisors have travelled widely and keep travelling and training, so what they share is first-hand and impartial. We pool what we know across the team, and every itinerary is shaped around your needs and your budget.
 Proposed: All of our advisors have travelled extensively and are delighted to share this first-hand knowledge and experience with you. We undertake constant training and travel regularly so that you can be assured of up-to-date knowledge of your travel destination.
-Source: Gina verbatim (about-travelling-places.md), two of her sentences in place of a paraphrase; only the hyphen in "first-hand" added. 39 words; her opening sentence would take it past 40. Neither sentence matches wexas.com (see the check at the end).
+Source: Gina verbatim (about-travelling-places.md), two of her sentences in place of a paraphrase; only the hyphen in "first-hand" added. Neither sentence matches wexas.com. Today's body drops out because "impartial" restates her "unbiased, informed approach" and "designed around your individual needs and budget", both of which match. 39 words.
 
 ### why-book.promises[1].title  (src/data/why-book.json)
 Current: Personal service
-Proposed: Keep
-Source: Gina verbatim (about-travelling-places.md)
+Proposed: Getting to know you
+Source: New, from the body below. Gina's title matches wexas.com.
 
 ### why-book.promises[1].body  (src/data/why-book.json)
 Current: We treat our clients as we would wish to be treated. Before we suggest anything, we take the time to understand how you like to travel, so the holiday we plan together is one you will love.
-Proposed: We like to treat our clients as we like to be treated ourselves. Our advisors will do more than just organise your holiday logistics. Instead they'll take time to get to know you as a traveller.
-Source: Gina, trimmed (about-travelling-places.md; "pride themselves on their level of personal service and" cut from the second sentence). 36 words.
+Proposed: Before we suggest anything, we ask what you enjoy, what you would rather skip and how quickly you like to move. The ideas we bring you come from that conversation, and we build the plan with you.
+Source: New. The facts are Gina's: advisors get to know the client as a traveller and plan the holiday together with them (about-travelling-places.md), and the pace is set around the client (tailor.md). Her sentences, and today's "treat our clients as we would wish to be treated", match wexas.com. 37 words.
 
 ### why-book.promises[2].title  (src/data/why-book.json)
 Current: Honest pricing
-Proposed: Keep
-Source: Gina verbatim (about-travelling-places.md)
+Proposed: A price for your dates
+Source: New, from the body below. Gina's title matches wexas.com.
 
 ### why-book.promises[2].body  (src/data/why-book.json)
 Current: We do not quote low-season "from" prices for dates you may never travel. We price your own itinerary for the dates you have in mind, so the price we give you is accurate from the start.
-Proposed: We believe it's unfair to show "from" prices that relate to the low season, when you may not want to travel. That's why we assess your itinerary for the dates you want, so we can give you an accurate price.
-Source: Gina, trimmed (about-travelling-places.md; "that", "just", "you", "take the time to", "personal", "to travel", "that" and "for your holiday" cut). Her reason, "when you may not want to travel", is restored. "We believe" stays, so the criticism of "from" pricing reads as her view. 40 words.
+Proposed: Keep
+Source: Unchanged (register C27: today's text, rewritten from Gina's facts in about-travelling-places.md; her own sentence opens with "unfair to just show you", which matches wexas.com). 36 words.
 
 ### why-book.promises[3].title  (src/data/why-book.json)
 Current: Financial security
-Proposed: Keep [FLAG: Gina to confirm] This title presents ATIA accreditation as financial protection; ATIA says accreditation is not a compensation scheme (WORK-PLAN Q8, register C20).
+Proposed: Keep [FLAG: Gina to confirm] This title presents ATIA accreditation as financial protection; ATIA says accreditation is not a compensation scheme (WORK-PLAN Q8, register C20). It also matches wexas.com; her answer on the flag decides the new title.
 Source: Gina verbatim (about-travelling-places.md, "Financial security")
 
 ### why-book.promises[3].body  (src/data/why-book.json)
@@ -258,30 +263,33 @@ Not shown to visitors. Not part of the deck.
 
 ## Tailor-made (Expertise)
 
+Every Gina line on this page is from tailor.md, and all of tailor.md matches wexas.com, headings
+included. The page keeps its structure and her facts; the wording is new throughout.
+
 ### tailor-made.heading, page title  (src/data/tailor-made.json)
 Current: Tailor-made and luxury holidays
-Proposed: Keep
-Source: Gina verbatim (tailor.md)
+Proposed: Tailor-made travel
+Source: New. Gina's title matches wexas.com. The new one is the navigation label, Tailor-made (navigation.json), with its noun. Used in the browser tab.
 
 ### Meta description  (src/pages/expertise.astro)
 Current: Tell us what you're looking for and speak to a specialist who knows your destination. Tailor-made holidays, cruising, expeditions and luxury travel from Tamborine Mountain.
-Proposed: Keep
-Source: Unchanged (today's text: the first sentence trims tailor.md, the second adds the site's own service list, so the whole is not a trim)
+Proposed: Tailor-made holidays, cruises, expeditions and luxury travel, planned with an advisor from the Main Street office on Tamborine Mountain.
+Source: New. The four services: the four cards on the page (src/content/services/). Main Street, Tamborine Mountain: site.json. Drops today's first sentence, a trim of tailor.md that matches wexas.com.
 
 ### tailor-made.heroLead  (src/data/tailor-made.json)
 Current: Tailor-made and
-Proposed: Keep
-Source: Gina verbatim (tailor.md)
+Proposed: Travel, made
+Source: New. Gina's hero is her title, which matches wexas.com.
 
 ### tailor-made.heroAccent  (src/data/tailor-made.json)
 Current: luxury holidays.
-Proposed: Keep
-Source: Gina verbatim (tailor.md)
+Proposed: to measure.
+Source: New. "Made to measure" is what tailor-made means, set in the hero's two-line pattern. Claims nothing.
 
 ### tailor-made.intro  (src/data/tailor-made.json)
 Current: Tell us what you're looking for, and we'll make sure you speak to a specialist who knows your destination better than anyone else. They'll then hand-select accommodations, sights, cruises, excursions and private guides, as well as arrange transfers, visas, flights and all other travel requirements. They'll also customise the pace of your holiday, so that it suits your individual needs, creating a never-before-seen tour you're sure to love. The aim is simple: to help you create your ideal holiday, and to organise it flawlessly.
-Proposed: Keep
-Source: Gina verbatim (tailor.md)
+Proposed: Tell us where you would like to go and how you like to travel. Your advisor then chooses the hotels, sightseeing, cruises and private guides, and arranges the flights, transfers and visas around them. The pace is yours to set.
+Source: New. Every fact is from tailor.md: accommodation, sights, cruises, excursions and private guides chosen for you; transfers, visas and flights arranged; the pace customised. Support during the trip is left to sections[1] below. Drops her "better than anyone else", "never-before-seen tour" and "organise it flawlessly", which are wexas.com's claims as well as its words, and her "specialist who knows your destination", which waits with [NEEDS GINA] 11. 39 words against today's 86.
 
 ### services.cruising.label  (src/content/services/cruising.md)
 Current: Ocean & river cruising
@@ -290,8 +298,8 @@ Source: Unchanged
 
 ### services.cruising body  (src/content/services/cruising.md)
 Current: Whether you're drawn to a small luxury vessel, a river through Europe or a grand ocean voyage, we help you weigh what matters: atmosphere, cabin, dining, shore time and pace.
-Proposed: Ocean, river or expedition, we advise on ships, cabins and itineraries, and arrange the flights and hotels on either side of your cruise, with up-to-date knowledge from our CLIA training.
-Source: New. CLIA membership, training on cruise lines and "up to date knowledge": about-travelling-places.md. Ocean, river and expedition vessels: same file. Cabin and itinerary guidance, pre- and post-cruise arrangements: the card's own list (cruising.md `points`). Flights and hotels: tailor.md. Replaces "we help you weigh", and Gina's own cruise sentence stays on About only. 30 words.
+Proposed: We advise on river, ocean and expedition cruises, from the ship to the cabin, and arrange the flights and hotels either side. As CLIA members, we train with cruise lines worldwide.
+Source: New. Ocean, river and expedition vessels: about-travelling-places.md. Cabin guidance and pre- and post-cruise arrangements: the card's own list (cruising.md `points`). Flights and hotels: tailor.md. CLIA membership and "extensive training of cruise lines globally": about-travelling-places.md, stated as a fact beside the advice, not as its cause. Opens on its subject, replacing round 3's dangling "Ocean, river or expedition,". 31 words.
 
 ### services.cruising.link.label  (src/content/services/cruising.md)
 Current: Search cruises and current offers
@@ -315,8 +323,8 @@ Source: Unchanged
 
 ### services.luxury body  (src/content/services/luxury.md)
 Current: The most memorable luxury is personal: a genuine welcome, a room chosen well, and experiences that bring you closer to a place. Our Virtuoso connections add recognition and value where available.
-Proposed: Luxury is having a travel specialist who knows the region you're visiting. Through Virtuoso, you may be offered breakfast or a room upgrade at participating hotels when you check in.
-Source: First sentence Gina, lightly edited (luxury-travel-with-travelling-places.md): her "an expert travel consultant" becomes "a travel specialist", her own word from the section heading "Your own personal travel specialist", so the page uses one role noun. It matches wexas.com; the rest of that section of hers either also matches or is used elsewhere, so no unmatched line fits (see the rule at the top). Second sentence New, hedged ("participating", "may"); breakfast, the room upgrade and checking in are Gina's (same file, "Imagine checking into your hotel..."). Removes "connections" and the word "extras", and keeps one person ("you") throughout. 30 words.
+Proposed: For us, luxury starts with good advice from someone who has travelled widely. Through Virtuoso, participating hotels can add breakfast or a room upgrade when you check in.
+Source: New. Advisors who have travelled extensively: about-travelling-places.md (no match). Her luxury sentence ("Luxury is having an expert travel consultant who knows the region...") matches wexas.com, and its claim waits with [NEEDS GINA] 11. Breakfast, the room upgrade and checking in: same file, "Imagine checking into your hotel..." (no match). One limit ("participating") and one modal ("can"). Removes "connections". 28 words.
 
 ### services.tailor-made.label  (src/content/services/tailor-made.md)
 Current: Tailor-made journeys
@@ -325,48 +333,48 @@ Source: Unchanged
 
 ### services.tailor-made body  (src/content/services/tailor-made.md)
 Current: Complex itineraries become simple when one team sees the whole picture. We coordinate flights, rail, touring, stays and transfers around the way you prefer to travel, so every connection fits.
-Proposed: A trip can mean flights, rail, visas, several hotels and an excursion with a private guide. We arrange it as one itinerary, paced the way you like to travel.
-Source: New. Flights, visas, accommodation, excursions and private guides: tailor.md. Rail: the card's own list (tailor-made.md `points`). Pace set around the traveller: "customise the pace of you holiday" (tailor.md). Drops round 2's "with your specialist on hand throughout", which sections[1] on the same page already says in Gina's words. 29 words.
+Proposed: A trip can mean flights, rail, visas, hotels and an excursion with a private guide. We arrange it as one itinerary, paced the way you like to travel.
+Source: New. Flights, visas, accommodation, excursions and private guides: tailor.md (facts only). Rail: the card's own list (tailor-made.md `points`). Pace set around the traveller: tailor.md. Round 3's "several hotels" is cut back to "hotels", since no source gives a number. 28 words.
 
 ### tailor-made.sections[0].heading  (src/data/tailor-made.json)
 Current: What is tailor-made travel?
-Proposed: Keep
-Source: Gina verbatim (tailor.md)
+Proposed: How a tailor-made trip comes together
+Source: New. Gina's heading matches wexas.com.
 
 ### tailor-made.sections[0].paragraphs[0]  (src/data/tailor-made.json)
 Current: It's easy to sell a package holiday off the shelf. But, to create a trip that's truly bespoke takes skill, knowledge and a genuine passion for travel. And, that's where we come in. Our experts have been where you're going, trying out the accommodation and experiences we recommend, so they can create a holiday experience that's unique to you.
-Proposed: Keep
-Source: Gina verbatim (tailor.md)
+Proposed: A package holiday is the same trip for everyone who books it. A tailor-made one starts with a conversation, and is built for you by advisors who have travelled widely and still travel regularly.
+Source: New. Advisors who have travelled extensively and travel regularly: about-travelling-places.md, "Talk to the experts" (no match). Drops "Our experts have been where you're going, trying out the accommodation and experiences we recommend", which is wexas.com's claim as well as its words; see [NEEDS GINA] 11. 35 words against today's 60.
 
 ### tailor-made.sections[0].paragraphs[1]  (src/data/tailor-made.json)
 Current: The holiday ideas we offer have been crafted with local knowledge and insight, to inspire curious travellers to look beyond what they would be able to book independently. We go above and beyond the role of traditional travel consultant.
-Proposed: Keep
-Source: Gina verbatim (tailor.md)
+Proposed: The ideas on this site and in our brochures are where that conversation can begin. None of them is fixed.
+Source: New. The brochures: luxury-travel-with-travelling-places.md ("on our website and in our brochures"). The ideas are samples that can be changed: why-book-with-travelling-places.md. Both sentences of Gina's match wexas.com, and "above and beyond the role of traditional travel consultant" is a claim this deck does not restate. 20 words against today's 39.
 
 ### tailor-made.sections[0].paragraphs[2]  (src/data/tailor-made.json)
 Current: Then, we add in the final ingredient: you. We want to know what you want from your trip, whether that's some time to relax, a taste of adventure or a combination of the two. Every holiday can be personalised to include activities you want to try, regions you want to explore, sites you don't want to miss, and much more besides.
-Proposed: Keep
-Source: Gina verbatim (tailor.md)
+Proposed: After that, the trip follows what you tell us. You might want rest, or adventure, or some of each, and there may be one region you have always meant to see, or something you have never tried.
+Source: New. Relaxation and adventure, regions to explore and things not yet tried: tailor.md (facts only; the sentences match wexas.com). 37 words against today's 60.
 
 ### tailor-made.sections[1].heading  (src/data/tailor-made.json)
 Current: Why book a tailor-made holiday?
-Proposed: Keep
-Source: Gina verbatim (tailor.md)
+Proposed: Why plan it this way?
+Source: New. Gina's heading matches wexas.com.
 
 ### tailor-made.sections[1].paragraphs[0]  (src/data/tailor-made.json)
 Current: We want you to have a holiday to remember, a trip you'll talk about with friends and family, an experience you'll treasure forever. To do that, your holiday has to be as unique as you are. That's why we'll take the time to find out what you like, what you don't like, the kind of things you enjoy doing or would like to do but haven't tried yet. Then, we'll tailor your holiday around those requirements.
-Proposed: Keep
-Source: Gina, trimmed (tailor.md; "find out about you. We'll take the time to" cut from her third sentence, which removes her repeated "take the time to find out")
+Proposed: Because a holiday works best when it fits you. We find out what you like and what you don't, and the itinerary is planned around the answers.
+Source: New. Finding out likes and dislikes, then planning around them: tailor.md (facts only; the sentences match wexas.com). 27 words against today's 77.
 
 ### tailor-made.sections[1].paragraphs[1]  (src/data/tailor-made.json)
 Current: And that's not all. Right up to the day you depart, and even during your trip, your specialist will be on hand to answer any further questions you may have, and to make changes so your journey is as smooth as it should be, wherever it takes you.
-Proposed: And that's not all. Right up to the day you depart, and even during your trip, your specialist will be on hand to answer any further questions you may have. Should you wish to make changes, they'll be on hand to make your journey as smooth as it should be, wherever it takes you.
-Source: Gina verbatim (tailor.md), her two sentences exactly. Today's text rewords them into one, adding words. Round 2 cut her second "be on hand to", which turned an offer to be available into a promise of a smooth journey; it is restored, and her repeated "on hand" stays as hers.
+Proposed: Your advisor is still there after you book. Up to the day you leave, and while you are away, they answer your questions and make changes if your plans shift.
+Source: New. Support before departure and during the trip, including changes: tailor.md (facts only; the sentences match wexas.com). Promises availability, not a smooth journey. 30 words against today's 49.
 
 ### Closing band  (src/components/WhyBook.astro, short)
 Current: Gina's contact line and Start planning. See Shared footer.
-Proposed: Keep
-Source: Gina verbatim for the contact line (why-book-with-travelling-places.md); Unchanged for the Start planning button, which shortens her "Start planning your holiday" (WORK-PLAN Q13)
+Proposed: The new contact line (see why-book.contactLead on Home) and Start planning.
+Source: New for the contact line; Unchanged for the Start planning button (WORK-PLAN Q13)
 
 ### Image alt text on Tailor-made  (src/pages/expertise.astro, service files)
 Current: The hero lake and the four card photographs (Lyon river ship, Antarctic penguins, Lake Como villa, Nine Arch Bridge).
@@ -385,48 +393,48 @@ Source: Gina verbatim (luxury-travel-with-travelling-places.md), set in sentence
 
 ### Meta description  (src/pages/luxury.astro)
 Current: Extraordinary tailor-made journeys to the world's finest destinations: your own travel specialist, Virtuoso benefits, ATIA accreditation and support while you travel.
-Proposed: Keep
-Source: Unchanged (today's text, not Gina's). The opening phrase is Gina's; the list after the colon is built from her section headings with words added ("Virtuoso benefits", "support while you travel"), so it is not a trim. It names ATIA accreditation without presenting it as protection.
+Proposed: Luxury travel planned from Tamborine Mountain: your own advisor, Virtuoso benefits, ATIA accreditation and support while you travel.
+Source: New. Today's opening phrase, "Extraordinary tailor-made journeys to the world's finest destinations", matches wexas.com and is replaced; the list after the colon is today's, with "travel specialist" changed to "advisor", the page's role noun. Tamborine Mountain: site.json. It names ATIA accreditation without presenting it as protection.
 
 ### luxury.heroLead  (src/data/luxury.json)
 Current: Luxury travel with
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (luxury-travel-with-travelling-places.md). Shares only "luxury travel with" with wexas.com's page name: the plain descriptive name of the page, kept
 
 ### luxury.heroAccent  (src/data/luxury.json)
 Current: Travelling Places.
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (luxury-travel-with-travelling-places.md)
 
 ### luxury.heroLede  (src/data/luxury.json)
 Current: Bespoke journeys crafted with care.
-Proposed: Keep
-Source: Gina verbatim (luxury-travel-with-travelling-places.md)
+Proposed: Luxury, planned with you.
+Source: New. Gina's line matches wexas.com ("Bespoke journeys, crafted with care"). Claims nothing beyond planning with the client (about-travelling-places.md, "as you work together to plan"). 4 words against today's 5.
 
 ### luxury.intro.heading  (src/data/luxury.json)
 Current: More than just a holiday
-Proposed: Keep
-Source: Gina verbatim
+Proposed: What luxury means to us
+Source: New. Gina's heading matches wexas.com.
 
 ### luxury.intro.paragraphs[0]  (src/data/luxury.json)
 Current: Travelling Places offers extraordinary tailor-made journeys to the world's finest destinations. But real luxury travel is about far more than just five-star hotels; here are some of the ways that we provide a truly luxurious experience on every step of your journey:
-Proposed: Keep
-Source: Gina verbatim
+Proposed: A fine hotel is only part of a luxury trip. The rest is the advisor behind it and the extras that come through Virtuoso. Here is how we look after each part.
+Source: New. Points to the themes below: your advisor and Virtuoso benefits (luxury-travel-with-travelling-places.md, facts only); Peace of mind follows as the third. Gina's paragraph matches wexas.com throughout. 33 words against today's 43.
 
 ### luxury.themes[0].title  (src/data/luxury.json)
 Current: Your specialist
-Proposed: Keep
-Source: Unchanged (editorial, from Gina's "Your own personal travel specialist")
+Proposed: Your advisor
+Source: New. "Advisor" is the role noun used across this deck and on Gina's approved team card (src/content/team/gina-storey.md). Today's title shortens her "Your own personal travel specialist", which matches wexas.com.
 
 ### luxury.themes[0].body  (src/data/luxury.json)
 Current: One expert who knows the region first-hand, plans every detail around you, and stays on hand while you travel.
-Proposed: Your travel specialist will be on hand while you are on the road, to step in if plans need changing.
-Source: Gina, trimmed (luxury-travel-with-travelling-places.md, "Full support while travelling"; "not only before your departure, but also" and "or you need some unforeseen support" cut). It matches wexas.com, and it is her only line on support while travelling, so no unmatched line fits (see the rule at the top). 20 words against today's 19.
+Proposed: One person plans the trip with you, and you can reach them while you travel if anything needs to change.
+Source: New. Support while travelling, including changed plans: luxury-travel-with-travelling-places.md, "Full support while travelling" (facts only; her sentence matches wexas.com). Opens on "One person" so it does not repeat the title. 21 words against today's 19.
 
 ### luxury.themes[0].link.label  (src/data/luxury.json)
 Current: Meet our team
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (luxury-travel-with-travelling-places.md). Three plain words, also on wexas.com; kept as a link label, not copy.
 
 ### luxury.themes[1].title  (src/data/luxury.json)
 Current: Privileged access
@@ -440,23 +448,23 @@ Source: New, following the title. Shown only if the photograph goes missing.
 
 ### luxury.themes[1].body  (src/data/luxury.json)
 Current: Virtuoso benefits at hotels and on cruises, plus in-house events and invitations for our clients.
-Proposed: Virtuoso benefits at participating hotels and cruise lines, and in-house events and invitations for our clients. [NEEDS GINA: do the in-house events and invitations still happen? If not, the body ends after "cruise lines". (registers C20, C21)]
-Source: New. Events and invitations: Gina's "A community of travellers" (luxury-travel-with-travelling-places.md); "regular" is left out until she confirms. "Benefits" is her word ("There are lots of benefits for our clients through the Virtuoso affiliation", same file), hedged by "participating"; the examples sit in the Virtuoso band lower on this page, so they are not repeated here. 16 words against today's 15.
+Proposed: Through Virtuoso, our clients receive benefits at participating hotels and on affiliate cruise lines. [NEEDS GINA: do you hold events or send invitations for clients? If so, one sentence in your own words to follow this one (registers C20, C21)]
+Source: New. "Benefits for our clients through the Virtuoso affiliation": luxury-travel-with-travelling-places.md (no match). "Affiliate cruise line": same file, the cruise benefit. Limited by "participating". A complete sentence on its own, so the page reads correctly before Gina answers. The events line ("We offer regular in-house events and exclusive invitations") matches wexas.com and is a claim Wexas makes about itself, so it waits for her. 14 words against today's 15.
 
 ### luxury.themes[2].title  (src/data/luxury.json)
 Current: Peace of mind
-Proposed: Keep [FLAG: Gina to confirm] Paired with the ATIA line below, this title presents accreditation as protection (WORK-PLAN Q8, register C20).
-Source: Unchanged (draft copy, register C21)
+Proposed: Keep [FLAG: Gina to confirm] Paired with the ATIA line below, this title presents accreditation as protection (WORK-PLAN Q8, register C20). "Peace of mind" also appears on wexas.com; her answer on the flag decides the new title.
+Source: Gina, trimmed (luxury-travel-with-travelling-places.md, "your peace of mind"); a draft title, register C21
 
 ### luxury.themes[2].body  (src/data/luxury.json)
 Current: An independent, ATIA-accredited company with long-standing partners, and comprehensive travel insurance on offer.
-Proposed: Keep [FLAG: Gina to confirm] ATIA accreditation offered as peace of mind, from her "Complete protection" section; ATIA says accreditation is not a compensation scheme (WORK-PLAN Q8, register C20). Insurance "on offer" also awaits her confirmation (register C21, R3).
-Source: Unchanged (draft copy, register C21)
+Proposed: An independent, ATIA-accredited agency, with travel insurance available on request. [FLAG: Gina to confirm] Under "Peace of mind", ATIA accreditation still reads as protection; ATIA says accreditation is not a compensation scheme (WORK-PLAN Q8, register C20). Whether insurance is offered also awaits her (registers C21, R3).
+Source: New wording, same claims. "Long-standing partners" and "comprehensive travel insurance" match wexas.com and are cut; independence, ATIA accreditation and insurance stay, from luxury-travel-with-travelling-places.md. The flag stays on the claim. 11 words against today's 14.
 
 ### virtuoso.intro.heading  (src/data/virtuoso.json)
 Current: Virtuoso membership
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (luxury-travel-with-travelling-places.md)
 
 ### virtuoso.intro.paragraphs[0]  (src/data/virtuoso.json)
 Current: Travelling Places is proud to be associated with the invitation only Virtuoso global travel group. Recognised as the top 1% of agencies worldwide, Travelling Places benefits from networking with industry leaders globally and securing exclusive opportunities for our clients to benefit from.
@@ -471,7 +479,7 @@ Source: Unchanged (editorial)
 ### virtuoso.benefits[0].body  (src/data/virtuoso.json)
 Current: Imagine checking into your hotel and being recognised with complimentary breakfast, a food and beverage credit to use at the hotel and perhaps a room upgrade.
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (luxury-travel-with-travelling-places.md)
 
 ### virtuoso.benefits[1].title  (src/data/virtuoso.json)
 Current: On your cruise
@@ -481,7 +489,7 @@ Source: Unchanged (editorial)
 ### virtuoso.benefits[1].body  (src/data/virtuoso.json)
 Current: Sail on a Virtuoso affiliate cruise line and receive on board credits, an invitation to an exclusive cocktail party or a unique shore excursion.
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (luxury-travel-with-travelling-places.md)
 
 ### virtuoso.profile.label  (src/data/virtuoso.json)
 Current: View our Virtuoso profile
@@ -491,12 +499,12 @@ Source: Unchanged
 ### virtuoso.whiteLabel.label  (src/data/virtuoso.json)
 Current: Some of the wonderful travel opportunities through Virtuoso (not shown; the link is missing, so the page shows "TODO: Virtuoso white-label link not yet supplied")
 Proposed: Keep
-Source: Gina, trimmed ("Here is a link to" cut); link awaits her (register C18)
+Source: Gina, trimmed (luxury-travel-with-travelling-places.md; "Here is a link to" cut; no match on wexas.com); link awaits her (register C18)
 
 ### Closing band  (src/components/WhyBook.astro, short)
 Current: See Shared footer.
-Proposed: Keep
-Source: Gina verbatim for the contact line (why-book-with-travelling-places.md); Unchanged for the Start planning button, which shortens her "Start planning your holiday" (WORK-PLAN Q13)
+Proposed: The new contact line (see why-book.contactLead on Home) and Start planning.
+Source: New for the contact line; Unchanged for the Start planning button (WORK-PLAN Q13)
 
 ### Image alt text on Luxury  (src/data/luxury.json, src/pages/luxury.astro)
 Current: The island hero, the Ravello arch, the Camogli terrace, the stone portico and "Virtuoso member".
@@ -507,8 +515,8 @@ Source: Unchanged
 
 ### Meta description  (src/pages/who-we-are.astro)
 Current: Travelling Places was established by Gina Storey on Tamborine Mountain in 1993. Tailor-made holidays, CLIA cruise expertise and Virtuoso membership, from a privately owned, family business.
-Proposed: Keep
-Source: Unchanged (today's text; its facts are Gina's, from about-travelling-places.md)
+Proposed: Travelling Places was established by Gina Storey on Tamborine Mountain in 1993. Tailor-made holidays, CLIA cruise expertise and Virtuoso membership.
+Source: New, today's text with "from a privately owned, family business" cut: the phrase matches wexas.com and waits for Gina ([NEEDS GINA] 12). The facts are Gina's, from about-travelling-places.md.
 
 ### About hero lead  (src/pages/who-we-are.astro)
 Current: People who know travel,
@@ -528,12 +536,12 @@ Source: New, from Gina's "All of our advisors have travelled extensively and are
 ### about.intro.heading  (src/data/about.json)
 Current: About Travelling Places
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (about-travelling-places.md), a plain page title
 
 ### about.intro.paragraphs[0]  (src/data/about.json)
 Current: At Travelling Places our aim is simple: to help you create your perfect tailor-made holiday, and to organise it flawlessly. It's something we've been doing successfully now for over 30 years. So, whether you're interested in history, wildlife, culture, adventure or relaxation, our destination specialists will help you arrange every element of your holiday, right down to the smallest detail, and all tailored to suit your own, individual requirements. That, after all, is the beauty of tailor-made travel. You decide where you want to go, how long for, what to see and who to see it with. The rest is taken care of by us.
-Proposed: Keep
-Source: Gina verbatim
+Proposed: For more than 30 years, Travelling Places has planned holidays around the people taking them. Your interest might be history, wildlife, culture, adventure or relaxation. You choose where to go, for how long and with whom, and your advisor arranges the rest, from the flights to the last transfer.
+Source: New, keeping Gina's facts (about-travelling-places.md): over 30 years, holidays tailored to the client, the client choosing destination, length and company, the specialists arranging everything else. Her list "history, wildlife, culture, adventure or relaxation" has no match on wexas.com and is kept; the rest of her paragraph matches ("our aim is simple", "organise it flawlessly", "right down to the smallest detail", "the beauty of tailor-made travel", "You decide where you want to go", "The rest is taken care of by us"). 49 words against today's 108. Shorter than today's because most of her paragraph matches; the prose section holds the shorter text without a layout change.
 
 ### about.story.heading  (src/data/about.json)
 Current: On the Mountain since 1993.
@@ -543,22 +551,22 @@ Source: Unchanged (editorial, from Gina's facts)
 ### about.story.paragraphs[0]  (src/data/about.json)
 Current: Travelling Places was established by Gina Storey in 1993 on Tamborine Mountain. Gina's experience in the industry began in New Zealand and took her to London for 10 years where she worked as a product development manager for British Airways and marketing manager for Australian company Jetset in the UK and Europe. Relocating to Australia Gina put her extensive industry experience into creating a travel agency with a focus on service and creating wonderful experiences for travellers. Over the years Travelling Places has developed a client base all over Australia who have come to the agency for our focus on service.
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (about-travelling-places.md). No match on wexas.com.
 
 ### about.story.paragraphs[1]  (src/data/about.json)
 Current: It's a great source of pride that, to this day, Travelling Places remains a privately owned, family business. It's a fact that enables us to put you, our customer, at the heart of everything we do.
-Proposed: Keep
-Source: Gina verbatim
+Proposed: Travelling Places is still an independent agency. [NEEDS GINA: is Travelling Places family-owned? If so, say so in a sentence of your own (register C20)]
+Source: New. Independent: luxury-travel-with-travelling-places.md ("an independent tour company", no match). Both of Gina's sentences match wexas.com ("great source of pride", "privately owned, family business", "heart of everything we do"), and the family business is Wexas's claim about Wexas, so it waits for her. The Mountain is left to the home founder line, so it is not said twice. 7 words against today's 37.
 
 ### about.cruise.heading  (src/data/about.json)
 Current: We sail on the ships we recommend.
-Proposed: Cruise advice from people who sail.
-Source: New. Today's heading claims every recommended ship has been sailed; Gina says "we sail on and inspect ships regularly" (about-travelling-places.md), which this matches.
+Proposed: Cruise advice, first-hand.
+Source: New. Today's heading claims every recommended ship has been sailed; Gina says "we sail on and inspect ships regularly" (about-travelling-places.md), which this matches without overstating. Avoids a third "people who" on the site (the About hero keeps the one).
 
 ### about.cruise.paragraphs[0]  (src/data/about.json)
 Current: As a member of Cruise Lines International Association (CLIA) we undertake extensive training of cruise lines globally. We sail on and inspect ships regularly to ensure we can give you honest opinions and share our up to date knowledge. Whether you like an intimate sailing vessel, a luxury cruise ship, an expedition to the far reaches of the globe, or a river vessel we would be delighted to help. Gina is recognised as a Global Cruise Icon. There are under 300 in the world so her knowledge is extensive and she loves finding the right experience for you.
 Proposed: Keep [NEEDS GINA: the awarding body for "Global Cruise Icon"; WORK-PLAN Q10 could not find it at CLIA (registers C20, R17)]
-Source: Gina verbatim, with the corrections the header allows: "Cruise Line International Association" corrected to the body's name, "Cruise Lines International Association", and her dash clause split into its own sentence. Her words stay, as Karim decided.
+Source: Gina verbatim (about-travelling-places.md), with the corrections the header allows: "Cruise Line International Association" corrected to the body's name, "Cruise Lines International Association", and her dash clause split into its own sentence. No match on wexas.com.
 
 ### about.cruise.link.label  (src/data/about.json)
 Current: Explore cruising
@@ -573,7 +581,7 @@ Source: Unchanged (editorial)
 ### about.virtuoso.paragraphs[0]  (src/data/about.json)
 Current: Invited to join the global network Virtuoso, Travelling Places is recognised as a member of this exclusive club (the top 1% of agencies globally) and is able to share the benefits of this affiliation with their clients.
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (about-travelling-places.md). No match on wexas.com.
 
 ### about.virtuoso.link.label  (src/data/about.json)
 Current: What Virtuoso means for you
@@ -593,7 +601,7 @@ Source: Unchanged (approved)
 ### team.gina-storey bio  (src/content/team/gina-storey.md)
 Current: Gina's decades in travel shape the agency's calm, personal approach. She established Travelling Places in 1993 and remains its curious traveller, trusted advisor and guiding hand.
 Proposed: Keep
-Source: Unchanged. Her bio is marked approved, and a career summary here would repeat the story paragraph higher on the same page.
+Source: Unchanged. Her bio is marked approved, and a career summary here would repeat the story paragraph higher on the same page. The bio is general ("calm, personal approach", "guiding hand") and names nothing a reader could check; Karim may want to offer Gina the founding facts for it (For Karim, item 5).
 
 ### team.renee.role  (src/content/team/renee.md)
 Current: TODO: confirm preferred job title
@@ -632,8 +640,8 @@ Source: Unchanged placeholder
 
 ### Closing band  (src/components/WhyBook.astro, short)
 Current: See Shared footer.
-Proposed: Keep
-Source: Gina verbatim for the contact line (why-book-with-travelling-places.md); Unchanged for the Start planning button, which shortens her "Start planning your holiday" (WORK-PLAN Q13)
+Proposed: The new contact line (see why-book.contactLead on Home) and Start planning.
+Source: New for the contact line; Unchanged for the Start planning button (WORK-PLAN Q13)
 
 ### Image alt text on About  (src/data/about.json, src/pages/who-we-are.astro, team files)
 Current: The team outside on Tamborine Mountain, "Gina Storey, founder of Travelling Places", the ship at sunset, the Greek sea-view room and "Virtuoso member".
@@ -649,13 +657,13 @@ Source: Unchanged
 
 ### Meta description  (src/pages/journal/index.astro)
 Current: Stories, practical advice and first-hand discoveries from Gina and the Travelling Places team.
-Proposed: Travel ideas and practical advice from the Travelling Places team on Tamborine Mountain.
-Source: New. Drops "Gina", since no article carries her byline.
+Proposed: The Travelling Places journal: travel notes from Tamborine Mountain, from Antarctica to river cruising.
+Source: New. Antarctica and river cruising: the articles looking-south-to-antarctica.md and uniworld-river-journeys.md. Drops "Gina", since no article carries her byline.
 
 ### journal-page.standfirst  (src/data/journal-page.json)
 Current: Stories, practical advice and first-hand discoveries from Gina and the team, for the journey ahead.
-Proposed: Travel ideas and practical advice from the Travelling Places team.
-Source: New. Drops the list of three, "for the journey ahead", the second "from" and "Gina" (no article carries her byline). 10 words against today's 15.
+Proposed: Practical advice and travel notes, from Antarctica to river cruising.
+Source: New. Antarctica and river cruising: the articles looking-south-to-antarctica.md and uniworld-river-journeys.md. Drops the list of three, "for the journey ahead" and "Gina" (no article carries her byline). Worded apart from the home journal line and the newsletter line. Says "from the team" nowhere, since the Imagine Holidays piece may be supplied content (For Karim, item 2). 10 words against today's 15.
 
 ### journal-page.logHeading  (src/data/journal-page.json)
 Current: More from the journal
@@ -724,8 +732,8 @@ Source: Unchanged
 
 ### Closing band  (src/components/WhyBook.astro, short)
 Current: See Shared footer.
-Proposed: Keep
-Source: Gina verbatim for the contact line (why-book-with-travelling-places.md); Unchanged for the Start planning button, which shortens her "Start planning your holiday" (WORK-PLAN Q13)
+Proposed: The new contact line (see why-book.contactLead on Home) and Start planning.
+Source: New for the contact line; Unchanged for the Start planning button (WORK-PLAN Q13)
 
 ### Image alt text on Journal  (journal files)
 Current: The cover descriptions for the five articles.
@@ -813,8 +821,8 @@ Source: Unchanged
 
 ### Closing band on every page but Home  (src/data/why-book.json via WhyBook.astro, short)
 Current: Contact one of our consultants on 07 5545 1600 to discuss how we can tailor your holiday. Or email travel@travellingplaces.com.au / Start planning
-Proposed: Keep
-Source: Gina verbatim for the contact line (why-book-with-travelling-places.md); Unchanged for the Start planning button, which shortens her "Start planning your holiday" (WORK-PLAN Q13)
+Proposed: Call us on 07 5545 1600 or email travel@travellingplaces.com.au / Start planning
+Source: New for the contact line (why-book.contactLead and contactMiddle; see Home), since Gina's matches wexas.com. Unchanged for the Start planning button (WORK-PLAN Q13)
 
 ### Header navigation and button  (src/data/navigation.json, src/components/SiteHeader.astro)
 Current: Tailor-made / Luxury / About us / Journal / Start planning / Menu / Close
@@ -849,12 +857,12 @@ Source: Unchanged
 ### top-bar.newsletter.magazineLabel, sign-up dialog  (src/data/top-bar.json)
 Current: Opt in for our luxury travel magazine
 Proposed: Keep
-Source: Gina verbatim
+Source: Gina verbatim (one-every-page-at-the-top.md)
 
 ### Sign-up dialog labels  (src/components/NewsletterDialog.astro)
 Current: Newsletter / Name * / Email * / Address / Phone / Sign up / TODO: Genesys not connected. Sign-ups reach the office inbox and are added by hand.
 Proposed: Keep
-Source: Unchanged (the fields follow Gina's list in one-every-page-at-the-top.md; placeholder per register C7)
+Source: Gina verbatim (one-every-page-at-the-top.md) for the field names; Unchanged for "Newsletter", "Sign up" and the placeholder (register C7)
 
 ### Footer brand line  (src/components/SiteFooter.astro)
 Current: Personal travel planning from Tamborine Mountain.
@@ -899,39 +907,48 @@ and is not part of this deck.
 
 **[NEEDS GINA]**
 1. Home founder quotation: one sentence of her own, or confirmation that "Our focus is on you..." is hers. A TODO pill shows until then (register C26).
-2. Luxury, "Benefits for our clients": whether the in-house events and invitations still happen (registers C20, C21).
-10. About cruise paragraph: the awarding body for "Global Cruise Icon" (registers C20, R17; WORK-PLAN Q10).
-3. Contact form note: who replies to an enquiry, and how soon (register C24).
-4. Contact, visiting the office: walk in, or call ahead for an appointment (with trading hours, register C15).
-5. Calendly line: how long the call is, whether by phone or Zoom, and whether to say "no obligation" (register C8).
-6. Antarctica article: Sienna's job title; the article shows "Travel advisor" while her team card holds it as unconfirmed (register C11).
-7. Renee's bio: two sentences, including whether the Covid detail and "longstanding" hold (register C12).
-8. Sienna's bio: two sentences, including whether she wrote the Uniworld piece, which the journal credits to Travelling Places (register C12).
-9. Jodie's bio: two sentences (register C12).
+2. Luxury, "Benefits for our clients": whether she holds events or sends invitations for clients, and if so one sentence in her own words (registers C20, C21).
+3. About cruise paragraph: the awarding body for "Global Cruise Icon" (registers C20, R17; WORK-PLAN Q10).
+4. Contact form note: who replies to an enquiry, and how soon (register C24).
+5. Contact, visiting the office: walk in, or call ahead for an appointment (with trading hours, register C15).
+6. Calendly line: how long the call is, whether by phone or Zoom, and whether to say "no obligation" (register C8).
+7. Antarctica article: Sienna's job title; the article shows "Travel advisor" while her team card holds it as unconfirmed (register C11).
+8. Renee's bio: two sentences, including whether the Covid detail and "longstanding" hold (register C12).
+9. Sienna's bio: two sentences, including whether she wrote the Uniworld piece, which the journal credits to Travelling Places (register C12).
+10. Jodie's bio: two sentences (register C12).
+11. Tailor-made and Luxury: whether each client is matched with an advisor who knows that destination, and whether the advisors have been to the places they recommend and tried the hotels. Her copy says both in wording that matches wexas.com, so the deck leaves the claims out until she confirms them for Travelling Places.
+12. About: whether Travelling Places is family-owned. Her "privately owned, family business" matches wexas.com word for word (register C20).
+13. The copy she supplied: where the matched text came from. Her five documents share long passages with wexas.com; she may have started from it, or both may share a source. Either way the new wording replaces it, and she should see why.
 
 **[FLAG: Gina to confirm]**
-1. Home band, "Financial security" title and body: ATIA licence and record scrutiny read as protection for client money (WORK-PLAN Q8, register C20).
-2. Luxury, "Peace of mind" title and body: ATIA accreditation offered as peace of mind; insurance "on offer" also needs her yes (registers C20, C21, R3).
+1. Home band, "Financial security" title and body: ATIA licence and record scrutiny read as protection for client money (WORK-PLAN Q8, register C20). The title also matches wexas.com.
+2. Luxury, "Peace of mind" title and body: ATIA accreditation offered as peace of mind; whether insurance is offered also needs her yes (registers C20, C21, R3).
 3. `why-book.json` `proof[1]` and the Financial security `paragraphs`, unused: "Full financial security: ATIA protected" and the trust-account sentence.
 
 **For Karim, not Gina**
 1. `looking-south-to-antarctica.md` still carries a stale comment calling the body mock-up text and "not Sienna's work". Register C10 settles that it is hers; delete the comment.
-2. Gina's existing bio stays as approved.
-3. The Imagine Holidays piece links to tmnews.com.au/imagine-holidays/ and the journal credits it to Travelling Places. A web check during round 2 suggested the published headline is "Imagine Holidays" and the byline "Supplied content", but that check is not recorded in the register or anywhere else in the repo. A person should open the page and confirm the headline and byline by eye before the title change is approved or the byline is defended.
-4. The About hero lines are typed into src/pages/who-we-are.astro rather than held in content, against the repo's content rule. Moving them is a code change and a separate decision, not part of this copy approval.
+2. The Imagine Holidays piece links to tmnews.com.au/imagine-holidays/ and the journal credits it to Travelling Places. A web check during round 2 suggested the published headline is "Imagine Holidays" and the byline "Supplied content", but that check is not recorded in the register or anywhere else in the repo. A person should open the page and confirm the headline and byline by eye before the title change is approved or the byline is defended.
+3. The About hero lines are typed into src/pages/who-we-are.astro rather than held in content, against the repo's content rule. Moving them is a code change and a separate decision, not part of this copy approval.
+4. When the deck is applied, each JSON `paragraphs` field or `source` note that holds Gina's matched text should say it is kept for the record and not shown, so nobody restores it from the CMS.
+5. Gina's approved bio is general. If she wants it to carry facts, the founding story (British Airways, Jetset, 1993) is hers and unmatched.
 
 **Wexas check (register C20), run 1 November 2026**
 
-Run through a summarising page fetch of three wexas.com pages (why-wexas, why-wexas/tailor-made-travel, why-wexas/luxury-travel-with-wexas). Confirmed by Claude on 1 November 2026 by an exact-phrase search of the raw text of the same three live pages: "hard to overstate the benefit of talking to an expert", "unfair to just show you", "privately owned, family business", "organise it flawlessly", "treat our clients as we like to be treated", "easy to sell a package holiday off the shelf", "never-before-seen tour", "Luxury is having an expert travel consultant", "regular in-house events" and "five-star hotels" all appear word for word. It changes the weight of decision 2, so it is Karim's call, not the deck's.
+Method: the raw HTML of three live wexas.com pages (why-wexas, why-wexas/tailor-made-travel,
+why-wexas/luxury-travel-with-wexas) was fetched, tags stripped, and each phrase below searched for
+exactly, ignoring case. Run by Claude on 1 November 2026, before and after the round 4 rewrite.
+Only these three pages were searched; a phrase marked "no match" may still appear elsewhere on
+wexas.com or on another site.
 
-Match or near match on wexas.com, and in this deck:
-- tailor.md, all of it: tailor-made.intro, sections[0] (three paragraphs), sections[1] (two paragraphs).
-- about-travelling-places.md: the About introduction ("our aim is simple", "You decide where you want to go..."), "It's a great source of pride... privately owned, family business" (about.story[1]), "It's hard to overstate..." (not used), "We like to treat our clients...", "pride themselves on their level of personal service" and "Instead they'll take time to get to know you" (promises[1] body), "We believe that it's unfair to just show you 'from' prices" (promises[2] body), "They have an unbiased, informed approach" (not used), "Every itinerary is designed around your individual needs and budget" (not used).
-- why-book-with-travelling-places.md: "we specialise in bespoke travel experiences. Our itineraries are just samples of what we can arrange" (why-book.intro).
-- luxury-travel-with-travelling-places.md: "extraordinary tailor-made journeys to the world's finest destinations" and "real luxury travel is about far more than just five-star hotels" (luxury.intro, and the Luxury meta description), "Bespoke journeys, crafted with care" (luxury.heroLede), "Luxury is having an expert travel consultant who knows the region you're visiting" (services.luxury body), "Your travel specialist will be on hand not only before your departure..." (luxury.themes[0].body), "We offer regular in-house events and exclusive invitations" (behind luxury.themes[1]), "Whether we're helping you choose that perfect hotel...", "We also offer comprehensive travel insurance" (behind luxury.themes[2]), and "an independent tour company with long-standing worldwide partners" (near match, behind luxury.themes[2]).
+Matched, so replaced in this deck (fields in brackets):
+- tailor.md: every heading and paragraph, including "Tailor-made and luxury holidays", "What is tailor-made travel", "Why book a tailor-made holiday", "hand-select", "better than anyone else", "customise the pace", "never-before-seen tour", "organise it flawlessly", "truly bespoke takes skill", "crafted with local knowledge and insight", "above and beyond the role of traditional travel consultant", "the final ingredient", "a taste of adventure", "sites you don't want to miss", "holiday to remember", "treasure forever", "Right up to the day you depart" (Tailor-made page, its meta description, the home Luxury card).
+- about-travelling-places.md: "our aim is simple", "right down to the smallest detail", "beauty of tailor-made travel", "You decide where you want to go", "The rest is taken care of by us" (about.intro); "great source of pride", "privately owned, family business", "heart of everything we do" (about.story[1], About meta); "Talk to the experts", "unbiased, informed approach", "designed around your individual needs and budget" (promises[0]); "Personal service", "pride themselves on their level of personal service", "holiday logistics", "take time to get to know you as a traveller", "treat our clients as we like to be treated" (promises[1]); "Honest pricing", "unfair to just show you" (promises[2]); "Financial security" (promises[3] title, flagged).
+- why-book-with-travelling-places.md: "Why book with", "specialise in bespoke travel experiences", "itineraries are just samples", "Contact one of our consultants", "to discuss how we can tailor your holiday", "Start planning your holiday", and the unused list ("Every step of the way", "Expert advice & support", "Inspirational ideas based on experience", "Personalised quotes and documentation", "Dedicated personal consultants", "Care and guidance pre, post and during").
+- luxury-travel-with-travelling-places.md: "Bespoke journeys", "crafted with care" (heroLede); "More than just a holiday", "extraordinary tailor-made journeys", "world's finest destinations", "five-star hotels", "truly luxurious experience", "every step of your journey" (luxury.intro, Luxury meta); "Your own personal travel specialist", "Luxury is having an expert travel consultant", "personalise your itinerary", "offer suggestions based on first-hand knowledge", "Meet our team" (themes[0], services.luxury); "on hand not only before your departure", "while you are on the road", "step in if plans need changing", "Full support while travelling" (themes[0]); "A community of travellers", "exclusive invitations", "community of explorers", "Visit our office today" (themes[1]); "long-standing worldwide partners", "comprehensive travel insurance", "peace of mind", "looking after your money", "An independent company with high standards", "unmatched in the industry", "Truly tailor-made travel", "plenty of travel inspiration", "choose that perfect hotel", "Learn more about tailor-made travel" (themes[2] and unused).
 
-No match found: "All of our advisors have travelled extensively..." and "We undertake constant training and travel regularly..." (promises[0] body), "We pool our resources..." (home.journeys.intro), "We sail on and inspect ships regularly", "a client base all over Australia", and the Virtuoso lines (top 1%, the hotel and cruise benefits, "There are lots of benefits...").
+No match, so kept as Gina wrote it: "All of our advisors have travelled extensively", "delighted to share this first-hand knowledge", "undertake constant training and travel regularly", "assured of up-to-date knowledge", "pool our resources", "collective knowledge", "sail on and inspect ships", "Cruise Line International Association", "Global Cruise Icon", "client base all over Australia", "established by Gina", "focus on service", "history, wildlife, culture, adventure or relaxation", "independent tour company", "fully accredited", "Established for over 30 years", "top 1%", "invitation only", "Imagine checking into your hotel", "food and beverage credit", "on board credits", "cocktail party", "lots of benefits for our clients", "Sign up for our newsletter", "luxury travel magazine".
 
-Not checked: Gina's Global Cruise Icon and CLIA sentences, her founding story, and her Why book lists, beyond the phrases above.
-
-Two consequences beyond wording. First, some matched sentences carry claims that were Wexas's own before they were Gina's: the privately owned, family business (now only in Gina's own About paragraph; round 3 took it out of the new home founder body), the unbiased approach, the comprehensive insurance and the in-house events. Each needs Gina to confirm it holds for Travelling Places, not only that the words are hers. Second, the brief's "Gina's language first" assumed the words are hers. Where they are copied, Karim may want new copy in those fields instead; this deck has not made that switch, because the brief does not allow it without his decision.
+**Round 4 result.** Every Proposed line, and the Current text of every field marked Keep, was
+split into runs of six words and each run searched for in the same three pages. None appears there.
+The one overlap found on the first run ("ocean, river and expedition cruises from", in the cruising
+card) was reordered. Six words is the test, so a shared phrase of five words or fewer can remain.

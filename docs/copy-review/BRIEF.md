@@ -12,9 +12,14 @@ applied to the site until Karim approves it.
    Wherever a field already carries her words, or her documents have a line that fits a field, use
    her words. Where a field's length forces a cut, cut by choosing her sentences, not by
    paraphrasing them.
-3. **Keep her words even where they are grand.** "Organise it flawlessly", "top 1%", "unmatched in
-   the industry" and similar stay when they are hers. The scorer does not penalise Gina-verbatim
-   lines for grandness.
+3. **Keep her words even where they are grand.** "Top 1%" and similar stay when they are hers. The
+   scorer does not penalise Gina-verbatim lines for grandness.
+3a. **Except where her words are wexas.com's (Karim, 1 November 2026, "Yes, rewrite them").** Much
+   of the copy she supplied matches three wexas.com pages word for word (the check is at the end of
+   COPY-DECK.md). Those lines get new wording that keeps her facts. A matched claim that was
+   Wexas's before it was hers (the family business, in-house events, the unbiased approach, experts
+   who have been where you are going) is left out and asked of Gina, not restated. "Organise it
+   flawlessly" and "unmatched in the industry" are among the matched lines.
 4. **Pare back everything that is not hers:** warm, sophisticated, specific, never boastful. The
    language guide (`docs/copy-review/language-guide-2026-11-01.md`) governs new copy.
 5. **"Relationships", never "connections"** (except technical uses such as an encrypted
