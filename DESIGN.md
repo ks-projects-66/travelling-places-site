@@ -293,8 +293,10 @@ rules rewritten above:
   the V onto the text edge and each placement sets only its box height: home 110px, Luxury 130px,
   About 90px, the same visible size the trimmed PNG had on Luxury and About. Home matches Luxury: mark
   above the heading in the lead column, benefits starting level with the heading. On About its row
-  carries a photograph, and the mark sits small above the heading. The contact row and the phone
-  footer show the mark under Virtuoso's 126px minimum, as they did before; see register C25.
+  carries a photograph, and the mark sits small above the heading. In the footer and contact rows
+  `minHeight` in `memberships.json` is a floor the scaled-down rows may not cross, so the mark is
+  never under Virtuoso's 126px minimum (owner, 1 November 2026). The cost: in the contact sidebar it
+  takes its own line, and on a phone the footer's Alatus column gives up about 10px.
 - **Footer:** night, the darkest surface on the site, with an inline email field that opens the
   sign-up dialog for Gina's other fields, and the street address beside phone and email.
 - **Journal:** the rubric is the category alone, sentence case and muted; the date moves to the

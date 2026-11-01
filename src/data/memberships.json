@@ -23,8 +23,9 @@
     "alt": "Virtuoso member",
     "url": "https://www.virtuoso.com/member/travelli34092",
     "status": "supplied",
-    "note": "Official Virtuoso colour SVG. Its artboard includes the clear space, so the strip height is larger than the visible logo.",
-    "stripHeight": 88
+    "note": "Official Virtuoso colour SVG. Its artboard includes the clear space, so the strip height is larger than the visible logo. minHeight 88 keeps the logo at least 126px wide, Virtuoso's digital minimum, wherever the row scales down.",
+    "stripHeight": 88,
+    "minHeight": 88
   },
   {
     "name": "Alatus",

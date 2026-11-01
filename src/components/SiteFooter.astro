@@ -35,8 +35,11 @@ const socials = [
           const img = markFor(m.image);
           // stripHeight evens out optical size: the Virtuoso and Alatus files carry wide white
           // margins and light wordmarks, so at one shared height they read half the size of ATIA
-          // and CLIA. The artwork itself is untouched.
-          const style = `--mark-h: ${m.stripHeight ?? 56}px`;
+          // and CLIA. The artwork itself is untouched. minHeight is a floor the phone scale-down
+          // may not cross: a body's own minimum size for its mark (Virtuoso's is 126px wide). The
+          // matching width stops the phone grid squeezing the mark narrower than that.
+          const min = m.minHeight ?? 0;
+          const style = `--mark-h: ${m.stripHeight ?? 56}px; --mark-min: ${min}px; --mark-min-w: ${Math.ceil(min * img.width / img.height)}px`;
           return (
             <li style={style}>
               {m.url
