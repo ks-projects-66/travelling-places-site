@@ -10,7 +10,7 @@ import home from '../data/home.json';
 import virtuoso from '../data/virtuoso.json';
 
 import teamOffice from '../assets/images/team/team-office.jpg';
-import virtuosoMark from '../assets/images/memberships/virtuoso-member-transparent.png';
+import virtuosoMark from '../assets/images/memberships/virtuoso-member-reverse-color.svg';
 import VirtuosoBenefits from '../components/VirtuosoBenefits.astro';
 
 import positano from '../assets/images/destinations/positano-golden-hour.jpg';
@@ -93,21 +93,18 @@ const journeyCards = home.journeys.cards.map((card) => {
 
     <section class="section home-virtuoso">
       <div class="shell virtuoso-grid">
+        {/* Virtuoso's own reverse artwork for dark grounds, straight on the navy. Its member logo
+            guidelines (June 2021) list a box around the logo as a misuse, which retired the white
+            plate this mark sat on until 1 November 2026. Same lead-column placement as Luxury. */}
         <div class="virtuoso-copy">
+          <Image class="home-virtuoso-mark" src={virtuosoMark} alt="Virtuoso member" height={110} loading="lazy" />
           <h2>{home.virtuoso.heading}</h2>
           <p>{home.virtuoso.body}</p>
           <a class="button button-white" href="/luxury/#virtuoso">{home.virtuoso.button}</a>
         </div>
         {/* Gina's two benefits, so the band says what membership does for a client rather than
-            only that it exists (docs/REFERENCES.md). The white card that held them is gone (CO4):
-            the benefits sit on the navy, and the supplied mark keeps a small white plate of its own,
-            sized to its clear space, because the artwork is not supplied for dark grounds. */}
-        <div class="virtuoso-side">
-          <span class="virtuoso-plate">
-            <Image src={virtuosoMark} alt="Virtuoso member" height={64} densities={[1, 2]} loading="lazy" />
-          </span>
-          <VirtuosoBenefits tone="dark" />
-        </div>
+            only that it exists (docs/REFERENCES.md). */}
+        <VirtuosoBenefits tone="dark" />
       </div>
     </section>
 

@@ -434,20 +434,19 @@ select:focus-visible {
 
 /* The supplied Virtuoso mark is artwork for light grounds. On navy it sits on a plate sized to its
    own clear space, never inside a large panel (CO4, CO11). */
-.virtuoso-plate {
-  display: inline-block;
-  padding: 0.9rem 1.1rem;
-  background: var(--white);
-  line-height: 0;
-}
-
-.virtuoso-plate img {
+/* The SVG's artboard carries Virtuoso's clear space inside it: the ink starts 37.1 units into a
+   218.38-unit-high box. The negative margin moves that empty space into the gutter so the V lines up
+   with the heading, without editing the supplied artwork. */
+.home-virtuoso-mark {
+  display: block;
   width: auto;
-  height: 64px;
+  height: 110px;
+  margin: 0 0 clamp(1.25rem, 2.5vw, 2rem) calc(110px * -37.1 / 218.38);
 }
 
-.virtuoso-side .virtuoso-plate {
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+/* The benefits start level with the heading, not the mark above it, as on Luxury. */
+.home-virtuoso .virtuoso-benefits {
+  padding-top: calc(110px + clamp(1.25rem, 2.5vw, 2rem));
 }
 
 .virtuoso-benefits {
@@ -887,6 +886,10 @@ blockquote {
   .virtuoso-copy h2,
   .about-copy h2 {
     max-width: 15ch;
+  }
+
+  .home-virtuoso .virtuoso-benefits {
+    padding-top: 0;
   }
 
   .founder-visual {

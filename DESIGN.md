@@ -286,9 +286,13 @@ rules rewritten above:
 
 - **Founder section, home:** the team photograph in the Main Street office, at its own ratio, with a
   quiet caption beneath, replaces Gina's portrait, which zoomed to a close-up on wide screens.
-- **Virtuoso:** one component, `VirtuosoBenefits.astro`, for home and Luxury. The supplied mark is a
-  transparent derivative; on navy it takes a small white plate. On About its row carries a
-  photograph, and the mark sits small above the heading.
+- **Virtuoso:** one component, `VirtuosoBenefits.astro`, for home and Luxury. On light grounds the
+  supplied mark is a transparent derivative. On the navy home band it is Virtuoso's own "Reverse,
+  Color" SVG with no plate (1 November 2026): Virtuoso's member logo guidelines (June 2021) list a box
+  around the logo as a misuse and supply reverse artwork for dark grounds. Home now matches Luxury:
+  mark above the heading in the lead column, its V aligned to the heading edge, benefits starting
+  level with the heading. On About its row carries a photograph, and the mark sits small above the
+  heading.
 - **Footer:** night, the darkest surface on the site, with an inline email field that opens the
   sign-up dialog for Gina's other fields, and the street address beside phone and email.
 - **Journal:** the rubric is the category alone, sentence case and muted; the date moves to the
