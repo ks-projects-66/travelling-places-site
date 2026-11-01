@@ -13,4 +13,4 @@ image: features/rail-nine-arch-bridge.jpg
 imageAlt: A train curving across the Nine Arch Bridge through rainforest in Sri Lanka
 ---
 
-Complex itineraries become simple when one team sees the whole picture. We coordinate flights, rail, touring, stays and transfers around the way you prefer to travel, so every connection fits.
+A trip can mean flights, rail, visas, hotels and an excursion with a private guide. We arrange it as one itinerary, paced the way you like to travel.

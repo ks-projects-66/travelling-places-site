@@ -1,7 +1,7 @@
 ---
 title: The right ship changes everything.
 label: Ocean & river cruising
-summary: From intimate luxury vessels to the world's great river routes.
+summary: Advice on the ships we sail on and inspect.
 order: 1
 anchor: cruising
 points:
@@ -16,4 +16,4 @@ link:
   href: https://travellingplaces.cruiseco.com.au/
 ---
 
-Whether you're drawn to a small luxury vessel, a river through Europe or a grand ocean voyage, we help you weigh what matters: atmosphere, cabin, dining, shore time and pace.
+We advise on river, ocean and expedition cruises, from the ship to the cabin, and arrange the flights and hotels either side. As CLIA members, we train with cruise lines worldwide.

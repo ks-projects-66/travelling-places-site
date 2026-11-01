@@ -45,7 +45,9 @@ const isoDate = post.data.date.toISOString().slice(0, 10);
         <aside>
           <p>Written by</p>
           <strong>{post.data.author}</strong>
-          {post.data.authorRole && <span>{post.data.authorRole}</span>}
+          {post.data.authorRole?.startsWith('TODO:')
+            ? <span class="placeholder-note" data-placeholder>{post.data.authorRole}</span>
+            : post.data.authorRole && <span>{post.data.authorRole}</span>}
         </aside>
         <div class="article-prose">
           <Content />

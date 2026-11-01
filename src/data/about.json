@@ -1,9 +1,9 @@
 {
-  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'About Travelling Places.docx'. Section headings other than 'About Travelling Places' and the four promise titles are editorial. Repetition removed on Karim's instruction of 28 September 2026; see docs/COPY-MAP.md. On 25 October 2026 the story row took Gina's portrait and the office photograph moved to the home page, so each photograph appears once (docs/CALLOUTS-2026-10-25.md, CO2). The four promises (expertise, service, pricing, financial security) moved to the home \"Why book\" band on 1 November 2026 and live in why-book.json.",
+  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'About Travelling Places.docx'. Section headings other than 'About Travelling Places' and the four promise titles are editorial. Repetition removed on Karim's instruction of 28 September 2026; see docs/COPY-MAP.md. On 25 October 2026 the story row took Gina's portrait and the office photograph moved to the home page, so each photograph appears once (docs/CALLOUTS-2026-10-25.md, CO2). The four promises (expertise, service, pricing, financial security) moved to the home \"Why book\" band on 1 November 2026 and live in why-book.json. Round 4 copy (owner's approval, 1 November 2026): docs/copy-review/COPY-DECK.md. Gina's lines that match wexas.com word for word were replaced with new wording that keeps her facts; her unmatched lines are unchanged. Open questions for her are listed at the end of the deck.",
   "intro": {
     "heading": "About Travelling Places",
     "paragraphs": [
-      "At Travelling Places our aim is simple: to help you create your perfect tailor-made holiday, and to organise it flawlessly. It's something we've been doing successfully now for over 30 years. So, whether you're interested in history, wildlife, culture, adventure or relaxation, our destination specialists will help you arrange every element of your holiday, right down to the smallest detail, and all tailored to suit your own, individual requirements. That, after all, is the beauty of tailor-made travel. You decide where you want to go, how long for, what to see and who to see it with. The rest is taken care of by us."
+      "For more than 30 years, Travelling Places has planned holidays around the people taking them. Your interest might be history, wildlife, culture, adventure or relaxation. You choose where to go, for how long and with whom, and your advisor arranges the rest, from the flights to the last transfer."
     ]
   },
   "story": {
@@ -13,11 +13,11 @@
     "imagePosition": "center 30%",
     "paragraphs": [
       "Travelling Places was established by Gina Storey in 1993 on Tamborine Mountain. Gina's experience in the industry began in New Zealand and took her to London for 10 years where she worked as a product development manager for British Airways and marketing manager for Australian company Jetset in the UK and Europe. Relocating to Australia Gina put her extensive industry experience into creating a travel agency with a focus on service and creating wonderful experiences for travellers. Over the years Travelling Places has developed a client base all over Australia who have come to the agency for our focus on service.",
-      "It's a great source of pride that, to this day, Travelling Places remains a privately owned, family business. It's a fact that enables us to put you, our customer, at the heart of everything we do."
+      "Travelling Places is still an independent agency."
     ]
   },
   "cruise": {
-    "heading": "We sail on the ships we recommend.",
+    "heading": "Cruise advice, first-hand.",
     "paragraphs": [
       "As a member of Cruise Lines International Association (CLIA) we undertake extensive training of cruise lines globally. We sail on and inspect ships regularly to ensure we can give you honest opinions and share our up to date knowledge. Whether you like an intimate sailing vessel, a luxury cruise ship, an expedition to the far reaches of the globe, or a river vessel we would be delighted to help. Gina is recognised as a Global Cruise Icon. There are under 300 in the world so her knowledge is extensive and she loves finding the right experience for you."
     ],

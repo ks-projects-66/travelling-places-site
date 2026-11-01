@@ -1,7 +1,7 @@
 ---
 title: Luxury that feels like you.
 label: Luxury travel
-summary: Exceptional stays and thoughtful privileges through Virtuoso.
+summary: Hotels and private guides, chosen by your advisor.
 order: 3
 anchor: luxury
 points:
@@ -13,4 +13,4 @@ image: features/luxury-lake-como-villa.jpg
 imageAlt: A cream villa with terraced gardens and tall cypresses on a wooded point above Lake Como, mountains behind
 ---
 
-The most memorable luxury is personal: a genuine welcome, a room chosen well, and experiences that bring you closer to a place. Our Virtuoso connections add recognition and value where available.
+For us, luxury starts with good advice from someone who has travelled widely. Through Virtuoso, participating hotels can add breakfast or a room upgrade when you check in.

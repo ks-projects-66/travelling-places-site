@@ -313,8 +313,8 @@ Source: Unchanged
 
 ### services.expeditions body  (src/content/services/expeditions.md)
 Current: Remote journeys reward careful choices. We match your interests, comfort and sense of adventure with an experienced operator and the vessel best suited to where you are going.
-Proposed: From Antarctica and the Arctic to the Kimberley, we match you with an experienced operator and the right departure, whether for wildlife or photography, and help you prepare before you go.
-Source: New, every fact from the card's own list (expeditions.md `points`): "Antarctica and the Arctic", "The Kimberley and remote islands", "Wildlife, photography and specialist departures", "preparation guidance". Matching to "an experienced operator" is today's claim, kept. Insurance is left out: it is on the register C20 list awaiting Gina. 31 words.
+Proposed: From Antarctica and the Arctic to the Kimberley, we match you with an experienced operator and the right departure for wildlife or photography, and help you prepare.
+Source: New, every fact from the card's own list (expeditions.md `points`): "Antarctica and the Arctic", "The Kimberley and remote islands", "Wildlife, photography and specialist departures", "preparation guidance". Matching to "an experienced operator" is today's claim, kept. Insurance is left out: it is on the register C20 list awaiting Gina. 26 words, trimmed when applied so the card runs five lines on a phone like the others.
 
 ### services.luxury.label  (src/content/services/luxury.md)
 Current: Luxury travel

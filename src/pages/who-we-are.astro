@@ -19,7 +19,12 @@ import virtuosoMark from '../assets/images/memberships/virtuoso-member-color.svg
 const team = await Promise.all(
   (await getCollection('team'))
     .sort((a, b) => a.data.order - b.data.order)
-    .map(async (member) => ({ ...member, Body: (await render(member)).Content })),
+    .map(async (member) => ({
+      ...member,
+      Body: (await render(member)).Content,
+      // A bio held only in an HTML comment is a draft no source supports, so the card shows a gap.
+      hasBio: (member.body ?? '').replace(/<!--[\s\S]*?-->/g, '').trim() !== '',
+    })),
 );
 
 
@@ -37,14 +42,14 @@ const rows = [
 
 <BaseLayout
   title={`About us | ${site.name}`}
-  description="Travelling Places was established by Gina Storey on Tamborine Mountain in 1993. Tailor-made holidays, CLIA cruise expertise and Virtuoso membership, from a privately owned, family business."
+  description="Travelling Places was established by Gina Storey on Tamborine Mountain in 1993. Tailor-made holidays, CLIA cruise expertise and Virtuoso membership."
   page="team"
 >
   <main id="main">
     <PageHero
       lead="People who know travel,"
       accent="and you."
-      lede="Advisors with a shared curiosity about the world, and a remarkably long memory for the details our clients care about."
+      lede="We have all travelled widely, and would love to hear where you want to go next."
       image={teamOutside}
       alt="The Travelling Places team together on Tamborine Mountain"
       position="center 14%"
@@ -83,7 +88,7 @@ const rows = [
       <div class="shell">
         <h2>Meet your advisors</h2>
         <div class="card-grid card-grid--four">
-          {team.map(({ id, data, Body }) => (
+          {team.map(({ id, data, Body, hasBio }) => (
             <article class="team-card" id={`team-${id}`}>
               {data.portrait
                 ? <Image src={data.portrait} alt={data.portraitAlt ?? data.name}
@@ -93,7 +98,9 @@ const rows = [
               <p class="role">{data.role}</p>
               <Body />
               {!data.approved && (
-                <p class="placeholder-note" data-placeholder>TODO: title and bio not yet approved</p>
+                <p class="placeholder-note" data-placeholder>
+                  {hasBio ? 'TODO: title and bio not yet approved' : 'TODO: title and bio not yet supplied'}
+                </p>
               )}
             </article>
           ))}

@@ -532,7 +532,13 @@ select:focus-visible {
   font-size: var(--tp-type-lead);
 }
 
-.about-copy > p:not(.about-lead) {
+/* The placeholder pill keeps its own red, so a missing founder quotation is seen as a gap. */
+.about-copy > .placeholder-note {
+  display: table;
+  margin-bottom: 1.5rem;
+}
+
+.about-copy > p:not(.about-lead, .placeholder-note) {
   max-width: 43rem;
   color: var(--ink-muted);
 }

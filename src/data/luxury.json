@@ -1,20 +1,20 @@
 {
-  "source": "Title, hero lines and intro: Gina Storey, supplied 25 September 2026 (website.zip), her words with only typos and long dashes corrected. The three theme blurbs are Claude Design draft copy (design handoff of 27 September 2026, change 1), adopted by Karim on 28 September 2026 in place of her seven sections. They need Gina's sign-off (register C21).",
-  "title": "Luxury Travel with Travelling Places",
+  "source": "Title, hero lines and intro: Gina Storey, supplied 25 September 2026 (website.zip), her words with only typos and long dashes corrected. The three theme blurbs are Claude Design draft copy (design handoff of 27 September 2026, change 1), adopted by Karim on 28 September 2026 in place of her seven sections. They need Gina's sign-off (register C21). Round 4 copy (owner's approval, 1 November 2026): docs/copy-review/COPY-DECK.md. Gina's lines that match wexas.com word for word were replaced with new wording that keeps her facts; her unmatched lines are unchanged. Open questions for her are listed at the end of the deck.",
+  "title": "Luxury travel with Travelling Places",
   "heroLead": "Luxury travel with",
   "heroAccent": "Travelling Places.",
-  "heroLede": "Bespoke journeys crafted with care.",
+  "heroLede": "Luxury, planned with you.",
   "intro": {
-    "heading": "More than just a holiday",
+    "heading": "What luxury means to us",
     "paragraphs": [
-      "Travelling Places offers extraordinary tailor-made journeys to the world's finest destinations. But real luxury travel is about far more than just five-star hotels; here are some of the ways that we provide a truly luxurious experience on every step of your journey:"
+      "A fine hotel is only part of a luxury trip. The rest is the advisor behind it and the extras that come through Virtuoso. Here is how we look after each part."
     ]
   },
   "themes": [
     {
-      "title": "Your specialist",
-      "photo": "TODO: photo for Your specialist",
-      "body": "One expert who knows the region first-hand, plans every detail around you, and stays on hand while you travel.",
+      "title": "Your advisor",
+      "photo": "TODO: photo for Your advisor",
+      "body": "One person plans the trip with you, and you can reach them while you travel if anything needs to change.",
       "link": {
         "label": "Meet our team",
         "href": "/who-we-are/"
@@ -23,16 +23,16 @@
       "imageAlt": "A stone archway opening onto a sunlit garden, with a glimpse of the sea beyond, in Ravello"
     },
     {
-      "title": "Privileged access",
-      "photo": "TODO: photo for Privileged access",
-      "body": "Virtuoso benefits at hotels and on cruises, plus in-house events and invitations for our clients.",
+      "title": "Benefits for our clients",
+      "photo": "TODO: photo for Benefits for our clients",
+      "body": "Through Virtuoso, our clients receive benefits at participating hotels and on affiliate cruise lines.",
       "image": "features/luxury-terrace-camogli.jpg",
       "imageAlt": "A shaded terrace table above a calm blue sea at Camogli, on the Italian Riviera"
     },
     {
       "title": "Peace of mind",
       "photo": "TODO: photo for Peace of mind",
-      "body": "An independent, ATIA-accredited company with long-standing partners, and comprehensive travel insurance on offer.",
+      "body": "An independent, ATIA-accredited agency, with travel insurance available on request.",
       "image": "features/luxury-stone-portico-sea.jpg",
       "imageAlt": "A pale stone table beneath an open portico, looking out to a calm sea"
     }

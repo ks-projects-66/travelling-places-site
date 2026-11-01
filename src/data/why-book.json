@@ -1,9 +1,9 @@
 {
-  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'Why book with Travelling Places.docx'. The button reads \"Start planning\" (was \"Start planning your holiday\") and the \"Contact Travelling Places\" link is gone, on the owner's instruction of 25 October 2026 that the main action has one label everywhere and the phone number is the only secondary (docs/WORK-PLAN.md, Q13). The \"ATIA protected\" line is held for Gina's confirmation (register C20). Regrouped 25 October 2026 with the owner's approval (docs/CALLOUTS-2026-10-25.md, CO6): her two lists mixed services with credentials, so the five services now sit under one of her two titles (\"Every step of the way\") and the two credentials stand apart. Her other title, \"Expert advice & support\", and the two introductory lines ending in colons were dropped to keep the text to today's measure. No words were added. On 1 November 2026 the owner removed the services and credentials column; `services` and `proof` are kept here, unused, so her text is not lost. The same day her four promises moved here from About (about.json) and fill that column. Each `body` is a paragraph of 35 to 40 words rewritten from her own paragraphs, kept in `paragraphs`, with no claim added; it needs her sign-off (register C27). The Financial security body reorders her four sentences and drops \"to ensure security of your funds\". The About summaries, labels and points, Karim's condensation of 31 October, are gone.",
-  "heading": "Why book with Travelling Places?",
-  "intro": "At Travelling Places, we specialise in bespoke travel experiences. Our itineraries are just samples of what we can arrange, and can be changed depending on your precise needs, finances and ideas by our experienced destination advisors.",
-  "contactLead": "Contact one of our consultants on",
-  "contactMiddle": "to discuss how we can tailor your holiday. Or email",
+  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From 'Why book with Travelling Places.docx'. The button reads \"Start planning\" (was \"Start planning your holiday\") and the \"Contact Travelling Places\" link is gone, on the owner's instruction of 25 October 2026 that the main action has one label everywhere and the phone number is the only secondary (docs/WORK-PLAN.md, Q13). The \"ATIA protected\" line is held for Gina's confirmation (register C20). Regrouped 25 October 2026 with the owner's approval (docs/CALLOUTS-2026-10-25.md, CO6): her two lists mixed services with credentials, so the five services now sit under one of her two titles (\"Every step of the way\") and the two credentials stand apart. Her other title, \"Expert advice & support\", and the two introductory lines ending in colons were dropped to keep the text to today's measure. No words were added. On 1 November 2026 the owner removed the services and credentials column; `services` and `proof` are kept here, unused, so her text is not lost. The same day her four promises moved here from About (about.json) and fill that column. Each `body` is a paragraph of 35 to 40 words rewritten from her own paragraphs, kept in `paragraphs`, with no claim added; it needs her sign-off (register C27). The Financial security body reorders her four sentences and drops \"to ensure security of your funds\". The About summaries, labels and points, Karim's condensation of 31 October, are gone. Round 4 copy (owner's approval, 1 November 2026): docs/copy-review/COPY-DECK.md. Gina's lines that match wexas.com word for word were replaced with new wording that keeps her facts; her unmatched lines are unchanged. Open questions for her are listed at the end of the deck.",
+  "heading": "What you can expect from us.",
+  "intro": "Every trip starts from your own ideas, and your advisor shapes it around your needs and your budget.",
+  "contactLead": "Call us on",
+  "contactMiddle": "or email",
   "services": {
     "title": "Every step of the way",
     "points": [
@@ -20,21 +20,21 @@
   ],
   "promises": [
     {
-      "title": "Talk to the experts",
-      "body": "Our advisors have travelled widely and keep travelling and training, so what they share is first-hand and impartial. We pool what we know across the team, and every itinerary is shaped around your needs and your budget.",
+      "title": "Advisors who travel",
+      "body": "All of our advisors have travelled extensively and are delighted to share this first-hand knowledge and experience with you. We undertake constant training and travel regularly so that you can be assured of up-to-date knowledge of your travel destination.",
       "paragraphs": [
         "It's hard to overstate the benefit of talking to an expert when it comes to planning your holiday. All of our advisors have travelled extensively and are delighted to share that first-hand knowledge with you. They take an unbiased, informed approach to planning holidays. We pool our resources so that each client benefits from our collective knowledge. Every itinerary is designed around your individual needs and budget. We undertake constant training and travel regularly so that you can be assured of up-to-date knowledge of your travel destination."
       ]
     },
     {
-      "title": "Personal service",
-      "body": "We treat our clients as we would wish to be treated. Before we suggest anything, we take the time to understand how you like to travel, so the holiday we plan together is one you will love.",
+      "title": "Getting to know you",
+      "body": "Before we suggest anything, we ask what you enjoy, what you would rather skip and how quickly you like to move. The ideas we bring you come from that conversation, and we build the plan with you.",
       "paragraphs": [
         "We like to treat our clients as we like to be treated ourselves. Our advisors pride themselves on their level of personal service and will do more than just organise your holiday logistics. Instead they'll take time to get to know you as a traveller. That way they can make informed suggestions as you work together to plan a holiday you'll love."
       ]
     },
     {
-      "title": "Honest pricing",
+      "title": "A price for your dates",
       "body": "We do not quote low-season “from” prices for dates you may never travel. We price your own itinerary for the dates you have in mind, so the price we give you is accurate from the start.",
       "paragraphs": [
         "We believe that it's unfair to just show you 'from' prices that relate to the low season, when you may not want to travel. That's why we take the time to assess your personal itinerary for the dates you want to travel so that we can give you an accurate price for your holiday."

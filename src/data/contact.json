@@ -1,13 +1,13 @@
 {
-  "source": "Contact page copy, written for the site. Moved out of contact.astro on 25 October 2026 (docs/POLISH-PLAN.md, B15). The \"Come and see us\" band and its team photograph were folded into the details column the same day: the photograph now opens About, and the band repeated the address and phone beside it.",
+  "source": "Contact page copy, written for the site. Moved out of contact.astro on 25 October 2026 (docs/POLISH-PLAN.md, B15). The \"Come and see us\" band and its team photograph were folded into the details column the same day: the photograph now opens About, and the band repeated the address and phone beside it. Round 4 copy (owner's approval, 1 November 2026): docs/copy-review/COPY-DECK.md. Gina's lines that match wexas.com word for word were replaced with new wording that keeps her facts; her unmatched lines are unchanged. Open questions for her are listed at the end of the deck.",
   "hero": {
     "lead": "Where is your",
     "accent": "imagination going?",
-    "lede": "You don't need to have every detail. A place, a date, or a feeling is enough to begin."
+    "lede": "You don't need to have every detail. A place or a date is enough to begin."
   },
   "details": {
     "heading": "We're here on the Mountain.",
-    "visit": "We welcome appointments at our Main Street office. Call ahead and we'll make time to sit down with your ideas.",
+    "visit": "Call or email the office, or send an enquiry with a few lines about your trip.",
     "follow": "Follow the journey"
   },
   "form": {
