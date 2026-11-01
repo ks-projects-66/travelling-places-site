@@ -341,3 +341,22 @@ under links and the menu toggle, a 2px ring that follows a pill button, a heavie
 fields, and a short bar under a hero arrowhead. Navy on light surfaces, white on dark ones
 (`--focus-ring`). Red is left to mean the current page only, so the two cannot be confused.
 
+
+## Expertise cards and copy, 1 November 2026
+
+**Card paragraphs run the card's full width, at lead size, in ink.** Once the inclusions list and
+the second heading left the cards, the paragraph was the card's only text, and at body size in the
+muted colour, held to a reading measure narrower than the photograph above it, it read as a caption
+and left a ragged gap at the right. It now spans the photograph's width (`max-width: none`), at
+`--tp-type-lead` with `line-height: 1.65` and `text-wrap: pretty`, in `--ink`. The cards are two
+across and about 30rem wide, so a full-width line stays inside a comfortable measure.
+
+**Card copy is written to a length, so the row reads level.** Each paragraph is 26 to 31 words:
+three lines at 1440px on all four cards, and five lines at 390px on three of them (Tailor-made
+runs four). Copy that changes should keep to that range, or the bottoms of the cards drift apart
+on desktop.
+
+**A missing founder quotation shows as a gap, not a blockquote.** The quotation in the home
+founder band reads as Gina's own words, and no source records the line it carried (register C26),
+so the field is empty until she supplies one and the band shows the red TODO pill on its own line
+above the link. `.about-copy > p` no longer recolours the pill grey.
