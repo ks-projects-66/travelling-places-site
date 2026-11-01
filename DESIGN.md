@@ -36,7 +36,8 @@ the site's variable names, so a kit release propagates without edits here.
 - **Page openings** (since 25 October 2026, owner callouts CO8 and CO12): a page that opens with a
   statement under its hero centres it, `OpeningStatement.astro`. One serif line leads (the heading,
   or the first sentence of Gina's paragraph when there is no heading) and the rest follows at the lead
-  size, centred at about 40rem, left-aligned on phones. Tailor-made, Luxury and About open this way.
+  size, centred at about 40rem, left-aligned on phones. Home, Tailor-made, Luxury and About open this
+  way; Home's link to Who we are sits under the statement.
 - **Long copy beside its heading** (CO10): `split-section`, heading in a lead column of five parts,
   paragraphs in a second column of six, every paragraph at the lead size and one measure (about 60
   characters). Measured against Belmond and A&K, who both pin copy to one side and leave the rest
@@ -370,10 +371,33 @@ above the link. `.about-copy > p` no longer recolours the pill grey.
 - **Pillars, not benefits.** Three short pillars sit at the level of what membership makes possible.
   Gina's hotel and cruise extras appear once, as things participating partners can include.
 - **Journey cards carry a paragraph and a hairline list.** Each card spans five rows of a shared
-  subgrid, so the lists and links line up across the pair whatever the paragraph length.
+  subgrid, so the lists and links line up across the pair whatever the paragraph length. Superseded
+  later the same day: see "Layout gaps" below.
 - **Home founder section shows the About introduction,** from `about.json`, beside the team
   photograph. Gina's career stays on Who we are, beside her portrait, with the quotation slot.
 - **Who we are is about the people:** introduction, Gina's story, the team. The cruise and Virtuoso
   rows moved to Home. Its hero lines and meta description now live in `about.json`.
 - **Journal link under the story,** matching "Meet the whole team" in the section above, rather
   than on the right of the section opening. `.section-intro--with-link` is gone.
+
+## Layout gaps, 1 November 2026
+
+From a design review of the staging site at 1440px and 390px, each change on the owner's approval.
+
+- **Home opens like every other page.** The introduction was a left-aligned column that left the
+  right half of the page empty at desktop. It now uses `OpeningStatement.astro`, which takes a
+  slotted link for "Meet Gina and the team". The `.intro` styles are gone.
+- **Journey cards are photograph, title, paragraph and link.** The ruled list under each paragraph
+  stopped short of the photograph's edge and restated the paragraph, the same reason the Expertise
+  cards lost theirs. Four subgrid rows instead of five. `points` stays in `home.json`, marked in
+  the CMS as not shown.
+- **Tailor-made's two sections share one band, side by side.** Stacked as two split sections, each
+  heading sat alone in its lead column over a tall empty block, twice in a row. Each column spans
+  two subgrid rows (heading, paragraphs), so both first paragraphs start level when one heading
+  wraps. Paragraphs at the lead size and one measure, as CO10 set. `split-section` remains the
+  pattern for a heading paired with what it introduces (the home "Why book" band).
+- **Who we are: the portrait row shares one gap with the opening,** as the Expertise cards already
+  did (`.opening + .about-rows`). Two full section paddings stacked into about 250px of dead space.
+- **Contact: no membership marks beside the form.** The footer row directly below shows the same
+  four, so the page carried them twice, and the side panel stacked them unevenly on phones.
+  `.contact-marks` is gone.
