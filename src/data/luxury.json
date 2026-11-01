@@ -1,9 +1,9 @@
 {
-  "source": "Title, hero lines and intro: Gina Storey, supplied 25 September 2026 (website.zip), her words with only typos and long dashes corrected. The three theme blurbs are Claude Design draft copy (design handoff of 27 September 2026, change 1), adopted by Karim on 28 September 2026 in place of her seven sections. They need Gina's sign-off (register C21). Round 4 copy (owner's approval, 1 November 2026): docs/copy-review/COPY-DECK.md. Gina's lines that match wexas.com word for word were replaced with new wording that keeps her facts; her unmatched lines are unchanged. Open questions for her are listed at the end of the deck.",
+  "source": "Title, hero lines and intro: Gina Storey, supplied 25 September 2026 (website.zip), her words with only typos and long dashes corrected. The three theme blurbs are Claude Design draft copy (design handoff of 27 September 2026, change 1), adopted by Karim on 28 September 2026 in place of her seven sections. They need Gina's sign-off (register C21). Round 4 copy (owner's approval, 1 November 2026): docs/copy-review/COPY-DECK.md. Gina's lines that match wexas.com word for word were replaced with new wording that keeps her facts; her unmatched lines are unchanged. Open questions for her are listed at the end of the deck. Hero lines replaced on the owner's choice, 1 November 2026: drafted for the site, not Gina's words, and adding no claim the site does not already make. They were \"Luxury travel with / Travelling Places.\" and \"Luxury, planned with you.\", which repeated the brand name and said luxury twice.",
   "title": "Luxury travel with Travelling Places",
-  "heroLead": "Luxury travel with",
-  "heroAccent": "Travelling Places.",
-  "heroLede": "Luxury, planned with you.",
+  "heroLead": "Luxury,",
+  "heroAccent": "in every detail.",
+  "heroLede": "Hotels, touring and Virtuoso extras, chosen by an advisor who knows how you travel.",
   "intro": {
     "heading": "What luxury means to us",
     "paragraphs": [

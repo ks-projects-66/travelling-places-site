@@ -54,6 +54,11 @@ const {
   class: className = '',
 } = Astro.props;
 
+// When both lines are short enough to fit a 375px phone at display size, the written break is kept
+// there too. Run on, "Luxury, in every detail." broke as "Luxury, in / every detail." (1 November
+// 2026). "beautifully planned." (20 characters) wraps at 375px on its own line, so it stays run on.
+const keepBreak = lead.length <= 13 && accent.length <= 18;
+
 if (tone === 'photo' && !image && !slides?.length) {
   throw new Error('PageHero tone="photo" needs an image or slides.');
 }
@@ -117,7 +122,7 @@ const heroWidths = maxWidth
 
   <div class="page-hero-inner shell">
     <slot name="above" />
-    <h1 data-carousel-hold={isCarousel ? '' : undefined}><span class="hero-line">{lead}</span> <span class="hero-accent">{accent}</span></h1>
+    <h1 data-carousel-hold={isCarousel ? '' : undefined}><span class:list={['hero-line', keepBreak && 'hero-line--keep']}>{lead}</span> <span class="hero-accent">{accent}</span></h1>
     {lede && <p class="page-hero-lede" data-carousel-hold={isCarousel ? '' : undefined}>{lede}</p>}
     <slot />
     {isCarousel && (

@@ -109,7 +109,8 @@ p {
   background: var(--blue);
 }
 
-/* Headings carry their own line break at desktop and run on below 700px. The word
+/* Headings carry their own line break at desktop and run on below 700px, except where the first
+   line is short enough to fit any phone (`hero-line--keep`, set by PageHero). The word
    space between the parts is a real space in the markup, so it survives into the
    accessible name and into copied text. Do not replace it with generated content. */
 .hero-line {
@@ -117,7 +118,7 @@ p {
 }
 
 @media (max-width: 700px) {
-  .hero-line {
+  .hero-line:not(.hero-line--keep) {
     display: inline;
   }
 }

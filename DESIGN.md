@@ -401,3 +401,12 @@ From a design review of the staging site at 1440px and 390px, each change on the
 - **Contact: no membership marks beside the form.** The footer row directly below shows the same
   four, so the page carried them twice, and the side panel stacked them unevenly on phones.
   `.contact-marks` is gone.
+- **Luxury hero: "Luxury, / in every detail."** with "Hotels, touring and Virtuoso extras, chosen
+  by an advisor who knows how you travel." The old lines repeated the brand name and said luxury
+  twice. Owner's choice of three drafts.
+- **A short hero keeps its written break on phones.** Below 700px a hero heading runs on as one
+  sentence, which suits long first lines but broke this one as "Luxury, in / every detail.". Where
+  the first line is 13 characters or fewer and the second 18 or fewer, both fit a 375px phone at
+  the 34px floor, so `PageHero` keeps the break (`hero-line--keep`). Tailor-made, Luxury and Contact
+  qualify. Home's "beautifully planned." does not, and Home still runs to three lines at 375px, as
+  it did before this change.
