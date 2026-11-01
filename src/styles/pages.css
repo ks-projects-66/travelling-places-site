@@ -1106,10 +1106,20 @@
   font-size: var(--tp-type-subsection-title);
 }
 
-.service-card .service-copy p,
 .team-card p:not(.role, .placeholder-note),
 .theme p {
   color: var(--ink-muted);
+}
+
+/* Expertise card text runs the photograph's full width at the lead size in ink, so each block
+   lines up with both edges of its photograph and the four read as one set (owner, 1 November
+   2026). At 30rem in grey body type every card ended at a different ragged edge. */
+.service-card .service-copy p {
+  max-width: none;
+  color: var(--ink);
+  font-size: var(--tp-type-lead);
+  line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .team-card img {

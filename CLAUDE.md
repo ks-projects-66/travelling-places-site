@@ -65,27 +65,31 @@ The scoped round of 25 October 2026 is `docs/CALLOUTS-2026-10-25.md`.
 The brand voice is in `PRODUCT.md`: warm, assured, well-travelled, an experienced advisor
 welcoming someone into a calm local office. It is the brand's voice, not the repository owner's.
 
-## Before you finish
+## How we work (owner, 1 November 2026)
 
-```bash
-pnpm build
-pnpm test:qa             # functional, responsive, a11y, cross-browser, brand, visual
-pnpm check:placeholders
-pnpm check:licensing     # passes since the licensed imagery landed in cc194c7
-pnpm qa:lighthouse       # Lighthouse on every route, mobile and desktop; report-only
-.claude/skills/impeccable/scripts/impeccable detect --json dist/   # design anti-patterns
-```
+Lean by default. The site is not on its real domain yet, so `travelling-places-site.vercel.app` is
+staging, and speed of iteration matters more than ceremony.
 
-Design refinement follows `docs/POLISH-PLAN.md`: one pass at a time across the whole site, and
-every change cites the rule it serves.
+- **Commit straight to `main` and push.** Vercel redeploys the staging URL in about two minutes and
+  the owner reviews there. No feature branch, preview link or pull request unless asked.
+- **Per change:** `npm run build`, then one look at the changed section at 1440px and 390px. That
+  is the whole check.
+- **Make the design call.** Build the one best answer and ship it; the owner reacts on the live
+  page. Build alternatives only when the decision is genuinely the owner's (copy, claims, scope).
+- **Once per session, at the end, in the background:** `npm run test:qa`, `check:licensing`,
+  `check:placeholders`, `brand:check`, and one `DESIGN.md` entry per change, batched.
+- **Before the real domain goes live**, the full list returns: the above plus `qa:lighthouse` and
+  `impeccable detect`.
 
-`pnpm test:qa` writes `qa/reports/QA-REPORT.md` and `qa/reports/results.json`. Read the report
+The content, licensing, placeholder, privacy and DNS rules above are not loosened by this; they
+are cheap and they protect the business. pnpm is not on PATH on the owner's machine: use
+`npm run <script>`.
+
+`npm run test:qa` writes `qa/reports/QA-REPORT.md` and `qa/reports/results.json`. Read the report
 rather than the exit code: it separates real defects from heuristics, and some failures are
 recorded gaps the site has not fixed yet rather than things you broke.
 
-Verify on a live render at 1440px and 390px. Mobile centring has regressed on this kind of work
-before, so a desktop-only pass is not a pass. The responsive suite now covers both, but it measures
-geometry, not whether something looks right.
+Mobile centring has regressed on this kind of work before, so a desktop-only look is not a look.
 
 Never make a suite green by raising a threshold, masking a region, disabling a rule or approving a
 baseline. If a check is wrong, fix the check and say why in the code. `qa/README.md` explains the
