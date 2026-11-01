@@ -69,21 +69,21 @@ const rendered = await Promise.all(
       </div>
     </section>
 
-    {copy.sections.map((section, i) => (
-      <section class:list={['section', i % 2 === 0 && 'service-detail alt']}>
-        {/* Heading in the lead column, Gina's paragraphs in the second at one size and one measure
-            (CO10). The single left-hand column left the right half of the page empty and stepped
-            from lead to body size mid-section. */}
-        <div class="shell split-section">
-          <div class="split-lead">
+    {/* One band, Gina's two sections side by side, each heading over its own paragraphs (owner,
+        1 November 2026). As two stacked split sections, a heading alone in each lead column left a
+        tall empty block under it, twice in a row. */}
+    <section class="section service-detail alt">
+      <div class="shell card-grid card-grid--two tailor-columns">
+        {copy.sections.map((section) => (
+          <article>
             <h2>{section.heading.split(/(\S+-\S+)/).map((part) => /\S-\S/.test(part) ? <span class="nowrap">{part}</span> : part)}</h2>
-          </div>
-          <div class="long-copy long-copy--even">
-            {section.paragraphs.map((p) => <p>{p}</p>)}
-          </div>
-        </div>
-      </section>
-    ))}
+            <div>
+              {section.paragraphs.map((p) => <p>{p}</p>)}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
 
     <WhyBook />
   </main>

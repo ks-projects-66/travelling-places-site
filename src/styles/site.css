@@ -365,33 +365,6 @@ select:focus-visible {
   margin-top: 2.25rem;
 }
 
-.intro {
-  padding-top: clamp(4rem, 7vw, 7rem);
-}
-
-/* Home introduction: one column at the reading width (DESIGN.md: body and intro text in one
-   left-aligned column). Gina's line is the heading; the statement under it is a lead, and the
-   detail is body copy. It replaced a three-column arrangement (mark, kicker and heading, detail)
-   whose parts shared no edge, and a 13px kicker that set her best line as fine print. */
-.intro h2 {
-  max-width: 22ch;
-  margin-bottom: 1.25rem;
-  color: var(--blue-deep);
-}
-
-.intro-lead {
-  margin: 0;
-  color: var(--ink);
-  font-size: var(--tp-type-lead);
-  line-height: 1.55;
-}
-
-.intro .intro-detail {
-  max-width: 30rem;
-  margin: 1rem 0 1.75rem;
-  color: var(--ink-muted);
-}
-
 /* The Virtuoso band (VirtuosoBand.astro), navy on Home and mist on Luxury since 1 November 2026:
    the mark, heading and explanation on the left, three pillars on the right. */
 .virtuoso-band--dark {

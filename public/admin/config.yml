@@ -345,7 +345,7 @@ collections:
                   - { name: service, label: Service entry, widget: select, options: [cruising, expeditions, luxury, tailor-made], hint: The photograph comes from this service. }
                   - { name: label, label: Title, widget: string }
                   - { name: body, label: Paragraph, widget: text, hint: About 30 to 45 words. }
-                  - { name: points, label: What it includes, widget: list, hint: Three or four short items., field: { name: point, label: Item, widget: string } }
+                  - { name: points, label: What it includes, widget: list, required: false, hint: 'Not shown on the site since 1 November 2026. Kept so the text is not lost.', field: { name: point, label: Item, widget: string } }
                   - { name: link, label: Link text, widget: string }
                   - { name: href, label: Link address, widget: string }
                   - { name: hrefStatus, label: Link status, widget: select, options: [confirmed, placeholder] }

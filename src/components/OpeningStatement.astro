@@ -32,5 +32,6 @@ if (!heading && paragraphs.length) {
     {heading && <h2 id={id}>{heading}</h2>}
     {statement && <p class="opening-statement" id={id}>{statement}</p>}
     {body.map((p) => <p class="opening-body">{p}</p>)}
+    <slot />
   </div>
 </section>

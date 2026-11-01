@@ -9,6 +9,7 @@ import site from '../data/site.json';
 import home from '../data/home.json';
 import about from '../data/about.json';
 import VirtuosoBand from '../components/VirtuosoBand.astro';
+import OpeningStatement from '../components/OpeningStatement.astro';
 
 import teamOffice from '../assets/images/team/team-office.jpg';
 
@@ -31,9 +32,9 @@ const heroSlides = [
 ];
 
 // Two journeys on the home page, each with its photograph from the Tailor-made page (client brief,
-// change 4). The photograph comes from the service entry; the words come from home.json, since
-// 1 November 2026, when the owner found the one-line service summary too bare for what each
-// journey offers, so each card now carries a paragraph and a short list.
+// change 4). The photograph comes from the service entry; the words come from home.json. Each card
+// is photograph, title, paragraph and link: the short ruled list under the paragraph was removed
+// on the owner's instruction (1 November 2026). `points` stays in home.json so the text is not lost.
 const journeyCards = home.journeys.cards.map((card) => {
   const service = services.find((s) => s.id === card.service);
   if (!service) throw new Error(`home.json names a service that does not exist: ${card.service}`);
@@ -51,14 +52,11 @@ const journeyCards = home.journeys.cards.map((card) => {
       </div>
     </PageHero>
 
-    <section class="section intro">
-      <div class="shell editorial-grid">
-        <h2>{home.intro.heading}</h2>
-        <p class="intro-lead">{home.intro.lead}</p>
-        <p class="intro-detail">{home.intro.detail}</p>
-        <a class="text-link" href="/who-we-are/">{home.intro.link}</a>
-      </div>
-    </section>
+    {/* Centred, as every other page opens under its photograph (owner, 1 November 2026). The
+        left-aligned column it replaced left the right half of the page empty at desktop. */}
+    <OpeningStatement heading={home.intro.heading} paragraphs={[home.intro.lead, home.intro.detail]}>
+      <a class="text-link" href="/who-we-are/">{home.intro.link}</a>
+    </OpeningStatement>
 
     <section class="section journeys" aria-labelledby="journeys-heading">
       <div class="shell">
@@ -82,9 +80,6 @@ const journeyCards = home.journeys.cards.map((card) => {
               />
               <h3>{card.label}</h3>
               <p>{card.body}</p>
-              <ul class="journey-card-points">
-                {card.points.map((point) => <li>{point}</li>)}
-              </ul>
               <span class="journey-card-link">{card.link}{external && <span class="visually-hidden"> (opens in a new tab)</span>}</span>
             </a>
             );
