@@ -22,7 +22,6 @@ const team = await Promise.all(
     .map(async (member) => ({ ...member, Body: (await render(member)).Content })),
 );
 
-const atia = site.identifiers.atiaAccreditation;
 
 // Story, cruise and Virtuoso alternate image and text, switching sides each row (design review,
 // change 11). The story row carries the office photograph; the cruise row's photograph is still to
@@ -96,32 +95,6 @@ const rows = [
               {!data.approved && (
                 <p class="placeholder-note" data-placeholder>TODO: title and bio not yet approved</p>
               )}
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    {/* Gina's four promises as four equal ruled columns (fitted About design, 31 October 2026).
-        Between 25 and 31 October they were three white cards with financial security in its own
-        band (CO13); the owner chose to set all four as equals, separated by the column rule rather
-        than by four white cards. Each column: label, title, summary, ruled list. */}
-    <section class="section team-values" aria-labelledby="promises-heading">
-      <div class="shell">
-        <p class="story-meta">{about.promisesSection.label}</p>
-        <h2 id="promises-heading" class="promises-heading">{about.promisesSection.heading}</h2>
-        <div class="ruled-columns">
-          {about.promises.map((promise) => (
-            <article>
-              <p class="story-meta">{promise.label}</p>
-              <h3>{promise.title}</h3>
-              <p class="ruled-columns-summary">{promise.summary}</p>
-              <ul class="ruled-list">
-                {promise.points.map((point) => <li>{point}</li>)}
-              </ul>
-              {'atiaNumber' in promise && promise.atiaNumber && (atia.status === 'placeholder'
-                ? <p class="placeholder-note" data-placeholder>TODO: ATIA number (Gina's copy reads "??????")</p>
-                : <p class="proof-note">Our ATIA number is {atia.value}.</p>)}
             </article>
           ))}
         </div>

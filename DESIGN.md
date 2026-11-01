@@ -28,9 +28,11 @@ the site's variable names, so a kit release propagates without edits here.
   Text buttons use the full pill radius, per v2.1.0.
 - Card grids are allowed where they are restrained: square photography, no shadows, every card in
   a group built the same way. Approved by Karim on 27 September 2026; the earlier refusal and its
-  reasoning are kept below. Equal promises with no photograph are equal columns divided by a
-  column rule (About, since 31 October 2026; white cards on mist from 25 to 31 October). A large white panel holding a logo or a list on a coloured ground
-  is not a card and is not used.
+  reasoning are kept below. Gina's four promises have no photograph and are not cards: a title and
+  one paragraph each, stacked between 1px rules beside the home "Why book" heading (since 1
+  November 2026; four ruled columns on About from 31 October, white cards on mist from 25 to 31
+  October). A large white panel holding a logo or a list on a coloured ground is not a card and is
+  not used.
 - **Page openings** (since 25 October 2026, owner callouts CO8 and CO12): a page that opens with a
   statement under its hero centres it, `OpeningStatement.astro`. One serif line leads (the heading,
   or the first sentence of Gina's paragraph when there is no heading) and the rest follows at the lead
@@ -46,8 +48,8 @@ the site's variable names, so a kit release propagates without edits here.
   running line were both considered and rejected: the first kept the length, the second needed the
   phrases rewritten. The one-line promise under each title ("Luxury that feels like you.") went
   the same day: once the list was gone it read as a second heading competing with the title. Both
-  stay in the service files (`points`, `title`), not rendered.
-  In a column without a photograph, points are a ruled list (About promises).
+  stay in the service files (`points`, `title`), not rendered. The ruled list the About promises used
+  went with them on 1 November 2026 (see the home page below).
   Credentials ("proof") are separate from services and set as short serif lines, two by two (CO6,
   CO13).
 - Images beside text sit inside the shell at their own aspect ratio, so they scale as one piece and
@@ -217,6 +219,17 @@ beneath, is gone on the owner's instruction: it sat oddly beside the invitation,
 and financial security are already on Expertise and About. The seven lines stay in `why-book.json`
 unused. Two alternatives were built and shown first, each behind a full-height column rule: the two
 credentials alone, and the five services as one stacked column. The owner chose neither.
+
+Later the same day the owner moved Gina's four promises (Talk to the experts, Personal service,
+Honest pricing, Financial security) here from About, where they answered no question and sat
+under the four-across team grid. They are the answer to this band's heading. The question,
+invitation, way to call and Start planning hold the lead column, which stays in view on desktop
+while the four promises pass in the other: a title and one paragraph of 35 to 40 words each,
+between 1px rules, with no labels and no lists. On a phone the action moves below the promises so
+the band still ends on it. The paragraphs were rewritten toward the register of Aman, Belmond and
+A&K from Gina's own paragraphs, with nothing added (register C27). A two-by-two section of its own
+after the founder story was built and shown as well; it sat on the same mist as the Journal below
+and put two "why us" moments a scroll apart.
 
 Start planning goes to `/contact/#enquiry`, the form, not the top of Contact. The four marks also
 sit beside the form on Contact, on white, because two of the supplied files carry their own white

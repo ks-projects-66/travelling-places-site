@@ -1,8 +1,8 @@
 # QA report
 
-Generated 2026-11-01T05:33:39.936Z against brand kit **v3.2.0** on win32, Node v24.14.0.
+Generated 2026-11-01T05:54:23.976Z against brand kit **v3.2.0** on win32, Node v24.14.0.
 
-**1 of 391 tests failed.** 0 distinct blocking findings, 32 warnings and 23 informational items, from 81 recorded occurrences.
+All automated tests passed. 0 distinct blocking findings, 32 warnings and 23 informational items, from 81 recorded occurrences.
 
 Every failure below is a real defect in the site or a real deviation from the brand kit. Nothing has been masked, no threshold was raised, and no rule was disabled to produce this result.
 
@@ -12,7 +12,7 @@ Every failure below is a real defect in the site or a real deviation from the br
 |---|---|---|
 | `a11y` | 40 / 40 | pass |
 | `brand` | 48 / 48 | pass |
-| `crossbrowser-firefox` | 14 / 15 | 1 failed |
+| `crossbrowser-firefox` | 15 / 15 | pass |
 | `crossbrowser-webkit` | 15 / 15 | pass |
 | `functional` | 102 / 102 | pass |
 | `responsive` | 171 / 171 | pass |
@@ -20,9 +20,7 @@ Every failure below is a real defect in the site or a real deviation from the br
 
 ## Failed checks
 
-| Suite | Test | First error |
-|---|---|---|
-| `crossbrowser-firefox` | crossbrowser\smoke.spec.js › desktop-1440 › the carousel advances | Error: carousel never advanced past slide 0 |
+_None._
 
 
 ## Brand-kit deviations
@@ -41,16 +39,16 @@ Warnings, reported not enforced:
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:215 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:218 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
 | `stylelint-declaration-property-value-disallowed-list` | src/styles/blocks.css:292 Disallowed value "underline" for property "text-decoration-line" (declaration-property-value-disallowed-list) | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:453 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:743 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:767 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:341 Disallowed value "underline" for property "text-decoration" (declaration-property-value-disallowed-list) | 1 | site-wide |
-| `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:390 Disallowed value "underline" for property "text-decoration-line" (declaration-property-value-disallowed-list) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:355 Duplicate selector ".journal-teaser", first used at line 208 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1033 Duplicate selector ".team-roster", first used at line 675 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1037 Duplicate selector ".closing-cta", first used at line 223 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1043 Duplicate selector ".contact-page", first used at line 792 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1052 Duplicate selector ".service-detail", first used at line 496 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:522 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:718 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:742 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:410 Disallowed value "underline" for property "text-decoration" (declaration-property-value-disallowed-list) | 1 | site-wide |
+| `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:459 Disallowed value "underline" for property "text-decoration-line" (declaration-property-value-disallowed-list) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:424 Duplicate selector ".journal-teaser", first used at line 208 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1008 Duplicate selector ".team-roster", first used at line 650 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1012 Duplicate selector ".closing-cta", first used at line 223 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1018 Duplicate selector ".contact-page", first used at line 767 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1027 Duplicate selector ".service-detail", first used at line 565 (no-duplicate-selectors) | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/placeholders.css:36 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-stric | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/placeholders.css:45 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-stric | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/site.css:661 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value | 1 | site-wide |
@@ -71,9 +69,9 @@ Warnings:
 | Finding | Detail | Occurrences | Where |
 |---|---|---|---|
 | `container-width-inconsistent` | .shell renders at 1200, 980px on one page | 6 | /journal/looking-south-to-antarctica/; 6 viewports |
+| `container-width-inconsistent` | .shell renders at 1184, 980px on one page | 1 | /journal/looking-south-to-antarctica/; desktop-1280 |
 | `button-wraps` | a.button.button-outline "Send an enquiry instead" wraps to 2 lines | 1 | /contact/; mobile-320 |
 | `container-width-inconsistent` | .shell renders at 1086, 980px on one page | 1 | /journal/looking-south-to-antarctica/; ipad-air-landscape |
-| `container-width-inconsistent` | .shell renders at 1184, 980px on one page | 1 | /journal/looking-south-to-antarctica/; desktop-1280 |
 
 
 ## Accessibility failures
@@ -118,7 +116,7 @@ These cannot be settled by measurement. A person has to look.
 | 1 | warn | `token-derived-colour-uncertified` | 20 | oklch(0.851002 0.0109388 268.882) on p (a color-mix of tokens; no certified contrast figure) |
 | 2 | warn | `stylelint-scale-unlimited/declaration-strict-value` | 10 | src/styles/blocks.css:215 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value) |
 | 3 | warn | `container-width-inconsistent` | 8 | .shell renders at 1200, 980px on one page |
-| 4 | warn | `stylelint-no-duplicate-selectors` | 5 | src/styles/pages.css:355 Duplicate selector ".journal-teaser", first used at line 208 (no-duplicate-selectors) |
+| 4 | warn | `stylelint-no-duplicate-selectors` | 5 | src/styles/pages.css:424 Duplicate selector ".journal-teaser", first used at line 208 (no-duplicate-selectors) |
 | 5 | warn | `focus-outline-thin` | 3 | button "" focus outline is 2px |
 | 6 | warn | `stylelint-declaration-property-value-disallowed-list` | 3 | src/styles/blocks.css:292 Disallowed value "underline" for property "text-decoration-line" (declaration-property-value-disallowed-list) |
 | 7 | warn | `button-wraps` | 1 | a.button.button-outline "Send an enquiry instead" wraps to 2 lines |

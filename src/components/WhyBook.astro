@@ -5,12 +5,14 @@
  *
  * Rebalanced 25 October 2026 at the client's request (docs/WORK-PLAN.md, change 6), then again the
  * same day (docs/CALLOUTS-2026-10-25.md, CO6): the invitation on the left, her services and two
- * credentials on the right. On 1 November 2026 the owner removed the right-hand column altogether:
- * it sat oddly and repeated what Expertise and About already carry. The invitation now stands
- * alone as a split section (CO10). The services and credentials stay in why-book.json, unused.
+ * credentials on the right. On 1 November 2026 the owner removed that column, then moved her four
+ * promises (expertise, service, pricing, financial security) here from About, where they answer the
+ * band's question. The services and credentials stay in why-book.json, unused.
  */
 import copy from '../data/why-book.json';
 import site from '../data/site.json';
+
+const atia = site.identifiers.atiaAccreditation;
 
 interface Props {
   /**
@@ -40,20 +42,29 @@ const { variant = 'short' } = Astro.props;
 </section>
 ) : (
 <section class="section closing-cta why-book" aria-labelledby="why-book-heading">
-  {/* The heading leads, her paragraphs and the way to call sit beside it at the lead size, and
-      the action closes the column: the same split section Expertise and Luxury use for copy
-      beside a heading. */}
-  <div class="shell split-section">
-    <div class="split-lead">
+  {/* Her question, invitation and way to call on the left, held in view on desktop while the four
+      promises that answer it pass on the right. On a phone the action moves below the promises,
+      so the band still ends on it. */}
+  <div class="shell split-section why-book-split">
+    <div class="split-lead why-book-lead">
       <h2 id="why-book-heading">{copy.heading}</h2>
-    </div>
-    <div class="long-copy long-copy--even why-book-solo">
       <p>{copy.intro}</p>
       <p class="why-book-contact">
         {copy.contactLead}{' '}<a href={site.phoneLink}>{site.phone}</a>{' '}{copy.contactMiddle}{' '}
         <a href={`mailto:${site.email}`}>{site.email}</a>
       </p>
       <a class="button button-blue" href="/contact/#enquiry">{copy.cta}</a>
+    </div>
+    <div class="why-book-promises">
+      {copy.promises.map((promise) => (
+        <article>
+          <h3>{promise.title}</h3>
+          <p>{promise.body}</p>
+          {promise.atiaNumber && (atia.status === 'placeholder'
+            ? <p class="placeholder-note" data-placeholder>TODO: ATIA number (Gina's copy reads "??????")</p>
+            : <p class="proof-note">Our ATIA number is {atia.value}.</p>)}
+        </article>
+      ))}
     </div>
   </div>
 </section>
