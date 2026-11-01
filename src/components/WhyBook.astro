@@ -1,14 +1,18 @@
 ---
 /**
  * "Why book with Travelling Places?", Gina's closing band. It ends every page, so the last
- * thing a visitor reads is her reasons to book and a way to call.
+ * thing a visitor reads is her invitation and a way to call.
  *
  * Rebalanced 25 October 2026 at the client's request (docs/WORK-PLAN.md, change 6), then again the
- * same day (docs/CALLOUTS-2026-10-25.md, CO6): the invitation and the way to call on the left, her
- * services and her two credentials on the right, on the page rather than on a white panel.
+ * same day (docs/CALLOUTS-2026-10-25.md, CO6): the invitation on the left, her services and two
+ * credentials on the right. On 1 November 2026 the owner removed that column, then moved her four
+ * promises (expertise, service, pricing, financial security) here from About, where they answer the
+ * band's question. The services and credentials stay in why-book.json, unused.
  */
 import copy from '../data/why-book.json';
 import site from '../data/site.json';
+
+const atia = site.identifiers.atiaAccreditation;
 
 interface Props {
   /**
@@ -37,10 +41,12 @@ const { variant = 'short' } = Astro.props;
   </div>
 </section>
 ) : (
-
 <section class="section closing-cta why-book" aria-labelledby="why-book-heading">
-  <div class="shell why-book-grid">
-    <div class="why-book-intro">
+  {/* Her question, invitation and way to call on the left, held in view on desktop while the four
+      promises that answer it pass on the right. On a phone the action moves below the promises,
+      so the band still ends on it. */}
+  <div class="shell split-section why-book-split">
+    <div class="split-lead why-book-lead">
       <h2 id="why-book-heading">{copy.heading}</h2>
       <p>{copy.intro}</p>
       <p class="why-book-contact">
@@ -49,17 +55,16 @@ const { variant = 'short' } = Astro.props;
       </p>
       <a class="button button-blue" href="/contact/#enquiry">{copy.cta}</a>
     </div>
-    {/* Services and credentials, apart (CO6). On a white panel the two lists read as leftovers;
-        on the page, the services take the site's inclusions set and the two credentials the proof
-        lines used for financial security on About. */}
-    <div class="why-book-reasons">
-      <h3>{copy.services.title}</h3>
-      <ul class="inclusions">
-        {copy.services.points.map((point) => <li>{point}</li>)}
-      </ul>
-      <ul class="proof-list why-book-proof">
-        {copy.proof.map((item) => <li>{item}</li>)}
-      </ul>
+    <div class="why-book-promises">
+      {copy.promises.map((promise) => (
+        <article>
+          <h3>{promise.title}</h3>
+          <p>{promise.body}</p>
+          {promise.atiaNumber && (atia.status === 'placeholder'
+            ? <p class="placeholder-note" data-placeholder>TODO: ATIA number (Gina's copy reads "??????")</p>
+            : <p class="proof-note">Our ATIA number is {atia.value}.</p>)}
+        </article>
+      ))}
     </div>
   </div>
 </section>
