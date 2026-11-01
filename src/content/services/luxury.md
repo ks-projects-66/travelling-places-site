@@ -13,4 +13,4 @@ image: features/luxury-lake-como-villa.jpg
 imageAlt: A cream villa with terraced gardens and tall cypresses on a wooded point above Lake Como, mountains behind
 ---
 
-The most memorable luxury is personal: a welcome that feels genuine, a room chosen well, and experiences that bring you closer to a place. Our Virtuoso connections add recognition and value where available.
+The most memorable luxury is personal: a genuine welcome, a room chosen well, and experiences that bring you closer to a place. Our Virtuoso connections add recognition and value where available.

@@ -16,4 +16,4 @@ link:
   href: https://travellingplaces.cruiseco.com.au/
 ---
 
-Whether you're drawn to a small luxury vessel, a river journey through Europe or a grand voyage across oceans, we help you compare the details that matter: atmosphere, cabin, dining, shore time and pace.
+Whether you're drawn to a small luxury vessel, a river through Europe or a grand ocean voyage, we help you weigh what matters: atmosphere, cabin, dining, shore time and pace.

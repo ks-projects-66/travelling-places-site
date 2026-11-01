@@ -13,4 +13,4 @@ image: features/expedition-penguins.jpg
 imageAlt: Penguins walking along a dark pebble beach in Antarctica
 ---
 
-Remote journeys reward careful choices. We'll match your interests, comfort level and sense of adventure with an experienced operator and the vessel best suited to the environment.
+Remote journeys reward careful choices. We match your interests, comfort and sense of adventure with an experienced operator and the vessel best suited to where you are going.
