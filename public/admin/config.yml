@@ -387,7 +387,6 @@ collections:
             fields:
               - { name: title, label: Title, widget: string }
               - { name: body, label: Paragraph, widget: text, hint: About 35 to 40 words, so the four read as a set. }
-              - { name: atiaNumber, label: Show the ATIA number under the paragraph, widget: boolean, required: false }
               - { name: paragraphs, label: Original paragraphs, widget: list, hint: "Gina's full text, kept for reference. Not shown on the page.", field: { name: paragraph, label: Paragraph, widget: text } }
           - { name: cta, label: Button, widget: string }
       - name: top_bar

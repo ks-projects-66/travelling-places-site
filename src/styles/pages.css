@@ -272,17 +272,12 @@
   font-size: var(--tp-type-subsection-title);
 }
 
-.why-book-promises p:not(.placeholder-note) {
+.why-book-promises p {
   max-width: 30rem;
   margin: 0;
   color: var(--ink);
   line-height: 1.7;
   text-wrap: pretty;
-}
-
-.why-book-promises .placeholder-note,
-.why-book-promises .proof-note {
-  margin: 1rem 0 0;
 }
 
 @media (min-width: 941px) {

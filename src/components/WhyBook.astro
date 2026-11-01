@@ -12,8 +12,6 @@
 import copy from '../data/why-book.json';
 import site from '../data/site.json';
 
-const atia = site.identifiers.atiaAccreditation;
-
 interface Props {
   /**
    * `full` is Gina's whole band, on the home page. `short` ends every other page with her
@@ -59,10 +57,9 @@ const { variant = 'short' } = Astro.props;
       {copy.promises.map((promise) => (
         <article>
           <h3>{promise.title}</h3>
+          {/* No ATIA number line under Financial security since 1 November 2026 (owner); the
+              number stays in the footer, where it is still awaited (register C4). */}
           <p>{promise.body}</p>
-          {promise.atiaNumber && (atia.status === 'placeholder'
-            ? <p class="placeholder-note" data-placeholder>TODO: ATIA number (Gina's copy reads "??????")</p>
-            : <p class="proof-note">Our ATIA number is {atia.value}.</p>)}
         </article>
       ))}
     </div>
