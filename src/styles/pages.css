@@ -129,47 +129,62 @@
   transform: scale(1);
 }
 
-/* Previous and next sit at either side, vertically centred on the photograph. White outline on a
-   light navy wash, so they hold on bright ice as well as on a dark sea. Scoped under .page-hero
-   because blocks.css loads after this file and its generic .carousel-icon-button (colour inherit,
-   no background) otherwise wins at equal specificity and the arrows render dark. */
-.page-hero .page-hero-arrow {
+/* Previous and next are two plain arrowheads, paired, at the bottom right of the text block, on
+   the line of the hero's last action (owner, 31 October 2026). They were 50px outlined circles at
+   either side, and on phones and laptops they floated in the top corners, away from everything
+   they control. Aman sets its carousel arrows the same way: bare, together, beside the content.
+   Grouped, they read as one control; at the bottom they sit where a thumb already is and where the
+   protective gradient is darkest, and nothing lands on the photograph's sky.
+
+   The group is placed in the shell, so its right edge is the page's right edge at every width.
+   Each button keeps a 44px target; the drawn arrowhead is 28px. The negative margin aligns the
+   drawn arrowhead, not its target, with the shell edge. Scoped under .page-hero because
+   blocks.css loads after this file and its generic .carousel-icon-button (outline circle) would
+   otherwise win at equal specificity. */
+.page-hero-controls {
   position: absolute;
-  top: 50%;
-  z-index: 2;
-  width: var(--tp-button-height);
-  height: var(--tp-button-height);
+  right: -0.5rem;
+  bottom: 0;
+  display: flex;
+}
+
+.page-hero .page-hero-arrow {
+  width: var(--tp-control-min);
+  height: var(--tp-control-min);
+  border: 0;
+  border-radius: 0;
   color: var(--white);
-  border-color: color-mix(in oklch, var(--white) 72%, transparent);
-  background: color-mix(in oklch, var(--blue-deep) 34%, transparent);
-  transform: translateY(-50%);
+  background: none;
 }
 
-.page-hero .page-hero-arrow:hover {
-  border-color: var(--white);
-  background: color-mix(in oklch, var(--blue-deep) 60%, transparent);
+.page-hero .page-hero-arrow svg {
+  width: 28px;
+  height: 28px;
+  transition: transform var(--tp-motion-fast) var(--ease);
 }
 
-.page-hero-arrow:focus-visible {
-  outline: 2px solid var(--white);
-  outline-offset: 3px;
+.page-hero .page-hero-arrow--prev:hover svg {
+  transform: translateX(-3px);
 }
 
-.page-hero-arrow--prev {
-  left: clamp(0.75rem, 2vw, 2rem);
+.page-hero .page-hero-arrow--next:hover svg {
+  transform: translateX(3px);
 }
 
-.page-hero-arrow--next {
-  right: clamp(0.75rem, 2vw, 2rem);
+/* Keyboard focus is a short white bar under the arrowhead, the same underline language as every
+   other link and control, rather than a box around a 44px square. The shadow is shrunk by 12px on
+   every side and dropped by 12px plus the focus width, so only a 20px bar shows, just under the
+   button. */
+.page-hero .page-hero-arrow:focus-visible {
+  outline: none;
+  box-shadow: 0 calc(var(--tp-space-md) + var(--tp-focus-width)) 0 calc(-1 * var(--tp-space-md)) var(--focus-ring);
 }
 
-/* Centred arrows only clear the title where the page gutter is wider than the arrow, which is
-   from about 1366px. Below that the title's left edge sits under the left arrow (measured: 1024
-   and 1280 overlapped), so the arrows move to the top corners, still left and right. */
-@media (max-width: 1365px) {
-  .page-hero .page-hero-arrow {
-    top: 1rem;
-    transform: none;
+/* On a phone the actions stack and the last line is the text link, which is shorter than the
+   44px target. Dropping the group by the difference sets the arrowheads on that line. */
+@media (max-width: 680px) {
+  .page-hero-controls {
+    bottom: -0.625rem;
   }
 }
 
@@ -414,11 +429,6 @@
 
 .journey-card:hover .journey-card-link {
   text-decoration-color: currentColor;
-}
-
-.journey-card:focus-visible {
-  outline: 2px solid var(--blue);
-  outline-offset: 6px;
 }
 
 .journal-teaser {
@@ -901,7 +911,8 @@
   font-size: var(--tp-type-fine);
 }
 
-@media (max-width: 1100px) {
+/* The desktop bar only. Below 941px the nav is the phone menu, which spaces its own rows. */
+@media (min-width: 941px) and (max-width: 1100px) {
   .site-nav {
     gap: 1.2rem;
   }

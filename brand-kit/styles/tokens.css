@@ -18,7 +18,7 @@
   --tp-type-page-title: clamp(2.25rem, 4vw, 3rem);
   --tp-type-section-title: clamp(1.875rem, 3.3vw, 2.5rem);
   --tp-type-subsection-title: clamp(1.375rem, 2vw, 1.75rem);
-  --tp-type-menu-title: clamp(1.625rem, 2.2vw, 1.875rem);
+  --tp-type-menu-title: 1.375rem;
   --tp-type-lead: clamp(1.125rem, 1.4vw, 1.1875rem);
   --tp-type-label: 1rem;
   --tp-type-body: 1rem;
@@ -42,6 +42,8 @@
   --tp-reading-max: 45rem;
   --tp-gutter: clamp(1.25rem, 4vw, 3rem);
   --tp-control-min: 2.75rem;
+  --tp-focus-width: 2px;
+  --tp-focus-offset: 3px;
   --tp-button-height: 3.125rem;
   --tp-radius-button: 999px;
   --tp-radius-control: 0.125rem;

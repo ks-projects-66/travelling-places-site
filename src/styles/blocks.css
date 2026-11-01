@@ -129,13 +129,9 @@
   color: color-mix(in oklch, var(--white) 70%, var(--night));
 }
 
-/* White, not the site's red focus ring: red on night fails contrast and BRAND.md forbids it.
-   Same 3px weight as every other focus state. */
-.footer-signup input:focus-visible,
-.footer-signup .button:focus-visible {
-  border-color: var(--white);
-  outline: 3px solid var(--white);
-  outline-offset: 3px;
+/* The field's resting border is a faint white, which would outrank the shared focus rule. */
+.footer-signup input:focus-visible {
+  border-color: var(--focus-ring);
 }
 
 .footer-signup .button {
