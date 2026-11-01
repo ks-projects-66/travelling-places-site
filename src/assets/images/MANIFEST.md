@@ -41,14 +41,13 @@ particular need checking before launch.
 
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
-| `memberships/virtuoso-member.png` | Virtuoso member mark, as supplied (opaque white ground) | Virtuoso | supplied | Virtuoso member terms | Not currently referenced; the master for the derivative below |
-| `memberships/virtuoso-member-transparent.png` | Virtuoso member mark, trimmed to the artwork with the white ground made transparent. Colours and proportions unchanged | Derived from `virtuoso-member.png`, 25 October 2026 | supplied | Virtuoso member terms. TODO: confirm with Virtuoso's member logo rules, or replace with the official vector from `FW_ Logos` | Footer trust row, Luxury, Who we are |
+| `memberships/virtuoso-member-color.svg` | Virtuoso member mark, "Color" version for light grounds | Virtuoso official download (`Vir_Logo_Member_Color_RGB.svg`), linked from Virtuoso's Member Logo Usage Guidelines, June 2021; downloaded 1 November 2026 with the owner's approval. Illustrator's embedded editing data removed; the artwork group and colours are byte-identical to the download | supplied | Virtuoso member terms; the guidelines make the logo available to member agencies | Footer trust row, Contact, Luxury, Who we are |
 | `memberships/virtuoso-member-reverse-color.svg` | Virtuoso member mark, "Reverse, Color" version for dark grounds | Virtuoso official download (`Vir_Logo_Member_RevColor_RGB.svg`), linked from Virtuoso's Member Logo Usage Guidelines, June 2021; downloaded 1 November 2026 with the owner's approval. Illustrator's embedded editing data removed; every path and colour byte-identical to the download | supplied | Virtuoso member terms; the guidelines make the logo available to member agencies | Home Virtuoso band (navy) |
 | `memberships/atia.jpg` | ATIA accredited mark | ATIA | supplied | TODO: confirm ATIA logo usage rules | Footer |
 | `memberships/clia.png` | CLIA member mark | CLIA | supplied | TODO: confirm CLIA logo usage rules | Footer |
 | `memberships/alatus.jpg` | Alatus mark | Alatus | supplied | TODO: confirm | Footer |
 
-Vector masters exist as PDF in `FW_ Logos` for CLIA and Virtuoso. Convert to SVG before launch.
+A vector master exists as PDF in `FW_ Logos` for CLIA. Convert to SVG before launch. Virtuoso's marks are the official SVGs.
 
 ## Destinations
 

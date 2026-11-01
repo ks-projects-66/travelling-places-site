@@ -1147,14 +1147,12 @@
 /* Luxury: Gina's Virtuoso section. A light band, so the membership reads as part of the
    luxury offer rather than as a separate statement on navy. The two benefits are hairline-topped
    columns: the same rule DESIGN.md sets for lists, without markers. */
+/* 130px of artboard is the 92px of ink the trimmed PNG showed until 1 November 2026. */
 .luxury-virtuoso {
-  background: var(--mist);
-}
+  --virtuoso-mark-h: 130px;
+  --virtuoso-mark-gap: clamp(1.75rem, 3vw, 2.5rem);
 
-.luxury-virtuoso-mark {
-  width: auto;
-  height: 92px;
-  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  background: var(--mist);
 }
 
 .luxury-virtuoso .split-lead > p:not(.luxury-virtuoso-links) {
@@ -1172,7 +1170,7 @@
 
 /* The benefits start level with the heading, not the mark above it. */
 .luxury-virtuoso .virtuoso-benefits {
-  padding-top: calc(92px + clamp(1.75rem, 3vw, 2.5rem));
+  padding-top: calc(var(--virtuoso-mark-h) + var(--virtuoso-mark-gap));
 }
 
 @media (max-width: 940px) {
@@ -1230,11 +1228,10 @@
   color: var(--blue-deep);
 }
 
+/* 90px of artboard is the 64px of ink the trimmed PNG showed until 1 November 2026. */
 .row-mark {
-  display: block;
-  width: auto;
-  height: 64px;
-  margin-bottom: 1.5rem;
+  --virtuoso-mark-h: 90px;
+  --virtuoso-mark-gap: 1.5rem;
 }
 
 

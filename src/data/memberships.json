@@ -19,12 +19,12 @@
   },
   {
     "name": "Virtuoso",
-    "image": "virtuoso-member-transparent.png",
+    "image": "virtuoso-member-color.svg",
     "alt": "Virtuoso member",
     "url": "https://www.virtuoso.com/member/travelli34092",
     "status": "supplied",
-    "note": "Vector master available as PDF in FW_ Logos. Convert to SVG before launch.",
-    "stripHeight": 62
+    "note": "Official Virtuoso colour SVG. Its artboard includes the clear space, so the strip height is larger than the visible logo.",
+    "stripHeight": 88
   },
   {
     "name": "Alatus",

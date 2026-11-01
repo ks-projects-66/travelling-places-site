@@ -434,19 +434,25 @@ select:focus-visible {
 
 /* The supplied Virtuoso mark is artwork for light grounds. On navy it sits on a plate sized to its
    own clear space, never inside a large panel (CO4, CO11). */
-/* The SVG's artboard carries Virtuoso's clear space inside it: the ink starts 37.1 units into a
-   218.38-unit-high box. The negative margin moves that empty space into the gutter so the V lines up
-   with the heading, without editing the supplied artwork. */
-.home-virtuoso-mark {
+/* Virtuoso's official SVGs carry the logo's clear space inside the artboard: the ink starts 37.1
+   units into a 218.38-unit-high box and fills about 71% of its height. The negative margin moves
+   that empty space into the gutter so the V lines up with the text edge, without editing the
+   supplied artwork. Each placement sets the box height and the gap below it. */
+.virtuoso-mark {
   display: block;
   width: auto;
-  height: 110px;
-  margin: 0 0 clamp(1.25rem, 2.5vw, 2rem) calc(110px * -37.1 / 218.38);
+  height: var(--virtuoso-mark-h);
+  margin: 0 0 var(--virtuoso-mark-gap) calc(var(--virtuoso-mark-h) * -37.1 / 218.38);
+}
+
+.home-virtuoso {
+  --virtuoso-mark-h: 110px;
+  --virtuoso-mark-gap: clamp(1.25rem, 2.5vw, 2rem);
 }
 
 /* The benefits start level with the heading, not the mark above it, as on Luxury. */
 .home-virtuoso .virtuoso-benefits {
-  padding-top: calc(110px + clamp(1.25rem, 2.5vw, 2rem));
+  padding-top: calc(var(--virtuoso-mark-h) + var(--virtuoso-mark-gap));
 }
 
 .virtuoso-benefits {

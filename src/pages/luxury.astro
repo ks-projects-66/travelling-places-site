@@ -13,7 +13,7 @@ import virtuoso from '../data/virtuoso.json';
 // 2026, and the ocean-dining photograph this hero used now rotates in the home hero, so the
 // island moves here and neither photograph appears twice.
 import luxuryHero from '../assets/images/hero/virtuoso-island.jpg';
-import virtuosoMark from '../assets/images/memberships/virtuoso-member-transparent.png';
+import virtuosoMark from '../assets/images/memberships/virtuoso-member-color.svg';
 import VirtuosoBenefits from '../components/VirtuosoBenefits.astro';
 ---
 
@@ -65,7 +65,7 @@ import VirtuosoBenefits from '../components/VirtuosoBenefits.astro';
           file showed as a small white box on the mist. */}
       <div class="shell split-section">
         <div class="split-lead">
-          <Image class="luxury-virtuoso-mark" src={virtuosoMark} alt="Virtuoso member" height={92} densities={[1, 2]} loading="lazy" />
+          <Image class="virtuoso-mark" src={virtuosoMark} alt="Virtuoso member" height={130} loading="lazy" />
           <h2 id="virtuoso-heading">{virtuoso.intro.heading}</h2>
           {virtuoso.intro.paragraphs.map((p) => <p>{p}</p>)}
           <p class="luxury-virtuoso-links">
