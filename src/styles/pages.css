@@ -211,11 +211,6 @@
   font-weight: 500;
 }
 
-.home-virtuoso {
-  color: var(--white);
-  background: var(--blue-deep);
-}
-
 .founder-feature .text-link {
   margin-top: 2rem;
 }
@@ -362,21 +357,6 @@
   font-size: var(--tp-type-lead);
 }
 
-/* With a link to the whole collection, the opening runs the full width and the link sits on the
-   right, level with the line beneath the heading. */
-.section-intro--with-link {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 1rem 3rem;
-  max-width: none;
-}
-
-.section-intro--with-link > div {
-  max-width: var(--measure);
-}
-
 .journeys {
   background: var(--mist);
 }
@@ -392,10 +372,21 @@
   gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
+/* Each card spans five rows of the shared grid (photograph, title, paragraph, list, link), so the
+   two lists and links line up even when one paragraph runs a line longer. */
 .journey-card {
-  display: block;
+  display: grid;
+  grid-row: span 5;
+  grid-template-rows: subgrid;
+  row-gap: 0;
+  align-content: start;
   color: inherit;
   text-decoration: none;
+}
+
+.journey-card-link {
+  align-self: start;
+  justify-self: start;
 }
 
 .journey-card .card-image {
@@ -417,6 +408,24 @@
   margin: 0 0 1rem;
   color: var(--ink-muted);
   font-size: var(--tp-type-lead);
+}
+
+/* What each journey includes, as hairline rows: the rule DESIGN.md sets for lists. */
+.journey-card-points {
+  max-width: 44ch;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  list-style: none;
+}
+
+.journey-card-points li {
+  padding: 0.55rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.journey-card-points li:last-child {
+  border-bottom: 1px solid var(--line);
 }
 
 .journey-card-link {
@@ -587,7 +596,8 @@
    the kit's body and lead roles; 1.08rem and 1.3rem were invented values (re-critique, P2), and
    long copy is ink rather than muted grey, which read light for older eyes. Same correction on .legal-copy,
    .intro-detail and .article-prose. */
-.long-copy p {
+/* The placeholder pill is left out so it keeps its red (Gina's quotation on Who we are). */
+.long-copy p:not(.placeholder-note) {
   max-width: 30rem;
   color: var(--ink);
   font-size: var(--tp-type-body);
@@ -1144,41 +1154,6 @@
   padding-top: 0;
 }
 
-/* Luxury: Gina's Virtuoso section. A light band, so the membership reads as part of the
-   luxury offer rather than as a separate statement on navy. The two benefits are hairline-topped
-   columns: the same rule DESIGN.md sets for lists, without markers. */
-/* 130px of artboard is the 92px of ink the trimmed PNG showed until 1 November 2026. */
-.luxury-virtuoso {
-  --virtuoso-mark-h: 130px;
-  --virtuoso-mark-gap: clamp(1.75rem, 3vw, 2.5rem);
-
-  background: var(--mist);
-}
-
-.luxury-virtuoso .split-lead > p:not(.luxury-virtuoso-links) {
-  max-width: 30rem;
-  color: var(--ink);
-}
-
-.luxury-virtuoso-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 1rem 2rem;
-  margin: 1.75rem 0 0;
-}
-
-/* The benefits start level with the heading, not the mark above it. */
-.luxury-virtuoso .virtuoso-benefits {
-  padding-top: calc(var(--virtuoso-mark-h) + var(--virtuoso-mark-gap));
-}
-
-@media (max-width: 940px) {
-  .luxury-virtuoso .virtuoso-benefits {
-    padding-top: 0;
-  }
-}
-
 /* A lead column and a content column: the pattern for any section that pairs an introduction with
    what it introduces (CO10, CO11). Two columns use the width the single left-hand column left
    empty; on a phone they stack. */
@@ -1201,7 +1176,7 @@
   }
 }
 
-/* About: story, cruise and Virtuoso alternate image and text. */
+/* Who we are: Gina's story, her portrait beside the text. */
 .image-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1216,22 +1191,8 @@
   justify-self: center;
 }
 
-.image-row + .image-row {
-  margin-top: clamp(4rem, 8vw, 6.5rem);
-}
-
-.image-row--reverse > :first-child {
-  order: 2;
-}
-
 .image-row h2 {
   color: var(--blue-deep);
-}
-
-/* 90px of artboard is the 64px of ink the trimmed PNG showed until 1 November 2026. */
-.row-mark {
-  --virtuoso-mark-h: 90px;
-  --virtuoso-mark-gap: 1.5rem;
 }
 
 
@@ -1389,10 +1350,6 @@
   .theme-grid,
   .image-row {
     grid-template-columns: 1fr;
-  }
-
-  .image-row--reverse > :first-child {
-    order: 0;
   }
 
   .journal-row {

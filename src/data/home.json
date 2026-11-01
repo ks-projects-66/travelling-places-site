@@ -1,25 +1,32 @@
 {
-  "source": "Home page copy. Written for the site during the design build, not Gina's words, unless a field says otherwise; the founder lines restate her About copy (rewritten 25 October 2026 around the team photograph, from facts in about.json only: docs/CALLOUTS-2026-10-25.md, CO2). The founder quote dates from the first draft and its source is not recorded, so it stands as a company line, not attributed to Gina. Moved out of index.astro on 25 October 2026 so it can be edited in the CMS (docs/POLISH-PLAN.md, B15). The journeys cards and the journal introduction follow the client's brief of 25 October 2026 (docs/WORK-PLAN.md, changes 4 and 5); the journal introduction makes no promise about how often it is updated (Q7). Round 4 copy (owner's approval, 1 November 2026): docs/copy-review/COPY-DECK.md. Gina's lines that match wexas.com word for word were replaced with new wording that keeps her facts; her unmatched lines are unchanged. Open questions for her are listed at the end of the deck.",
+  "source": "Home page copy. Written for the site during the design build, not Gina's words, unless a field says otherwise; the founder lines restate her About copy (rewritten 25 October 2026 around the team photograph, from facts in about.json only: docs/CALLOUTS-2026-10-25.md, CO2). The founder quote dates from the first draft and its source is not recorded, so it stands as a company line, not attributed to Gina. Moved out of index.astro on 25 October 2026 so it can be edited in the CMS (docs/POLISH-PLAN.md, B15). The journeys cards and the journal introduction follow the client's brief of 25 October 2026 (docs/WORK-PLAN.md, changes 4 and 5); the journal introduction makes no promise about how often it is updated (Q7). Round 4 copy (owner's approval, 1 November 2026): docs/copy-review/COPY-DECK.md. Gina's lines that match wexas.com word for word were replaced with new wording that keeps her facts; her unmatched lines are unchanged. Open questions for her are listed at the end of the deck. 1 November 2026, owner's instruction: the hero and introduction no longer name Gina, the office or Tamborine Mountain; each journey card carries its own paragraph and list; the founder section became the About introduction (shown from about.json) and the founder quotation slot moved to Who we are; the Virtuoso band's words moved to virtuoso.json, shared with Luxury.",
   "hero": {
     "lead": "Your world,",
     "accent": "beautifully planned.",
-    "lede": "Tailor-made holidays from Tamborine Mountain, arranged with you by Gina Storey and her team.",
+    "lede": "Tailor-made travel, arranged around you and looked after until you are home.",
     "primary": "Start planning",
     "secondary": "Explore tailor-made travel"
   },
   "intro": {
-    "heading": "Travel has changed. Good service shouldn't.",
+    "heading": "Thoughtful care, at every stage of your journey.",
     "lead": "Talk it through with an advisor who has travelled widely.",
-    "detail": "Travelling Places has clients all over Australia, and looks after them from the Main Street office on Tamborine Mountain.",
+    "detail": "Your advisor learns how you like to travel and draws on the team's first-hand knowledge. They stay within reach while you are away. Clients across Australia come to us for that service.",
     "link": "Meet Gina and the team"
   },
   "journeys": {
     "heading": "Journeys shaped around you.",
-    "intro": "Whether it is a cruise or a stay ashore, we start with how you like to travel.",
+    "intro": "At sea or ashore, every journey starts with a conversation about what you want from it.",
     "cards": [
       {
         "service": "cruising",
         "label": "Cruising",
+        "body": "From an intimate sailing vessel to a luxury ship, a remote expedition or a river cruise, we find the voyage that suits you. We sail on and inspect ships for first-hand advice, and Gina is recognised as a Global Cruise Icon.",
+        "points": [
+          "Ships we sail on and inspect",
+          "CLIA training with cruise lines",
+          "Cabin and itinerary advice",
+          "Flights and hotels either side"
+        ],
         "link": "Explore cruising",
         "href": "https://travellingplaces.cruiseco.com.au/",
         "hrefStatus": "confirmed",
@@ -28,22 +35,20 @@
       {
         "service": "luxury",
         "label": "Luxury travel",
+        "body": "Luxury is a trip that fits you exactly. Your advisor chooses hotels, villas and lodges, arranges private touring with local specialists and plans journeys for the occasions that matter. Through Virtuoso, participating hotels add their own extras, and one person looks after you throughout.",
+        "points": [
+          "Handpicked hotels, villas and lodges",
+          "Private touring with local specialists",
+          "Journeys for special occasions",
+          "Virtuoso extras at participating partners"
+        ],
         "link": "Explore luxury travel",
         "href": "/luxury/",
         "hrefStatus": "confirmed"
       }
     ]
   },
-  "virtuoso": {
-    "heading": "What Virtuoso can add to your journey.",
-    "body": "Travelling Places is a Virtuoso member, so at participating hotels and cruise lines you receive extras like these.",
-    "button": "Why Virtuoso matters"
-  },
-  "founder": {
-    "heading": "From London to Tamborine Mountain.",
-    "lead": "Gina Storey founded Travelling Places on Tamborine Mountain in 1993, after a decade in London with British Airways and Jetset.",
-    "body": "More than 30 years on, Gina still works with clients as a travel advisor, on the Mountain where she started.",
-    "quote": "",
+  "about": {
     "link": "Meet the whole team",
     "caption": "The team in the Main Street office, Tamborine Mountain.",
     "imageAlt": "The Travelling Places team together in the Main Street office"

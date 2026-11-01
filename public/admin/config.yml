@@ -217,6 +217,15 @@ collections:
         file: src/data/about.json
         fields:
           - { name: source, label: Source note, widget: text }
+          - { name: metaDescription, label: Search description, widget: string, hint: About 155 characters. }
+          - name: hero
+            label: Opening
+            widget: object
+            fields:
+              - { name: lead, label: Title, first line, widget: string }
+              - { name: accent, label: Title, second line, widget: string }
+              - { name: lede, label: Introduction, widget: text }
+              - { name: imageAlt, label: Photograph description, widget: string }
           - name: intro
             label: About Travelling Places
             widget: object
@@ -232,22 +241,7 @@ collections:
               - { name: imageAlt, label: Photo description, widget: string, required: false, hint: Describe the photograph for someone who cannot see it. }
               - { name: imagePosition, label: Photo crop position, widget: string, required: false, hint: 'CSS position, e.g. center 30%. Leave blank for centre.' }
               - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
-          - name: cruise
-            label: Cruising
-            widget: object
-            fields: &sectionWithLink
-              - { name: heading, label: Heading, widget: string }
-              - { name: paragraphs, label: Paragraphs, widget: list, field: { name: paragraph, label: Paragraph, widget: text } }
-              - name: link
-                label: Link
-                widget: object
-                fields:
-                  - { name: label, label: Link text, widget: string }
-                  - { name: href, label: Link address, widget: string }
-              - { name: image, label: Photo file, widget: string, required: false, hint: 'Path under src/assets/images, e.g. features/expedition-penguins.jpg. Needs a MANIFEST.md row first.' }
-              - { name: imageAlt, label: Photo description, widget: string, required: false, hint: Describe the photograph for someone who cannot see it. }
-              - { name: imagePosition, label: Photo crop position, widget: string, required: false, hint: 'CSS position, e.g. center 60%. Leave blank for centre.' }
-          - { name: virtuoso, label: Virtuoso, widget: object, fields: *sectionWithLink }
+              - { name: quote, label: Gina's quotation, widget: text, required: false, hint: One sentence in Gina's own words. Leave empty and the page shows a TODO marker. }
       - name: tailor_made
         label: Tailor-made and luxury holidays
         file: src/data/tailor-made.json
@@ -292,25 +286,30 @@ collections:
         file: src/data/virtuoso.json
         fields:
           - { name: source, label: Source note, widget: text }
-          - { name: intro, label: Introduction, widget: object, fields: *section }
-          - name: benefits
-            label: Benefits
+          - { name: heading, label: Heading, widget: string }
+          - { name: body, label: Text, widget: text }
+          - name: pillars
+            label: Pillars
             widget: list
             fields:
               - { name: title, label: Title, widget: string }
               - { name: body, label: Text, widget: text }
-          - name: profile
-            label: Virtuoso member profile link
+          - { name: homeButton, label: Home page button, widget: string, hint: Goes to the Virtuoso band on the Luxury page. }
+          - { name: profileLead, label: Luxury page invitation, widget: text }
+          - { name: profileLink, label: Luxury page link text, widget: string, hint: 'The address is set once, under Contact details and identifiers, Virtuoso profile.' }
+          - name: held
+            label: Gina's original section (not shown)
             widget: object
+            hint: Kept for the record. Not shown on the site.
             fields:
-              - { name: label, label: Link text, widget: string, hint: 'The address itself is set once, under Contact details and identifiers, Virtuoso profile.' }
-          - name: whiteLabel
-            label: Virtuoso offers link
-            widget: object
-            fields:
-              - { name: label, label: Link text, widget: string }
-              - { name: url, label: Address, widget: string, required: false }
-              - { name: status, label: Status, widget: select, options: [confirmed, placeholder] }
+              - { name: source, label: Source note, widget: text }
+              - { name: intro, label: Introduction, widget: object, fields: *section }
+              - name: benefits
+                label: Benefits
+                widget: list
+                fields:
+                  - { name: title, label: Title, widget: string }
+                  - { name: body, label: Text, widget: text }
       - name: home
         label: Home page
         file: src/data/home.json
@@ -343,27 +342,19 @@ collections:
                 label: Cards
                 widget: list
                 fields:
-                  - { name: service, label: Service entry, widget: select, options: [cruising, expeditions, luxury, tailor-made], hint: The photograph and summary come from this service. }
+                  - { name: service, label: Service entry, widget: select, options: [cruising, expeditions, luxury, tailor-made], hint: The photograph comes from this service. }
                   - { name: label, label: Title, widget: string }
+                  - { name: body, label: Paragraph, widget: text, hint: About 30 to 45 words. }
+                  - { name: points, label: What it includes, widget: list, hint: Three or four short items., field: { name: point, label: Item, widget: string } }
                   - { name: link, label: Link text, widget: string }
                   - { name: href, label: Link address, widget: string }
                   - { name: hrefStatus, label: Link status, widget: select, options: [confirmed, placeholder] }
                   - { name: hrefNote, label: Link note, widget: string, required: false }
-          - name: virtuoso
-            label: Virtuoso band
+          - name: about
+            label: About introduction
             widget: object
+            hint: The heading and paragraph come from the About us file, introduction.
             fields:
-              - { name: heading, label: Heading, widget: string }
-              - { name: body, label: Text, widget: text }
-              - { name: button, label: Button, widget: string }
-          - name: founder
-            label: Founder
-            widget: object
-            fields:
-              - { name: heading, label: Heading, widget: string }
-              - { name: lead, label: Lead, widget: text }
-              - { name: body, label: Text, widget: text }
-              - { name: quote, label: Quotation, widget: text }
               - { name: caption, label: Photograph caption, widget: string }
               - { name: imageAlt, label: Photograph description, widget: string }
               - { name: link, label: Link text, widget: string }

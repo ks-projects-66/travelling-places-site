@@ -134,7 +134,7 @@ p {
 
 .page-hero--photo,
 .page-hero--navy,
-.home-virtuoso,
+.virtuoso-band--dark,
 .site-footer,
 .dialog-topline {
   --focus-ring: var(--white);
@@ -392,6 +392,24 @@ select:focus-visible {
   color: var(--ink-muted);
 }
 
+/* The Virtuoso band (VirtuosoBand.astro), navy on Home and mist on Luxury since 1 November 2026:
+   the mark, heading and explanation on the left, three pillars on the right. */
+.virtuoso-band--dark {
+  --virtuoso-mark-h: 110px;
+  --virtuoso-mark-gap: clamp(1.25rem, 2.5vw, 2rem);
+
+  color: var(--white);
+  background: var(--blue-deep);
+}
+
+/* 130px of artboard is the 92px of ink the trimmed PNG showed until 1 November 2026. */
+.virtuoso-band--light {
+  --virtuoso-mark-h: 130px;
+  --virtuoso-mark-gap: clamp(1.75rem, 3vw, 2.5rem);
+
+  background: var(--mist);
+}
+
 .virtuoso-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 1fr);
@@ -400,13 +418,33 @@ select:focus-visible {
 }
 
 .virtuoso-copy h2 {
-  max-width: 12ch;
+  max-width: 18ch;
+  text-wrap: balance;
+}
+
+.virtuoso-band--light .virtuoso-copy h2 {
+  color: var(--blue-deep);
 }
 
 .virtuoso-copy > p {
-  max-width: 41rem;
-  color: color-mix(in oklch, var(--white) 78%, var(--blue));
+  max-width: 34rem;
   font-size: var(--tp-type-lead);
+}
+
+.virtuoso-band--dark .virtuoso-copy > p {
+  color: color-mix(in oklch, var(--white) 78%, var(--blue));
+}
+
+.virtuoso-band--light .virtuoso-copy > p {
+  color: var(--ink);
+}
+
+.virtuoso-copy .button {
+  margin-top: 1rem;
+}
+
+.virtuoso-profile-lead {
+  margin-top: 1.5rem;
 }
 
 .benefit-list {
@@ -432,8 +470,6 @@ select:focus-visible {
   content: "";
 }
 
-/* The supplied Virtuoso mark is artwork for light grounds. On navy it sits on a plate sized to its
-   own clear space, never inside a large panel (CO4, CO11). */
 /* Virtuoso's official SVGs carry the logo's clear space inside the artboard: the ink starts 37.1
    units into a 218.38-unit-high box and fills about 71% of its height. The negative margin moves
    that empty space into the gutter so the V lines up with the text edge, without editing the
@@ -445,49 +481,38 @@ select:focus-visible {
   margin: 0 0 var(--virtuoso-mark-gap) calc(var(--virtuoso-mark-h) * -37.1 / 218.38);
 }
 
-.home-virtuoso {
-  --virtuoso-mark-h: 110px;
-  --virtuoso-mark-gap: clamp(1.25rem, 2.5vw, 2rem);
-}
-
-/* The benefits start level with the heading, not the mark above it, as on Luxury. */
-.home-virtuoso .virtuoso-benefits {
+/* The pillars start level with the heading, not the mark above it. */
+.virtuoso-pillars {
+  display: grid;
+  gap: clamp(1.75rem, 3vw, 2.5rem);
   padding-top: calc(var(--virtuoso-mark-h) + var(--virtuoso-mark-gap));
 }
 
-.virtuoso-benefits {
-  display: grid;
-  gap: clamp(1.75rem, 3vw, 2.5rem);
-}
-
-.virtuoso-benefit h3,
-.virtuoso-benefit h4 {
+.virtuoso-pillar h3 {
   margin: 0 0 0.6rem;
   font-size: var(--tp-type-subsection-title);
 }
 
-.virtuoso-benefit p {
+.virtuoso-pillar p {
   max-width: 33rem;
   margin: 0;
   font-size: var(--tp-type-lead);
   line-height: 1.6;
 }
 
-.virtuoso-benefits--light h3,
-.virtuoso-benefits--light h4 {
+.virtuoso-band--light .virtuoso-pillar h3 {
   color: var(--blue-deep);
 }
 
-.virtuoso-benefits--light p {
+.virtuoso-band--light .virtuoso-pillar p {
   color: var(--ink);
 }
 
-.virtuoso-benefits--dark h3,
-.virtuoso-benefits--dark h4 {
+.virtuoso-band--dark .virtuoso-pillar h3 {
   color: var(--white);
 }
 
-.virtuoso-benefits--dark p {
+.virtuoso-band--dark .virtuoso-pillar p {
   color: color-mix(in oklch, var(--white) 84%, var(--blue-deep));
 }
 
@@ -900,7 +925,7 @@ blockquote {
     max-width: 15ch;
   }
 
-  .home-virtuoso .virtuoso-benefits {
+  .virtuoso-pillars {
     padding-top: 0;
   }
 

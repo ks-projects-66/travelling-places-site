@@ -4,17 +4,14 @@ import PageHero from '../components/PageHero.astro';
 import CardImage from '../components/CardImage.astro';
 import OpeningStatement from '../components/OpeningStatement.astro';
 import WhyBook from '../components/WhyBook.astro';
-import { Image } from 'astro:assets';
+import VirtuosoBand from '../components/VirtuosoBand.astro';
 import site from '../data/site.json';
 import copy from '../data/luxury.json';
-import virtuoso from '../data/virtuoso.json';
 
 // The island photograph opened the Virtuoso page. That page folded into this one on 25 October
 // 2026, and the ocean-dining photograph this hero used now rotates in the home hero, so the
 // island moves here and neither photograph appears twice.
 import luxuryHero from '../assets/images/hero/virtuoso-island.jpg';
-import virtuosoMark from '../assets/images/memberships/virtuoso-member-color.svg';
-import VirtuosoBenefits from '../components/VirtuosoBenefits.astro';
 ---
 
 <BaseLayout
@@ -55,31 +52,10 @@ import VirtuosoBenefits from '../components/VirtuosoBenefits.astro';
       </div>
     </section>
 
-    {/* Gina's Virtuoso section, formerly its own page (docs/WORK-PLAN.md, change 2). Virtuoso is a
-        membership network, not an accreditation, so it sits here as the mechanism behind the
-        privileges described above rather than among the industry marks. */}
-    <section class="section luxury-virtuoso" id="virtuoso" aria-labelledby="virtuoso-heading">
-      {/* Split since 25 October 2026 (CO11): the mark, heading and Gina's introduction on the left,
-          her two benefits as the section's main content on the right, where the page was empty.
-          The mark is the transparent derivative at a size where "MEMBER" can be read; the opaque
-          file showed as a small white box on the mist. */}
-      <div class="shell split-section">
-        <div class="split-lead">
-          <Image class="virtuoso-mark" src={virtuosoMark} alt="Virtuoso member" height={130} loading="lazy" />
-          <h2 id="virtuoso-heading">{virtuoso.intro.heading}</h2>
-          {virtuoso.intro.paragraphs.map((p) => <p>{p}</p>)}
-          <p class="luxury-virtuoso-links">
-            <a class="text-link" href={site.virtuoso.profileUrl} target="_blank" rel="noreferrer"
-              aria-label={`${virtuoso.profile.label} (opens in a new tab)`}>{virtuoso.profile.label}</a>
-            {virtuoso.whiteLabel.url
-              ? <a class="text-link" href={virtuoso.whiteLabel.url} target="_blank" rel="noreferrer"
-                  aria-label={`${virtuoso.whiteLabel.label} (opens in a new tab)`}>{virtuoso.whiteLabel.label}</a>
-              : <span class="placeholder-note" data-placeholder>TODO: Virtuoso white-label link not yet supplied</span>}
-          </p>
-        </div>
-        <VirtuosoBenefits tone="light" />
-      </div>
-    </section>
+    {/* The same Virtuoso band as Home, on the mist, linking out to the member profile
+        (VirtuosoBand.astro). Virtuoso is a membership network, not an accreditation, so it sits
+        here beside the luxury offer rather than among the industry marks. */}
+    <VirtuosoBand tone="light" />
 
     <WhyBook />
   </main>

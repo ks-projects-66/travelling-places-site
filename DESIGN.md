@@ -360,3 +360,20 @@ on desktop.
 founder band reads as Gina's own words, and no source records the line it carried (register C26),
 so the field is empty until she supplies one and the band shows the red TODO pill on its own line
 above the link. `.about-copy > p` no longer recolours the pill grey.
+
+## Home, Who we are and Luxury rework, 1 November 2026
+
+- **One Virtuoso band.** `VirtuosoBand.astro` replaces `VirtuosoBenefits.astro` and the two hand-built
+  sections. Navy with the reverse mark on Home, mist with the colour mark on Luxury, the same words on
+  both. Why: neither band said what Virtuoso is, and two bands drifting apart was the old problem
+  (CO4, CO11). Home's button goes to the Luxury band; Luxury's link goes to the member profile.
+- **Pillars, not benefits.** Three short pillars sit at the level of what membership makes possible.
+  Gina's hotel and cruise extras appear once, as things participating partners can include.
+- **Journey cards carry a paragraph and a hairline list.** Each card spans five rows of a shared
+  subgrid, so the lists and links line up across the pair whatever the paragraph length.
+- **Home founder section shows the About introduction,** from `about.json`, beside the team
+  photograph. Gina's career stays on Who we are, beside her portrait, with the quotation slot.
+- **Who we are is about the people:** introduction, Gina's story, the team. The cruise and Virtuoso
+  rows moved to Home. Its hero lines and meta description now live in `about.json`.
+- **Journal link under the story,** matching "Meet the whole team" in the section above, rather
+  than on the right of the section opening. `.section-intro--with-link` is gone.

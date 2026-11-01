@@ -1,27 +1,41 @@
 {
-  "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From the Virtuoso Membership section of 'Luxury Travel with Travelling Places.docx', laid out in her order. Since 25 October 2026 it is a section of the Luxury page rather than a page of its own (docs/WORK-PLAN.md, change 2). The two benefit titles are editorial. Her closing line (\"There are lots of benefits for our clients through the Virtuoso affiliation.\") was removed on 25 October 2026 at the owner's instruction to keep the text to about today's measure: the two benefits above it already say it (docs/CALLOUTS-2026-10-25.md, CO11).",
-  "intro": {
-    "heading": "Virtuoso membership",
-    "paragraphs": [
-      "Travelling Places is proud to be associated with the invitation only Virtuoso global travel group. Recognised as the top 1% of agencies worldwide, Travelling Places benefits from networking with industry leaders globally and securing exclusive opportunities for our clients to benefit from."
-    ]
-  },
-  "benefits": [
+  "source": "One Virtuoso band for Home and Luxury since 1 November 2026 (src/components/VirtuosoBand.astro). The owner found that neither band said what Virtuoso is, and that 'at your hotel' and 'on your cruise' sat too far down the chain, so the heading, text and pillars were rewritten to explain Virtuoso and what membership makes possible, drawing on Virtuoso's own pages without their wording. 'Invitation only' and 'top 1%' are Gina's facts. Her original section is kept under 'held' for the record and is not shown; do not restore it from the CMS. The white-label link placeholder was removed: the member profile (site.json, virtuoso.profileUrl) is that page.",
+  "heading": "The insight to plan something extraordinary, anywhere.",
+  "body": "Virtuoso is a global travel group that links leading agencies with exceptional hotels, cruise lines and tour companies around the world. Travelling Places is a member, recognised as the top 1% of agencies worldwide, and our clients share in the benefits.",
+  "pillars": [
     {
-      "title": "At your hotel",
-      "body": "Imagine checking into your hotel and being recognised with complimentary breakfast, a food and beverage credit to use at the hotel and perhaps a room upgrade."
+      "title": "A world of choice",
+      "body": "Virtuoso's partners include exceptional hotels, cruise lines and tour companies around the world, so whatever you have in mind, there is somewhere to begin."
     },
     {
-      "title": "On your cruise",
-      "body": "Sail on a Virtuoso affiliate cruise line and receive on board credits, an invitation to an exclusive cocktail party or a unique shore excursion."
+      "title": "Recognised on arrival",
+      "body": "Participating hotels and cruise lines welcome Virtuoso guests with extras, which can include breakfast, on board credit, a room upgrade or a shore excursion."
+    },
+    {
+      "title": "Insight to rely on",
+      "body": "Travelling Places has built relationships with leaders across the travel world, and shares the insight and opportunities they bring, so you can plan with confidence."
     }
   ],
-  "whiteLabel": {
-    "label": "Some of the wonderful travel opportunities through Virtuoso",
-    "url": null,
-    "status": "placeholder"
-  },
-  "profile": {
-    "label": "View our Virtuoso profile"
+  "homeButton": "More about Virtuoso",
+  "profileLead": "Explore destinations, hotels, cruises and tours on our Virtuoso profile, then talk through what catches your eye with your advisor.",
+  "profileLink": "View our Virtuoso profile",
+  "held": {
+    "source": "Gina Storey, supplied 25 September 2026 (website.zip). Her words; only typos and long dashes corrected. From the Virtuoso Membership section of 'Luxury Travel with Travelling Places.docx', laid out in her order. Since 25 October 2026 it is a section of the Luxury page rather than a page of its own (docs/WORK-PLAN.md, change 2). The two benefit titles are editorial. Her closing line (\"There are lots of benefits for our clients through the Virtuoso affiliation.\") was removed on 25 October 2026 at the owner's instruction to keep the text to about today's measure: the two benefits above it already say it (docs/CALLOUTS-2026-10-25.md, CO11).",
+    "intro": {
+      "heading": "Virtuoso membership",
+      "paragraphs": [
+        "Travelling Places is proud to be associated with the invitation only Virtuoso global travel group. Recognised as the top 1% of agencies worldwide, Travelling Places benefits from networking with industry leaders globally and securing exclusive opportunities for our clients to benefit from."
+      ]
+    },
+    "benefits": [
+      {
+        "title": "At your hotel",
+        "body": "Imagine checking into your hotel and being recognised with complimentary breakfast, a food and beverage credit to use at the hotel and perhaps a room upgrade."
+      },
+      {
+        "title": "On your cruise",
+        "body": "Sail on a Virtuoso affiliate cruise line and receive on board credits, an invitation to an exclusive cocktail party or a unique shore excursion."
+      }
+    ]
   }
 }

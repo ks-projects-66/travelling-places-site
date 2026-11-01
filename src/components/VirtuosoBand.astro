@@ -1,0 +1,52 @@
+---
+/**
+ * The Virtuoso band, one component for Home (navy) and Luxury (mist) since 1 November 2026. The
+ * owner found that neither band said what Virtuoso is, so both now explain it in the same words:
+ * the mark, a heading on what membership makes possible, a short explanation, and three pillars.
+ * Home sends the reader to the Luxury band; Luxury sends them to the Virtuoso member profile, which
+ * is where the hotels, cruises and tours can be explored with an advisor.
+ */
+import { Image } from 'astro:assets';
+import site from '../data/site.json';
+import virtuoso from '../data/virtuoso.json';
+
+// Virtuoso's own artwork: the reverse mark straight on the navy, the colour mark on the mist. Its
+// member logo guidelines (June 2021) list a box around the logo as a misuse.
+import markReverse from '../assets/images/memberships/virtuoso-member-reverse-color.svg';
+import markColour from '../assets/images/memberships/virtuoso-member-color.svg';
+
+interface Props {
+  tone: 'dark' | 'light';
+}
+const { tone } = Astro.props;
+const dark = tone === 'dark';
+const headingId = `virtuoso-heading-${tone}`;
+---
+
+<section class:list={['section', 'virtuoso-band', `virtuoso-band--${tone}`]} id={dark ? undefined : 'virtuoso'} aria-labelledby={headingId}>
+  <div class="shell virtuoso-grid">
+    <div class="virtuoso-copy">
+      <Image class="virtuoso-mark" src={dark ? markReverse : markColour} alt="Virtuoso member" height={dark ? 110 : 130} loading="lazy" />
+      <h2 id={headingId}>{virtuoso.heading}</h2>
+      <p>{virtuoso.body}</p>
+      {dark
+        ? <a class="button button-white" href="/luxury/#virtuoso">{virtuoso.homeButton}</a>
+        : (
+          <>
+            <p class="virtuoso-profile-lead">{virtuoso.profileLead}</p>
+            <a class="text-link" href={site.virtuoso.profileUrl} target="_blank" rel="noreferrer">
+              {virtuoso.profileLink}<span class="visually-hidden"> (opens in a new tab)</span>
+            </a>
+          </>
+        )}
+    </div>
+    <div class="virtuoso-pillars">
+      {virtuoso.pillars.map((pillar) => (
+        <div class="virtuoso-pillar">
+          <h3>{pillar.title}</h3>
+          <p>{pillar.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
