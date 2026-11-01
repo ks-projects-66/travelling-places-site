@@ -104,7 +104,8 @@ page shows a marked placeholder naming the missing file.
 | `features/luxury-stone-portico-sea.jpg` | Stone table under a portico with a sea view | Unsplash, Paréj Richárd | owned | Unsplash License | Luxury, Peace of mind |
 | `features/cruise-river-lyon.jpg` | River cruise ship passing the Lyon riverfront, ship name and emblem removed | Unsplash, Thomas K (retouched derivative) | owned | Unsplash License | Tailor-made, cruising card |
 | `features/expedition-penguins.jpg` | Penguins on a dark pebble beach | Unsplash, Rod Long | owned | Unsplash License | Tailor-made, expeditions card |
-| `features/luxury-lakeside-villa.jpg` | Lakeside villa at dusk, Lake Como | Unsplash, Emanuel Ekström | owned | Unsplash License | Tailor-made, luxury card |
+| `features/luxury-lakeside-villa.jpg` | Lakeside villa at dusk, Lake Como | Unsplash, Emanuel Ekström | owned | Unsplash License | Not currently referenced (Tailor-made, luxury card until 1 November 2026) |
+| `features/luxury-lake-como-villa.jpg` | Villa with terraced gardens and cypresses on a wooded point, Lake Como, by day. 2000x1333 copy supplied by Karim | Pexels, Rosa Stone (20927257), https://www.pexels.com/photo/houses-by-lake-como-in-italy-20927257/ | owned | Pexels License (Free), verified on the photo page 1 November 2026 | Tailor-made, luxury card |
 | `features/rail-nine-arch-bridge.jpg` | Train on the Nine Arch Bridge, Sri Lanka | Unsplash, llxvisuals | owned | Unsplash License | Tailor-made, tailor-made card |
 | `features/ship-at-sunset.jpg` | Small ship silhouetted at sunset | Unsplash, Tayler Lyons | owned | Unsplash License | About, cruising row |
 | `features/sea-view-room-greece.jpg` | Quiet hotel room with a lamp and an open balcony door onto the sea, Greece | Unsplash, Ruben Aster (QStrN6Pr4wM) | owned | Unsplash License, verified 25 October 2026 | About, Virtuoso row |
