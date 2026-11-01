@@ -39,9 +39,14 @@ the site's variable names, so a kit release propagates without edits here.
   paragraphs in a second column of six, every paragraph at the lead size and one measure (about 60
   characters). Measured against Belmond and A&K, who both pin copy to one side and leave the rest
   open. Replaced the single left-hand column that left the right half of the page empty.
-- **Lists of inclusions** inside a photograph card are short phrases in ink at regular weight, two
-  by two, separated by space: no rules, no marker (CO9). The hairline-row list it replaced read like
-  a form against the photographs; navy bold read as links (fitted pattern sheet, 31 October 2026).
+- **A photograph card carries one heading and one paragraph.** The Expertise service cards are
+  photograph, title and paragraph, plus the one link on Cruising (owner, 1 November 2026). The
+  two-by-two list of what each service covers (CO9) wrapped unevenly, ended each card at a
+  different depth and restated the paragraph above it. A single stacked column and a single
+  running line were both considered and rejected: the first kept the length, the second needed the
+  phrases rewritten. The one-line promise under each title ("Luxury that feels like you.") went
+  the same day: once the list was gone it read as a second heading competing with the title. Both
+  stay in the service files (`points`, `title`), not rendered.
   In a column without a photograph, points are a ruled list (About promises).
   Credentials ("proof") are separate from services and set as short serif lines, two by two (CO6,
   CO13).

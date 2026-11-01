@@ -110,11 +110,11 @@ collections:
     slug: '{{slug}}'
     fields:
       - { name: label, label: Service name, widget: string }
-      - { name: title, label: Headline, widget: string }
+      - { name: title, label: Headline, widget: string, hint: 'Not shown on the site since 1 November 2026. Kept so the text is not lost.' }
       - { name: summary, label: One-line summary, widget: string, hint: Used on the home page list. }
       - { name: order, label: Order, widget: number, value_type: int, min: 1 }
       - { name: anchor, label: Anchor, widget: string, hint: 'Lowercase, no spaces. Forms the link, e.g. cruising.' }
-      - { name: points, label: What we cover, widget: list, field: { name: point, label: Point, widget: string } }
+      - { name: points, label: What we cover, widget: list, hint: 'Not shown on the site since 1 November 2026. Kept so the text is not lost.', field: { name: point, label: Point, widget: string } }
       - { name: image, label: Photo file, widget: string, required: false, hint: 'Path under src/assets/images, e.g. features/expedition-penguins.jpg. Needs a MANIFEST.md row first.' }
       - { name: imageAlt, label: Photo description, widget: string, required: false, hint: Describe the photograph for someone who cannot see it. }
       - { name: imagePosition, label: Photo crop position, widget: string, required: false, hint: 'CSS position, e.g. center 60%. Leave blank for centre.' }

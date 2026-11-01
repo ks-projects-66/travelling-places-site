@@ -501,15 +501,6 @@
   background: var(--mist);
 }
 
-/* The card's one-line promise reads as the first line of its text, at the lead size in ink. Bold
-   muted grey made it a stray third heading between the title and the copy (CO9). */
-.service-tagline {
-  margin: 0.6rem 0 0;
-  color: var(--ink);
-  font-size: var(--tp-type-lead);
-  line-height: 1.5;
-}
-
 .service-copy > p,
 /* The kit's measure is 68 characters (BRAND.md). In IBM Plex Sans the ch unit, the width of a
    zero, is narrower than an average character, so 68ch rendered 90 to 95 characters a line. Rem
@@ -523,34 +514,8 @@
   font-size: var(--tp-type-body);
 }
 
-/* What a service includes: a two-column set of short phrases, with no rules and no markers.
-   Replaced the hairline rows on 25 October 2026: sixteen full-width rules across the service cards
-   read like a form against the photographs (CO9). Space separates the set from the text above it.
-   Regular weight in ink since 31 October 2026: bold navy read as a set of links (pattern sheet, 02). */
-.inclusions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem clamp(1.25rem, 3vw, 2.25rem);
-  margin: 1.75rem 0 0;
-  padding: 0;
-  list-style: none;
-}
-
-.inclusions li {
-  color: var(--ink);
-  line-height: 1.45;
-  text-wrap: pretty;
-}
-
 .service-card .service-link {
   margin-top: 1.75rem;
-}
-
-@media (max-width: 520px) {
-  .inclusions {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
-  }
 }
 
 /* One text column per section, heading above body, at the reading width, so every paragraph on a
@@ -990,10 +955,6 @@
      exists in the markup. */
   .virtuoso-copy h2 {
     max-width: none;
-  }
-
-  .service-tagline {
-    max-width: 40ch;
   }
 
   .contact-sidebar {

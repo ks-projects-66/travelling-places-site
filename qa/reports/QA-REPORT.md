@@ -1,8 +1,8 @@
 # QA report
 
-Generated 2026-10-31T23:24:13.508Z against brand kit **v3.2.0** on win32, Node v24.14.0.
+Generated 2026-11-01T05:33:39.936Z against brand kit **v3.2.0** on win32, Node v24.14.0.
 
-All automated tests passed. 0 distinct blocking findings, 32 warnings and 23 informational items, from 81 recorded occurrences.
+**1 of 391 tests failed.** 0 distinct blocking findings, 32 warnings and 23 informational items, from 81 recorded occurrences.
 
 Every failure below is a real defect in the site or a real deviation from the brand kit. Nothing has been masked, no threshold was raised, and no rule was disabled to produce this result.
 
@@ -12,7 +12,7 @@ Every failure below is a real defect in the site or a real deviation from the br
 |---|---|---|
 | `a11y` | 40 / 40 | pass |
 | `brand` | 48 / 48 | pass |
-| `crossbrowser-firefox` | 15 / 15 | pass |
+| `crossbrowser-firefox` | 14 / 15 | 1 failed |
 | `crossbrowser-webkit` | 15 / 15 | pass |
 | `functional` | 102 / 102 | pass |
 | `responsive` | 171 / 171 | pass |
@@ -20,7 +20,9 @@ Every failure below is a real defect in the site or a real deviation from the br
 
 ## Failed checks
 
-_None._
+| Suite | Test | First error |
+|---|---|---|
+| `crossbrowser-firefox` | crossbrowser\smoke.spec.js › desktop-1440 › the carousel advances | Error: carousel never advanced past slide 0 |
 
 
 ## Brand-kit deviations
@@ -40,15 +42,15 @@ Warnings, reported not enforced:
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/blocks.css:218 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-val | 1 | site-wide |
 | `stylelint-declaration-property-value-disallowed-list` | src/styles/blocks.css:292 Disallowed value "underline" for property "text-decoration-line" (declaration-property-value-disallowed-list) | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:453 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:778 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
-| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:802 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:743 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
+| `stylelint-scale-unlimited/declaration-strict-value` | src/styles/pages.css:767 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-valu | 1 | site-wide |
 | `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:341 Disallowed value "underline" for property "text-decoration" (declaration-property-value-disallowed-list) | 1 | site-wide |
 | `stylelint-declaration-property-value-disallowed-list` | src/styles/pages.css:390 Disallowed value "underline" for property "text-decoration-line" (declaration-property-value-disallowed-list) | 1 | site-wide |
 | `stylelint-no-duplicate-selectors` | src/styles/pages.css:355 Duplicate selector ".journal-teaser", first used at line 208 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1072 Duplicate selector ".team-roster", first used at line 710 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1076 Duplicate selector ".closing-cta", first used at line 223 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1082 Duplicate selector ".contact-page", first used at line 827 (no-duplicate-selectors) | 1 | site-wide |
-| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1091 Duplicate selector ".service-detail", first used at line 496 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1033 Duplicate selector ".team-roster", first used at line 675 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1037 Duplicate selector ".closing-cta", first used at line 223 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1043 Duplicate selector ".contact-page", first used at line 792 (no-duplicate-selectors) | 1 | site-wide |
+| `stylelint-no-duplicate-selectors` | src/styles/pages.css:1052 Duplicate selector ".service-detail", first used at line 496 (no-duplicate-selectors) | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/placeholders.css:36 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-stric | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/placeholders.css:45 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-stric | 1 | site-wide |
 | `stylelint-scale-unlimited/declaration-strict-value` | src/styles/site.css:661 Use a brand token here, not a raw value. Tokens live in brand-kit/styles/tokens.css. (scale-unlimited/declaration-strict-value | 1 | site-wide |
@@ -70,8 +72,8 @@ Warnings:
 |---|---|---|---|
 | `container-width-inconsistent` | .shell renders at 1200, 980px on one page | 6 | /journal/looking-south-to-antarctica/; 6 viewports |
 | `button-wraps` | a.button.button-outline "Send an enquiry instead" wraps to 2 lines | 1 | /contact/; mobile-320 |
-| `container-width-inconsistent` | .shell renders at 1184, 980px on one page | 1 | /journal/looking-south-to-antarctica/; desktop-1280 |
 | `container-width-inconsistent` | .shell renders at 1086, 980px on one page | 1 | /journal/looking-south-to-antarctica/; ipad-air-landscape |
+| `container-width-inconsistent` | .shell renders at 1184, 980px on one page | 1 | /journal/looking-south-to-antarctica/; desktop-1280 |
 
 
 ## Accessibility failures
