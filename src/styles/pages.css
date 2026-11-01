@@ -1357,49 +1357,60 @@
    be understood, not to be sold. Lists follow DESIGN.md: hairline rows, no markers.
    --------------------------------------------------------------------------- */
 
-/* A legal document reads at a full desktop measure, about 80 characters a line. At 31rem it read
-   as a phone layout on a wide screen (owner, 1 November 2026). */
+/* Legal pages read as a plain business document (owner, 1 November 2026): one column at a desktop
+   measure, a modest title, headings in the body face, ordinary bullets, no rules or display sizes. */
+.legal-page {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
 .legal-copy {
   max-width: 46rem;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.legal-copy h1 {
+  margin: 0 0 0.5rem;
+  color: var(--blue-deep);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  line-height: 1.2;
+}
+
+.legal-dateline {
+  margin: 0 0 2.5rem;
+  color: var(--ink-muted);
+  font-size: 0.9375rem;
 }
 
 .legal-copy h2 {
-  margin: clamp(2.5rem, 5vw, 3.5rem) 0 1rem;
-  color: var(--blue-deep);
-  font-size: var(--tp-type-subsection-title);
-}
-
-.legal-copy h2:first-child {
-  margin-top: 0;
-}
-
-.legal-copy p,
-.legal-copy li {
+  margin: 2rem 0 0.5rem;
   color: var(--ink);
+  font-family: var(--sans);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.legal-copy p {
+  margin: 0 0 1rem;
   text-wrap: pretty;
 }
 
 .legal-copy ul {
-  margin: 1.25rem 0;
-  padding: 0;
-  list-style: none;
-  border-top: 1px solid var(--line);
+  margin: 0 0 1rem;
+  padding-left: 1.25rem;
+  list-style: disc;
 }
 
 .legal-copy li {
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--line);
+  margin: 0 0 0.35rem;
 }
 
 /* A [bracketed] gap the business still has to fill: red, in the running text. */
 .bracket-placeholder {
   color: var(--red-text);
   font-weight: 600;
-}
-
-.legal-dateline {
-  margin: 0;
-  color: var(--ink-muted);
 }
 
 /* Expertise: the standfirst introduces the cards directly beneath it, so the two sections share

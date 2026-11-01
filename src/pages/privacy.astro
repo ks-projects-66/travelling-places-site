@@ -24,20 +24,17 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
   page="privacy"
 >
   <main id="main">
-    <section class="page-hero page-hero--plain">
-      <div class="shell">
-        <h1>{policy.data.title}</h1>
-        {policy.data.approved && policy.data.approvedOn
-          ? <p class="legal-dateline">Last updated {dateFormat.format(policy.data.approvedOn)}</p>
-          : <p class="legal-dateline">
-              <span class="bracket-placeholder" data-placeholder>[Draft of {dateFormat.format(policy.data.drafted)}, not yet approved]</span>
-            </p>}
-      </div>
-    </section>
-
-    <section class="section">
+    {/* A plain document, not a designed page (owner, 1 November 2026): title, status line and the
+        text in one column, with ordinary headings and bullets. */}
+    <section class="section legal-page">
       <div class="shell">
         <article class="legal-copy">
+          <h1>{policy.data.title}</h1>
+          {policy.data.approved && policy.data.approvedOn
+            ? <p class="legal-dateline">Last updated {dateFormat.format(policy.data.approvedOn)}</p>
+            : <p class="legal-dateline">
+                <span class="bracket-placeholder" data-placeholder>[Draft of {dateFormat.format(policy.data.drafted)}, not yet approved]</span>
+              </p>}
           <Content />
         </article>
       </div>
