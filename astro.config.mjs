@@ -3,6 +3,7 @@ import { cpSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
+import rehypeBracketPlaceholders from './src/lib/rehype-bracket-placeholders.mjs';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 
@@ -37,5 +38,7 @@ export default defineConfig({
     publishBrandKit(),
   ],
   build: { format: 'directory' },
+  // [Bracketed] gaps in legal documents render as red placeholders (src/lib/rehype-bracket-placeholders.mjs).
+  markdown: { rehypePlugins: [rehypeBracketPlaceholders] },
   image: { responsiveStyles: true },
 });

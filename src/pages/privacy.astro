@@ -3,9 +3,10 @@
  * The privacy policy. The text lives in src/content/legal/privacy.md so it can be edited in the
  * CMS. It was drafted on 25 October 2026 at the owner's request (docs/WORK-PLAN.md, Q11), for this
  * website only, and stays a draft until a person with authority approves it (CLAUDE.md): until
- * `approved` is true the page carries a visible notice saying so. Every fact only the business can
- * supply is a red TODO in the text. Research, sources and what the owner must provide are in
- * docs/PRIVACY-NOTES.md.
+ * `approved` is true the page carries a visible notice saying so. Rewritten on 1 November 2026 at
+ * the owner's request as a standard Australian privacy policy for the whole business: every fact
+ * only the business can supply is a [square-bracketed] gap, which renders red. Earlier research
+ * and sources are in docs/PRIVACY-NOTES.md.
  */
 import { getEntry, render } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -28,8 +29,8 @@ const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'lo
         <h1>{policy.data.title}</h1>
         {policy.data.approved && policy.data.approvedOn
           ? <p class="legal-dateline">Last updated {dateFormat.format(policy.data.approvedOn)}</p>
-          : <p class="placeholder-note" data-placeholder>
-              TODO: draft of {dateFormat.format(policy.data.drafted)}, not yet approved. Do not rely on it until it is.
+          : <p class="legal-dateline">
+              <span class="bracket-placeholder" data-placeholder>[Draft of {dateFormat.format(policy.data.drafted)}, not yet approved]</span>
             </p>}
       </div>
     </section>

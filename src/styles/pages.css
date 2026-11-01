@@ -1357,8 +1357,10 @@
    be understood, not to be sold. Lists follow DESIGN.md: hairline rows, no markers.
    --------------------------------------------------------------------------- */
 
+/* A legal document reads at a full desktop measure, about 80 characters a line. At 31rem it read
+   as a phone layout on a wide screen (owner, 1 November 2026). */
 .legal-copy {
-  max-width: 31rem;
+  max-width: 46rem;
 }
 
 .legal-copy h2 {
@@ -1389,9 +1391,10 @@
   border-bottom: 1px solid var(--line);
 }
 
-.legal-copy .placeholder-note {
-  display: inline;
-  font-size: var(--meta-label);
+/* A [bracketed] gap the business still has to fill: red, in the running text. */
+.bracket-placeholder {
+  color: var(--red-text);
+  font-weight: 600;
 }
 
 .legal-dateline {
