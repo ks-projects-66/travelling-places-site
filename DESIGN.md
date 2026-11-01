@@ -408,8 +408,10 @@ From a design review of the staging site at 1440px and 390px, each change on the
   sentence, which suits long first lines but broke this one as "Luxury, in / every detail.". Where
   the first line is 13 characters or fewer and the second 18 or fewer, both fit a 375px phone at
   the 34px floor, so `PageHero` keeps the break (`hero-line--keep`). Tailor-made, Luxury and Contact
-  qualify. Home's "beautifully planned." does not, and Home still runs to three lines at 375px, as
-  it did before this change.
+  qualify; Home's "beautifully planned." does not, and already breaks after "Your world," on its
+  own. Measured with phone emulation (overlay scrollbars) from 320 to 430px: every hero holds two
+  lines, except Home at 320px, the exception recorded above. A desktop browser narrowed to 375px
+  draws a 15px scrollbar and shows Home on three lines; that is a measuring artefact, not a phone.
 - **Heroes paint a blurred copy of their photograph while it loads.** A 24px-wide copy of each hero
   photograph (about 300 bytes) is inlined as the media box's background
   (`src/lib/blur-placeholder.ts`, built with the project's own sharp), so a slow connection shows

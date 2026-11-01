@@ -57,7 +57,7 @@ const {
 
 // When both lines are short enough to fit a 375px phone at display size, the written break is kept
 // there too. Run on, "Luxury, in every detail." broke as "Luxury, in / every detail." (1 November
-// 2026). "beautifully planned." (20 characters) wraps at 375px on its own line, so it stays run on.
+// 2026). 18 characters is the per-line budget DESIGN.md measures for 375px at the 34px floor.
 const keepBreak = lead.length <= 13 && accent.length <= 18;
 
 if (tone === 'photo' && !image && !slides?.length) {
