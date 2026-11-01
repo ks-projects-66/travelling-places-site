@@ -410,3 +410,8 @@ From a design review of the staging site at 1440px and 390px, each change on the
   the 34px floor, so `PageHero` keeps the break (`hero-line--keep`). Tailor-made, Luxury and Contact
   qualify. Home's "beautifully planned." does not, and Home still runs to three lines at 375px, as
   it did before this change.
+- **Heroes paint a blurred copy of their photograph while it loads.** A 24px-wide copy of each hero
+  photograph (about 300 bytes) is inlined as the media box's background
+  (`src/lib/blur-placeholder.ts`, built with the project's own sharp), so a slow connection shows
+  the photograph's colours at once instead of a flat grey box. Nothing changes once the image has
+  loaded. Every hero, and every slide on Home.

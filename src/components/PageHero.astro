@@ -19,6 +19,7 @@
  */
 import { Image } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
+import { blurPlaceholder } from '../lib/blur-placeholder';
 
 export interface HeroSlide {
   src: ImageMetadata;
@@ -67,6 +68,9 @@ if (image && slides?.length) {
 }
 const isCarousel = Boolean(slides && slides.length > 1);
 
+const imageBlur = image && (await blurPlaceholder(image));
+const slideBlurs = slides && (await Promise.all(slides.map((slide) => blurPlaceholder(slide.src))));
+
 /* Astro will not upscale past the source, so a photograph narrower than the hero silently loses
    its larger candidates. `maxWidth` keeps every step below the source and then adds the source
    width itself, so the largest candidate is the sharpest the file can actually give. */
@@ -92,6 +96,7 @@ const heroWidths = maxWidth
           aria-roledescription="slide"
           aria-label={`${i + 1} of ${slides.length}`}
           aria-hidden={i === 0 ? undefined : 'true'}
+          style={`background-image: url(${slideBlurs![i]}); background-position: ${slide.position ?? 'center'};`}
         >
           <Image
             src={slide.src}
@@ -108,7 +113,7 @@ const heroWidths = maxWidth
   )}
 
   {image && (
-    <div class="page-hero-media">
+    <div class="page-hero-media" style={`background-image: url(${imageBlur}); background-position: ${position};`}>
       <Image
         src={image}
         alt={alt}

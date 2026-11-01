@@ -16,6 +16,13 @@
   overflow: hidden;
 }
 
+/* The background is the inlined 24px copy of the photograph (src/lib/blur-placeholder.ts), shown
+   until the full image covers it. */
+.page-hero-media,
+.page-hero-slide {
+  background-size: cover;
+}
+
 .page-hero-media {
   position: absolute;
   inset: 0;
