@@ -460,19 +460,19 @@ first stage; the later stages are separate entries.
 
 ## Phone header and refined pill buttons, 2 November 2026
 
-Owner decision, recorded in kit 3.4.0 as the second stage of the phone redesign. Two changes, both after
-Aman: a centred mark with a bare menu icon on a phone, and quieter pills everywhere.
+Owner decision, recorded in kit 3.4.0 as the second stage of the phone redesign. Two changes: a bare menu
+icon on a phone, and quieter pills everywhere.
 
-- **Phone header (680px and below).** `.header-inner` is a three-column grid, 44px, 1fr, 44px. The menu icon
-  sits in the left column at the gutter edge, the lockup is centred on the viewport in the middle column at
-  124px wide (centre measured at exactly half the viewport at 375px and 390px), and the right column is
-  empty by the owner's choice. The header stays 78px. The toggle is icon only: the Menu and Close labels are
+- **Phone header (680px and below).** The 124px lockup sits at the left gutter and a bare menu icon at the
+  right gutter, the same sides as every other width. The first build centred the lockup with the icon on
+  the left, after Aman's; on review the owner preferred the mark on the left and the menu far right (same
+  day). The header stays 78px. The toggle is icon only: the Menu and Close labels are
   clipped, not removed, so the accessible name still follows the state, and the toggle keeps a 44px target.
   The open panel, its links and the Start planning button are unchanged. From 681px to 940px the header is
   as it was, the logo on the left and the labelled toggle on the right.
-- **Why.** Aman's phone header puts the mark in the middle and a bare icon at the side, with nothing else.
-  Ours carried the lockup left and a labelled toggle right, so the lockup and the label competed for the
-  same 340px. The lockup is 124px, below the kit's 172px digital minimum, as the 137px version already was;
+- **Why.** The lockup and the "Menu" label competed for the same 340px, so the label goes and the icon
+  stands alone, as on Aman's phone header. The mark stays left because that is where it sits at every other
+  width. The lockup is 124px, below the kit's 172px digital minimum, as the 137px version already was;
   this is the owner's call and `BRAND.md` now says so.
 - **Pills, all widths.** Radius stays 999px. They are 48px high with 32px padding and 15px medium type at
   0.02em tracking, and hover is a colour change only, over 220ms, with no lift. Primary is navy turning

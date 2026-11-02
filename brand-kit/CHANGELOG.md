@@ -28,9 +28,9 @@ which the rule already allows below 375px.
 **Gutter floor is 24px.** `--tp-gutter` is `clamp(1.5rem, 4vw, 3rem)` and `layout.gutterMin` is
 24px, up from 20px. It only changes anything below 600px.
 
-**Phone header.** At 680px and below the header is a three-column grid of 44px, 1fr and 44px. The
-menu toggle is an icon only in the left column at the gutter edge, the lockup is centred on the
-viewport at 124px wide, and the right column is empty. The Menu and Close labels are clipped from
+**Phone header.** At 680px and below the lockup is 124px wide at the left gutter and the menu
+toggle is an icon only at the right gutter. A centred lockup was built first and replaced the same
+day on the owner's review. The Menu and Close labels are clipped from
 view rather than removed, so the accessible name still follows the state. The open panel and its
 links are unchanged, and from 681px to 940px the header keeps the logo on the left and the labelled
 toggle on the right. The 124px lockup is below the 172px digital minimum in `BRAND.md`, which the
