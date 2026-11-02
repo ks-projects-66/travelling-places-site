@@ -1105,6 +1105,16 @@
   padding-block: clamp(3.5rem, 7vw, 5.5rem);
 }
 
+/* On a phone the open band's 96px floor was half a screen of empty ground on either side of a
+   short closing statement. 80px keeps it clearly the largest pause on the page, above the 64px
+   standard band, without the page appearing to stop (2 November 2026). */
+@media (max-width: 680px) {
+  .closing-cta,
+  .contact-page {
+    padding-block: 5rem;
+  }
+}
+
 /* ---------------------------------------------------------------------------
    Container breaks
 
