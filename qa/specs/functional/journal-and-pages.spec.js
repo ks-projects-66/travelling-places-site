@@ -69,7 +69,9 @@ test.describe('article page', () => {
     await expect(page.locator('h1')).toBeVisible();
     await expect(page.locator('.article-standfirst')).toBeVisible();
     await expect(page.locator('.article-prose')).toBeVisible();
-    await expect(page.locator('.article-body aside')).toBeVisible();
+    // The author and role are in the byline since 2 November 2026; the 'Written by' side block is gone.
+    await expect(page.locator('.article-header .byline-author')).toContainText('By ');
+    await expect(page.locator('.article-body aside')).toHaveCount(0);
   });
 });
 

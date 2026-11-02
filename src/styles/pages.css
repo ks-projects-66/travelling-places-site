@@ -558,6 +558,13 @@
   .home-story {
     grid-template-columns: 1fr;
   }
+
+  /* Stacked, the 24px column gap was also the only space between one card's link and the next
+     card's photograph. The cards take the Expertise cards' row gap so they separate (.card-grid).
+     The subgrid keeps its own zero row gap, so spacing inside a card is unchanged. */
+  .journey-cards {
+    row-gap: clamp(2.5rem, 4vw, 3.5rem);
+  }
 }
 
 /* Two columns of Gina's longer paragraphs. Four across left each promise about 30 words a line
@@ -627,15 +634,13 @@
   margin-top: 1.75rem;
 }
 
-/* A centred paragraph of eight lines is hard to read on a phone, where every line is short. The
-   statement stays centred; the body aligns left beneath it. */
-@media (max-width: 600px) {
-  .opening-body {
+/* A centred paragraph of eight lines is hard to read on a phone, where every line is short, and a
+   centred heading over left-aligned body text reads as two layouts. On phones the whole statement
+   (heading, paragraphs and link) aligns left to the gutter. */
+@media (max-width: 680px) {
+  .opening-inner {
+    justify-items: start;
     text-align: left;
-  }
-
-  .opening-inner .text-link {
-    justify-self: start;
   }
 }
 
@@ -784,35 +789,11 @@
   object-fit: cover;
 }
 
+/* The article text sits under the headline on the header's left edge, at the header's width. The
+   author and role are in the byline now; the side column that carried them is gone. */
 .article-body {
-  display: grid;
-  grid-template-columns: 190px minmax(0, 680px);
-  justify-content: center;
-  gap: clamp(3rem, 8vw, 8rem);
+  width: min(100% - (2 * var(--gutter)), 980px);
   padding-block: clamp(4rem, 9vw, 8rem);
-}
-
-.article-body aside {
-  display: flex;
-  flex-direction: column;
-  height: fit-content;
-  padding-top: 1rem;
-  border-top: 2px solid var(--red);
-}
-
-.article-body aside p,
-.article-body aside span {
-  margin: 0;
-  color: var(--ink-muted);
-  font-size: var(--tp-type-fine);
-}
-
-.article-body aside strong {
-  margin: 0.25rem 0;
-  color: var(--blue-deep);
-  font-family: var(--display);
-  font-size: 1.2rem;
-  font-weight: 400;
 }
 
 /* Body copy is IBM Plex Sans (BRAND.md typography: Libre Baskerville is for display and headings
@@ -1029,10 +1010,6 @@
     padding-top: 3rem;
   }
 
-  .article-body {
-    grid-template-columns: 1fr;
-  }
-
   .value-grid {
     grid-template-columns: 1fr;
   }
@@ -1048,8 +1025,24 @@
     margin-top: 2rem;
   }
 
+  /* On phones the form sits on the section's ground, not in a white card, so its heading, labels
+     and fields start at the 24px gutter like every other block. */
   .contact-form-wrap {
-    padding-inline: 1.25rem;
+    padding: 0;
+    background: transparent;
+  }
+
+  /* One visible gap from a field to the next label, 32px, with the reserved error slot counted
+     inside it. Name, Email and the journey field keep their slot, so an error does not shift the
+     form; the slot is the grid's 0.45rem gap plus the error's 1.15rem minimum height, 1.6rem. Those
+     three labels pull the next row up by that much, so the gap after them equals the 32px row gap
+     after Phone, timing and party, which have no slot. */
+  .contact-form {
+    row-gap: var(--tp-space-2xl);
+  }
+
+  .contact-form label:has(.field-error) {
+    margin-bottom: -1.6rem;
   }
 
   .article-header {
@@ -1058,10 +1051,6 @@
 
   .back-link {
     margin-bottom: 3rem;
-  }
-
-  .article-body aside {
-    max-width: 240px;
   }
 }
 
@@ -1273,19 +1262,12 @@
   }
 }
 
-/* Who we are: Gina's story, her portrait beside the text. */
+/* Who we are: Gina's story, the team in the office beside the text. */
 .image-row {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: center;
   gap: clamp(2rem, 6vw, 6rem);
-}
-
-/* A portrait photograph in an alternating row: narrower than its column so the row is not twice
-   the height of its neighbours. */
-.image-row--portrait .card-image {
-  width: min(100%, 420px);
-  justify-self: center;
 }
 
 .image-row h2 {
@@ -1451,6 +1433,21 @@
 
   .journal-row {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Phone rows stack category, title, byline and date, so the byline drops to regular weight in muted
+   ink and the title is the one strong element. The label above the list keeps the list's own
+   hairline as its only rule instead of a navy rule stacked over it. */
+@media (max-width: 680px) {
+  .journal-row .byline-author {
+    color: var(--ink-muted);
+    font-weight: 400;
+  }
+
+  .journal-log-title {
+    padding-top: 0;
+    border-top: 0;
   }
 }
 

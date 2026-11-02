@@ -17,6 +17,9 @@ const { Content } = await render(post);
 
 const dateFormat = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
 const isoDate = post.data.date.toISOString().slice(0, 10);
+// The author's role follows the name in the byline. An unconfirmed role stays a visible red gap.
+const role = post.data.authorRole;
+const roleIsPlaceholder = role?.startsWith('TODO:');
 ---
 
 <BaseLayout title={`${post.data.title} | ${site.name}`} description={post.data.standfirst} page="article">
@@ -29,7 +32,9 @@ const isoDate = post.data.date.toISOString().slice(0, 10);
           <h1>{post.data.title}</h1>
           <p class="article-standfirst">{post.data.standfirst}</p>
           <p class="byline">
-            <span class="byline-author">{`By ${post.data.author}`}</span>{' '}
+            <span class="byline-author">By {post.data.author}{role && (roleIsPlaceholder
+              ? <>, <span class="placeholder-note" data-placeholder>{role}</span></>
+              : `, ${role}`)}</span>{' '}
             <time datetime={isoDate}>{dateFormat.format(post.data.date)}</time>{' '}
             {post.data.readingTime && <span>{post.data.readingTime}</span>}
           </p>
@@ -42,13 +47,6 @@ const isoDate = post.data.date.toISOString().slice(0, 10);
       </div>
 
       <div class="article-body shell">
-        <aside>
-          <p>Written by</p>
-          <strong>{post.data.author}</strong>
-          {post.data.authorRole?.startsWith('TODO:')
-            ? <span class="placeholder-note" data-placeholder>{post.data.authorRole}</span>
-            : post.data.authorRole && <span>{post.data.authorRole}</span>}
-        </aside>
         <div class="article-prose">
           <Content />
         </div>

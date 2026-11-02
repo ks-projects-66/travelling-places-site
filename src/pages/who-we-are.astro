@@ -11,8 +11,8 @@ import site from '../data/site.json';
 import about from '../data/about.json';
 
 // The outdoor team photograph opened the home page until 25 October 2026, when the home hero became
-// a sequence of destinations (docs/WORK-PLAN.md, change 3). It opens this page now, and the office
-// photograph that did moves into the story of the business below.
+// a sequence of destinations (docs/WORK-PLAN.md, change 3). It opens this page now. The office
+// photograph sits in the story of the business below, as it does on the home page's founder section.
 import teamOutside from '../assets/images/team/team-outside.jpg';
 
 const team = await Promise.all(
@@ -27,7 +27,8 @@ const team = await Promise.all(
 );
 
 
-// The page is about the people: the introduction, Gina's story beside her portrait, then the team.
+// The page is about the people: the introduction, Gina's story beside the team in the office, then the
+// team, where her portrait appears once.
 // The cruise and Virtuoso rows moved to the home page on 1 November 2026 (owner: they have nothing
 // to do with the team), into the Cruising card and the Virtuoso band.
 const story = about.story;
@@ -53,23 +54,24 @@ const story = about.story;
 
     <section class="section about-rows">
       <div class="shell">
-        {/* Gina's portrait is a tall photograph, so the row keeps a portrait frame rather than
-            cropping it to a face-height band (CO2). */}
-        <div class="image-row image-row--portrait">
+        {/* The office photograph is 904 by 853, close to square, so it takes the 1/1 frame. A 3:2
+            frame cut about 30% of its height, hands included; square trims about 6%. Gina's portrait
+            is in the team roster below (CO2). */}
+        <div class="image-row">
           <CardImage
             image={story.image}
             alt={story.imageAlt}
-            label="TODO: photo of Gina, or the original Main Street office"
-            ratio="4/5"
+            label="TODO: photo of the team in the Main Street office"
+            ratio="1/1"
             position={story.imagePosition}
-            widths={[600, 900, 1200]}
+            widths={[480, 904]}
             sizes="(min-width: 900px) 46vw, 100vw"
           />
           <div class="long-copy">
             <h2>{story.heading}</h2>
             {story.paragraphs.map((p) => <p>{p}</p>)}
             {/* Read as Gina's own words, so it stays empty until she supplies one (register C26).
-                Beside her portrait since 1 November 2026; it was on the home page. */}
+                Beside the story since 1 November 2026; it was on the home page. */}
             {story.quote
               ? <blockquote>{story.quote}</blockquote>
               : <p class="placeholder-note" data-placeholder>TODO: a line from Gina, in her own words</p>}

@@ -29,8 +29,8 @@ Logos live in `public/images/brand/`, not here, because SVGs need no processing.
 | File | Subject | Source | Status | Approved by | Used on |
 |---|---|---|---|---|---|
 | `team/gina-storey.jpg` | Gina Storey portrait | `FW_ Logos/Gina Headshot 2025.jpg` | owned | Gina Storey | Not currently referenced |
-| `team/gina-storey.webp` | Gina Storey portrait, web derivative | Same original | owned | Gina Storey | Who we are, story row (the home founder section until 25 October 2026) |
-| `team/team-office.jpg` | Team inside the Main Street office | `FW_ Logos/Edited Inside Staff Photo Office 2025 [4}.jpg` | owned | Gina Storey | Home, founder section (Who we are story row until 25 October 2026) |
+| `team/gina-storey.webp` | Gina Storey portrait, web derivative | Same original | owned | Gina Storey | Team roster on Who we are (`src/content/team/gina-storey.md`). No longer the story row photograph since 2 November 2026 |
+| `team/team-office.jpg` | Team inside the Main Street office | `FW_ Logos/Edited Inside Staff Photo Office 2025 [4}.jpg` | owned | Gina Storey | Home, founder section, and Who we are, story row (from 2 November 2026) |
 | `team/team-outside.jpg` | Team outdoors on Tamborine Mountain | `FW_ Logos/Edited Staff Photo Outside 2025 [4].jpg` | owned | Gina Storey | Who we are hero, Contact (the home hero until 25 October 2026) |
 | `public/og-default.jpg` | Team outdoors, cropped to 1200x630 for social sharing | Derived from `team/team-outside.jpg` | owned | Gina Storey | Every page, `og:image` |
 

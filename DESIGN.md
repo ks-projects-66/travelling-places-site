@@ -491,3 +491,40 @@ Aman: a centred mark with a bare menu icon on a phone, and quieter pills everywh
   treatment, white turning mist. On phones the hero copy sits on the warm ground and the pill stays navy.
 - **Narrowest phones.** Below 375px pills drop to 20px side padding, because "Send an enquiry instead" in
   the Calendly panel wrapped to a two-line pill at 320px.
+
+## Phone polish, 2 November 2026
+
+Owner-approved fixes. The first four are at 680px and below, and desktop is unchanged, measured at 1440px.
+The last two are not phone-only and are listed at the end.
+
+- **Contact form on the ground.** The white card, its padding and the form's 44px inset are gone on phones,
+  so the heading, labels and fields start at the 24px gutter. The reserved error slot under Name, Email and
+  the journey field stays, so a validation message does not shift the form (it adds about 1px per message,
+  because the message's line is a little taller than the slot). Before, the visible gap from a field to the
+  next label was about 46px after Name and Email and 20px elsewhere. It is now 32px after every field, with
+  the slot counted inside it: the grid row gap is 32px, and the three labels that carry a slot pull the next
+  row up by the slot's 1.6rem. Label to field stays 7px. The "Who is travelling?" placeholder fits at 375px,
+  390px and 430px, with about 1px to spare at 375px.
+- **Opening statements left-aligned.** `.opening-inner` now aligns heading, paragraphs and link to the left
+  gutter below 681px, where the heading was centred over left-aligned body. Home, Expertise, Luxury and Who
+  we are all use the component, and a scan of those four pages at 390px found no other centred heading.
+  The old 600px rule that left-aligned only the body is deleted.
+- **Journal rows.** The byline drops to regular weight in muted ink so the title is the one strong element
+  in a row. The "Published on ..." line stays: it appears only in list rows, because articles hosted
+  elsewhere have no article page here. The "More from the journal" label loses its 2px navy rule and keeps
+  the list's 1px line-colour hairline as its single rule.
+- **Home journey cards.** Stacked, the 24px gap between one card's link and the next card's photograph is
+  now 40px, the row gap the Expertise cards already use (`.card-grid`, 40px from 375px to 900px). The cards
+  stack at 900px and below, so the gap applies at every stacked width, not only on phones. Spacing inside a
+  card is unchanged, 24px from photograph to title.
+- **Article author in the byline, at every width.** The "Written by" side block and its red rule are
+  deleted. The role now follows the name in the byline: "By {author}, {role}". An unconfirmed role
+  (starting "TODO:") renders as the red placeholder pill inside the byline, and an article with no role
+  reads "By {author}". With the side column gone the article text sits under the headline on the header's
+  left edge at 36rem, where it was centred beside the column.
+- **Who we are story photograph, at every width.** The story row shows the team in the Main Street office
+  in place of Gina's portrait, so her face appears once, in the team roster. The alt text is the home
+  founder section's. The office photograph is 904 by 853, close to square, so the row takes the 1/1 frame
+  (`CardImage` now accepts it, as `PlaceholderImage` already did). A 3:2 frame cut about 30% of its height,
+  hands included; square trims about 6%. The portrait frame class and its CSS are removed. `MANIFEST.md` records team-office.jpg on Home and Who we are. gina-storey.webp is still used by
+  her roster card.
