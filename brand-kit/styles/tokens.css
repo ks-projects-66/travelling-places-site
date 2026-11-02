@@ -40,7 +40,7 @@
 
   --tp-content-max: 75rem;
   --tp-reading-max: 45rem;
-  --tp-gutter: clamp(1.25rem, 4vw, 3rem);
+  --tp-gutter: clamp(1.5rem, 4vw, 3rem);
   --tp-control-min: 2.75rem;
   --tp-focus-width: 2px;
   --tp-focus-offset: 3px;
@@ -57,15 +57,42 @@
 }
 
 /**
+ * Type on phones.
+ *
+ * From 3.4.0 a phone sets its type a step below the tablet floor. The hero is split on a phone,
+ * with the photograph above and the copy below on the page ground, so the title no longer sits on
+ * an image and does not need the extra size to stay legible, and a smaller scale gives the phone
+ * the proportions of a purpose-designed page rather than a compressed desktop. The tokens keep
+ * their clamp() minimums for tablets and up; this block overrides them only at 680px and below,
+ * the same breakpoint the phone hero uses.
+ *
+ * With the 24px gutter, a 375px screen leaves 327px of measure. Body stays 16px. This block must
+ * sit before the 374px block below, so that block still wins on the smallest screens.
+ */
+@media (max-width: 680px) {
+  :root {
+    --tp-type-display: 1.875rem;
+    --tp-type-page-title: 1.875rem;
+    --tp-type-section-title: 1.75rem;
+    --tp-type-subsection-title: 1.3125rem;
+    --tp-type-lead: 1.0625rem;
+    --tp-type-meta-label: 0.75rem;
+  }
+}
+
+/**
  * Display type on the smallest phones.
  *
- * The 34px floor holds the two-line rule at 375px and above. Below that the arithmetic stops
- * working: a 320px screen leaves a 280px measure, which fits roughly 15 characters per line at
- * 34px, so even a 32-character heading takes three. DESIGN.md reached the same conclusion and
- * called it arithmetic rather than styling.
+ * The 30px phone size above holds the two-line rule at 375px and above. Below that the arithmetic
+ * stops working: a 320px screen leaves a 272px measure inside the 24px gutter, which fits roughly
+ * 17 characters per line at 29px, so even a 32-character heading can take three. DESIGN.md reached
+ * the same conclusion and called it arithmetic rather than styling.
  *
- * 29px restores two lines at 320 and 360 without touching the scale anywhere a common phone will
- * see it. The alternative was cutting hero copy below what reads well.
+ * 29px holds two lines on every hero except the home hero, which takes a third line from 320px to
+ * 326px because "beautifully planned." cannot fit the measure there. Measured 2 November 2026
+ * with the 24px gutter, 28px would shrink that range to 320px alone. The rule only requires two
+ * lines from 375px and allows three below it, so 29px stays. The alternative was cutting hero
+ * copy below what reads well.
  */
 @media (max-width: 374px) {
   :root {

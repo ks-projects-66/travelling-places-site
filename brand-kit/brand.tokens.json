@@ -2,7 +2,7 @@
   "$schema": "https://design-tokens.github.io/community-group/format/",
   "brand": {
     "name": "Travelling Places",
-    "version": "3.3.0",
+    "version": "3.4.0",
     "reference": "Belmond for restraint, image priority, and typographic balance. Never copy layouts or proprietary assets."
   },
   "color": {
@@ -79,25 +79,33 @@
       "maximumLinesArticleTitle": 3,
       "minNarrow": "29px",
       "narrowBreakpoint": "375px",
-      "maximumLinesBelowNarrowBreakpoint": 3
+      "maximumLinesBelowNarrowBreakpoint": 3,
+      "minPhone": "30px",
+      "phoneBreakpoint": "680px"
     },
     "pageTitle": {
       "min": "36px",
       "max": "48px",
       "lineHeight": 1.12,
-      "maxWidth": "22ch"
+      "maxWidth": "22ch",
+      "minPhone": "30px",
+      "phoneBreakpoint": "680px"
     },
     "sectionTitle": {
       "min": "30px",
       "max": "40px",
       "lineHeight": 1.16,
-      "maxWidth": "24ch"
+      "maxWidth": "24ch",
+      "minPhone": "28px",
+      "phoneBreakpoint": "680px"
     },
     "subsectionTitle": {
       "min": "22px",
       "max": "28px",
       "lineHeight": 1.25,
-      "maxWidth": "30ch"
+      "maxWidth": "30ch",
+      "minPhone": "21px",
+      "phoneBreakpoint": "680px"
     },
     "menuTitle": {
       "min": "22px",
@@ -108,7 +116,9 @@
       "min": "18px",
       "max": "19px",
       "lineHeight": 1.55,
-      "maxWidth": "58ch"
+      "maxWidth": "58ch",
+      "minPhone": "17px",
+      "phoneBreakpoint": "680px"
     },
     "label": {
       "size": "16px",
@@ -141,7 +151,9 @@
       "weight": 500,
       "letterSpacing": "0",
       "textTransform": "none",
-      "role": "A quiet rubric in muted ink, sentence case, no tracking (3.1.0). A story's category, a team member's role, a column's label. Never a heading element."
+      "role": "A quiet rubric in muted ink, sentence case, no tracking (3.1.0). A story's category, a team member's role, a column's label. Never a heading element.",
+      "minPhone": "12px",
+      "phoneBreakpoint": "680px"
     }
   },
   "space": {
@@ -160,7 +172,7 @@
   "layout": {
     "contentMax": "1200px",
     "readingMax": "720px",
-    "gutterMin": "20px",
+    "gutterMin": "24px",
     "gutterMax": "48px",
     "gridColumns": 12
   },

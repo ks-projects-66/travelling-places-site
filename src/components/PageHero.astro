@@ -1,6 +1,8 @@
 ---
 /**
- * The full-bleed page hero. One photograph, edge to edge, with the title over it.
+ * The full-bleed page hero. One photograph, edge to edge, with the title over it. On a phone
+ * (680px and below) the photograph and the copy are split: the photograph sits on top at 3:2 and
+ * the title, lede and actions follow beneath it on the page ground. The navy tone is unchanged.
  *
  * This replaces the contained two-column and text-only heroes. DESIGN.md has always
  * specified "Heroes: Full-bleed, edge to edge, no containing gutter"; the pages did not
@@ -57,7 +59,10 @@ const {
 
 // When both lines are short enough to fit a 375px phone at display size, the written break is kept
 // there too. Run on, "Luxury, in every detail." broke as "Luxury, in / every detail." (1 November
-// 2026). 18 characters is the per-line budget DESIGN.md measures for 375px at the 34px floor.
+// 2026). The budget was 18 characters per line at 375px with a 20px gutter and 34px type. Since
+// kit 3.4.0 a phone sets display type at 30px inside a 24px gutter, which fits about 19, so the
+// same limits now hold with a little room to spare. Below 375px type steps down to 29px and the
+// measure to 272px at 320px, and the pages that use the break still hold two lines there.
 const keepBreak = lead.length <= 13 && accent.length <= 18;
 
 if (tone === 'photo' && !image && !slides?.length) {

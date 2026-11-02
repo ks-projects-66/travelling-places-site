@@ -4,6 +4,30 @@ The version lives in `brand.tokens.json` and in the header of `BRAND.md`. It is 
 name. Between 2.1.0 and 3.0.0 those two files disagreed, and that gap is what let the kit fork from
 itself, so any release that changes a value changes both.
 
+## 3.4.0
+
+From the owner's phone redesign, decided 2 November 2026 and built in stages. Under the
+lead-and-lag rule the website changed first and this kit records it. The sections below are
+added to as each stage lands, so a later stage appends its own bold paragraphs here rather than
+opening a new version.
+
+**Phone hero is split.** At 680px and below the photographic hero no longer puts the title over
+the photograph. The photograph sits on top, full width with no gutter, at a 3:2 ratio. The title,
+lede and actions follow beneath it on the ground colour with a hairline at the bottom edge, in
+navy, muted ink, the ordinary navy text link and navy arrows with a navy focus bar. The darkening
+overlay is gone on phones, because nothing sits over the photograph. The navy tone and the
+tablet and desktop hero are unchanged.
+
+**Phone type scale.** Display and page title are 30px, section title 28px, subsection title 21px,
+lead 17px and meta label 12px at 680px and below. Body stays 16px. `brand.tokens.json` records
+these as `minPhone` with `phoneBreakpoint: "680px"`; the `min` values are unchanged because
+tablets keep them. The 374px override stays at 29px: with the wider gutter it holds two lines on
+every hero from 332px up (sampled in 6px steps), and three on the home hero at 320px and 326px,
+which the rule already allows below 375px.
+
+**Gutter floor is 24px.** `--tp-gutter` is `clamp(1.5rem, 4vw, 3rem)` and `layout.gutterMin` is
+24px, up from 20px. It only changes anything below 600px.
+
 ## 3.3.0
 
 From the owner's review on a phone, 31 October 2026. Under the lead-and-lag rule the website

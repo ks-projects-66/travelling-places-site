@@ -187,22 +187,87 @@
   box-shadow: 0 calc(var(--tp-space-md) + var(--tp-focus-width)) 0 calc(-1 * var(--tp-space-md)) var(--focus-ring);
 }
 
-/* On a phone the actions stack and the last line is the text link, which is shorter than the
-   44px target. Dropping the group by the difference sets the arrowheads on that line. */
+/* Phone hero, split (3.4.0, owner decision 2 November 2026). On a phone the photograph and the copy
+   are given separate roles instead of sharing one tall frame: the photograph sits on top at 3:2,
+   full width, and the copy follows beneath it on the page ground. The old phone hero put the title,
+   lede and actions over most of the photograph and needed an 80% darkening gradient to keep them
+   legible (measured 25 October 2026: the corner-weighted gradient left the home title at 1.4:1), so
+   the darkening is gone with the overlap. Carousel slides stay absolutely positioned inside the
+   media box, which now has its own height, so the markup does not change.
+
+   The navy tone has no photograph to separate and keeps its full-bleed opening. The plain variant
+   is excluded because it never had one. A 1px hairline closes the copy so it does not run straight
+   into the opening statement below.
+
+   Colours follow the light ground: navy title, muted lede, the ordinary navy text link, navy arrows
+   and a navy focus bar. The arrows stay where they were, paired at the bottom right of the text
+   block on the line of its last action. The actions stack on a phone and the last line is the text
+   link, which is shorter than the 44px target, so dropping the group by the difference sets the
+   arrowheads on that line. */
 @media (max-width: 680px) {
   .page-hero-controls {
     bottom: -0.625rem;
   }
-}
 
-/* On a phone the title, lede and actions cover most of the photograph, so the protection has to
-   reach most of the frame too. Measured 25 October 2026 with the text hidden and the pixels behind
-   it sampled: at 390px the corner-weighted gradient left the home title at 1.4:1 over the sunset
-   sky and the ship's window. This holds the title above 3:1 and the lede above 4.5:1 on every
-   slide, at the cost of a darker photograph on phones only. */
-@media (max-width: 680px) {
+  .page-hero--photo:not(.page-hero--plain) {
+    --focus-ring: var(--blue-deep);
+
+    display: block;
+    min-height: 0;
+    padding: 0;
+    border-bottom: 1px solid var(--line);
+    background: var(--ground);
+  }
+
   .page-hero--photo::after {
-    background: linear-gradient(to top, oklch(18% 0.03 264 / 0.8) 0, oklch(18% 0.03 264 / 0.66) 45%, oklch(18% 0.03 264 / 0.5) 75%, oklch(18% 0.03 264 / 0.3) 100%);
+    display: none;
+  }
+
+  /* The media box clips its own slides. The active photograph settles from a 1.04 scale, and the
+     section used to clip that overshoot; now the copy sits directly beneath the box, so without
+     this the photograph would spill about 5px over the top of the title. */
+  .page-hero--photo .page-hero-media {
+    position: relative;
+    z-index: auto;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+  }
+
+  /* Margins, not padding: the arrow group is positioned against this box's bottom edge, which has
+     to stay on the line of the last action. */
+  .page-hero--photo .page-hero-inner {
+    margin-block: 2rem 3.5rem;
+  }
+
+  .page-hero--photo h1 {
+    color: var(--blue-deep);
+  }
+
+  .page-hero--photo .page-hero-lede {
+    color: var(--ink-muted);
+  }
+
+  .page-hero--photo .text-link--onDark {
+    color: var(--blue-deep);
+    text-decoration-color: color-mix(in oklch, var(--blue) 35%, transparent);
+  }
+
+  .page-hero--photo .text-link--onDark span,
+  .page-hero--photo .text-link--onDark:hover,
+  .page-hero--photo .text-link--onDark:hover span {
+    color: var(--red-text);
+  }
+
+  .page-hero--photo .page-hero-arrow {
+    color: var(--blue-deep);
+  }
+
+  /* The arrow group's two 44px targets start 80px inside the text block's right edge. The longest
+     link ("Explore tailor-made travel") is 194px wide, which fits beside them from 332px up. On a
+     narrower phone this lets it wrap onto a second line rather than run under the targets. */
+  .page-hero--carousel .hero-actions > .text-link {
+    max-width: calc(100% - 5.25rem);
   }
 }
 
@@ -937,7 +1002,7 @@
 }
 
 @media (max-width: 680px) {
-  .page-hero:not(.page-hero--plain) {
+  .page-hero--navy:not(.page-hero--plain) {
     min-height: 520px;
     padding-top: 4rem;
   }

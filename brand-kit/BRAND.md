@@ -1,6 +1,6 @@
 # Travelling Places brand system
 
-Version 3.3.0 is the canonical source for website and marketing production.
+Version 3.4.0 is the canonical source for website and marketing production.
 
 Travelling Places should feel established, personal, and quietly confident. Belmond is a reference for restraint, image priority, and typographic balance. Do not reproduce Belmond layouts, wording, assets, or proprietary typefaces.
 
@@ -57,19 +57,21 @@ IBM Plex Sans is used for body copy, navigation, buttons, forms, captions, and f
 
 Delivery differs by surface, and both are approved. The kit self-hosts woff2 from `fonts/` through `styles/fonts.css`, so the reference page stands alone. Since 25 October 2026 the website uses the same self-hosted files, preloaded, in place of Google Fonts. Whichever route is used, request weight 400 for Libre Baskerville only; the kit permits no other weight of the display face.
 
-| Role | Size | Line height | Maximum line width |
-|---|---|---:|---|
-| Hero display | 34px to 56px | 1.08 | 24ch |
-| Page heading | 36px to 48px | 1.12 | 22ch |
-| Section heading | 30px to 40px | 1.16 | 24ch |
-| Subsection heading | 22px to 28px | 1.25 | 30ch |
-| Menu heading | 22px | 1.2 | Contextual |
-| Lead copy | 18px to 19px | 1.55 | 58ch |
-| Body copy | 16px | 1.65 | 68ch |
-| Navigation | 14px | 1.4 | Contextual |
-| Buttons | 16px | 1.4 | Contextual |
-| Fine print | 13px | 1.5 | 72ch |
-| Meta label | 13px | 1.4 | Contextual |
+| Role | Size | Phone, 680px and below | Line height | Maximum line width |
+|---|---|---|---:|---|
+| Hero display | 34px to 56px | 30px | 1.08 | 24ch |
+| Page heading | 36px to 48px | 30px | 1.12 | 22ch |
+| Section heading | 30px to 40px | 28px | 1.16 | 24ch |
+| Subsection heading | 22px to 28px | 21px | 1.25 | 30ch |
+| Menu heading | 22px | 22px | 1.2 | Contextual |
+| Lead copy | 18px to 19px | 17px | 1.55 | 58ch |
+| Body copy | 16px | 16px | 1.65 | 68ch |
+| Navigation | 14px | 14px | 1.4 | Contextual |
+| Buttons | 16px | 16px | 1.4 | Contextual |
+| Fine print | 13px | 13px | 1.5 | 72ch |
+| Meta label | 13px | 12px | 1.4 | Contextual |
+
+Since 3.4.0 a phone (680px and below) sets display, heading, lead and meta label type one step below the tablet size, in the Phone column above. Tablets and up use the Size column. Body copy stays 16px everywhere.
 
 The meta label is a quiet rubric: the fine size, weight 500, sentence case, no tracking, in muted ink. It carries a story's category above its headline and a team member's role. The date sits with the byline below the standfirst, and parts of a byline are separated by space, never by dots. It is not a heading and never uses a heading element. Until 3.1.0 this was a red, tracked, uppercase label; the owner found it read as a filing tag rather than an editorial rubric.
 
@@ -77,15 +79,17 @@ Headings use size and spacing for hierarchy, not bold weight. Keep sentence case
 
 Journal article titles are editorial headlines rather than display copy, and may run to three lines. The two-line rule governs marketing heroes.
 
-Below 375px a hero may also take a third line. A 320px screen leaves a 280px measure, and a single long word cannot share a line at any size the scale permits, so the rule stops being achievable rather than being broken. Display type steps to 29px below 375px to hold two lines wherever it still can. From 375px up, every hero on every route holds two lines.
+Below 375px a hero may also take a third line. A 320px screen leaves a 272px measure inside the 24px gutter, and a single long word cannot share a line at any size the scale permits, so the rule stops being achievable rather than being broken. Display type steps to 29px below 375px to hold two lines wherever it still can. From 375px up, every hero on every route holds two lines.
 
 Hero headings are an editorial and layout constraint, not a text-clamping effect. They must remain on one or two lines at approved breakpoints. Shorten the copy, widen the measure, or reduce the size within the token range if a third line appears.
+
+On a phone (680px and below, since 3.4.0) the photographic hero is split rather than overlaid. The photograph sits on top, full width with no gutter, at a 3:2 ratio. The title, lede and actions follow beneath it on the ground colour, with about 32px above and 56px below and a 1px line-colour hairline at the bottom edge. Text never sits over the photograph on a phone, so there is no darkening overlay. The title is navy, the lede is muted ink, the text link is the ordinary navy link, and the carousel arrows are navy with a navy focus bar. The navy tone is not split: it has no photograph, and keeps its full-bleed opening. Tablets and desktop keep the full-bleed hero with the title over the photograph.
 
 ## Spacing and layout
 
 Use the spacing tokens. Do not invent nearby values.
 
-The content shell is 1200px maximum with responsive gutters from 20px to 48px. Reading copy is limited to 720px or 68 characters. Section spacing ranges from 72px to 120px, with a documented 64px floor below 680px, where the standard band would otherwise squeeze the mobile rhythm to a 40px spread. Use 24px between a heading and lead copy, 16px between a heading and ordinary body copy, and 16px between paragraphs.
+The content shell is 1200px maximum with responsive gutters from 24px to 48px (20px before 3.4.0). Reading copy is limited to 720px or 68 characters. Section spacing ranges from 72px to 120px, with a documented 64px floor below 680px, where the standard band would otherwise squeeze the mobile rhythm to a 40px spread. Use 24px between a heading and lead copy, 16px between a heading and ordinary body copy, and 16px between paragraphs.
 
 Images and fields are normally square-cornered. Text buttons use the full pill radius. Avoid floating cards and repeated boxed content where an open layout will work. Where content is a set of equal items with no photograph, set them as equal columns divided by a 1px vertical rule in the line colour (the column rule), not as white cards; the rule collapses to space when the columns stack. Inside a column, short points are a ruled list: rows between 1px rules in the line colour, body size, regular weight, in ink. Inside a photograph card, inclusions are short phrases in ink at regular weight, two by two, separated by space rather than rules or markers. A list point is never bold or navy, so it never reads as a link. A card carries one text link at most. Supplied partner marks made for light grounds sit on a small white plate sized to their clear space when they appear on navy, never inside a large panel.
 

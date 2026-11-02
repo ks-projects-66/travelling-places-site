@@ -81,9 +81,9 @@ Reference: `belmond.com`. The visual system is what is being referenced, not the
 | Primary ratio | 4:5 portrait for destination and feature cards |
 | Secondary ratio | 16:9 landscape for wider contextual scenes |
 | Grid thumbnails | 1:1 square |
-| Heroes | Full-bleed, edge to edge, no containing gutter. Built 30 August 2026 as `PageHero.astro`, `min(85vh, 860px)` |
-| Text over image | Heroes only. Cards place text beneath the image, never on it |
-| Overlays | Minimal darkening, and only where legibility demands it |
+| Heroes | Full-bleed, edge to edge, no containing gutter. Built 30 August 2026 as `PageHero.astro`, `min(85vh, 860px)`. On phones (680px and below) split since 2 November 2026: the photograph on top at 3:2, the copy beneath it on the ground |
+| Text over image | Heroes only, except on phones, where the hero copy sits beneath the photograph (2 November 2026). Cards place text beneath the image, never on it |
+| Overlays | Minimal darkening, and only where legibility demands it. None on phones since 2 November 2026, because nothing sits over the photograph |
 | Captions | Never burned into the image. Descriptive text sits below as a separate element |
 | Grading | Warm and saturated, jewel tones, natural light |
 | Crop | Subject placed prominently rather than dead-centre |
@@ -135,6 +135,12 @@ Gina's copy with shorter drafts on four pages; Karim kept her copy, presented mo
 
 ## Known residual: hero line count at 375px
 
+*Updated 2 November 2026: the figures in this section are the 30 August measurement, at the 34px floor and a
+20px gutter. Kit 3.4.0 sets phone display type at 30px inside a 24px gutter, which fits about 19
+characters per line at 375px, so the budget below still holds with room to spare. Measured again on
+the built output from 320 to 430px: every hero holds two lines from 332px up, and the home hero takes a
+third at 320px and 326px.*
+
 `BRAND.md` requires hero headings to hold to two lines at 375, 768, 1280 and 1440px. At 1280 and
 1440 every hero holds. At 375px four do not, and the cause is arithmetic rather than styling.
 
@@ -176,6 +182,10 @@ Added 30 August 2026, when the full-bleed hero was finally built.
 `PageHero.astro` has two tones. `photo` is the intended state: one photograph, edge to edge, title
 over it under a two-stop scrim. `navy` is the same opening on `--tp-navy` with no image.
 
+On a phone the photo tone is split (2 November 2026, see "Phone hero, split" below): the photograph
+sits on top at 3:2 and the title is beneath it, with no scrim. The navy tone keeps its full-bleed
+opening at every width.
+
 The navy tone is not a placeholder. It is a finished design that a photograph replaces by passing
 one prop, which is exactly what happened on three pages when the licensed set arrived.
 
@@ -192,6 +202,9 @@ moved the carousel into the home hero, the team photograph to About and Virtuoso
 | Contact | photo | `hero/contact-lookout.jpg` | `center 55%` |
 | Journal | none | No hero since 27 September 2026: the newest article's photograph opens the page as a 540px feature | n/a |
 | Privacy, 404 | plain | none wanted. A cinematic opening on a policy or error page is noise | n/a |
+
+`object-position` values below were tuned for the old tall phone frame. At the phone's 3:2 box they
+still read well on the five pages as built on 2 November 2026, but they have not been re-tuned for it.
 
 Crops are set per page with `object-position`, because both team photographs place faces near the
 top of the frame and an 85vh crop decapitates them at the default `center`. Who we are sits at
@@ -417,3 +430,30 @@ From a design review of the staging site at 1440px and 390px, each change on the
   (`src/lib/blur-placeholder.ts`, built with the project's own sharp), so a slow connection shows
   the photograph's colours at once instead of a flat grey box. Nothing changes once the image has
   loaded. Every hero, and every slide on Home.
+
+## Phone hero, split, and phone type, 2 November 2026
+
+Owner decision, with the kit recorded as 3.4.0. On a phone the site should feel purpose-designed, not a
+compressed desktop, following Aman's proportions while keeping our fonts, colours and identity. This is the
+first stage; the later stages are separate entries.
+
+- **The photographic hero splits at 680px and below.** The photograph sits on top, full width with no
+  gutter, in a 3:2 box (250px tall at 375px, 260px at 390px, 287px at 430px). The title, lede and actions
+  follow on the ground colour, 32px below the photograph and 56px above a 1px line-colour hairline, so the
+  copy does not run straight into the opening statement. Carousel slides stay absolutely positioned inside
+  the media box, so `PageHero.astro` has no markup change. The navy tone and the plain variant are not split.
+- **Why.** A photograph and its copy have different jobs, and on a phone one tall frame made them compete.
+  The old phone hero put the title, lede and actions across most of the photograph and needed an 80%
+  darkening gradient to keep them legible (measured 25 October 2026: the lighter gradient left the home title at 1.4:1).
+  Split, the photograph is shown as taken and the text sits on a plain ground at full contrast, so the
+  gradient is deleted on phones.
+- **Colours follow the light ground.** Title navy, lede muted ink, `.text-link--onDark` renders as the
+  ordinary navy link, the arrows are navy and their focus bar is navy. The arrows stay paired at the
+  bottom right of the text block on the line of the last action. Below 332px the longest home link ("Explore tailor-made travel") would run under the arrow targets, so on a carousel hero it is held 84px short of the right edge and wraps to two lines at 320px and 326px.
+- **Phone type.** Display and page title 30px, section title 28px, subsection title 21px, lead 17px, meta
+  label 12px; body stays 16px. The tokens are in `brand-kit/styles/tokens.css` as a 680px block placed
+  before the 374px block, so the 29px override below 375px still wins. The kit gutter floor is 24px.
+- **The 29px override stays.** Lowering it to 28px would only bring the home hero's third line in from
+  326px to 320px, and the rule already allows three lines below 375px.
+- **Crops not changed.** The `object-position` values in the table below were not touched. Checked at 390px
+  on the built output, none crops badly at 3:2.
