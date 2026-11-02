@@ -28,7 +28,7 @@
     },
     "blue": {
       "value": "#3E55A0",
-      "role": "Primary interaction colour"
+      "role": "In-content accents and the text-link underline. Not the button fill: primary buttons are navy since 3.4.0"
     },
     "red": {
       "value": "#D7333F",
@@ -137,9 +137,10 @@
       "weight": 500
     },
     "button": {
-      "size": "16px",
+      "size": "15px",
       "lineHeight": 1.4,
-      "weight": 600
+      "weight": 500,
+      "letterSpacing": "0.02em"
     },
     "finePrint": {
       "size": "13px",
@@ -189,8 +190,8 @@
   },
   "interaction": {
     "minimumTarget": "24px",
-    "preferredButtonHeight": "50px",
-    "buttonInlinePadding": "28px",
+    "preferredButtonHeight": "48px",
+    "buttonInlinePadding": "32px",
     "focusWidth": "2px",
     "focusOffset": "3px",
     "focusStyle": "A 2px rule under text and icon controls, a 2px ring that follows a pill button, a 2px border on a field. Navy on light surfaces, white on dark ones, never red (3.3.0)",

@@ -457,3 +457,37 @@ first stage; the later stages are separate entries.
   326px to 320px, and the rule already allows three lines below 375px.
 - **Crops not changed.** The `object-position` values in the table below were not touched. Checked at 390px
   on the built output, none crops badly at 3:2.
+
+## Phone header and refined pill buttons, 2 November 2026
+
+Owner decision, recorded in kit 3.4.0 as the second stage of the phone redesign. Two changes, both after
+Aman: a centred mark with a bare menu icon on a phone, and quieter pills everywhere.
+
+- **Phone header (680px and below).** `.header-inner` is a three-column grid, 44px, 1fr, 44px. The menu icon
+  sits in the left column at the gutter edge, the lockup is centred on the viewport in the middle column at
+  124px wide (centre measured at exactly half the viewport at 375px and 390px), and the right column is
+  empty by the owner's choice. The header stays 78px. The toggle is icon only: the Menu and Close labels are
+  clipped, not removed, so the accessible name still follows the state, and the toggle keeps a 44px target.
+  The open panel, its links and the Start planning button are unchanged. From 681px to 940px the header is
+  as it was, the logo on the left and the labelled toggle on the right.
+- **Why.** Aman's phone header puts the mark in the middle and a bare icon at the side, with nothing else.
+  Ours carried the lockup left and a labelled toggle right, so the lockup and the label competed for the
+  same 340px. The lockup is 124px, below the kit's 172px digital minimum, as the 137px version already was;
+  this is the owner's call and `BRAND.md` now says so.
+- **Pills, all widths.** Radius stays 999px. They are 48px high with 32px padding and 15px medium type at
+  0.02em tracking, and hover is a colour change only, over 220ms, with no lift. Primary is navy turning
+  night, on dark is white turning mist in place of red, and outline is a 1px navy border that fills navy on
+  hover. The header call to action stays 44px high. Focus is the same 2px ring at a 3px offset.
+- **Why.** A heavy blue lozenge that jumps on hover reads as a retail button. A lighter weight, a fine
+  tracking, a navy fill and a colour-only hover read as a higher-end house, and navy ties the buttons to the
+  headings. `.button-blue` keeps its name so markup and tests do not churn; the comment beside it says the
+  fill is navy.
+- **Also changed in passing.** The menu and close glyphs were being stroked as well as filled, which drew the
+  sprite's 24px frame as a box around the icon and thickened the bars. With the icon now standing alone the
+  box was obvious, so `.menu-toggle-icon` is fill only. This also corrects the tablet toggle. The footer
+  sign-up field was 52px to match its button and is now 48px with it.
+- **The primary over a photograph is white.** Above 680px the home hero's navy pill all but vanished into the
+  darkened lower half of the photograph, so a primary inside a photo or navy hero takes the on-dark
+  treatment, white turning mist. On phones the hero copy sits on the warm ground and the pill stays navy.
+- **Narrowest phones.** Below 375px pills drop to 20px side padding, because "Send an enquiry instead" in
+  the Calendly panel wrapped to a two-line pill at 320px.

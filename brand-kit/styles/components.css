@@ -27,18 +27,19 @@
   align-items: center;
   justify-content: center;
   gap: var(--tp-space-sm);
-  padding: 0.75rem 1.75rem;
+  padding: 0.75rem var(--tp-button-padding-inline);
   border: 1px solid transparent;
   border-radius: var(--tp-radius-button);
   font-family: var(--tp-font-body);
-  font-size: 0.875rem;
+  font-size: var(--tp-type-button);
   font-weight: 500;
+  letter-spacing: var(--tp-button-tracking);
   line-height: 1.4;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
-  transition: color var(--tp-motion-fast) ease, background-color var(--tp-motion-fast) ease,
-    border-color var(--tp-motion-fast) ease;
+  transition: color var(--tp-motion-standard) ease, background-color var(--tp-motion-standard) ease,
+    border-color var(--tp-motion-standard) ease;
 }
 
 .tp-icon-button svg,
@@ -50,19 +51,21 @@
   fill: currentColor;
 }
 
+/* Primary is navy since 3.4.0 (owner, 2 November 2026): a quieter fill than the old blue, and
+   night on hover. Hover is a colour change only, with no lift. */
 .tp-button-primary {
   color: var(--tp-white);
-  background: var(--tp-blue);
+  background: var(--tp-navy);
 }
 
 .tp-button-primary:hover {
-  background: var(--tp-navy);
+  background: var(--tp-night);
 }
 
 .tp-button-secondary {
   border-color: var(--tp-navy);
   color: var(--tp-navy);
-  background: var(--tp-white);
+  background: transparent;
 }
 
 .tp-button-secondary:hover {
@@ -76,6 +79,7 @@
 }
 
 .tp-button-on-dark:hover {
+  color: var(--tp-navy);
   background: var(--tp-mist);
 }
 

@@ -120,7 +120,7 @@
 
 .footer-signup input {
   width: 100%;
-  min-height: 52px;
+  min-height: var(--tp-button-height);
   padding: 0 1.1rem;
   border: 1px solid color-mix(in oklch, var(--white) 45%, transparent);
   border-radius: var(--tp-radius-control);
@@ -136,10 +136,6 @@
 /* The field's resting border is a faint white, which would outrank the shared focus rule. */
 .footer-signup input:focus-visible {
   border-color: var(--focus-ring);
-}
-
-.footer-signup .button {
-  min-height: 52px;
 }
 
 .footer-signup .field-error {
@@ -231,6 +227,14 @@
   height: 22px;
   fill: none;
   stroke: currentColor;
+}
+
+/* The menu and close glyphs are filled shapes. The rule above strokes everything, which drew the
+   sprite's invisible 24px frame as a box and thickened the bars. Fill only, so the icon stands
+   bare. */
+.menu-toggle-icon {
+  fill: currentColor;
+  stroke: none;
 }
 
 .carousel-icon-button {

@@ -28,6 +28,26 @@ which the rule already allows below 375px.
 **Gutter floor is 24px.** `--tp-gutter` is `clamp(1.5rem, 4vw, 3rem)` and `layout.gutterMin` is
 24px, up from 20px. It only changes anything below 600px.
 
+**Phone header.** At 680px and below the header is a three-column grid of 44px, 1fr and 44px. The
+menu toggle is an icon only in the left column at the gutter edge, the lockup is centred on the
+viewport at 124px wide, and the right column is empty. The Menu and Close labels are clipped from
+view rather than removed, so the accessible name still follows the state. The open panel and its
+links are unchanged, and from 681px to 940px the header keeps the logo on the left and the labelled
+toggle on the right. The 124px lockup is below the 172px digital minimum in `BRAND.md`, which the
+earlier 137px phone lockup already was; `BRAND.md` now records the phone figure as an owner decision.
+
+**Buttons are refined.** The pill radius stays 999px. Height is 48px (`preferredButtonHeight`,
+`--tp-button-height` 3rem), down from 50px, and inline padding is 32px (`buttonInlinePadding`), up
+from 28px. Type is 15px at weight 500 with 0.02em tracking (`type.button`, `--tp-type-button`,
+`--tp-button-tracking`), down from 16px at 600. Hover is a colour change over 220ms, and the 2px lift
+is gone. The primary button is navy with white text (12.23 to 1) and turns night on hover (15.86 to
+1), where it was blue turning navy. The on-dark button is white with navy text and turns mist (10.66
+to 1) in place of red. The secondary and outline buttons carry a 1px border and no fill, and fill
+navy (light) or white (dark) on hover with the text inverted. The header call to action keeps a 44px
+height. Focus is unchanged. The site class `.button-blue` keeps its name so markup and tests do not
+change, but it is navy now. The blue token stays for in-content accents and is no longer a button
+colour.
+
 ## 3.3.0
 
 From the owner's review on a phone, 31 October 2026. Under the lead-and-lag rule the website

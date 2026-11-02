@@ -277,32 +277,35 @@ select:focus-visible {
   background: transparent;
 }
 
+/* Pills are quiet on purpose (owner, 2 November 2026): 48px high, 15px medium type with a little
+   tracking, and a colour change on hover with no lift. Line height stays 1 so the label sits
+   optically centred in the pill. */
 .button {
   display: inline-flex;
   min-height: var(--tp-button-height);
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.75rem;
+  padding: 0.75rem var(--tp-button-padding-inline);
   border: 1px solid transparent;
   border-radius: var(--tp-radius-button);
-  font-weight: 600;
+  font-size: var(--tp-type-button);
+  font-weight: 500;
+  letter-spacing: var(--tp-button-tracking);
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
-  transition: color 220ms ease, background-color 220ms ease, transform 220ms var(--ease);
+  transition: color 220ms ease, background-color 220ms ease, border-color 220ms ease;
 }
 
-.button:hover {
-  transform: translateY(-2px);
-}
-
+/* The class name is kept so markup and tests do not change, but the fill is navy, not blue, since
+   3.4.0. Read "blue" here as "the primary action". */
 .button-blue {
   color: var(--white);
-  background: var(--blue);
+  background: var(--blue-deep);
 }
 
 .button-blue:hover {
-  background: var(--blue-deep);
+  background: var(--night);
 }
 
 .button-white {
@@ -311,14 +314,23 @@ select:focus-visible {
 }
 
 .button-white:hover {
-  color: var(--white);
-  background: var(--red);
+  color: var(--blue-deep);
+  background: var(--mist);
 }
 
+/* The header call to action. It keeps a 44px height and takes the same type as every other pill. */
 .button-small {
   min-height: var(--tp-control-min);
   padding-inline: 1.5rem;
-  font-size: var(--tp-type-navigation);
+}
+
+/* Below 375px the longest label, "Send an enquiry instead" in the Calendly panel, wrapped to a
+   two-line pill at 32px padding. A pill that wraps stops reading as one control, so the padding
+   gives way first on the narrowest phones. */
+@media (max-width: 374px) {
+  .button {
+    padding-inline: 1.25rem;
+  }
 }
 
 .text-link {
@@ -881,12 +893,11 @@ blockquote {
   }
 
   /* Full button size, not the header's small one, so the action holds its own beside 22px
-     serif links instead of reading as an afterthought under them. */
+     serif links instead of reading as an afterthought under them. It takes the standard pill's
+     padding and type from .button. */
   .site-nav .button {
     min-height: var(--tp-button-height);
     margin-top: var(--tp-space-2xl);
-    padding-inline: 1.75rem;
-    font-size: var(--tp-type-body);
   }
 
   .virtuoso-grid,
@@ -919,8 +930,43 @@ blockquote {
     --section: 4rem;
   }
 
+  /* Phone header (owner, 2 November 2026): the menu icon at the gutter, the mark centred on the
+     viewport and nothing on the right, after Aman's. The two 44px columns are equal, so the mark
+     is centred whatever the toggle holds. The open panel is out of flow (position: fixed), so it
+     takes no cell. */
+  .header-inner {
+    display: grid;
+    grid-template-columns: 44px 1fr 44px;
+  }
+
   .brand {
-    width: 137px;
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    width: 124px;
+  }
+
+  /* Icon only. The label stays in the page and is clipped rather than removed, so the accessible
+     name still follows the state (Menu, then Close). Same clip as .visually-hidden, which cannot
+     be used here because the label is shown from 681px up. The icon sits at the gutter edge and
+     the 44px target extends to its right. */
+  .menu-toggle {
+    grid-column: 1;
+    grid-row: 1;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .menu-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
   }
 
   .hero-actions {

@@ -22,7 +22,7 @@ The official wordmark is Libre Baskerville Regular converted to SVG outlines. Th
 
 Clear space for a lockup or wordmark is one capital T height on every side. Clear space for the standalone mark is one eighth of its height.
 
-Minimum digital sizes are 172px wide for the combined lockup, 120px wide for the wordmark, and 48px high for the mark. Minimum print sizes are 58mm, 32mm, and 14mm respectively.
+Minimum digital sizes are 172px wide for the combined lockup (the phone header, 680px and below, sets it at 124px by the owner's decision of 2 November 2026), 120px wide for the wordmark, and 48px high for the mark. Minimum print sizes are 58mm, 32mm, and 14mm respectively.
 
 Do not stretch, rotate, recolour, add shadows, place in a container shape, repeat as decoration, or separate the lockup elements and recombine them at a new proportion.
 
@@ -30,7 +30,7 @@ Do not stretch, rotate, recolour, add shadows, place in a container shape, repea
 
 Use only tokens from `brand.tokens.json` or `styles/tokens.css`.
 
-Ground, a warm off-white, is the primary page surface and should occupy most of each page. White is reserved for panels and for text on brand colours. Navy provides structure. Night, one step below navy, is the footer's surface and nothing else's, so the footer reads as its own place at the end of every page. Blue identifies actions. Red is limited to validation, the current-page rule and small accents. It is not a focus colour. Red is never a large background.
+Ground, a warm off-white, is the primary page surface and should occupy most of each page. White is reserved for panels and for text on brand colours. Navy provides structure. Night, one step below navy, is the footer's surface and nothing else's, so the footer reads as its own place at the end of every page. Navy is also the primary button fill, with night on hover (3.4.0). Blue marks in-content accents and the text-link underline; it is no longer the button colour. Red is limited to validation, the current-page rule and small accents. It is not a focus colour. Red is never a large background.
 
 Brand red is not used for text below 24px on a light surface. It measures 4.13 to 1 on mist and fails AA at small sizes, so small red text uses the separate red text token.
 
@@ -38,7 +38,9 @@ Approved button and text pairs:
 
 | Foreground | Background | Contrast | Use |
 |---|---|---:|---|
-| White | Blue | 6.97 to 1 | Primary action |
+| White | Navy | 12.23 to 1 | Primary action |
+| White | Night | 15.86 to 1 | Primary action on hover |
+| Navy | Mist | 10.66 to 1 | On-dark button on hover |
 | White | Navy | 12.23 to 1 | Text and controls on dark sections |
 | White | Night | 15.86 to 1 | Footer text and controls |
 | Navy | White | 12.23 to 1 | Headings and secondary action |
@@ -67,7 +69,7 @@ Delivery differs by surface, and both are approved. The kit self-hosts woff2 fro
 | Lead copy | 18px to 19px | 17px | 1.55 | 58ch |
 | Body copy | 16px | 16px | 1.65 | 68ch |
 | Navigation | 14px | 14px | 1.4 | Contextual |
-| Buttons | 16px | 16px | 1.4 | Contextual |
+| Buttons | 15px, weight 500, 0.02em tracking | 15px | 1.4 | Contextual |
 | Fine print | 13px | 13px | 1.5 | 72ch |
 | Meta label | 13px | 12px | 1.4 | Contextual |
 
@@ -97,7 +99,7 @@ Images and fields are normally square-cornered. Text buttons use the full pill r
 
 Use the included button variants. A section has one primary action and no more than one secondary action.
 
-Button labels are direct and sentence case. Text buttons are 50px high with 28px horizontal padding and do not contain decorative icons. Use icon-only controls for established utility actions such as carousel navigation. Do not use diagonal arrows. Do not underline calls to action. Ordinary navigation links are unboxed, while promotional and in-content sitelinks use buttons.
+Button labels are direct and sentence case. Text buttons are 48px high with 32px horizontal padding and do not contain decorative icons. Since 3.4.0 they are set in 15px medium type with 0.02em tracking, and hover is a colour change only, with no lift. The primary button is navy and turns night on hover. The on-dark button is white with navy text and turns mist. The secondary and outline buttons have a 1px border and no fill, and fill on hover with the text inverted. The header call to action keeps a 44px height. Use icon-only controls for established utility actions such as carousel navigation. Do not use diagonal arrows. Do not underline calls to action. Ordinary navigation links are unboxed, while promotional and in-content sitelinks use buttons.
 
 Disabled buttons retain a white background and a clear ink border. Their label uses muted ink, and their cursor communicates that the control is unavailable. Do not fade the entire control with opacity.
 
@@ -105,7 +107,7 @@ Interactive targets meet WCAG 2.5.8 (Minimum, AA): at least 24 by 24 CSS pixels,
 
 ## Navigation and footer
 
-Primary navigation contains no more than five destinations plus the Start planning action, which links to the enquiry form on Contact. Every call to the enquiry form carries that one label. Use familiar labels. The mobile menu uses a standard menu icon, visible text alternatives, Escape-to-close behaviour, and preserved keyboard focus. Its links start directly under the header hairline, set as menu headings with a 44px row, and Start planning follows at full button size.
+Primary navigation contains no more than five destinations plus the Start planning action, which links to the enquiry form on Contact. Every call to the enquiry form carries that one label. Use familiar labels. The mobile menu uses a standard menu icon, visible text alternatives, Escape-to-close behaviour, and preserved keyboard focus. Its links start directly under the header hairline, set as menu headings with a 44px row, and Start planning follows at full button size. On a phone (680px and below, since 3.4.0) the header is a three-column grid: the menu icon at the gutter edge, the lockup centred on the viewport at 124px wide, and an empty right column. The toggle is icon only, with its Menu and Close labels clipped from view but kept so the accessible name follows the state.
 
 The footer uses the dark lockup, a short navigation list, contact details, and the official Instagram and Facebook icons. Do not use external-link arrow glyphs.
 

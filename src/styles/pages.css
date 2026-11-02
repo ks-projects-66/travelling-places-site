@@ -94,6 +94,24 @@
   color: color-mix(in oklch, var(--white) 78%, var(--blue));
 }
 
+/* Over a photograph the primary pill takes the on-dark treatment. Once the primary turned navy
+   (kit 3.4.0) it all but vanished into the darkened lower half of the home hero, and the kit puts
+   white on dark grounds. On phones the copy sits on the warm ground below the photograph, so the
+   navy primary stands there and this rule does not apply. */
+@media (min-width: 681px) {
+  .page-hero--photo .hero-actions .button-blue,
+  .page-hero--navy .hero-actions .button-blue {
+    color: var(--blue-deep);
+    background: var(--white);
+  }
+
+  .page-hero--photo .hero-actions .button-blue:hover,
+  .page-hero--navy .hero-actions .button-blue:hover {
+    color: var(--blue-deep);
+    background: var(--mist);
+  }
+}
+
 /* The navy tone is the opening for a page whose photograph has not been cleared yet. It is a
    finished design in its own right, not a gap: the same full-bleed height and type, on brand
    navy. Passing an image switches it to tone="photo" with no other change. */
@@ -292,14 +310,14 @@
 }
 
 .button-outline {
-  border: 1px solid var(--blue);
-  color: var(--blue);
+  border: 1px solid var(--blue-deep);
+  color: var(--blue-deep);
   background: transparent;
 }
 
 .button-outline:hover {
   color: var(--white);
-  background: var(--blue);
+  background: var(--blue-deep);
 }
 
 .closing-cta {

@@ -4,15 +4,15 @@ The visual reference is `index.html`. The reusable styles are in `styles/compone
 
 ## Buttons
 
-- `tp-button-primary`: white text on blue.
-- `tp-button-secondary`: navy text and border on white.
-- `tp-button-on-dark`: navy text on white.
-- `tp-button-outline-on-dark`: white text and border on navy.
+- `tp-button-primary`: white text on navy, night on hover.
+- `tp-button-secondary`: navy text and 1px navy border, no fill; fills navy on hover.
+- `tp-button-on-dark`: navy text on white; mist on hover.
+- `tp-button-outline-on-dark`: white text and 1px border, no fill; fills white on hover.
 - Disabled controls use a white surface, muted ink, and a distinct ink border.
 
 Do not place the secondary light-surface button on navy. Use an on-dark variant instead.
 
-Text buttons use a 50px pill shape with 28px horizontal padding. Do not place icons inside ordinary text buttons.
+Text buttons use a 48px pill shape with 32px horizontal padding, in 15px medium type with 0.02em tracking. Hover changes colour only and never lifts the button. Do not place icons inside ordinary text buttons.
 
 ## Navigation
 

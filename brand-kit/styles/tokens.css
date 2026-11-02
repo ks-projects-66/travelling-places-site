@@ -21,6 +21,7 @@
   --tp-type-menu-title: 1.375rem;
   --tp-type-lead: clamp(1.125rem, 1.4vw, 1.1875rem);
   --tp-type-label: 1rem;
+  --tp-type-button: 0.9375rem;
   --tp-type-body: 1rem;
   --tp-type-navigation: 0.875rem;
   --tp-type-fine: 0.8125rem;
@@ -44,7 +45,9 @@
   --tp-control-min: 2.75rem;
   --tp-focus-width: 2px;
   --tp-focus-offset: 3px;
-  --tp-button-height: 3.125rem;
+  --tp-button-height: 3rem;
+  --tp-button-padding-inline: 2rem;
+  --tp-button-tracking: 0.02em;
   --tp-radius-button: 999px;
   --tp-radius-control: 0.125rem;
   /* Interface chrome. DESIGN.md keeps 12px on the enquiry dialog and booking panels; the
