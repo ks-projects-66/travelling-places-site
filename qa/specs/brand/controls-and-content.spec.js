@@ -17,7 +17,7 @@ const tokens = JSON.parse(readFileSync(new URL('../../../brand-kit/brand.tokens.
 const viewport = FUNCTIONAL[0];
 
 test.describe('controls', () => {
-  test('buttons carry the v3 pill geometry and typography', async ({ page }) => {
+  test('buttons carry the kit geometry and typography', async ({ page }) => {
     await page.setViewportSize(viewport);
     await page.goto('/');
     await settlePage(page);
@@ -40,8 +40,9 @@ test.describe('controls', () => {
         seen.add(key);
 
         const radius = parseFloat(cs.borderRadius);
-        if (wantRadius === '999px' && radius < 24) {
-          out.push({ id: 'button-not-pill', severity: 'fail', detail: key + ' border-radius is ' + cs.borderRadius, expected: '999px', actual: cs.borderRadius });
+        // Square since 2 November 2026 (owner, option A); the pill check went with the pill.
+        if (radius !== parseFloat(wantRadius)) {
+          out.push({ id: 'button-radius', severity: 'fail', detail: key + ' border-radius is ' + cs.borderRadius, expected: wantRadius, actual: cs.borderRadius });
         }
         const size = parseFloat(cs.fontSize);
         if (Math.abs(size - wantSize) > 0.6 && !key.includes('button-small')) {

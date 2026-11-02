@@ -94,7 +94,7 @@
   color: color-mix(in oklch, var(--white) 78%, var(--blue));
 }
 
-/* Over a photograph the primary pill takes the on-dark treatment. Once the primary turned navy
+/* Over a photograph the primary button takes the on-dark treatment. Once the primary turned navy
    (kit 3.4.0) it all but vanished into the darkened lower half of the home hero, and the kit puts
    white on dark grounds. On phones the copy sits on the warm ground below the photograph, so the
    navy primary stands there and this rule does not apply. */

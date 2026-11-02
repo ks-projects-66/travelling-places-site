@@ -137,10 +137,10 @@
       "weight": 500
     },
     "button": {
-      "size": "15px",
+      "size": "14px",
       "lineHeight": 1.4,
-      "weight": 500,
-      "letterSpacing": "0.02em"
+      "weight": 400,
+      "letterSpacing": "0.05em"
     },
     "finePrint": {
       "size": "13px",
@@ -178,7 +178,7 @@
     "gridColumns": 12
   },
   "shape": {
-    "buttonRadius": "999px",
+    "buttonRadius": "0px",
     "fieldRadius": "2px",
     "imageRadius": "0px"
   },
@@ -190,11 +190,11 @@
   },
   "interaction": {
     "minimumTarget": "24px",
-    "preferredButtonHeight": "48px",
+    "preferredButtonHeight": "44px",
     "buttonInlinePadding": "32px",
     "focusWidth": "2px",
     "focusOffset": "3px",
-    "focusStyle": "A 2px rule under text and icon controls, a 2px ring that follows a pill button, a 2px border on a field. Navy on light surfaces, white on dark ones, never red (3.3.0)",
+    "focusStyle": "A 2px rule under text and icon controls, a 2px ring around a square button, a 2px border on a field. Navy on light surfaces, white on dark ones, never red (3.3.0)",
     "minimumTargetStandard": "WCAG 2.5.8 AA, with the inline and spacing exceptions",
     "preferredTarget": "44px"
   },

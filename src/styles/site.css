@@ -125,7 +125,7 @@ p {
 
 /* Focus. Owner, 31 October 2026: no red boxes anywhere, and the current page shows only its
    underline. Keyboard focus therefore follows the type: anything that reads as text is underlined
-   in its own colour, pill buttons take a ring that follows the pill, fields thicken their own
+   in its own colour, buttons take a square ring, fields thicken their own
    border, and the hero arrows take a short bar under the arrowhead. The colour is navy on light
    surfaces and white on dark ones (--focus-ring), never red, so it cannot be read as the red
    current-page rule. All of it is :focus-visible, so a tap or a click paints nothing. */
@@ -277,9 +277,10 @@ select:focus-visible {
   background: transparent;
 }
 
-/* Pills are quiet on purpose (owner, 2 November 2026): 48px high, 15px medium type with a little
-   tracking, and a colour change on hover with no lift. Line height stays 1 so the label sits
-   optically centred in the pill. */
+/* Square buttons on Aman's measure (owner, 2 November 2026, option A of the button mockups): 44px
+   high, 14px regular type with 0.05em tracking, square corners, and a colour change on hover with
+   no lift. Aman's own desktop button is 42px; 44px keeps the preferred target. Line height stays 1
+   so the label sits optically centred. */
 .button {
   display: inline-flex;
   min-height: var(--tp-button-height);
@@ -289,7 +290,7 @@ select:focus-visible {
   border: 1px solid transparent;
   border-radius: var(--tp-radius-button);
   font-size: var(--tp-type-button);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: var(--tp-button-tracking);
   line-height: 1;
   text-decoration: none;
@@ -318,14 +319,14 @@ select:focus-visible {
   background: var(--mist);
 }
 
-/* The header call to action. It keeps a 44px height and takes the same type as every other pill. */
+/* The header call to action. It is 44px high like every other button, with tighter padding. */
 .button-small {
   min-height: var(--tp-control-min);
   padding-inline: 1.5rem;
 }
 
 /* Below 375px the longest label, "Send an enquiry instead" in the Calendly panel, wrapped to a
-   two-line pill at 32px padding. A pill that wraps stops reading as one control, so the padding
+   two-line button at 32px padding. A button that wraps stops reading as one control, so the padding
    gives way first on the narrowest phones. */
 @media (max-width: 374px) {
   .button {
@@ -893,7 +894,7 @@ blockquote {
   }
 
   /* Full button size, not the header's small one, so the action holds its own beside 22px
-     serif links instead of reading as an afterthought under them. It takes the standard pill's
+     serif links instead of reading as an afterthought under them. It takes the standard button's
      padding and type from .button. */
   .site-nav .button {
     min-height: var(--tp-button-height);

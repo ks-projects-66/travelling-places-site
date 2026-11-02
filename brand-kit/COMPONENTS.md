@@ -12,7 +12,7 @@ The visual reference is `index.html`. The reusable styles are in `styles/compone
 
 Do not place the secondary light-surface button on navy. Use an on-dark variant instead.
 
-Text buttons use a 48px pill shape with 32px horizontal padding, in 15px medium type with 0.02em tracking. Hover changes colour only and never lifts the button. Do not place icons inside ordinary text buttons.
+Text buttons are square-cornered, 44px high with 32px horizontal padding, in 14px regular type with 0.05em tracking. Hover changes colour only and never lifts the button. Do not place icons inside ordinary text buttons.
 
 ## Navigation
 

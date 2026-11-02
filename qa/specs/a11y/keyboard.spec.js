@@ -1,7 +1,7 @@
 /**
  * Keyboard access and focus visibility, which axe cannot measure because both depend on rendered
  * state rather than markup. Since kit 3.3.0 focus is never red: a 2px rule under text links and
- * icon controls (a box shadow), a 2px ring on pill buttons, a 2px border on fields.
+ * icon controls (a box shadow), a 2px square ring on buttons, a 2px border on fields.
  */
 
 import { test, expect } from '@playwright/test';

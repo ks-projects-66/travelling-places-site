@@ -32,7 +32,7 @@
   border-radius: var(--tp-radius-button);
   font-family: var(--tp-font-body);
   font-size: var(--tp-type-button);
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: var(--tp-button-tracking);
   line-height: 1.4;
   text-align: center;
@@ -102,8 +102,8 @@
   cursor: not-allowed;
 }
 
-/* Focus is never red (3.3.0): a 2px rule under text and icon controls, a ring that follows the
-   pill on buttons, a heavier border on fields. currentColor keeps it white on dark surfaces. */
+/* Focus is never red (3.3.0): a 2px rule under text and icon controls, a square ring on
+   buttons, a heavier border on fields. currentColor keeps it white on dark surfaces. */
 .tp-icon-button:focus-visible,
 .tp-nav-link:focus-visible,
 .tp-social-link:focus-visible {

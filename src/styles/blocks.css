@@ -120,7 +120,8 @@
 
 .footer-signup input {
   width: 100%;
-  min-height: var(--tp-button-height);
+  /* Fields stay 48px (BRAND.md) now buttons are 44px; the grid row stretches the button beside it. */
+  min-height: 3rem;
   padding: 0 1.1rem;
   border: 1px solid color-mix(in oklch, var(--white) 45%, transparent);
   border-radius: var(--tp-radius-control);

@@ -76,7 +76,7 @@ function assert(condition, message) {
     assert(metrics.heroLines <= 2, `${viewport.name}: hero heading occupies ${metrics.heroLines} lines`);
     assert(metrics.carouselCaptionColour === 'rgb(255, 255, 255)', `${viewport.name}: carousel caption is not white`);
     assert(metrics.textButtonIcons === 0, `${viewport.name}: ordinary text buttons contain icons`);
-    assert(Number.parseFloat(metrics.buttonRadius) >= 24, `${viewport.name}: text buttons are not pill shaped`);
+    assert(Number.parseFloat(metrics.buttonRadius) === 0, `${viewport.name}: text buttons are not square`);
     assert(metrics.disabledBorderColour === 'rgb(39, 43, 56)', `${viewport.name}: disabled button border is not ink`);
     assert(!metrics.overlay, `${viewport.name}: development error overlay detected`);
     assert(consoleErrors.length === 0, `${viewport.name}: console errors ${consoleErrors.join(' | ')}`);

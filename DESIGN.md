@@ -25,7 +25,7 @@ the site's variable names, so a kit release propagates without edits here.
 - Responsive gutters: 20px to 48px.
 - Vertical section rhythm follows the kit's `--tp-space-section`, 72px to 120px.
 - Photographic imagery is square-cornered and uncorniced. Fields are square-cornered.
-  Text buttons use the full pill radius, per v2.1.0.
+  Text buttons are square-cornered too, since 2 November 2026 (the pill of v2.1.0 is retired).
 - Card grids are allowed where they are restrained: square photography, no shadows, every card in
   a group built the same way. Approved by Karim on 27 September 2026; the earlier refusal and its
   reasoning are kept below. Gina's four promises have no photograph and are not cards: a title and
@@ -528,3 +528,20 @@ The last two are not phone-only and are listed at the end.
   (`CardImage` now accepts it, as `PlaceholderImage` already did). A 3:2 frame cut about 30% of its height,
   hands included; square trims about 6%. The portrait frame class and its CSS are removed. `MANIFEST.md` records team-office.jpg on Home and Who we are. gina-storey.webp is still used by
   her roster card.
+
+## Square buttons, 2 November 2026
+
+Owner decision, recorded in kit 3.4.0. The owner asked for buttons like Aman's, reviewed three square
+options on a design canvas against the pill, and chose option A, Aman's measure. This replaces the
+pill radius, height and type in "Phone header and refined pill buttons" above; the colours, hover and
+padding there still hold.
+
+- **Measured on aman.com the same day.** Square corners, 12 to 14px type at weight 400, 0.7px tracking,
+  title case, 35 to 42px tall on desktop and a full-width 50px Reserve button on phones.
+- **What changed.** Text buttons are square, 44px high, in 14px regular type at 0.05em tracking, still with
+  32px padding. Aman's desktop button is 42px; 44px keeps the kit's preferred target. Focus is the same
+  2px ring at a 3px offset, now square. The header call to action is the same height with its tighter padding.
+- **What did not change.** The red TODO placeholder notes keep their pill, with their own 999px radius, so a
+  gap still reads as a gap. The footer sign-up field stays 48px, the kit's field minimum, and its button
+  stretches to the field in that row. Phone buttons keep their width; Aman's full-width phone button was
+  shown on the canvas but not chosen.

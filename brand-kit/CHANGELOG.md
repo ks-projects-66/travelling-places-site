@@ -48,6 +48,15 @@ height. Focus is unchanged. The site class `.button-blue` keeps its name so mark
 change, but it is navy now. The blue token stays for in-content accents and is no longer a button
 colour.
 
+**Buttons are square.** Later the same day the owner asked for buttons like Aman's and chose, from
+three square options against the pill, the one on Aman's measure (measured on aman.com: square, 12 to
+14px at weight 400, 0.7px tracking, 35 to 42px tall). The radius is 0 (`buttonRadius` 0px,
+`--tp-radius-button` 0), the height 44px (`preferredButtonHeight`, `--tp-button-height` 2.75rem), and
+the type 14px at weight 400 with 0.05em tracking (`type.button`, `--tp-type-button`,
+`--tp-button-tracking`). This replaces the radius, height and type in the paragraph above; its colours,
+hover and 32px padding stand. Focus is the same ring, now square. The website's red placeholder notes
+keep their pill on a radius of their own. `qa-browser.cjs` now asserts a square button.
+
 ## 3.3.0
 
 From the owner's review on a phone, 31 October 2026. Under the lead-and-lag rule the website
